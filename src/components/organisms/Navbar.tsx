@@ -1,4 +1,3 @@
-import Button from '../atoms/Button.tsx'
 import Link from '../atoms/Link.tsx'
 
 export default function Navbar(): JSX.Element {
@@ -24,7 +23,7 @@ export default function Navbar(): JSX.Element {
             <Link text='navbar.agency' to='AGENCY' />
           </li>
           <li>
-            <Button text='navbar.login' />
+            <Link text='navbar.login' to='LOGIN' />
           </li>
         </ul>
       </div>

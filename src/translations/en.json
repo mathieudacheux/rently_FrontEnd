@@ -1,4 +1,7 @@
 {
+  "title": {
+    "home": "Home"
+  },
   "navbar": {
     "buy": "Buy",
     "sell": "Sell",

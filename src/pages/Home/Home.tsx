@@ -5,6 +5,7 @@ import Navbar from '../../components/organisms/Navbar.tsx'
 
 export default function Home(): JSX.Element {
   const { t } = useTranslation()
+
   return (
     <>
       <Navbar />
