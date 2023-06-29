@@ -1,7 +1,8 @@
 import { useTranslation } from 'react-i18next'
 import { APP_ROUTES } from '../../routes/routes.ts'
+import { Link } from 'react-router-dom'
 
-export default function Link({
+export default function RedirectText({
   text,
   to,
 }: {
@@ -10,8 +11,8 @@ export default function Link({
 }): JSX.Element {
   const { t } = useTranslation()
   return (
-    <a className='text-xl text-secondary' href={APP_ROUTES[to]}>
-      {t(text)}
-    </a>
+    <Link className='text-xl text-secondary' to={APP_ROUTES[to]}>
+      <p>{t(text)}</p>
+    </Link>
   )
 }

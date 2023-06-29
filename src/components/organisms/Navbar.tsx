@@ -1,4 +1,4 @@
-import Link from '../atoms/Link.tsx'
+import RedirectText from '../atoms/RedirectText.tsx'
 
 export default function Navbar(): JSX.Element {
   return (
@@ -11,19 +11,19 @@ export default function Navbar(): JSX.Element {
       <div className='flex-none hidden md:block'>
         <ul className='menu menu-horizontal px-1'>
           <li>
-            <Link text='navbar.buy' to='BUY' />
+            <RedirectText text='navbar.buy' to='BUY' />
           </li>
           <li>
-            <Link text='navbar.sell' to='SELL' />
+            <RedirectText text='navbar.sell' to='SELL' />
           </li>
           <li>
-            <Link text='navbar.gestion' to='GESTION' />
+            <RedirectText text='navbar.gestion' to='GESTION' />
           </li>
           <li>
-            <Link text='navbar.agency' to='AGENCY' />
+            <RedirectText text='navbar.agency' to='AGENCY' />
           </li>
           <li>
-            <Link text='navbar.login' to='LOGIN' />
+            <RedirectText text='navbar.login' to='LOGIN' />
           </li>
         </ul>
       </div>
