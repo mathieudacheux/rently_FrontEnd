@@ -12,16 +12,16 @@ export default function Navbar(): JSX.Element {
       <div className='flex-none hidden md:block'>
         <ul className='menu menu-horizontal px-1'>
           <li>
-            <Link text='navbar.buy' to='/buy' />
+            <Link text='navbar.buy' to='BUY' />
           </li>
           <li>
-            <Link text='navbar.sell' to='/sell' />
+            <Link text='navbar.sell' to='SELL' />
           </li>
           <li>
-            <Link text='navbar.gestion' to='/gestion' />
+            <Link text='navbar.gestion' to='GESTION' />
           </li>
           <li>
-            <Link text='navbar.agency' to='/agency' />
+            <Link text='navbar.agency' to='AGENCY' />
           </li>
           <li>
             <Button text='navbar.login' />
