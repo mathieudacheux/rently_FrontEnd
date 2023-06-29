@@ -5,7 +5,7 @@ export default {
       {
         lightThemeRently: {
           primary: '#4A43EC',
-          secondary: '#30314E',
+          secondary: '#000000',
           info: '#44D2F1',
           success: '#20C745',
           warning: '#F4A74B',

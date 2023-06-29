@@ -1,5 +1,10 @@
 {
-  "welcome": "Bienvenue",
-  "hello": "Bonjour",
-  "goodbye": "Au revoir"
+  "navbar": {
+    "buy": "Acheter",
+    "sell": "Vendre",
+    "gestion": "Gestion locative",
+    "agency": "Nos agences",
+    "login": "Connexion",
+    "register": "Inscription"
+  }
 }
