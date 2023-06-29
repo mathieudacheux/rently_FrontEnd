@@ -3,7 +3,7 @@ import ToggleTheme from '../atoms/Toggle/ToggleTheme.tsx'
 
 export default function Navbar(): JSX.Element {
   return (
-    <div className='navbar bg-background'>
+    <nav className='navbar bg-primary'>
       <div className='flex w-1/4'>
         <a className='btn btn-ghost normal-case text-3xl text-primary px-1'>
           Rently
@@ -17,6 +17,6 @@ export default function Navbar(): JSX.Element {
         <RedirectText text='navbar.login' to='LOGIN' />
         <ToggleTheme />
       </div>
-    </div>
+    </nav>
   )
 }
