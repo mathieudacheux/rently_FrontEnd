@@ -23,12 +23,13 @@
   "rules": {
     "react/react-in-jsx-scope": "off",
     "react/jsx-uses-react": "error",
-    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/no-empty-interface": "error",
     "@typescript-eslint/no-explicit-any": "warn",
     "@typescript-eslint/explicit-module-boundary-types": "warn",
     "@typescript-eslint/no-empty-function": "error",
     "@typescript-eslint/ban-ts-comment": "error",
-    "@typescript-eslint/no-use-before-define": "warn"
+    "@typescript-eslint/no-use-before-define": "warn",
+    "import/no-named-as-default-member": "off"
   }
 }

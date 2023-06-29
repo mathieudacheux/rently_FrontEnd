@@ -1,11 +1,12 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 function App(): JSX.Element {
   const [count, setCount] = useState<number>(0)
-  console.log('count', count)
+  const { t } = useTranslation()
 
   return (
     <>
-      <h1>Hello world</h1>
+      <h1>{t('welcome')}</h1>
       <div className='card'>
         <button
           className='btn btn-accent btn-outline'
