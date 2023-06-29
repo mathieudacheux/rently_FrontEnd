@@ -4,11 +4,11 @@ Rently est un site web développé avec ViteJS, React, TypeScript, Redux, Formik
 
 ## Fonctionnalités
 
-- Affichage des biens immobiliers disponibles à la vente ou à la location.
-- Formulaire de recherche avancée pour filtrer les biens selon les critères spécifiés.
-- Enregistrement des utilisateurs avec gestion des comptes et authentification.
-- Gestion des favoris pour les utilisateurs enregistrés.
-- Gestion des demandes de visite pour les biens immobiliers.
+- Affichage des biens immobiliers disponibles à la vente ou à la location.\
+- Formulaire de recherche avancée pour filtrer les biens selon les critères spécifiés.\
+- Enregistrement des utilisateurs avec gestion des comptes et authentification.\
+- Gestion des favoris pour les utilisateurs enregistrés.\
+- Gestion des demandes de visite pour les biens immobiliers.\
 
 ## Prérequis
 
@@ -36,7 +36,7 @@ npm install
 
 3. Configuration :
 
-Dupliquez le fichier .env.example et renommez-le en .env.
+Dupliquez le fichier .env.example et renommez-le en .env.\
 Configurez les variables d'environnement nécessaires dans le fichier .env.
 
 4. Utilisation :
@@ -52,12 +52,12 @@ Une fois l'application lancée, vous pourrez y accéder depuis votre navigateur 
 ## Contribution
 Les contributions sont les bienvenues ! Si vous souhaitez contribuer à ce projet, veuillez suivre les étapes suivantes :
 
-Fork du repo
-Créez une branche pour votre fonctionnalité (git checkout -b feature/nom-de-la-fonctionnalite)
-Effectuez les modifications nécessaires
-Committez les changements (git commit -am 'Ajoute une nouvelle fonctionnalité')
-Push vers la branche (git push origin feature/nom-de-la-fonctionnalite)
-Créez une Pull Request
+Fork du repo\
+Créez une branche pour votre fonctionnalité (git checkout -b feature/nom-de-la-fonctionnalite)\
+Effectuez les modifications nécessaires\
+Committez les changements (git commit -am 'Ajoute une nouvelle fonctionnalité')\
+Push vers la branche (git push origin feature/nom-de-la-fonctionnalite)\
+Créez une Pull Request\
 
 ## Licence
 Ce projet est sous licence [MIT](https://opensource.org/license/mit/).
