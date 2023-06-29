@@ -1,4 +1,5 @@
 import RedirectText from '../atoms/RedirectText.tsx'
+import ToggleTheme from '../atoms/Toggle/ToggleTheme.tsx'
 
 export default function Navbar(): JSX.Element {
   return (
@@ -24,6 +25,9 @@ export default function Navbar(): JSX.Element {
           </li>
           <li>
             <RedirectText text='navbar.login' to='LOGIN' />
+          </li>
+          <li>
+            <ToggleTheme />
           </li>
         </ul>
       </div>
