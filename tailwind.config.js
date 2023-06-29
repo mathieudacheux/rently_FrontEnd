@@ -5,7 +5,7 @@ export default {
       {
         lightThemeRently: {
           primary: '#4A43EC',
-          secondary: '#f6d860',
+          secondary: '#30314E',
           info: '#44D2F1',
           success: '#20C745',
           warning: '#F4A74B',
@@ -15,7 +15,7 @@ export default {
         },
         darkThemeRently: {
           primary: '#4A43EC',
-          secondary: '#f6d860',
+          secondary: '#ffffff',
           info: '#44D2F1',
           success: '#20C745',
           warning: '#F4A74B',
