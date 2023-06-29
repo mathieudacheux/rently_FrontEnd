@@ -1,11 +1,23 @@
 {
   "title": {
-    "home": "Home"
+    "home": "Home",
+    "login": "Login",
+    "register": "Register",
+    "forgot_password": "Forgot password",
+    "reset_password": "Reset password",
+    "buy": "Buy",
+    "sell": "Sell",
+    "gestion": "Rental management",
+    "agency": "Agencies",
+    "not_found": "Page not found (404)",
+    "server_error": "Server error (500)",
+    "access_denied": "Access denied",
+    "unauthorized": "Unauthorized"
   },
   "navbar": {
     "buy": "Buy",
     "sell": "Sell",
-    "gestion": "Gestion",
+    "gestion": "Rental management",
     "agency": "Agencies",
     "login": "Login",
     "register": "Register"

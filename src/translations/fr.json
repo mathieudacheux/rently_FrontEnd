@@ -1,6 +1,18 @@
 {
   "title": {
-    "home": "Accueil"
+    "home": "Accueil",
+    "login": "Connexion",
+    "register": "Inscription",
+    "forgot_password": "Mot de passe oublié",
+    "reset_password": "Réinitialiser le mot de passe",
+    "buy": "Acheter",
+    "sell": "Vendre",
+    "gestion": "Gestion locative",
+    "agency": "Nos agences",
+    "not_found": "Page non trouvée (404)",
+    "server_error": "Erreur serveur (500)",
+    "access_denied": "Accès refusé",
+    "unauthorized": "Non autorisé"
   },
   "navbar": {
     "buy": "Acheter",
