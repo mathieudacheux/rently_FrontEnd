@@ -25,7 +25,7 @@ git clone https://github.com/twinklose/rently_FronEnd.git
 ```
 
 ```bash
-cd rently
+cd rently_FronEnd
 ```
 
 2. Installez les dépendances :
