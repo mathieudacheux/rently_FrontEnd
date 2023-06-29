@@ -4,7 +4,9 @@ export default function ToggleTheme(): JSX.Element {
   const [theme, setTheme] = useState<string>('lightThemeRently')
 
   const toggleTheme = () => {
-    setTheme(theme === 'lightThemeRently' ? 'darkThemeRently' : 'lightThemeRently')
+    setTheme(
+      theme === 'lightThemeRently' ? 'darkThemeRently' : 'lightThemeRently',
+    )
   }
 
   useEffect(() => {
