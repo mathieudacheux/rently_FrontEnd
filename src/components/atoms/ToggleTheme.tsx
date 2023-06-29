@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-export default function ToggleMode(): JSX.Element {
+export default function ToggleTheme(): JSX.Element {
   const [theme, setTheme] = useState<string>('lightThemeRently')
 
   const toggleTheme = () => {
