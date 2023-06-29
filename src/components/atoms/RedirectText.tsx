@@ -11,7 +11,7 @@ export default function RedirectText({
 }): JSX.Element {
   const { t } = useTranslation()
   return (
-    <Link className='text-xl text-secondary' to={APP_ROUTES[to]}>
+    <Link className='text-xl text-secondary p-2' to={APP_ROUTES[to]}>
       <p>{t(text)}</p>
     </Link>
   )
