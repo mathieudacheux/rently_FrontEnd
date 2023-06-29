@@ -1,6 +1,8 @@
 import { createContext, useState, useEffect } from 'react'
 import { APP_TITLES } from '../routes/routes.ts'
 import { useTranslation } from 'react-i18next'
+import i18next from 'i18next'
+import { useLocation } from 'react-router-dom'
 
 export interface PageTitleContextType {
   pageTitle: string
@@ -17,11 +19,13 @@ function PageTitleProvider({
   children: React.ReactNode
 }): JSX.Element {
   const { t } = useTranslation()
+  const location = useLocation()
   const [pageTitle, setPageTitle] = useState('')
 
   useEffect(() => {
     const updatePageTitle = () => {
-      const currentPath = window.location.pathname
+      const currentPath = location.pathname
+      console.log(currentPath)
 
       const matchedPage = APP_TITLES.find((page) => page.path === currentPath)
 
@@ -37,7 +41,7 @@ function PageTitleProvider({
     return () => {
       window.removeEventListener('popstate', updatePageTitle)
     }
-  }, [])
+  }, [window.location.pathname, i18next.language])
 
   return (
     <PageTitleContext.Provider value={{ pageTitle, setPageTitle }}>
