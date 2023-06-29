@@ -33,6 +33,7 @@
     "yup": "^1.2.0"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.9",
     "@types/leaflet": "^1.9.3",
     "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",

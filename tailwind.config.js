@@ -6,6 +6,7 @@ export default {
         lightThemeRently: {
           primary: '#4A43EC',
           secondary: '#000000',
+          tertiary: '#ffffff',
           info: '#44D2F1',
           success: '#20C745',
           warning: '#F4A74B',
@@ -16,6 +17,7 @@ export default {
         darkThemeRently: {
           primary: '#4A43EC',
           secondary: '#ffffff',
+          tertiary: '#000000',
           info: '#44D2F1',
           success: '#20C745',
           warning: '#F4A74B',
@@ -31,5 +33,5 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [require('daisyui')],
+  plugins: [require('@tailwindcss/typography'), , require('daisyui')],
 }
