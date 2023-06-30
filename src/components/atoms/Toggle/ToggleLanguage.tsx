@@ -6,7 +6,6 @@ export default function ToggleLanguage(): JSX.Element {
 
   const toggleLanguage = () => {
     setLanguage(language === 'fr' ? 'en' : 'fr')
-    console.log(document?.querySelector('lang')?.setAttribute('lang', language))
   }
 
   useEffect(() => {
