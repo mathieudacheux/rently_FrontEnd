@@ -1,4 +1,10 @@
-# Rently - Site web d'une agence immobilière
+<p style="text-align: center" align="center">
+  <a href="http://back-rently.mathieudacheux.fr/" target="_blank"><img src="https://image.noelshack.com/fichiers/2023/27/5/1688713884-rently.png" width="200" alt="Rently Logo"/></a>
+</p>
+
+<div align="center">
+  <h1>Rently - Site web d'une agence immobilière</h1>
+</div>
 
 Rently est un site web développé avec ViteJS, React, TypeScript, Redux, Formik, OpenAPI, Tailwind CSS, Daisy UI et i18n. Il permet à une agence immobilière de vendre et de louer des biens immobiliers en ligne.
 
