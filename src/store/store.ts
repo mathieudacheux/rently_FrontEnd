@@ -11,6 +11,8 @@ import authSlice from '../features/auth/authSlice.ts'
 import authApi from '../features/auth/authApi.ts'
 import bookmarkSlice from '../features/bookmark/bookmarkSlice.ts'
 import bookmarkApi from '../features/bookmark/bookmarkApi.ts'
+import agencySlice from '../features/agency/agencySlice.ts'
+import agencyApi from '../features/agency/agencyApi.ts'
 
 export const store = configureStore({
   reducer: {
@@ -24,6 +26,8 @@ export const store = configureStore({
     [authApi.reducerPath]: authApi.reducer,
     [bookmarkSlice.name]: bookmarkSlice.reducer,
     [bookmarkApi.reducerPath]: bookmarkApi.reducer,
+    [agencySlice.name]: agencySlice.reducer,
+    [agencyApi.reducerPath]: agencyApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
@@ -33,7 +37,8 @@ export const store = configureStore({
       .concat([propertyApi.middleware])
       .concat([articleApi.middleware])
       .concat([authApi.middleware])
-      .concat([bookmarkApi.middleware]),
+      .concat([bookmarkApi.middleware])
+      .concat([agencyApi.middleware]),
   devTools: true,
 })
 
