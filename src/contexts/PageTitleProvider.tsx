@@ -20,12 +20,11 @@ function PageTitleProvider({
 }): JSX.Element {
   const { t } = useTranslation()
   const location = useLocation()
-  const [pageTitle, setPageTitle] = useState('')
+  const [pageTitle, setPageTitle] = useState<string>('')
 
   useEffect(() => {
     const updatePageTitle = () => {
       const currentPath = location.pathname
-      console.log(currentPath)
 
       const matchedPage = APP_TITLES.find((page) => page.path === currentPath)
 
