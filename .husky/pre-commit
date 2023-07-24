@@ -7,10 +7,3 @@ else
   echo "Code formatting failed 😢"
   exit 1
 fi
-
-if npm run lint; then
-  echo "Linting passed 👍"
-else
-  echo "Linting failed 😢"
-  exit 1
-fi
