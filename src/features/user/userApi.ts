@@ -13,6 +13,14 @@ const userApi = createApi({
     getUserById: builder.query({
       query: (id) => `users/${id}`,
     }),
+    getUserByFilter: builder.query({
+      query: ({ filter }) => ({
+        url: 'users/users_filter',
+        params: {
+          filter,
+        },
+      }),
+    }),
     createUser: builder.mutation({
       query: (newUser) => ({
         url: 'users',
@@ -21,10 +29,16 @@ const userApi = createApi({
       }),
     }),
     updateUser: builder.mutation({
-      query: ({ id, ...patch }) => ({
+      query: ({ id, ...put }) => ({
         url: `users/${id}`,
-        method: 'PATCH',
-        body: patch,
+        method: 'PUT',
+        body: put,
+      }),
+    }),
+    deleteUser: builder.mutation({
+      query: (id) => ({
+        url: `users/${id}`,
+        method: 'DELETE',
       }),
     }),
   }),
@@ -35,6 +49,10 @@ export const {
   useLazyGetUsersQuery,
   useGetUserByIdQuery,
   useLazyGetUserByIdQuery,
+  useGetUserByFilterQuery,
+  useLazyGetUserByFilterQuery,
   useCreateUserMutation,
   useUpdateUserMutation,
 } = userApi
+
+export default userApi

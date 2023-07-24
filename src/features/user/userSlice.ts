@@ -1,59 +1,55 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { UserSerializerRead } from '../../api/models/UserSerializerRead.ts'
+import { RootState } from '../../store/store.ts'
 
 type User = {
   id: number | null
-  name: string | null
-  email: string | null
-  role: number | null
+  fullUser: UserSerializerRead | null
 }
 
 const initialState: User = {
   id: null,
-  name: null,
-  email: null,
-  role: null,
+  fullUser: null,
 }
 
-const selectUserId = (state: User) => state.id
-const selectUserName = (state: User) => state.name
-const selectUserEmail = (state: User) => state.email
-const selectUserRole = (state: User) => state.role
-const selectUser = (state: User) => state
+export const setSelectedUserId = createAsyncThunk(
+  'user/setSelectedUserId',
+  (args: { selectedUserId: number | null }) => {
+    const { selectedUserId } = args
+
+    return {
+      selectedUserId,
+    }
+  },
+)
+
+export const setSelectedUser = createAsyncThunk(
+  'user/setSelectedUser',
+  (args: { selectedUser: UserSerializerRead | null }) => {
+    const { selectedUser } = args
+
+    return {
+      selectedUser,
+    }
+  },
+)
 
 const userSlice = createSlice({
   name: 'user',
   initialState,
-  reducers: {
-    setUserId: (state, action) => {
-      state.id = action.payload
-    },
-    setUserName: (state, action) => {
-      state.name = action.payload
-    },
-    setUserEmail: (state, action) => {
-      state.email = action.payload
-    },
-    setUserRole: (state, action) => {
-      state.role = action.payload
-    },
-    setUser: (state, action) => {
-      state.id = action.payload.id
-      state.name = action.payload.name
-      state.email = action.payload.email
-      state.role = action.payload.role
-    },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(setSelectedUserId.fulfilled, (state, action) => {
+      state.id = action.payload.selectedUserId
+    })
+    builder.addCase(setSelectedUser.fulfilled, (state, action) => {
+      state.fullUser = action.payload.selectedUser
+    })
   },
 })
 
-export const { setUserId, setUserName, setUserEmail, setUserRole, setUser } =
-  userSlice.actions
+export const selectedUserId = (state: RootState) => state.user.id
 
-export {
-  selectUserId,
-  selectUserName,
-  selectUserEmail,
-  selectUserRole,
-  selectUser,
-}
+export const selectedUser = (state: RootState) => state.user.fullUser
 
 export default userSlice
