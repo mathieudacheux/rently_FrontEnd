@@ -1,5 +1,7 @@
-import { TypographyVariants } from '../../constants/constants.ts'
-import { TypographyColors } from '../../constants/constants.ts'
+import {
+  TypographyVariants,
+  TypographyColors,
+} from '../../constants/constants.ts'
 
 export default function Typography({
   children,
