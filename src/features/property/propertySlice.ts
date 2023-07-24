@@ -42,9 +42,15 @@ const propertySlice = createSlice({
     builder.addCase(setSelectedPropertyId.fulfilled, (state, action) => {
       state.id = action.payload.selectedPropertyId
     })
+    builder.addCase(setSelectedProperty.fulfilled, (state, action) => {
+      state.fullProperty = action.payload.selectedProperty
+    })
   },
 })
 
 export const selectedPropertyId = (state: RootState) => state.property.id
+
+export const selectedProperty = (state: RootState) =>
+  state.property.fullProperty
 
 export default propertySlice
