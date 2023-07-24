@@ -13,6 +13,10 @@ import bookmarkSlice from '../features/bookmark/bookmarkSlice.ts'
 import bookmarkApi from '../features/bookmark/bookmarkApi.ts'
 import agencySlice from '../features/agency/agencySlice.ts'
 import agencyApi from '../features/agency/agencyApi.ts'
+import countrySlice from '../features/country/countrySlice.ts'
+import countryApi from '../features/country/countryApi.ts'
+import roleSlice from '../features/role/roleSlice.ts'
+import roleApi from '../features/role/roleApi.ts'
 
 export const store = configureStore({
   reducer: {
@@ -28,6 +32,10 @@ export const store = configureStore({
     [bookmarkApi.reducerPath]: bookmarkApi.reducer,
     [agencySlice.name]: agencySlice.reducer,
     [agencyApi.reducerPath]: agencyApi.reducer,
+    [countrySlice.name]: countrySlice.reducer,
+    [countryApi.reducerPath]: countryApi.reducer,
+    [roleSlice.name]: roleSlice.reducer,
+    [roleApi.reducerPath]: roleApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
@@ -38,7 +46,9 @@ export const store = configureStore({
       .concat([articleApi.middleware])
       .concat([authApi.middleware])
       .concat([bookmarkApi.middleware])
-      .concat([agencyApi.middleware]),
+      .concat([agencyApi.middleware])
+      .concat([countryApi.middleware])
+      .concat([roleApi.middleware]),
   devTools: true,
 })
 
