@@ -19,6 +19,9 @@ const APP_ROUTES = {
   SERVER_ERROR: '/500',
   ACCESS_DENIED: '/403',
   UNAUTHORIZED: '/401',
+
+  // Playground
+  PLAYGROUND: '/test',
 }
 
 const APP_TITLES = [
@@ -73,6 +76,10 @@ const APP_TITLES = [
   {
     path: APP_ROUTES.UNAUTHORIZED,
     title: 'title.unauthorized',
+  },
+  {
+    path: APP_ROUTES.PLAYGROUND,
+    title: 'title.home',
   },
 ]
 
