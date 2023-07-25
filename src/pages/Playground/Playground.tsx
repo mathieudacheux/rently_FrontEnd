@@ -3,10 +3,11 @@ import FormikTextField from '../../components/molecules/core/FormikTextField.tsx
 import FormikSelect from '../../components/molecules/core/FormikSelect.tsx'
 import { FormikProvider, useFormik } from 'formik'
 import Heart from '../../components/atoms/icons/Heart.tsx'
+import FormikTextArea from '../../components/molecules/core/FormikTextArea.tsx'
 
 export default function Playground(): JSX.Element {
   const initialValues = {
-    test: '',
+    test4: '',
   }
 
   const handleSubmit = (values: any) => {
@@ -34,6 +35,7 @@ export default function Playground(): JSX.Element {
           icon={<Heart color />}
         />
         <FormikSelect name='test' options={options} />
+        <FormikTextArea name='test4' placeholder='testing formik textarea' />
         <PropertyCard />
       </FormikProvider>
     </>

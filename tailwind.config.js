@@ -81,6 +81,23 @@ export default {
             'outline-offset': 'none',
           },
 
+          // Textarea settings
+          '.textarea': {
+            border: 'none',
+            'border-radius': '15px',
+            padding: '23px 23px',
+            'box-shadow': '-5px 5px 15px 0px rgba(0, 0, 0, 0.15)',
+            resize: 'none',
+            'font-size': '1rem',
+            'font-weight': '400',
+          },
+
+          '.textarea:focus': {
+            border: 'none',
+            outline: 'none',
+            'outline-offset': 'none',
+          },
+
           // Call to action button settings
           '--bg-opacity-cta': '0.1',
           '--border-radius-cta': '15px',

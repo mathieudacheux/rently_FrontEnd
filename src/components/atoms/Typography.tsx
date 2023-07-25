@@ -12,8 +12,6 @@ export default function Typography({
   variant: TypographyVariants
   color: TypographyColors
 }): JSX.Element {
-  console.log(color)
-
   let element: JSX.Element
 
   switch (variant) {
