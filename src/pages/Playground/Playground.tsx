@@ -8,6 +8,7 @@ import FormikCheckbox from '../../components/molecules/core/FormikCheckbox.tsx'
 import FormikTextArea from '../../components/molecules/core/FormikTextArea.tsx'
 import Toast from '../../components/molecules/Toast.tsx'
 import Button from '../../components/atoms/Button.tsx'
+import Popup from '../../components/molecules/Popup.tsx'
 
 export default function Playground(): JSX.Element {
   const [open, setOpen] = useState(false)
@@ -56,7 +57,8 @@ export default function Playground(): JSX.Element {
         </div>
         <FormikTextArea name='test4' placeholder='testing formik textarea' />
         <PropertyCard />
-        <Toast open={open} text='lorem ipsum dolor sit amet fezfe fe' />
+        <Toast open={false} text='lorem ipsum dolor sit amet fezfe fe' />
+        <Popup open={open} text='lorem ipsum dolor sit amet fezfe fe' error />
         <Button
           text='test'
           onClick={() => {

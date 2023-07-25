@@ -24,5 +24,8 @@
   },
   "formik": {
     "noData": "No data"
+  },
+  "popup": {
+    "close": "Continue"
   }
 }
