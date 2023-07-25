@@ -55,9 +55,27 @@ export default {
             'border-radius': '15px',
             padding: '15px 23px',
             'box-shadow': '-5px 5px 15px 0px rgba(0, 0, 0, 0.15)',
+            height: '52.5px',
           },
 
           '.input:focus': {
+            border: 'none',
+            outline: 'none',
+            'outline-offset': 'none',
+          },
+
+          // Select settings
+          '.select': {
+            border: 'none',
+            'border-radius': '15px',
+            padding: '15px 23px',
+            'box-shadow': '-5px 5px 15px 0px rgba(0, 0, 0, 0.15)',
+            height: '52.5px',
+            'font-weight': '400',
+            'font-size': '1rem',
+          },
+
+          '.select:focus': {
             border: 'none',
             outline: 'none',
             'outline-offset': 'none',
