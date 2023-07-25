@@ -111,6 +111,19 @@ export default {
             'outline-offset': 'none',
           },
 
+          // Alert settings
+          '.alert': {
+            'font-size': '1rem',
+            'font-weight': '400',
+            width: '400px',
+            height: '75px',
+            padding: '15px',
+            'border-radius': '15px',
+            background: '#FFFFFF',
+            border: 'none',
+            'box-shadow': '-5px 5px 15px 0px rgba(0, 0, 0, 0.15)',
+          },
+
           // Call to action button settings
           '--bg-opacity-cta': '0.1',
           '--border-radius-cta': '15px',
