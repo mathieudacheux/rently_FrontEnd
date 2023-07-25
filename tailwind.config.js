@@ -81,6 +81,19 @@ export default {
             'outline-offset': 'none',
           },
 
+          // Checkbox settings
+          '.checkbox': {
+            'border-radius': '5px',
+            height: '20px',
+            width: '20px',
+            border: '2px solid #808191',
+          },
+
+          '.checkbox:checked': {
+            'background-image':
+              'linear-gradient(-45deg, transparent 65%, hsl(var(--chkbg)) 65.99%), linear-gradient(45deg, transparent 75%, hsl(var(--chkbg)) 75.99%), linear-gradient(-45deg, hsl(var(--chkbg)) 40%, transparent 40.99%), linear-gradient(45deg, hsl(var(--chkbg)) 30%, hsl(0, 0%, 100%) 30.99%, hsl(0, 0%, 100%) 40%, transparent 40.99%), linear-gradient(-45deg, hsl(0, 0%, 100%) 50%, hsl(var(--chkbg)) 50.99%)',
+          },
+
           // Textarea settings
           '.textarea': {
             border: 'none',
