@@ -4,10 +4,11 @@ import FormikSelect from '../../components/molecules/core/FormikSelect.tsx'
 import { FormikProvider, useFormik } from 'formik'
 import Heart from '../../components/atoms/icons/Heart.tsx'
 import FormikCheckbox from '../../components/molecules/core/FormikCheckbox.tsx'
+import FormikTextArea from '../../components/molecules/core/FormikTextArea.tsx'
 
 export default function Playground(): JSX.Element {
   const initialValues = {
-    test1: '',
+    test41: '',
     test2: false,
     test3: '',
   }
@@ -47,6 +48,7 @@ export default function Playground(): JSX.Element {
           <FormikCheckbox name='test2' label='test2' />
           <FormikCheckbox name='test2' label='test2' />
         </div>
+        <FormikTextArea name='test4' placeholder='testing formik textarea' />
         <PropertyCard />
       </FormikProvider>
     </>

@@ -94,6 +94,23 @@ export default {
               'linear-gradient(-45deg, transparent 65%, hsl(var(--chkbg)) 65.99%), linear-gradient(45deg, transparent 75%, hsl(var(--chkbg)) 75.99%), linear-gradient(-45deg, hsl(var(--chkbg)) 40%, transparent 40.99%), linear-gradient(45deg, hsl(var(--chkbg)) 30%, hsl(0, 0%, 100%) 30.99%, hsl(0, 0%, 100%) 40%, transparent 40.99%), linear-gradient(-45deg, hsl(0, 0%, 100%) 50%, hsl(var(--chkbg)) 50.99%)',
           },
 
+          // Textarea settings
+          '.textarea': {
+            border: 'none',
+            'border-radius': '15px',
+            padding: '23px 23px',
+            'box-shadow': '-5px 5px 15px 0px rgba(0, 0, 0, 0.15)',
+            resize: 'none',
+            'font-size': '1rem',
+            'font-weight': '400',
+          },
+
+          '.textarea:focus': {
+            border: 'none',
+            outline: 'none',
+            'outline-offset': 'none',
+          },
+
           // Call to action button settings
           '--bg-opacity-cta': '0.1',
           '--border-radius-cta': '15px',
