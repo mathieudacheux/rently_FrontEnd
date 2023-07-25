@@ -69,7 +69,13 @@ export default function FormikSelect({
         disabled={disabled}
         onClick={toggleOptions}
         className='input input-bordered w-full max-w-xs text-neutral-900 placeholder-neutral-500  appearance-none'
-        onChange={toggleOptions}
+        onChange={(e) => {
+          field.onChange(e)
+          toggleOptions()
+        }}
+        onBlur={() => {
+          toggleOptions()
+        }}
       >
         {getOptions()}
       </select>
