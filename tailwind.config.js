@@ -58,9 +58,18 @@ export default {
           },
 
           // Inputs settings
-          '--padding-input': '15px 23px',
-          '--border-radius-input': '15px',
-          '--box-shadow-input': '-5px 5px 15px 0px rgba(0, 0, 0, 0.15)',
+          '.input': {
+            border: 'none',
+            'border-radius': '15px',
+            padding: '15px 23px',
+            'box-shadow': '-5px 5px 15px 0px rgba(0, 0, 0, 0.15)',
+          },
+
+          '.input:focus': {
+            border: 'none',
+            outline: 'none',
+            'outline-offset': 'none',
+          },
 
           // Call to action button settings
           '--bg-opacity-cta': '0.1',
