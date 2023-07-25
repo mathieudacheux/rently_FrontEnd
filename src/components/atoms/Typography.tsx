@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import {
   TypographyVariants,
   TypographyColors,
@@ -12,8 +13,6 @@ export default function Typography({
   variant: TypographyVariants
   color: TypographyColors
 }): JSX.Element {
-  console.log(color)
-
   let element: JSX.Element
 
   switch (variant) {
@@ -30,12 +29,15 @@ export default function Typography({
       element = <span className={`span text-${color}`}>{children}</span>
       break
     case 'text-light':
-      element = <p className={`p-light text-${color}`}>{children}</p>
+      element = <p className={`text-light text-${color}`}>{children}</p>
+      break
+    case 'tiny-text':
+      element = <p className={`tiny-text text-${color}`}>{children}</p>
       break
     default:
-      element = <p className={`p text-${color}`}>{children}</p>
+      element = <p className={`text text-${color}`}>{children}</p>
       break
   }
 
-  return element
+  return useMemo(() => element, [])
 }

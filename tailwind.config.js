@@ -36,6 +36,7 @@ export default {
             padding: '14px',
             'border-radius': '15px',
             gap: '15px',
+            'min-width': '250px',
           },
           '.card-body': {
             padding: '0',
@@ -47,6 +48,13 @@ export default {
           // Card image settings
           '.card figure img': {
             'border-radius': '7.5px',
+          },
+
+          // Searchbar for properties
+          '.searchbar': {
+            'border-radius': '15px',
+            padding: '14px',
+            'box-shadow': '-5px 5px 15px 0px rgba(0, 0, 0, 0.15)',
           },
 
           // Inputs settings
@@ -75,6 +83,10 @@ export default {
           },
           '.text-light': {
             'font-size': '18px',
+            'font-weight': '400',
+          },
+          '.tiny-text': {
+            'font-size': '14px',
             'font-weight': '400',
           },
 
