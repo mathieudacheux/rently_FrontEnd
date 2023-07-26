@@ -8,7 +8,7 @@ export default function Navbar(): JSX.Element {
   const isConnected = useAppSelector(selectedUserId) !== null
 
   return (
-    <nav className='navbar bg-background h-25'>
+    <nav className='navbar bg-background'>
       <div className='flex align-middle md:w-2/12 lg:w-4/12'>
         <img src={Rently} className='logo p-2' alt='Rently Logo' />
       </div>

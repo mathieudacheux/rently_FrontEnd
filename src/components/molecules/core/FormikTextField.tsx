@@ -59,7 +59,9 @@ export default function FormikTextField({
           }}
           type={password ? 'password' : 'text'}
           placeholder={placeholder ? t(placeholder) : ''}
-          className={`${
+          className={`
+          ${meta?.touched && meta?.error ? 'border-error' : ''}
+          ${
             disableShadows ? 'input-no-shadow' : 'input'
           } input-bordered w-full max-w-xs text-neutral-900 placeholder-neutral-300 shadow ${
             textCenter ? 'text-center' : ''

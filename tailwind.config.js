@@ -37,7 +37,7 @@ export default {
 
           // Navbar settings
           '.navbar': {
-            height: '100px',
+            height: '75px',
           },
 
           // Card settings

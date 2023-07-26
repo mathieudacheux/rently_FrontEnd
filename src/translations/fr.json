@@ -30,7 +30,8 @@
   "connection": {
     "login": "Connexion",
     "mail": "Address mail",
-    "password": "Mot de passe"
+    "password": "Mot de passe",
+    "button": "Se connecter"
   },
   "popup": {
     "close": "Continuer"

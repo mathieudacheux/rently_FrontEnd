@@ -29,8 +29,9 @@
   },
   "connection": {
     "login": "Login",
-    "mail": "Email address",
-    "password": "Password"
+    "mail": "Email",
+    "password": "Password",
+    "button": "Login"
   },
   "popup": {
     "close": "Continue"
