@@ -14,7 +14,10 @@ const countryApi = createApi({
   baseQuery,
   endpoints: (builder) => ({
     getCountries: builder.query({
-      query: () => 'countries',
+      query: (filter) => ({
+        url: 'countries',
+        params: filter,
+      }),
     }),
     getCountryById: builder.query({
       query: (id) => `countries/${id}`,

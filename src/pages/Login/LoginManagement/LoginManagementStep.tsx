@@ -74,8 +74,6 @@ export default function LoginManagementStep(): JSX.Element {
         mail: values.mail,
       })
 
-      console.log(result)
-
       if (!result?.data || result?.error) {
         setShowErrorToast({
           view: true,
@@ -123,6 +121,7 @@ export default function LoginManagementStep(): JSX.Element {
       <LoginManagement login={loginUser} />
 
       <Toast error open={showErrorToast.view} text={showErrorToast.message} />
+      
       <Toast open={showSuccessToast.view} text={showSuccessToast.message} />
     </>
   )

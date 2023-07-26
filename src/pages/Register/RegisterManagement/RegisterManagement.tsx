@@ -8,7 +8,7 @@ import Typography from '../../../components/atoms/Typography.tsx'
 import CardButton from '../../../components/atoms/CardButton.tsx'
 import { Link } from 'react-router-dom'
 
-export default function LoginManagement({
+export default function RegisterManagement({
   login,
 }: {
   login: () => Promise<boolean>
@@ -21,14 +21,14 @@ export default function LoginManagement({
       <img className='w-1/2 object-cover h-full' src={LoginImage} alt='Login' />
       <div className='w-1/2 flex justify-center align-middle h-full'>
         <div className='flex flex-col justify-center align-middle w-[400px]'>
-          <Typography variant='h2'>{t('connection.login')}</Typography>
+          <Typography variant='h2'>{t('connection.register')}</Typography>
           <div className='flex flex-start pt-4'>
             <Typography variant='tiny-text'>
-              {t('connection.ctaRegister')}
+              {t('connection.ctaLogin')}
             </Typography>
-            <Link to='/register' className='ml-1'>
+            <Link to='/login' className='ml-1'>
               <Typography variant='tiny-text' className='font-semibold'>
-                {t('connection.ctaRegisterClick')}
+                {t('connection.ctaLoginClick')}
               </Typography>
             </Link>
           </div>
@@ -57,14 +57,7 @@ export default function LoginManagement({
             />
           </div>
           <div className='pt-4'>
-            <CardButton onClick={() => login()} text='connection.login' />
-          </div>
-          <div className='pt-4 flex justify-center'>
-            <Link to='/register'>
-              <Typography variant='tiny-text'>
-                {t('connection.ctaForgotPassword')}
-              </Typography>
-            </Link>
+            <CardButton onClick={() => login()} text='connection.register' />
           </div>
           <div className='pt-4'>
             <hr className='border-t-2 border-gray-300' />
@@ -82,7 +75,7 @@ export default function LoginManagement({
                 className='mr-2'
               />
               <Typography variant='tiny-text'>
-                {t('connection.loginGoogle')}
+                {t('connection.registerGoogle')}
               </Typography>
             </button>
           </div>
@@ -99,7 +92,7 @@ export default function LoginManagement({
                 className='mr-2 w-5'
               />
               <Typography variant='tiny-text'>
-                {t('connection.loginApple')}
+                {t('connection.registerApple')}
               </Typography>
             </button>
           </div>
