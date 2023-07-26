@@ -43,6 +43,7 @@ src/models/CountryModelRead.ts
 src/models/FeeSerializerPut.ts
 src/models/FeeSerializerRead.ts
 src/models/GenericError.ts
+src/models/MailsConfirmAccountMailRequest.ts
 src/models/MessageSerializerPost.ts
 src/models/MessageSerializerPut.ts
 src/models/MessageSerializerRead.ts

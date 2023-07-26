@@ -15,7 +15,7 @@ const mailApi = createApi({
   endpoints: (builder) => ({
     confirmationMail: builder.mutation({
       query: (id) => ({
-        url: `/mail/mail_confirm/${id}`,
+        url: `/mail/mail_confirm`,
         method: 'POST',
         body: id,
       }),

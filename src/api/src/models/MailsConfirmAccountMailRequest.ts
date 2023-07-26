@@ -15,29 +15,29 @@ import { exists, mapValues } from '../runtime';
 /**
  * 
  * @export
- * @interface StatusSerializerPut
+ * @interface MailsConfirmAccountMailRequest
  */
-export interface StatusSerializerPut  {
+export interface MailsConfirmAccountMailRequest  {
     /**
      * 
-     * @type {string}
-     * @memberof StatusSerializerPut
+     * @type {number}
+     * @memberof MailsConfirmAccountMailRequest
      */
-    name?: string;
+    id?: number;
 }
 
-export function StatusSerializerPutFromJSON(json: any): StatusSerializerPut {
+export function MailsConfirmAccountMailRequestFromJSON(json: any): MailsConfirmAccountMailRequest {
     return {
-        'name': !exists(json, 'name') ? undefined : json['name'],
+        'id': !exists(json, 'id') ? undefined : json['id'],
     };
 }
 
-export function StatusSerializerPutToJSON(value?: StatusSerializerPut): any {
+export function MailsConfirmAccountMailRequestToJSON(value?: MailsConfirmAccountMailRequest): any {
     if (value === undefined) {
         return undefined;
     }
     return {
-        'name': value.name,
+        'id': value.id,
     };
 }
 

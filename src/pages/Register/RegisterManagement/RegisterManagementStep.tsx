@@ -98,7 +98,7 @@ export default function LoginManagementStep(): JSX.Element {
       id: result?.data.user_id,
     })
 
-    if (!resultMail?.data || resultMail?.error) {
+    if (resultMail?.error) {
       setShowErrorToast({
         view: true,
         message: resultMail?.error?.data?.message,
