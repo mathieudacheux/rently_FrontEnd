@@ -1,14 +1,12 @@
 import Button from '../atoms/Button.tsx'
 import RedirectText from '../atoms/RedirectText.tsx'
 import Rently from '../../assets/Rently.svg'
-import { useAppSelector } from '../../store/store.ts'
-import { selectToken } from '../../features/auth/authSlice.ts'
 import { Link, useNavigate } from 'react-router-dom'
 import { APP_ROUTES } from '../../routes/routes.ts'
 
 export default function Navbar(): JSX.Element {
   const navigate = useNavigate()
-  const isConnected = useAppSelector(selectToken) !== null
+  const isConnected = window.localStorage.getItem('token')
 
   return (
     <nav className='navbar bg-background'>
