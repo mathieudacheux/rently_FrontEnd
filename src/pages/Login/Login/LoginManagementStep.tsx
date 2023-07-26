@@ -36,8 +36,9 @@ export default function LoginManagementStep(): JSX.Element {
 
   const loginUser = async () => {
     const formIsValid = await formikValidator(values)
-
+    
     if (!formIsValid) return false
+    console.log('a')
 
     const result: any = await createUser({
       mail: values.mail,
@@ -62,7 +63,7 @@ export default function LoginManagementStep(): JSX.Element {
   return (
     <>
       <LoginManagement login={loginUser} />
-      
+
       <Toast error open={showErrorToast.view} text={showErrorToast.message} />
     </>
   )

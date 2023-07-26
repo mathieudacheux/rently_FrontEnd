@@ -2,10 +2,10 @@ import Button from '../atoms/Button.tsx'
 import RedirectText from '../atoms/RedirectText.tsx'
 import Rently from '../../assets/Rently.svg'
 import { useAppSelector } from '../../store/store.ts'
-import { selectedUserId } from '../../features/user/userSlice.ts'
+import { selectToken } from '../../features/auth/authSlice.ts'
 
 export default function Navbar(): JSX.Element {
-  const isConnected = useAppSelector(selectedUserId) !== null
+  const isConnected = useAppSelector(selectToken) !== null
 
   return (
     <nav className='navbar bg-background'>

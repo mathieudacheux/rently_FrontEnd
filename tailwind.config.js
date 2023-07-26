@@ -71,7 +71,7 @@ export default {
           // Inputs settings
           '.input': {
             border: 'none',
-            'border-radius': '15px',
+            borderRadius: '7.5px',
             padding: '15px 23px',
             'box-shadow': '-5px 5px 15px 0px rgba(0, 0, 0, 0.15)',
             height: '52.5px',

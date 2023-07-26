@@ -10,6 +10,7 @@ export default function FormikTextField({
   password = false,
   showPassword,
   icon = null,
+  iconError = null,
   textCenter = false,
   disableShadows = false,
 }: {
@@ -20,6 +21,7 @@ export default function FormikTextField({
   password?: boolean
   showPassword?: () => void
   icon?: React.ReactNode
+  iconError?: React.ReactNode
   textCenter?: boolean
   disableShadows?: boolean
 }): JSX.Element {
@@ -60,12 +62,10 @@ export default function FormikTextField({
           type={password ? 'password' : 'text'}
           placeholder={placeholder ? t(placeholder) : ''}
           className={`
-          ${meta?.touched && meta?.error ? 'border-error' : ''}
           ${
             disableShadows ? 'input-no-shadow' : 'input'
-          } input-bordered w-full max-w-xs text-neutral-900 placeholder-neutral-300 shadow ${
-            textCenter ? 'text-center' : ''
-          }`}
+          } input-bordered w-full max-w-xs text-neutral-900 placeholder-neutral-300 shadow 
+          ${textCenter ? 'text-center' : ''}`}
         />
         {icon && (
           <div
@@ -73,13 +73,10 @@ export default function FormikTextField({
             className={`w-fit input-icon absolute right-5 top-1/2 -translate-y-1/2
           ${showPassword ? 'cursor-pointer' : ''}`}
           >
-            {icon}
+            {meta?.touched && meta?.error ? iconError : icon}
           </div>
         )}
       </div>
-      {meta.touched && meta.error ? (
-        <div className='text-xs text-error'>{t(meta.error)}</div>
-      ) : null}
     </>
   )
 }

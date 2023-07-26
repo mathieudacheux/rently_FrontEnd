@@ -13,7 +13,7 @@ export default function Toast({
 
   return (
     <div
-      className={`alert h-25 absolute top-5 right-5
+      className={`alert h-25 absolute top-[75px] right-4
       flex flex-start
       ${open ? 'opacity-100' : 'opacity-0'}
       ${open ? 'translate-x-0' : 'translate-x-20'}

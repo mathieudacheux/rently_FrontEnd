@@ -9,6 +9,8 @@ const useFormikValidator = <Values>(formik: FormikContextType<Values>) => {
     async (values: Values) => {
       const errors = await validateForm(values)
 
+      if (Object.keys(errors).length === 0) return true
+
       Object.keys(errors).forEach((fieldName) => {
         setFieldTouched(fieldName, true)
       })

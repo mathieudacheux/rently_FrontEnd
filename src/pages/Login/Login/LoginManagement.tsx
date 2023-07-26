@@ -5,6 +5,7 @@ import Mail from '../../../components/atoms/icons/Mail.tsx'
 import Password from '../../../components/atoms/icons/Password.tsx'
 import LoginImage from '../../../assets/images/login.png'
 import Typography from '../../../components/atoms/Typography.tsx'
+import CardButton from '../../../components/atoms/CardButton.tsx'
 
 export default function LoginManagement({
   login,
@@ -28,6 +29,7 @@ export default function LoginManagement({
               name='mail'
               placeholder={t('connection.mail')}
               icon={<Mail />}
+              iconError={<Mail error />}
             />
           </div>
           <div className='pt-4'>
@@ -40,15 +42,11 @@ export default function LoginManagement({
               placeholder={t('connection.password')}
               showPassword={() => setShowPassword(!showPassword)}
               icon={<Password />}
+              iconError={<Password error />}
             />
           </div>
           <div className='pt-4'>
-            <button
-              onClick={login}
-              className='btn bg-primary hover:bg-primary text-white border-0 w-full'
-            >
-              ferez
-            </button>
+            <CardButton onClick={() => login()} text='connection.login' />
           </div>
         </div>
       </div>
