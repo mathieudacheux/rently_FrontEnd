@@ -9,24 +9,20 @@ const baseQuery = fetchBaseQuery({
   },
 })
 
-const roleApi = createApi({
-  reducerPath: 'roleApi',
+const mailApi = createApi({
+  reducerPath: 'mailApi',
   baseQuery,
   endpoints: (builder) => ({
-    getRoles: builder.query({
-      query: () => 'roles',
-    }),
-    getRoleById: builder.query({
-      query: (id) => `roles/${id}`,
+    confirmationMail: builder.mutation({
+      query: (id) => ({
+        url: `/mail/mail_confirm/${id}`,
+        method: 'POST',
+        body: id,
+      }),
     }),
   }),
 })
 
-export const {
-  useGetRolesQuery,
-  useLazyGetRolesQuery,
-  useGetRoleByIdQuery,
-  useLazyGetRoleByIdQuery,
-} = roleApi
+export const { useConfirmationMailMutation } = mailApi
 
-export default roleApi
+export default mailApi

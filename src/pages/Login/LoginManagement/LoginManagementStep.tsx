@@ -2,23 +2,38 @@ import { useState, useEffect } from 'react'
 import { LoginFormik } from '../types.ts'
 import { useFormikContext } from 'formik'
 import LoginManagement from './LoginManagement.tsx'
-import { useAppDispatch, useAppSelector } from '../../../store/store.ts'
 import Toast from '../../../components/molecules/Toast.tsx'
 import { useLoginMutation } from '../../../features/auth/authApi.ts'
-import { selectToken, setToken } from '../../../features/auth/authSlice.ts'
 import { useLazyGetUserByFilterQuery } from '../../../features/user/userApi.ts'
 import useFormikValidator from '../../../hooks/useFormikValidator.ts'
+import { useAppDispatch } from '../../../store/store.ts'
+import { setSelectedUser } from '../../../features/user/userSlice.ts'
+import { useNavigate } from 'react-router-dom'
+import { APP_ROUTES } from '../../../routes/routes.ts'
 
 export default function LoginManagementStep(): JSX.Element {
+  const navigate = useNavigate()
+  const dispatch = useAppDispatch()
   const formikContext = useFormikContext<LoginFormik>()
   const formikValidator = useFormikValidator(formikContext)
-  const selectedToken = useAppSelector(selectToken)
   const { values } = formikContext
-  const dispatch = useAppDispatch()
+
   const [createUser] = useLoginMutation()
   const [getUserByFilter] = useLazyGetUserByFilterQuery()
 
+  const token = localStorage.getItem('token')
+
+  const [userToken, setUserToken] = useState<boolean>(false)
+
   const [showErrorToast, setShowErrorToast] = useState<{
+    view: boolean
+    message: string
+  }>({
+    view: false,
+    message: '',
+  })
+
+  const [showSuccessToast, setShowSuccessToast] = useState<{
     view: boolean
     message: string
   }>({
@@ -38,25 +53,44 @@ export default function LoginManagementStep(): JSX.Element {
   }, [showErrorToast])
 
   useEffect(() => {
-    console.log(values.mail)
+    if (showSuccessToast.view) {
+      setTimeout(() => {
+        setShowSuccessToast({
+          view: false,
+          message: '',
+        })
+      }, 3000)
+      setTimeout(() => {
+        navigate(APP_ROUTES.HOME)
+      }, 3000)
+    }
+  }, [showSuccessToast])
 
-    const result: any = getUserByFilter({
-      mail: values.mail,
-    })
+  useEffect(() => {
+    if (!token || !userToken) return
 
-    if (!result?.data || result?.error) {
-      setShowErrorToast({
-        view: true,
-        message: result?.error?.data?.message,
+    const getUser = async () => {
+      const result: any = await getUserByFilter({
+        mail: values.mail,
       })
-      return
+
+      if (!result?.data || result?.error) {
+        setShowErrorToast({
+          view: true,
+          message: result?.error?.data?.message,
+        })
+        return
+      }
+
+      dispatch(setSelectedUser(result.data))
+      setShowSuccessToast({
+        view: true,
+        message: 'connection.connected',
+      })
     }
 
-    const user = result?.data
-
-    console.log(user)
-    return
-  }, [selectedToken])
+    getUser()
+  }, [userToken && token])
 
   const loginUser = async () => {
     const formIsValid = await formikValidator(values)
@@ -73,12 +107,13 @@ export default function LoginManagementStep(): JSX.Element {
         view: true,
         message: result?.error?.data?.message,
       })
+
       return false
     }
 
-    const token = result?.data?.token
+    localStorage.setItem('token', result?.data?.token)
 
-    dispatch(setToken({ token }))
+    setUserToken(true)
 
     return true
   }
@@ -88,6 +123,8 @@ export default function LoginManagementStep(): JSX.Element {
       <LoginManagement login={loginUser} />
 
       <Toast error open={showErrorToast.view} text={showErrorToast.message} />
+
+      <Toast open={showSuccessToast.view} text={showSuccessToast.message} />
     </>
   )
 }

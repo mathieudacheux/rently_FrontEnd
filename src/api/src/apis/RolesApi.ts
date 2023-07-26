@@ -38,6 +38,10 @@ export interface RolesDeleteRoleRequest {
   id: number
 }
 
+export interface RolesGetAllRolesRequest {
+  name?: string
+}
+
 export interface RolesGetRoleByIdRequest {
   id: number
 }
@@ -169,9 +173,16 @@ export function rolesDeleteRole<T>(
  * Return a list of all roles
  */
 function rolesGetAllRolesRaw<T>(
+  requestParameters: RolesGetAllRolesRequest,
   requestConfig: runtime.TypedQueryConfig<T, Array<object>> = {},
 ): QueryConfig<T> {
   let queryParameters = null
+
+  queryParameters = {}
+
+  if (requestParameters.name !== undefined) {
+    queryParameters['name'] = requestParameters.name
+  }
 
   const headerParameters: runtime.HttpHeaders = {}
 
@@ -204,9 +215,10 @@ function rolesGetAllRolesRaw<T>(
  * Return a list of all roles
  */
 export function rolesGetAllRoles<T>(
+  requestParameters: RolesGetAllRolesRequest,
   requestConfig?: runtime.TypedQueryConfig<T, Array<object>>,
 ): QueryConfig<T> {
-  return rolesGetAllRolesRaw(requestConfig)
+  return rolesGetAllRolesRaw(requestParameters, requestConfig)
 }
 
 /**

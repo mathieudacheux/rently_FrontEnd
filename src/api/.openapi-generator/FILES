@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 src/apis/AddressesApi.ts
 src/apis/AgenciesApi.ts
 src/apis/AppointmentTagsApi.ts

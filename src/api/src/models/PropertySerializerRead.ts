@@ -218,6 +218,24 @@ export interface PropertySerializerRead {
   addressId?: number
   /**
    *
+   * @type {string}
+   * @memberof PropertySerializerRead
+   */
+  city?: string
+  /**
+   *
+   * @type {string}
+   * @memberof PropertySerializerRead
+   */
+  zipcode?: string
+  /**
+   *
+   * @type {string}
+   * @memberof PropertySerializerRead
+   */
+  way?: string
+  /**
+   *
    * @type {number}
    * @memberof PropertySerializerRead
    */
@@ -277,6 +295,9 @@ export function PropertySerializerReadFromJSON(
     statusId: !exists(json, 'status_id') ? undefined : json['status_id'],
     tenantId: !exists(json, 'tenant_id') ? undefined : json['tenant_id'],
     addressId: !exists(json, 'address_id') ? undefined : json['address_id'],
+    city: !exists(json, 'city') ? undefined : json['city'],
+    zipcode: !exists(json, 'zipcode') ? undefined : json['zipcode'],
+    way: !exists(json, 'way') ? undefined : json['way'],
     dpe: !exists(json, 'dpe') ? undefined : json['dpe'],
     agencyId: !exists(json, 'agency_id') ? undefined : json['agency_id'],
   }
@@ -322,6 +343,9 @@ export function PropertySerializerReadToJSON(
     status_id: value.statusId,
     tenant_id: value.tenantId,
     address_id: value.addressId,
+    city: value.city,
+    zipcode: value.zipcode,
+    way: value.way,
     dpe: value.dpe,
     agency_id: value.agencyId,
   }

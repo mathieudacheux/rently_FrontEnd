@@ -29,12 +29,22 @@
   },
   "connection": {
     "login": "Connexion",
+    "loginGoogle": "Connexion avec Google",
+    "loginApple": "Connexion avec Apple",
+    "register": "Inscription",
+    "registerGoogle": "Inscription avec Google",
+    "registerApple": "Inscription avec Apple",
     "mail": "Address mail",
     "password": "Mot de passe",
     "button": "Se connecter",
     "ctaRegister": "Vous n'avez pas de compte ?",
     "ctaRegisterClick": "Inscrivez-vous",
-    "ctaForgotPassword": "Mot de passe oublié ?"
+    "ctaForgotPassword": "Mot de passe oublié ?",
+    "ctaLogin": "Vous avez déjà un compte ?",
+    "ctaLoginClick": "Connectez-vous",
+    "connected": "Vous êtes connecté",
+    "emailValidation": "Un email de validation vous a été envoyé",
+    "newsletter": "S'inscrire à la newsletter"
   },
   "popup": {
     "close": "Continuer"
