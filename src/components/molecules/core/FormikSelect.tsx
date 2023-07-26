@@ -60,31 +60,33 @@ export default function FormikSelect({
   }
 
   return (
-    <div className='relative w-full max-w-xs '>
-      <select
-        {...field}
-        name={field.name}
-        value={field.value || ''}
-        placeholder={placeholder ? t(placeholder) : ''}
-        disabled={disabled}
-        onClick={toggleOptions}
-        className='input input-bordered w-full max-w-xs text-neutral-900 placeholder-neutral-300  appearance-none'
-        onChange={(e) => {
-          field.onChange(e)
-          toggleOptions()
-        }}
-        onBlur={() => {
-          toggleOptions()
-        }}
-      >
-        {getOptions()}
-      </select>
-      <div className='w-fit input-icon absolute right-5 top-1/2 -translate-y-1/2 cursor-pointer'>
-        <Arrow rotate={showOptions} />
+    <>
+      <div className='relative w-full max-w-xs '>
+        <select
+          {...field}
+          name={field.name}
+          value={field.value || ''}
+          placeholder={placeholder ? t(placeholder) : ''}
+          disabled={disabled}
+          onClick={toggleOptions}
+          className='input input-bordered w-full max-w-xs text-neutral-900 placeholder-neutral-300  appearance-none'
+          onChange={(e) => {
+            field.onChange(e)
+            toggleOptions()
+          }}
+          onBlur={() => {
+            toggleOptions()
+          }}
+        >
+          {getOptions()}
+        </select>
+        <div className='w-fit input-icon absolute right-5 top-1/2 -translate-y-1/2 cursor-pointer'>
+          <Arrow rotate={showOptions} />
+        </div>
       </div>
       {meta.touched && meta.error ? (
         <div className='text-xs text-error'>{t(meta.error)}</div>
       ) : null}
-    </div>
+    </>
   )
 }

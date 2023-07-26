@@ -43,31 +43,33 @@ export default function FormikTextField({
   }
 
   return (
-    <div className='relative w-full max-w-xs'>
-      <input
-        {...field}
-        name={field.name}
-        value={field.value || ''}
-        onChange={handleChange}
-        onBlur={(event) => {
-          formik.handleBlur(event)
-        }}
-        type={password ? 'password' : 'text'}
-        placeholder={placeholder ? t(placeholder) : ''}
-        className='input input-bordered w-full max-w-xs text-neutral-900 placeholder-neutral-300'
-      />
-      {icon && (
-        <div
-          onClick={() => showPassword && showPassword()}
-          className={`w-fit input-icon absolute right-5 top-1/2 -translate-y-1/2
+    <>
+      <div className='relative w-full max-w-xs'>
+        <input
+          {...field}
+          name={field.name}
+          value={field.value || ''}
+          onChange={handleChange}
+          onBlur={(event) => {
+            formik.handleBlur(event)
+          }}
+          type={password ? 'password' : 'text'}
+          placeholder={placeholder ? t(placeholder) : ''}
+          className='input input-bordered w-full max-w-xs text-neutral-900 placeholder-neutral-300'
+        />
+        {icon && (
+          <div
+            onClick={() => showPassword && showPassword()}
+            className={`w-fit input-icon absolute right-5 top-1/2 -translate-y-1/2
           ${showPassword ? 'cursor-pointer' : ''}`}
-        >
-          {icon}
-        </div>
-      )}
+          >
+            {icon}
+          </div>
+        )}
+      </div>
       {meta.touched && meta.error ? (
         <div className='text-xs text-error'>{t(meta.error)}</div>
       ) : null}
-    </div>
+    </>
   )
 }
