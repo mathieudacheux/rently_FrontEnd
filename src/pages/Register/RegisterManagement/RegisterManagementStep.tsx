@@ -92,8 +92,6 @@ export default function LoginManagementStep(): JSX.Element {
       return false
     }
 
-    console.log(result?.data.user_id)
-
     const resultMail: any = await postConfirmationMail({
       id: result?.data.user_id,
     })
