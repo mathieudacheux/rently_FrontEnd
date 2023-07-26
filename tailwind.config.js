@@ -129,6 +129,20 @@ export default {
             'box-shadow': '-5px 5px 15px 0px rgba(0, 0, 0, 0.15)',
           },
 
+          // modal settings
+          '.modal-box': {
+            width: '350px',
+            height: '350px',
+            background: '#FFFFFF',
+            'border-radius': '15px',
+            'box-shadow': '-5px 5px 15px 0px rgba(0, 0, 0, 0.15)',
+            padding: '50px',
+            display: 'flex',
+            'flex-direction': 'column',
+            'justify-content': 'space-between',
+            'align-items': 'center',
+          },
+
           // Call to action button settings
           '--bg-opacity-cta': '0.1',
           '--border-radius-cta': '15px',
