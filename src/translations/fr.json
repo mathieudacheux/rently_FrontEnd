@@ -1,4 +1,8 @@
 {
+  "yup": {
+    "required": "Ce champ est requis",
+    "email": "L'email est invalide"
+  },
   "title": {
     "home": "Accueil",
     "login": "Connexion",
