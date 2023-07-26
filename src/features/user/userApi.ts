@@ -1,11 +1,17 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { FETCH_BASE_URL } from '../../utils/constants.ts'
 
+const baseQuery = fetchBaseQuery({
+  baseUrl: FETCH_BASE_URL,
+  headers: {
+    Authorization: `Bearer ${localStorage?.getItem('token')}`,
+    'Content-Type': 'application/json',
+  },
+})
+
 const userApi = createApi({
   reducerPath: 'userApi',
-  baseQuery: fetchBaseQuery({
-    baseUrl: FETCH_BASE_URL,
-  }),
+  baseQuery,
   endpoints: (builder) => ({
     getUsers: builder.query({
       query: () => 'users',
@@ -14,11 +20,9 @@ const userApi = createApi({
       query: (id) => `users/${id}`,
     }),
     getUserByFilter: builder.query({
-      query: ({ filter }) => ({
+      query: (filter) => ({
         url: 'users/users_filter',
-        params: {
-          filter,
-        },
+        params: filter,
       }),
     }),
     createUser: builder.mutation({

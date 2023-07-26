@@ -15,29 +15,29 @@ import { exists, mapValues } from '../runtime';
 /**
  * 
  * @export
- * @interface StatusSerializerPut
+ * @interface UserAuth
  */
-export interface StatusSerializerPut  {
+export interface UserAuth  {
     /**
      * 
-     * @type {string}
-     * @memberof StatusSerializerPut
+     * @type {object}
+     * @memberof UserAuth
      */
-    name?: string;
+    token?: object;
 }
 
-export function StatusSerializerPutFromJSON(json: any): StatusSerializerPut {
+export function UserAuthFromJSON(json: any): UserAuth {
     return {
-        'name': !exists(json, 'name') ? undefined : json['name'],
+        'token': !exists(json, 'token') ? undefined : json['token'],
     };
 }
 
-export function StatusSerializerPutToJSON(value?: StatusSerializerPut): any {
+export function UserAuthToJSON(value?: UserAuth): any {
     if (value === undefined) {
         return undefined;
     }
     return {
-        'name': value.name,
+        'token': value.token,
     };
 }
 

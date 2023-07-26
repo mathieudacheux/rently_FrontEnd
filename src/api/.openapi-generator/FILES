@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 src/apis/AddressesApi.ts
 src/apis/AgenciesApi.ts
 src/apis/AppointmentTagsApi.ts
@@ -66,6 +65,7 @@ src/models/StatusSerializerRead.ts
 src/models/TagSerializerPost.ts
 src/models/TagSerializerPut.ts
 src/models/TagSerializerRead.ts
+src/models/UserAuth.ts
 src/models/UserSerializerPost.ts
 src/models/UserSerializerPut.ts
 src/models/UserSerializerRead.ts

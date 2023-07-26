@@ -2,21 +2,28 @@ import { useState, useEffect } from 'react'
 import { LoginFormik } from '../types.ts'
 import { useFormikContext } from 'formik'
 import LoginManagement from './LoginManagement.tsx'
-import { useAppDispatch, useAppSelector } from '../../../store/store.ts'
 import Toast from '../../../components/molecules/Toast.tsx'
 import { useLoginMutation } from '../../../features/auth/authApi.ts'
-import { selectToken, setToken } from '../../../features/auth/authSlice.ts'
 import { useLazyGetUserByFilterQuery } from '../../../features/user/userApi.ts'
 import useFormikValidator from '../../../hooks/useFormikValidator.ts'
+import { useAppDispatch } from '../../../store/store.ts'
+import { setSelectedUser } from '../../../features/user/userSlice.ts'
+import { useNavigate } from 'react-router-dom'
+import { APP_ROUTES } from '../../../routes/routes.ts'
 
 export default function LoginManagementStep(): JSX.Element {
+  const navigate = useNavigate()
+  const dispatch = useAppDispatch()
   const formikContext = useFormikContext<LoginFormik>()
   const formikValidator = useFormikValidator(formikContext)
-  const selectedToken = useAppSelector(selectToken)
   const { values } = formikContext
-  const dispatch = useAppDispatch()
+
   const [createUser] = useLoginMutation()
   const [getUserByFilter] = useLazyGetUserByFilterQuery()
+
+  const token = localStorage.getItem('token')
+
+  const [userToken, setUserToken] = useState<boolean>(false)
 
   const [showErrorToast, setShowErrorToast] = useState<{
     view: boolean
@@ -38,7 +45,7 @@ export default function LoginManagementStep(): JSX.Element {
   }, [showErrorToast])
 
   useEffect(() => {
-    console.log(values.mail)
+    if (!token) return
 
     const result: any = getUserByFilter({
       mail: values.mail,
@@ -52,11 +59,9 @@ export default function LoginManagementStep(): JSX.Element {
       return
     }
 
-    const user = result?.data
-
-    console.log(user)
-    return
-  }, [selectedToken])
+    dispatch(setSelectedUser(result.data))
+    navigate(APP_ROUTES.HOME)
+  }, [userToken && token])
 
   const loginUser = async () => {
     const formIsValid = await formikValidator(values)
@@ -76,10 +81,9 @@ export default function LoginManagementStep(): JSX.Element {
       return false
     }
 
-    const token = result?.data?.token
+    localStorage.setItem('token', result?.data?.token)
 
-    dispatch(setToken({ token }))
-
+    setUserToken(true)
     return true
   }
 
