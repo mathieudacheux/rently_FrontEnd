@@ -9,7 +9,7 @@ export default function useLoginFormik() {
   const onSubmit = useCallback(async () => null, [])
 
   const initialValues = {
-    email: '',
+    mail: '',
     password: '',
   }
 
