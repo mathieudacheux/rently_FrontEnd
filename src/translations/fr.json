@@ -30,5 +30,8 @@
   "connection": {
     "mail": "Address mail",
     "password": "Mot de passe"
+  },
+  "popup": {
+    "close": "Continuer"
   }
 }
