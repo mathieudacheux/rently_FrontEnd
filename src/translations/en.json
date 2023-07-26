@@ -28,6 +28,7 @@
     "account": "My account"
   },
   "connection": {
+    "login": "Login",
     "mail": "Email address",
     "password": "Password"
   },

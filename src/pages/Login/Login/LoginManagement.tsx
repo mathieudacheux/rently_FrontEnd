@@ -4,6 +4,7 @@ import FormikTextField from '../../../components/molecules/core/FormikTextField.
 import Mail from '../../../components/atoms/icons/Mail.tsx'
 import Password from '../../../components/atoms/icons/Password.tsx'
 import LoginImage from '../../../assets/images/login.png'
+import Typography from '../../../components/atoms/Typography.tsx'
 
 export default function LoginManagement({
   login,
@@ -22,6 +23,7 @@ export default function LoginManagement({
       <img className='w-1/2 object-cover h-full' src={LoginImage} alt='Login' />
       <div className='w-1/2 flex justify-center align-middle h-full'>
         <div className='flex flex-col justify-center align-middle'>
+          <Typography variant='h2'>{t('connection.login')}</Typography>
           <FormikTextField
             name='mail'
             placeholder={t('connection.mail')}
