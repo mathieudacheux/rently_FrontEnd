@@ -22,6 +22,9 @@ const APP_ROUTES = {
 
   // Playground
   PLAYGROUND: '/test',
+
+  // Properties
+  PROPERTIES: '/properties',
 }
 
 const APP_TITLES = [
@@ -79,6 +82,10 @@ const APP_TITLES = [
   },
   {
     path: APP_ROUTES.PLAYGROUND,
+    title: 'title.home',
+  },
+  {
+    path: APP_ROUTES.PROPERTIES,
     title: 'title.home',
   },
 ]

@@ -28,5 +28,12 @@
   },
   "popup": {
     "close": "Continue"
+  },
+  "searchbar": {
+    "city": "City",
+    "budget": "Budget",
+    "type": "Type",
+    "filters": "Filters",
+    "map": "Map"
   }
 }

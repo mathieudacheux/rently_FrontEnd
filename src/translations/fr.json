@@ -28,5 +28,12 @@
   },
   "popup": {
     "close": "Continuer"
+  },
+  "searchbar": {
+    "city": "Ville",
+    "budget": "Budget",
+    "type": "Type",
+    "filters": "Filtres",
+    "map": "Carte"
   }
 }

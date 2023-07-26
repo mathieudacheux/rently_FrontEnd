@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Typography from '../../components/atoms/Typography.tsx'
 import PropertyCard from '../../components/organisms/PropertyCard.tsx'
 import FormikTextField from '../../components/molecules/core/FormikTextField.tsx'
 import FormikSelect from '../../components/molecules/core/FormikSelect.tsx'
@@ -39,36 +40,30 @@ export default function Playground(): JSX.Element {
   console.log(form.values)
 
   return (
-    <>
-      <FormikProvider value={form}>
+    <FormikProvider value={form}>
+      <div className='flex-col items-center text-center'>
         <FormikTextField
           name='test1'
           placeholder='testing formik textfield'
           icon={<Heart color />}
         />
-        <FormikSelect name='test3' options={options} />
-        <div className='flex justify-between align-middle flex-wrap'>
-          <FormikCheckbox name='test2' label='test2' />
-          <FormikCheckbox name='test2' label='test2' />
-          <FormikCheckbox name='test2' label='test2' />
-          <FormikCheckbox name='test2' label='test2' />
-          <FormikCheckbox name='test2' label='test2' />
-          <FormikCheckbox name='test2' label='test2' />
+        <Typography variant='h2' color='primary'>
+          Properties list with map opened
+        </Typography>
+        <div className='flex justify-center w-12/12 my-4'>
+          <FormikSelect name='test3' options={options} />
+          <div className='flex justify-between align-middle flex-wrap'>
+            <FormikCheckbox name='test2' label='test2' />
+            <FormikCheckbox name='test2' label='test2' />
+            <FormikCheckbox name='test2' label='test2' />
+            <FormikCheckbox name='test2' label='test2' />
+            <FormikCheckbox name='test2' label='test2' />
+            <FormikCheckbox name='test2' label='test2' />
+          </div>
+          <FormikTextArea name='test4' placeholder='testing formik textarea' />
+          <PropertyCard />
         </div>
-        <FormikTextArea name='test4' placeholder='testing formik textarea' />
-        <PropertyCard />
-        <Toast open={false} text='lorem ipsum dolor sit amet fezfe fe' />
-        <Popup open={open} text='lorem ipsum dolor sit amet fezfe fe' error />
-        <Button
-          text='test'
-          onClick={() => {
-            setOpen(true)
-            setTimeout(() => {
-              setOpen(false)
-            }, 3000)
-          }}
-        />
-      </FormikProvider>
-    </>
+      </div>
+    </FormikProvider>
   )
 }

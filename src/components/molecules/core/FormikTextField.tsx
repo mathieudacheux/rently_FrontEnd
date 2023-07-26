@@ -8,12 +8,16 @@ export default function FormikTextField({
   onlyAlpha,
   onlyNumbers,
   icon,
+  textCenter,
+  disableShadows,
 }: {
   name: string
   placeholder?: string
   onlyAlpha?: boolean
   onlyNumbers?: boolean
   icon?: React.ReactNode
+  textCenter?: boolean
+  disableShadows?: boolean
 }): JSX.Element {
   const { t } = useTranslation()
   const formik = useFormikContext()
@@ -39,7 +43,7 @@ export default function FormikTextField({
   }
 
   return (
-    <div className='relative w-full max-w-xs'>
+    <div className={`relative w-full max-w-xs dark:bg-red`}>
       <input
         {...field}
         name={field.name}
@@ -50,7 +54,11 @@ export default function FormikTextField({
         }}
         type='text'
         placeholder={placeholder ? t(placeholder) : ''}
-        className='input input-bordered w-full max-w-xs text-neutral-900 placeholder-neutral-500'
+        className={`${
+          disableShadows ? 'input-no-shadow' : 'input'
+        } input-bordered w-full max-w-xs text-neutral-900 placeholder-neutral-500 shadow ${
+          textCenter ? 'text-center' : ''
+        }`}
       />
       {icon && (
         <div className='w-fit input-icon absolute right-5 top-1/2 -translate-y-1/2'>
