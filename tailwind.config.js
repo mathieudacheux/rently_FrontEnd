@@ -171,11 +171,6 @@ export default {
           '.mapContainer': {
             'border-radius': '0 15px 15px 0',
             'box-shadow': '-5px 5px 15px 0px rgba(0, 0, 0, 0.15)',
-            transition: 'all .5s ease',
-          },
-
-          '.propertiesContainer': {
-            transition: 'width .5s ease',
           },
 
           // Global settings
@@ -204,6 +199,26 @@ export default {
 
           '--bg-gradiant':
             'linear-gradient(to right top, #fff4f5, #fff5f5, #fff6f5, #fff7f5, #fff8f5, #fff8f5, #fff8f5, #fff8f5, #fff6f6, #fff5f8, #fef4fb, #f9f4ff)',
+
+          animation: {
+            openmap: 'openmap 1s ease-in',
+            closemap: 'closemap 1s ease-in',
+          },
+
+          keyframes: {
+            openmap: {
+              // initial position
+              '0%': { width: '0' },
+              // final position
+              '100%': { width: '100%' },
+            },
+            closemap: {
+              // initial position
+              '0%': { left: '100%' },
+              // final position
+              '100%': { left: '0%' },
+            },
+          },
         },
         darkThemeRently: {
           primary: '#4A43EC',

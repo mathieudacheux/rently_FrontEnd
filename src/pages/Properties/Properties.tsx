@@ -69,25 +69,25 @@ export default function Properties() {
             onClick={() => setMapOpen(!mapOpen)}
           />
         </div>
-        <div className='flex'>
+        <div className='flex h-[calc(100vh-220px)]  mt-4'>
           <div
             className={`mapContainer ${
-              mapOpen ? 'w-4/6' : 'w-1/6'
-            } bg-primary `}
+              mapOpen ? 'w-7/12' : 'w-0'
+            } bg-primary  transition-all duration-700 linear`}
           ></div>
           <div
-            className={`propertiesContainer flex justify-evenly flex-wrap gap-6 my-4 ${
-              mapOpen ? 'w-1/6 ml-10' : 'w-12/12'
+            className={`propertiesContainer flex justify-evenly flex-wrap gap-6 py-3 ${
+              mapOpen ? 'w-5/12 overflow-scroll' : 'w-full'
             }`}
           >
-            <PropertyCard mapOpened />
-            <PropertyCard mapOpened />
-            <PropertyCard mapOpened />
-            <PropertyCard mapOpened />
-            <PropertyCard mapOpened />
-            <PropertyCard mapOpened />
-            <PropertyCard mapOpened />
-            <PropertyCard mapOpened />
+            <PropertyCard mapOpened={mapOpen} />
+            <PropertyCard mapOpened={mapOpen} />
+            <PropertyCard mapOpened={mapOpen} />
+            <PropertyCard mapOpened={mapOpen} />
+            <PropertyCard mapOpened={mapOpen} />
+            <PropertyCard mapOpened={mapOpen} />
+            <PropertyCard mapOpened={mapOpen} />
+            <PropertyCard mapOpened={mapOpen} />
           </div>
         </div>
       </FormikProvider>
