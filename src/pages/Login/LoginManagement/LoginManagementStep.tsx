@@ -45,7 +45,7 @@ export default function LoginManagementStep(): JSX.Element {
   }, [showErrorToast])
 
   useEffect(() => {
-    if (!token) return
+    if (!token || !userToken) return
 
     const result: any = getUserByFilter({
       mail: values.mail,
