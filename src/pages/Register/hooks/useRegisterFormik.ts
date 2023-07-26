@@ -11,6 +11,7 @@ export default function useRegisterFormik() {
   const initialValues = {
     mail: '',
     password: '',
+    newsletter: false,
   }
 
   const validationSchema = useMemo(

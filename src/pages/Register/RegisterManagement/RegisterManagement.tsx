@@ -7,18 +7,23 @@ import LoginImage from '../../../assets/images/login.png'
 import Typography from '../../../components/atoms/Typography.tsx'
 import CardButton from '../../../components/atoms/CardButton.tsx'
 import { Link } from 'react-router-dom'
+import FormikCheckbox from '../../../components/molecules/core/FormikCheckbox.tsx'
 
 export default function RegisterManagement({
-  login,
+  create,
 }: {
-  login: () => Promise<boolean>
+  create: () => Promise<boolean>
 }): JSX.Element {
   const { t } = useTranslation()
   const [showPassword, setShowPassword] = useState<boolean>(false)
 
   return (
     <div className='w-full flex h-[calc(100vh-75px)]'>
-      <img className='w-1/2 object-cover h-full' src={LoginImage} alt='Login' />
+      <img
+        className='w-1/2 object-cover h-full rounded-tr-[15px]'
+        src={LoginImage}
+        alt='Login'
+      />
       <div className='w-1/2 flex justify-center align-middle h-full'>
         <div className='flex flex-col justify-center align-middle w-[400px]'>
           <Typography variant='h2'>{t('connection.register')}</Typography>
@@ -57,7 +62,13 @@ export default function RegisterManagement({
             />
           </div>
           <div className='pt-4'>
-            <CardButton onClick={() => login()} text='connection.register' />
+            <FormikCheckbox
+              name='newsletter'
+              label={t('connection.newsletter')}
+            />
+          </div>
+          <div className='pt-4'>
+            <CardButton onClick={() => create()} text='connection.register' />
           </div>
           <div className='pt-4'>
             <hr className='border-t-2 border-gray-300' />

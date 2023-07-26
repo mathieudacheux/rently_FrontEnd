@@ -107,12 +107,14 @@ export default function LoginManagementStep(): JSX.Element {
         view: true,
         message: result?.error?.data?.message,
       })
+
       return false
     }
 
     localStorage.setItem('token', result?.data?.token)
 
     setUserToken(true)
+
     return true
   }
 
@@ -121,7 +123,7 @@ export default function LoginManagementStep(): JSX.Element {
       <LoginManagement login={loginUser} />
 
       <Toast error open={showErrorToast.view} text={showErrorToast.message} />
-      
+
       <Toast open={showSuccessToast.view} text={showSuccessToast.message} />
     </>
   )

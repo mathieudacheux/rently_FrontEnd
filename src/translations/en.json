@@ -42,7 +42,9 @@
     "ctaForgotPassword": "Forgot password ?",
     "ctaLogin": "Already have an account ?",
     "ctaLoginClick": "Connect to my account",
-    "connected": "You are connected"
+    "connected": "You are connected",
+    "emailValidation": "A validation email has been sent to you",
+    "newsletter": "I want to receive the newsletter"
   },
   "popup": {
     "close": "Continue"
