@@ -20,7 +20,14 @@
     "gestion": "Rental management",
     "agency": "Agencies",
     "login": "Login",
-    "register": "Register"
+    "register": "Register",
+    "account": "My account"
+  },
+  "formik": {
+    "noData": "No data"
+  },
+  "popup": {
+    "close": "Continue"
   },
   "searchbar": {
     "city": "City",

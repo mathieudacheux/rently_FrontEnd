@@ -35,6 +35,11 @@ export default {
             'text-transform': 'capitalize',
           },
 
+          // Navbar settings
+          '.navbar': {
+            height: '100px',
+          },
+
           // Card settings
 
           '.card': {
@@ -69,6 +74,7 @@ export default {
             'border-radius': '15px',
             padding: '15px 23px',
             'box-shadow': '-5px 5px 15px 0px rgba(0, 0, 0, 0.15)',
+            height: '52.5px',
           },
 
           '.input-no-shadow': {
@@ -81,6 +87,80 @@ export default {
             border: 'none',
             outline: 'none',
             'outline-offset': 'none',
+          },
+
+          // Select settings
+          '.select': {
+            border: 'none',
+            'border-radius': '15px',
+            padding: '15px 23px',
+            'box-shadow': '-5px 5px 15px 0px rgba(0, 0, 0, 0.15)',
+            height: '52.5px',
+            'font-weight': '400',
+            'font-size': '1rem',
+          },
+
+          '.select:focus': {
+            border: 'none',
+            outline: 'none',
+            'outline-offset': 'none',
+          },
+
+          // Checkbox settings
+          '.checkbox': {
+            'border-radius': '5px',
+            height: '20px',
+            width: '20px',
+            border: '2px solid #808191',
+          },
+
+          '.checkbox:checked': {
+            'background-image':
+              'linear-gradient(-45deg, transparent 65%, hsl(var(--chkbg)) 65.99%), linear-gradient(45deg, transparent 75%, hsl(var(--chkbg)) 75.99%), linear-gradient(-45deg, hsl(var(--chkbg)) 40%, transparent 40.99%), linear-gradient(45deg, hsl(var(--chkbg)) 30%, hsl(0, 0%, 100%) 30.99%, hsl(0, 0%, 100%) 40%, transparent 40.99%), linear-gradient(-45deg, hsl(0, 0%, 100%) 50%, hsl(var(--chkbg)) 50.99%)',
+          },
+
+          // Textarea settings
+          '.textarea': {
+            border: 'none',
+            'border-radius': '15px',
+            padding: '23px 23px',
+            'box-shadow': '-5px 5px 15px 0px rgba(0, 0, 0, 0.15)',
+            resize: 'none',
+            'font-size': '1rem',
+            'font-weight': '400',
+          },
+
+          '.textarea:focus': {
+            border: 'none',
+            outline: 'none',
+            'outline-offset': 'none',
+          },
+
+          // Alert settings
+          '.alert': {
+            'font-size': '1rem',
+            'font-weight': '400',
+            width: '400px',
+            height: '75px',
+            padding: '15px',
+            'border-radius': '15px',
+            background: '#FFFFFF',
+            border: 'none',
+            'box-shadow': '-5px 5px 15px 0px rgba(0, 0, 0, 0.15)',
+          },
+
+          // modal settings
+          '.modal-box': {
+            width: '350px',
+            height: '350px',
+            background: '#FFFFFF',
+            'border-radius': '15px',
+            'box-shadow': '-5px 5px 15px 0px rgba(0, 0, 0, 0.15)',
+            padding: '50px',
+            display: 'flex',
+            'flex-direction': 'column',
+            'justify-content': 'space-between',
+            'align-items': 'center',
           },
 
           // Call to action button settings

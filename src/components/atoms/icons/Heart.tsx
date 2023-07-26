@@ -16,8 +16,8 @@ export default function Heart({
           }`}
         >
           <svg
-            width='17'
-            height='17'
+            width='20'
+            height='20'
             viewBox='0 0 41 40'
             fill='none'
             xmlns='http://www.w3.org/2000/svg'
@@ -42,8 +42,8 @@ export default function Heart({
           }`}
         >
           <svg
-            width='17'
-            height='17'
+            width='20'
+            height='20'
             viewBox='0 0 41 40'
             fill='none'
             xmlns='http://www.w3.org/2000/svg'
