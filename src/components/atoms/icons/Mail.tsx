@@ -1,7 +1,7 @@
 export default function Mail({
   error = false,
 }: {
-  error: boolean
+  error?: boolean
 }): JSX.Element {
   return (
     <svg
