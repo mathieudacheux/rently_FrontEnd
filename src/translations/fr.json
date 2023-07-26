@@ -20,7 +20,8 @@
     "gestion": "Gestion locative",
     "agency": "Nos agences",
     "login": "Connexion",
-    "register": "Inscription"
+    "register": "Inscription",
+    "account": "Mon compte"
   },
   "formik": {
     "noData": "Aucune donnée"

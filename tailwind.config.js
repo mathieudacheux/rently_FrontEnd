@@ -29,6 +29,11 @@ export default {
             padding: '10px 14px',
           },
 
+          // Navbar settings
+          '.navbar': {
+            height: '100px',
+          },
+
           // Card settings
 
           '.card': {
