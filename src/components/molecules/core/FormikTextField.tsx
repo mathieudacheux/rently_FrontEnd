@@ -5,14 +5,18 @@ import { useTranslation } from 'react-i18next'
 export default function FormikTextField({
   name,
   placeholder,
-  onlyAlpha,
-  onlyNumbers,
-  icon,
+  onlyAlpha = false,
+  onlyNumbers = false,
+  password = false,
+  showPassword,
+  icon = null,
 }: {
   name: string
   placeholder?: string
   onlyAlpha?: boolean
   onlyNumbers?: boolean
+  password?: boolean
+  showPassword?: () => void
   icon?: React.ReactNode
 }): JSX.Element {
   const { t } = useTranslation()
@@ -48,12 +52,15 @@ export default function FormikTextField({
         onBlur={(event) => {
           formik.handleBlur(event)
         }}
-        type='text'
+        type={password ? 'password' : 'text'}
         placeholder={placeholder ? t(placeholder) : ''}
         className='input input-bordered w-full max-w-xs text-neutral-900 placeholder-neutral-500'
       />
       {icon && (
-        <div className='w-fit input-icon absolute right-5 top-1/2 -translate-y-1/2'>
+        <div
+          onClick={() => showPassword && showPassword()}
+          className='w-fit input-icon absolute right-5 top-1/2 -translate-y-1/2'
+        >
           {icon}
         </div>
       )}
