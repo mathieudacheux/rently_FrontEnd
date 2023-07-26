@@ -10,8 +10,8 @@ export default function Button({
   const { t } = useTranslation()
   return (
     <button
-      onClick={onClick}
       className='btn btn-xs sm:btn-sm md:btn-md lg:btn-md bg-primary hover:bg-primary text-white border-0'
+      onClick={onClick}
     >
       {t(text)}
     </button>
