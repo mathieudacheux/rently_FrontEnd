@@ -62,6 +62,7 @@ export default function LoginManagementStep(): JSX.Element {
   return (
     <>
       <LoginManagement login={loginUser} />
+      
       <Toast error open={showErrorToast.view} text={showErrorToast.message} />
     </>
   )
