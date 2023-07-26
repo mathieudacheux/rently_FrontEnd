@@ -34,7 +34,8 @@
     "button": "Login",
     "ctaRegister": "Don't have an account ?",
     "ctaRegisterClick": "Create my account",
-    "ctaForgotPassword": "Forgot password ?"
+    "ctaForgotPassword": "Forgot password ?",
+    "connected": "You are connected"
   },
   "popup": {
     "close": "Continue"

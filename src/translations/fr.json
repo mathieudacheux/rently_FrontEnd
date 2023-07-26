@@ -34,7 +34,8 @@
     "button": "Se connecter",
     "ctaRegister": "Vous n'avez pas de compte ?",
     "ctaRegisterClick": "Inscrivez-vous",
-    "ctaForgotPassword": "Mot de passe oublié ?"
+    "ctaForgotPassword": "Mot de passe oublié ?",
+    "connected": "Vous êtes connecté"
   },
   "popup": {
     "close": "Continuer"

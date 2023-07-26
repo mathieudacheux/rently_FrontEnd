@@ -33,6 +33,14 @@ export default function LoginManagementStep(): JSX.Element {
     message: '',
   })
 
+  const [showSuccessToast, setShowSuccessToast] = useState<{
+    view: boolean
+    message: string
+  }>({
+    view: false,
+    message: '',
+  })
+
   useEffect(() => {
     if (showErrorToast.view) {
       setTimeout(() => {
@@ -45,22 +53,45 @@ export default function LoginManagementStep(): JSX.Element {
   }, [showErrorToast])
 
   useEffect(() => {
+    if (showSuccessToast.view) {
+      setTimeout(() => {
+        setShowSuccessToast({
+          view: false,
+          message: '',
+        })
+      }, 3000)
+      setTimeout(() => {
+        navigate(APP_ROUTES.HOME)
+      }, 3000)
+    }
+  }, [showSuccessToast])
+
+  useEffect(() => {
     if (!token || !userToken) return
 
-    const result: any = getUserByFilter({
-      mail: values.mail,
-    })
-
-    if (!result?.data || result?.error) {
-      setShowErrorToast({
-        view: true,
-        message: result?.error?.data?.message,
+    const getUser = async () => {
+      const result: any = await getUserByFilter({
+        mail: values.mail,
       })
-      return
+
+      console.log(result)
+
+      if (!result?.data || result?.error) {
+        setShowErrorToast({
+          view: true,
+          message: result?.error?.data?.message,
+        })
+        return
+      }
+
+      dispatch(setSelectedUser(result.data))
+      setShowSuccessToast({
+        view: true,
+        message: 'connection.connected',
+      })
     }
 
-    dispatch(setSelectedUser(result.data))
-    navigate(APP_ROUTES.HOME)
+    getUser()
   }, [userToken && token])
 
   const loginUser = async () => {
@@ -92,6 +123,7 @@ export default function LoginManagementStep(): JSX.Element {
       <LoginManagement login={loginUser} />
 
       <Toast error open={showErrorToast.view} text={showErrorToast.message} />
+      <Toast open={showSuccessToast.view} text={showSuccessToast.message} />
     </>
   )
 }
