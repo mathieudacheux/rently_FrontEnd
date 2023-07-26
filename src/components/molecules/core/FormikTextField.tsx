@@ -18,6 +18,8 @@ export default function FormikTextField({
   password?: boolean
   showPassword?: () => void
   icon?: React.ReactNode
+  textCenter?: boolean
+  disableShadows?: boolean
 }): JSX.Element {
   const { t } = useTranslation()
   const formik = useFormikContext()
@@ -44,7 +46,7 @@ export default function FormikTextField({
 
   return (
     <>
-      <div className='relative w-full max-w-xs'>
+      <div className={`relative w-full max-w-xs dark:bg-red`}>
         <input
           {...field}
           name={field.name}
@@ -55,7 +57,11 @@ export default function FormikTextField({
           }}
           type={password ? 'password' : 'text'}
           placeholder={placeholder ? t(placeholder) : ''}
-          className='input input-bordered w-full max-w-xs text-neutral-900 placeholder-neutral-300'
+          className={`${
+          disableShadows ? 'input-no-shadow' : 'input'
+        } input-bordered w-full max-w-xs text-neutral-900 placeholder-neutral-300 shadow ${
+          textCenter ? 'text-center' : ''
+        }`}
         />
         {icon && (
           <div

@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import {
   TypographyVariants,
   TypographyColors,
@@ -6,11 +7,11 @@ import {
 export default function Typography({
   children,
   variant,
-  color,
+  color = 'secondary',
 }: {
   children: string
   variant: TypographyVariants
-  color: TypographyColors
+  color?: TypographyColors
 }): JSX.Element {
   let element: JSX.Element
 
@@ -19,7 +20,10 @@ export default function Typography({
       element = <h1 className={`h1 text-${color}`}>{children}</h1>
       break
     case 'h2':
-      element = <h2 className={`h2 text-${color}`}>{children}</h2>
+      element = <h2 className={`h2 text-secondary`}>{children}</h2>
+      break
+    case 'h2-primary':
+      element = <h2 className={`h2 text-primary`}>{children}</h2>
       break
     case 'h3':
       element = <h3 className={`h3 text-${color}`}>{children}</h3>
@@ -28,12 +32,15 @@ export default function Typography({
       element = <span className={`span text-${color}`}>{children}</span>
       break
     case 'text-light':
-      element = <p className={`p-light text-${color}`}>{children}</p>
+      element = <p className={`text-light text-${color}`}>{children}</p>
+      break
+    case 'tiny-text':
+      element = <p className={`tiny-text text-${color}`}>{children}</p>
       break
     default:
-      element = <p className={`p text-${color}`}>{children}</p>
+      element = <p className={`text text-${color}`}>{children}</p>
       break
   }
 
-  return element
+  return useMemo(() => element, [])
 }

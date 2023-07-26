@@ -3,12 +3,14 @@ import { Routes, Route } from 'react-router-dom'
 import Home from '../pages/Home/Home.tsx'
 import Connection from '../pages/Login/Login.tsx'
 import Playground from '../pages/Playground/Playground.tsx'
+import Properties from '../pages/Properties/Properties.tsx'
 
 export default function RouterElement(): JSX.Element {
   return (
     <Routes>
       <Route path={APP_ROUTES.HOME} element={<Home />} />
       <Route path={APP_ROUTES.LOGIN} element={<Connection />} />
+      <Route path={APP_ROUTES.PROPERTIES} element={<Properties />} />
       <Route path={APP_ROUTES.PLAYGROUND} element={<Playground />} />
     </Routes>
   )
