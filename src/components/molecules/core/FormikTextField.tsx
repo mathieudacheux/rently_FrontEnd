@@ -10,6 +10,8 @@ export default function FormikTextField({
   password = false,
   showPassword,
   icon = null,
+  textCenter = false,
+  disableShadows = false,
 }: {
   name: string
   placeholder?: string
@@ -58,10 +60,10 @@ export default function FormikTextField({
           type={password ? 'password' : 'text'}
           placeholder={placeholder ? t(placeholder) : ''}
           className={`${
-          disableShadows ? 'input-no-shadow' : 'input'
-        } input-bordered w-full max-w-xs text-neutral-900 placeholder-neutral-300 shadow ${
-          textCenter ? 'text-center' : ''
-        }`}
+            disableShadows ? 'input-no-shadow' : 'input'
+          } input-bordered w-full max-w-xs text-neutral-900 placeholder-neutral-300 shadow ${
+            textCenter ? 'text-center' : ''
+          }`}
         />
         {icon && (
           <div
