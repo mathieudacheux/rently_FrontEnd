@@ -31,12 +31,8 @@ export default function PropertyCard({
         } flex-col justify-between`}
       >
         <div className='flex justify-between mb-2'>
-          <Typography variant='h2' color='secondary'>
-            {t('Description')}
-          </Typography>
-          <Typography variant='h2' color='primary'>
-            {t('1505050€')}
-          </Typography>
+          <Typography variant='h2'>{t('Description')}</Typography>
+          <Typography variant='h2-primary'>{t('1505050€')}</Typography>
         </div>
         <div className='flex justify-between  mb-2'>
           <Typography variant='text-light' color='textLight'>

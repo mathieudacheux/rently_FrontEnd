@@ -1,5 +1,3 @@
-import HeartIcon from '../../../assets/icons/HeartIcon.svg'
-
 export default function Heart({
   marginRight,
   marginLeft,

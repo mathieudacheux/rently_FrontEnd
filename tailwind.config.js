@@ -27,6 +27,12 @@ export default {
           '.btn': {
             'border-radius': '7.5px',
             padding: '10px 14px',
+            'text-transform': 'capitalize',
+          },
+          '.roundedBtn': {
+            'border-radius': '15px',
+            padding: '10px 14px',
+            'text-transform': 'capitalize',
           },
 
           // Card settings
@@ -65,6 +71,12 @@ export default {
             'box-shadow': '-5px 5px 15px 0px rgba(0, 0, 0, 0.15)',
           },
 
+          '.input-no-shadow': {
+            'box-shadow': 'none',
+            outline: 'none',
+            transition: 'all 0.3s ease',
+          },
+
           '.input:focus': {
             border: 'none',
             outline: 'none',
@@ -74,6 +86,17 @@ export default {
           // Call to action button settings
           '--bg-opacity-cta': '0.1',
           '--border-radius-cta': '15px',
+
+          // Properties map container settings
+          '.mapContainer': {
+            'border-radius': '0 15px 15px 0',
+            'box-shadow': '-5px 5px 15px 0px rgba(0, 0, 0, 0.15)',
+            transition: 'all .5s ease',
+          },
+
+          '.propertiesContainer': {
+            transition: 'width .5s ease',
+          },
 
           // Global settings
           '--def-padding': '15px',
@@ -112,10 +135,14 @@ export default {
           error: '#F45252',
           background: '#30314E',
           transition: 'all 0.3s ease',
+
+          '.input-no-shadow': {
+            'background-color': '#30314E',
+            transition: 'all 0.3s ease',
+          },
         },
       },
     ],
-    darkTheme: 'darkTheme',
   },
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {

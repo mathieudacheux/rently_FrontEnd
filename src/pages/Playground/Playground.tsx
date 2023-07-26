@@ -22,18 +22,18 @@ export default function Playground(): JSX.Element {
 
   return (
     <div className='flex-col items-center text-center'>
+      <FormikProvider value={form}>
+        <FormikTextField
+          name='test'
+          placeholder='testing formik textfield'
+          icon={<Heart color />}
+        />
+      </FormikProvider>
       <Typography variant='h2' color='primary'>
         Properties list with map opened
       </Typography>
       <div className='flex justify-center w-12/12 my-4'>
-        <FormikProvider value={form}>
-          <FormikTextField
-            name='test'
-            placeholder='testing formik textfield'
-            icon={<Heart color />}
-          />
-          <PropertyCard />
-        </FormikProvider>
+        <PropertyCard />
       </div>
       <Typography variant='h2' color='primary'>
         Properties list

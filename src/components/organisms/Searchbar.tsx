@@ -1,21 +1,37 @@
-import Heart from '../atoms/icons/Heart.tsx'
+import Search from '../atoms/icons/Search.tsx'
+import FormikTextField from '../molecules/core/FormikTextField.tsx'
 
-export default function Searchbar() {
+export default function Searchbar({ onClick }: { onClick: () => void }) {
   return (
-    <div className='searchbar flex justify-between items-center w-6/12 mt-3'>
+    <div className='searchbar flex justify-between items-center w-6/12'>
       <div className='flex w-11/12'>
         <div className='px-4 text-secondary text-center w-1/3 border-r-2 border-text-light'>
-          Ville
+          <FormikTextField
+            name='searchCity'
+            textCenter
+            disableShadows
+            placeholder={'searchbar.city'}
+          />
         </div>
         <div className='px-4 text-secondary text-center w-1/3 border-r-2 border-text-light'>
-          Budget
+          <FormikTextField
+            name='searchBudget'
+            textCenter
+            disableShadows
+            placeholder={'searchbar.budget'}
+          />
         </div>
         <div className='px-4 text-secondary text-center w-1/3 border-r-2 border-text-light'>
-          Type
+          <FormikTextField
+            name='searchType'
+            textCenter
+            disableShadows
+            placeholder={'searchbar.type'}
+          />
         </div>
       </div>
-      <div className='pl-4 w-1/12 flex justify-center'>
-        <Heart />
+      <div className='pl-4 w-1/12 flex justify-center' onClick={onClick}>
+        <Search />
       </div>
     </div>
   )

@@ -7,11 +7,11 @@ import {
 export default function Typography({
   children,
   variant,
-  color,
+  color = 'secondary',
 }: {
   children: string
   variant: TypographyVariants
-  color: TypographyColors
+  color?: TypographyColors
 }): JSX.Element {
   let element: JSX.Element
 
@@ -20,7 +20,10 @@ export default function Typography({
       element = <h1 className={`h1 text-${color}`}>{children}</h1>
       break
     case 'h2':
-      element = <h2 className={`h2 text-${color}`}>{children}</h2>
+      element = <h2 className={`h2 text-secondary`}>{children}</h2>
+      break
+    case 'h2-primary':
+      element = <h2 className={`h2 text-primary`}>{children}</h2>
       break
     case 'h3':
       element = <h3 className={`h3 text-${color}`}>{children}</h3>

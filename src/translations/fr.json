@@ -21,5 +21,12 @@
     "agency": "Nos agences",
     "login": "Connexion",
     "register": "Inscription"
+  },
+  "searchbar": {
+    "city": "Ville",
+    "budget": "Budget",
+    "type": "Type",
+    "filters": "Filtres",
+    "map": "Carte"
   }
 }

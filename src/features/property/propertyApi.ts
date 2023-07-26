@@ -14,11 +14,9 @@ const propertyApi = createApi({
       query: (id) => `properties/${id}`,
     }),
     getPropertyByFilter: builder.query({
-      query: ({ filter }) => ({
+      query: (filter) => ({
         url: 'properties/properties_filter',
-        params: {
-          filter,
-        },
+        params: filter,
       }),
     }),
     createProperty: builder.mutation({

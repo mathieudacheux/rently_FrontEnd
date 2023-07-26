@@ -10,9 +10,9 @@ export default function Bed({
       className={`h-4 ${marginLeft ? 'ml-1' : ''} ${marginRight ? 'mr-1' : ''}`}
     >
       <svg
-        width='16'
-        height='16'
-        viewBox='0 0 16 16'
+        width='17'
+        height='17'
+        viewBox='0 0 17 17'
         fill='none'
         xmlns='http://www.w3.org/2000/svg'
       >

@@ -21,5 +21,12 @@
     "agency": "Agencies",
     "login": "Login",
     "register": "Register"
+  },
+  "searchbar": {
+    "city": "City",
+    "budget": "Budget",
+    "type": "Type",
+    "filters": "Filters",
+    "map": "Map"
   }
 }
