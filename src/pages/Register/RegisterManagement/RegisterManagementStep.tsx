@@ -77,8 +77,8 @@ export default function LoginManagementStep(): JSX.Element {
     const result: any = await postUser({
       mail: values.mail,
       password: values.password,
-      country: dataCountry[0].country_id,
-      role: dataRole[0].id || 2,
+      country_id: dataCountry[0].country_id,
+      role_id: dataRole[0].id || 2,
       newsletter: values.newsletter,
     })
 
