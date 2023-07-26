@@ -16,7 +16,7 @@ export default function useLoginFormik() {
   const validationSchema = useMemo(
     () =>
       yup.object({
-        email: yup.string().email(t('yup.email')).required(t('yup.required')),
+        mail: yup.string().email(t('yup.email')).required(t('yup.required')),
         password: yup.string().required(t('yup.required')),
       }),
     [i18n.language],

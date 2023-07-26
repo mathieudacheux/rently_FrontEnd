@@ -54,12 +54,13 @@ export default function FormikTextField({
         }}
         type={password ? 'password' : 'text'}
         placeholder={placeholder ? t(placeholder) : ''}
-        className='input input-bordered w-full max-w-xs text-neutral-900 placeholder-neutral-500'
+        className='input input-bordered w-full max-w-xs text-neutral-900 placeholder-neutral-300'
       />
       {icon && (
         <div
           onClick={() => showPassword && showPassword()}
-          className='w-fit input-icon absolute right-5 top-1/2 -translate-y-1/2'
+          className={`w-fit input-icon absolute right-5 top-1/2 -translate-y-1/2
+          ${showPassword ? 'cursor-pointer' : ''}`}
         >
           {icon}
         </div>

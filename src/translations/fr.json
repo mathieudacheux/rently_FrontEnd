@@ -27,7 +27,8 @@
     "register": "Inscription",
     "account": "Mon compte"
   },
-  "formik": {
-    "noData": "Aucune donnée"
+  "connection": {
+    "mail": "Address mail",
+    "password": "Mot de passe"
   }
 }

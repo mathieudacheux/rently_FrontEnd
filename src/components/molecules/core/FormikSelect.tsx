@@ -68,7 +68,7 @@ export default function FormikSelect({
         placeholder={placeholder ? t(placeholder) : ''}
         disabled={disabled}
         onClick={toggleOptions}
-        className='input input-bordered w-full max-w-xs text-neutral-900 placeholder-neutral-500  appearance-none'
+        className='input input-bordered w-full max-w-xs text-neutral-900 placeholder-neutral-300  appearance-none'
         onChange={(e) => {
           field.onChange(e)
           toggleOptions()

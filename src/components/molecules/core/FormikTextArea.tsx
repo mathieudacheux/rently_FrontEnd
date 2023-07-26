@@ -20,7 +20,7 @@ export default function FormikTextArea({
         value={field.value || ''}
         onChange={(e) => field.onChange(e)}
         disabled={disabled}
-        className='textarea min-w-full text-neutral-900 placeholder-neutral-500 '
+        className='textarea min-w-full text-neutral-900 placeholder-neutral-300 '
         placeholder={placeholder ? t(placeholder) : ''}
       ></textarea>
       {meta.touched && meta.error ? (
