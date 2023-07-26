@@ -18,11 +18,7 @@ export default function LoginManagement({
 
   return (
     <div className='w-full flex h-[calc(100vh-75px)]'>
-      <img
-        className='w-1/2 object-cover h-full rounded-tr-[15px]'
-        src={LoginImage}
-        alt='Login'
-      />
+      <img className='w-1/2 object-cover h-full' src={LoginImage} alt='Login' />
       <div className='w-1/2 flex justify-center align-middle h-full'>
         <div className='flex flex-col justify-center align-middle w-[400px]'>
           <Typography variant='h2'>{t('connection.login')}</Typography>
@@ -85,9 +81,7 @@ export default function LoginManagement({
                 alt='google'
                 className='mr-2'
               />
-              <Typography variant='tiny-text'>
-                {t('connection.loginGoogle')}
-              </Typography>
+              <Typography variant='tiny-text'>Continue with Google</Typography>
             </button>
           </div>
           <div className='pt-4 flex justify-center'>
@@ -102,9 +96,7 @@ export default function LoginManagement({
                 alt='apple'
                 className='mr-2 w-5'
               />
-              <Typography variant='tiny-text'>
-                {t('connection.loginApple')}
-              </Typography>
+              <Typography variant='tiny-text'>Continue with Apple</Typography>
             </button>
           </div>
         </div>

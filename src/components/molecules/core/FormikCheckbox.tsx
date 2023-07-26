@@ -17,7 +17,7 @@ export default function FormikCheckbox({
   return (
     <label
       className='label cursor-pointer flex justify-start 
-      items-center w-fit-content p-0
+      items-center w-fit-content
     '
     >
       <input
