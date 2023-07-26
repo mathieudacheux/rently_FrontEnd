@@ -27,7 +27,7 @@ export default function Toast({
           viewBox='0 0 26 31'
           fill='none'
           xmlns='http://www.w3.org/2000/svg'
-          className='w-2/12'
+          className='mr-1'
         >
           <path
             fillRule='evenodd'
@@ -43,6 +43,7 @@ export default function Toast({
           viewBox='0 0 26 31'
           fill='none'
           xmlns='http://www.w3.org/2000/svg'
+          className='mr-1'
         >
           <path
             fillRule='evenodd'
@@ -52,7 +53,7 @@ export default function Toast({
           />
         </svg>
       )}
-      <span className='text-neutral-900 w-10/12'>{t(text)}</span>
+      <span className='text-neutral-900'>{t(text)}</span>
     </div>
   )
 }

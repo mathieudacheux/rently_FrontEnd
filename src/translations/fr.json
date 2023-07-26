@@ -31,7 +31,10 @@
     "login": "Connexion",
     "mail": "Address mail",
     "password": "Mot de passe",
-    "button": "Se connecter"
+    "button": "Se connecter",
+    "ctaRegister": "Vous n'avez pas de compte ?",
+    "ctaRegisterClick": "Inscrivez-vous",
+    "ctaForgotPassword": "Mot de passe oublié ?"
   },
   "popup": {
     "close": "Continuer"

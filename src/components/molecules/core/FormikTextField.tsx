@@ -50,7 +50,7 @@ export default function FormikTextField({
 
   return (
     <>
-      <div className={`relative w-full max-w-xs dark:bg-red`}>
+      <div className={`relative w-full dark:bg-red`}>
         <input
           {...field}
           name={field.name}
@@ -64,7 +64,7 @@ export default function FormikTextField({
           className={`
           ${
             disableShadows ? 'input-no-shadow' : 'input'
-          } input-bordered w-full max-w-xs text-neutral-900 placeholder-neutral-300 shadow 
+          } input-bordered w-full  text-neutral-900 placeholder-neutral-300 shadow 
           ${textCenter ? 'text-center' : ''}`}
         />
         {icon && (

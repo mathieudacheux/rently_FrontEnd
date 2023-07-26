@@ -194,7 +194,6 @@ export default {
           },
           '.tiny-text': {
             'font-size': '14px',
-            'font-weight': '400',
           },
 
           '--bg-gradiant':

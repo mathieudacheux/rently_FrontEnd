@@ -31,7 +31,10 @@
     "login": "Login",
     "mail": "Email",
     "password": "Password",
-    "button": "Login"
+    "button": "Login",
+    "ctaRegister": "Don't have an account ?",
+    "ctaRegisterClick": "Create my account",
+    "ctaForgotPassword": "Forgot password ?"
   },
   "popup": {
     "close": "Continue"
