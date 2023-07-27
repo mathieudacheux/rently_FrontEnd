@@ -2,11 +2,12 @@ import { useEffect, useState } from 'react'
 import i18next from 'i18next'
 
 export default function ToggleLanguage(): JSX.Element {
-  const [language, setLanguage] = useState<string>('fr')
+  const [language, setLanguage] = useState<string>(
+    window.localStorage.getItem('lang') || 'fr',
+  )
 
   const toggleLanguage = () => {
     setLanguage(language === 'fr' ? 'en' : 'fr')
-    console.log(document?.querySelector('lang')?.setAttribute('lang', language))
   }
 
   useEffect(() => {
@@ -14,10 +15,18 @@ export default function ToggleLanguage(): JSX.Element {
   }, [language])
 
   return (
-    <label className='swap'>
-      <input type='checkbox' onChange={toggleLanguage} />
-      <p className='swap-on fill-secondary w-10 h-10'>French</p>
-      <p className='swap-off fill-secondary w-10 h-10'>Anglais</p>
-    </label>
+    <div className='form-control'>
+      <label className='label cursor-pointer'>
+        <span className='label-text'>
+          {language === 'fr' ? 'English' : 'Français'}
+        </span>
+        <input
+          type='checkbox'
+          className='toggle toggle-primary'
+          checked
+          onClick={toggleLanguage}
+        />
+      </label>
+    </div>
   )
 }

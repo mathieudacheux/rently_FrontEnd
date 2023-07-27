@@ -10,11 +10,12 @@
     "host": "vite preview --host",
     "prepare": "husky install",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc.json",
-    "openapi:generate": "openapi-generator-cli generate -i http://0.0.0.0:8083/doc/swagger.json -g typescript-redux-query -o src/api --skip-validate-spec && mv src/api/src/* src/api && rm -rf src/api/src && rm -rf src/api/.openapi-generator && rm -rf src/api/.gitignore && rm -rf src/api/tsconfig.json && rm -rf src/api/.openapi-generator-ignore"
+    "format": "prettier --write \"**/*.{js,ts,json,md}\"",
+    "openapi:generate": "openapi-generator-cli generate -i https://back-rently.mathieudacheux.fr/doc/swagger.json -g typescript-redux-query -o src/api --skip-validate-spec && mv src/api/src/* src/api && rm -rf src/api/src && rm -rf src/api/.openapi-generator && rm -rf src/api/.gitignore && rm -rf src/api/tsconfig.json && rm -rf src/api/.openapi-generator-ignore"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
+    "@types/react-redux": "^7.1.25",
     "formik": "^2.4.2",
     "i18next": "^23.2.5",
     "i18next-browser-languagedetector": "^7.1.0",

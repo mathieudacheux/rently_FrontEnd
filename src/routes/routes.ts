@@ -7,6 +7,7 @@ const APP_ROUTES = {
   REGISTER: '/register',
   FORGOT_PASSWORD: '/forgot-password',
   RESET_PASSWORD: '/reset-password',
+  ACCOUNT: '/account',
 
   // Navbar
   BUY: '/buy',
@@ -19,6 +20,12 @@ const APP_ROUTES = {
   SERVER_ERROR: '/500',
   ACCESS_DENIED: '/403',
   UNAUTHORIZED: '/401',
+
+  // Playground
+  PLAYGROUND: '/test',
+
+  // Properties
+  PROPERTIES: '/properties',
 }
 
 const APP_TITLES = [
@@ -73,6 +80,14 @@ const APP_TITLES = [
   {
     path: APP_ROUTES.UNAUTHORIZED,
     title: 'title.unauthorized',
+  },
+  {
+    path: APP_ROUTES.PLAYGROUND,
+    title: 'title.home',
+  },
+  {
+    path: APP_ROUTES.PROPERTIES,
+    title: 'title.home',
   },
 ]
 

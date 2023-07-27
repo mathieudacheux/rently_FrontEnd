@@ -69,5 +69,3 @@ Les contributions sont les bienvenues ! Si vous souhaitez contribuer à ce proje
 ## Licence
 
 Ce projet est sous licence [MIT](https://opensource.org/license/mit/).
-
-

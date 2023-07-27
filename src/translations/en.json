@@ -1,4 +1,8 @@
 {
+  "yup": {
+    "required": "This field is required",
+    "email": "This field must be a valid email"
+  },
   "title": {
     "home": "Home",
     "login": "Login",
@@ -20,6 +24,36 @@
     "gestion": "Rental management",
     "agency": "Agencies",
     "login": "Login",
-    "register": "Register"
+    "register": "Register",
+    "account": "My account"
+  },
+  "connection": {
+    "login": "Login",
+    "loginGoogle": "Login with Google",
+    "loginApple": "Login with Apple",
+    "register": "Register",
+    "registerGoogle": "Sign up with Google",
+    "registerApple": "Sign up with Apple",
+    "mail": "Email",
+    "password": "Password",
+    "button": "Login",
+    "ctaRegister": "Don't have an account ?",
+    "ctaRegisterClick": "Create my account",
+    "ctaForgotPassword": "Forgot password ?",
+    "ctaLogin": "Already have an account ?",
+    "ctaLoginClick": "Connect to my account",
+    "connected": "You are connected",
+    "emailValidation": "A validation email has been sent to you",
+    "newsletter": "I want to receive the newsletter"
+  },
+  "popup": {
+    "close": "Continue"
+  },
+  "searchbar": {
+    "city": "City",
+    "budget": "Budget",
+    "type": "Type",
+    "filters": "Filters",
+    "map": "Map"
   }
 }
