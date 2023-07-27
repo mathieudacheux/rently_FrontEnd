@@ -4,7 +4,7 @@ import Home from '../pages/Home/Home.tsx'
 import Login from '../pages/Login/Login.tsx'
 import Register from '../pages/Register/Register.tsx'
 import Playground from '../pages/Playground/Playground.tsx'
-import Properties from '../pages/Properties/Properties.tsx'
+import PropertiesStep from '../pages/Properties/PropertiesStep.tsx'
 import ValidateAccount from '../pages/ValidateAccount/ValidateAccount.tsx'
 
 export default function RouterElement(): JSX.Element {
@@ -14,7 +14,7 @@ export default function RouterElement(): JSX.Element {
       <Route path={APP_ROUTES.LOGIN} element={<Login />} />
       <Route path={APP_ROUTES.REGISTER} element={<Register />} />
       <Route path={APP_ROUTES.VALIDATE_ACCOUNT} element={<ValidateAccount />} />
-      <Route path={APP_ROUTES.PROPERTIES} element={<Properties />} />
+      <Route path={APP_ROUTES.PROPERTIES} element={<PropertiesStep />} />
       <Route path={APP_ROUTES.PLAYGROUND} element={<Playground />} />
     </Routes>
   )

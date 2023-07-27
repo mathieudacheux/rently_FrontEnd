@@ -48,6 +48,7 @@ export default {
             'border-radius': '15px',
             gap: '15px',
             'min-width': '250px',
+            'max-height': '320px',
           },
           '.card-body': {
             padding: '0',
@@ -193,6 +194,14 @@ export default {
           },
           '.tiny-text': {
             'font-size': '14px',
+          },
+
+          '.no-scrollbar::-webkit-scrollbar': {
+            display: 'none',
+          },
+
+          '.topShadow': {
+            'box-shadow': '0px -5px 12px 0px rgba(0, 0, 0, 0.15)',
           },
 
           '--bg-gradiant':

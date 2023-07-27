@@ -11,6 +11,7 @@ export default function Searchbar({ onClick }: { onClick: () => void }) {
             textCenter
             disableShadows
             placeholder={'searchbar.city'}
+            handleKeyDown={onClick}
           />
         </div>
         <div className='px-4 text-secondary text-center w-1/3 border-r-2 border-text-light'>
@@ -19,6 +20,7 @@ export default function Searchbar({ onClick }: { onClick: () => void }) {
             textCenter
             disableShadows
             placeholder={'searchbar.budget'}
+            handleKeyDown={onClick}
           />
         </div>
         <div className='px-4 text-secondary text-center w-1/3 border-r-2 border-text-light'>
@@ -27,6 +29,7 @@ export default function Searchbar({ onClick }: { onClick: () => void }) {
             textCenter
             disableShadows
             placeholder={'searchbar.type'}
+            handleKeyDown={onClick}
           />
         </div>
       </div>

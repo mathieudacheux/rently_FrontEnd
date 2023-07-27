@@ -54,7 +54,6 @@ export default function Playground(): JSX.Element {
             <FormikCheckbox name='test2' label='test2' />
           </div>
           <FormikTextArea name='test4' placeholder='testing formik textarea' />
-          <PropertyCard />
         </div>
       </div>
     </FormikProvider>

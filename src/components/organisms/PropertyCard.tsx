@@ -4,15 +4,21 @@ import Typography from '../atoms/Typography.tsx'
 import Bed from '../atoms/icons/Bed.tsx'
 import Bath from '../atoms/icons/Bath.tsx'
 import Kitchen from '../atoms/icons/Kitchen.tsx'
+import { PropertySerializerRead } from '../../api/index.ts'
 
 export default function PropertyCard({
   mapOpened,
+  property,
 }: {
   mapOpened?: boolean
+  property: PropertySerializerRead
 }): JSX.Element {
   const { t } = useTranslation()
   return (
-    <div className={`card ${!mapOpened ? 'w-1/5' : 'flex-row w-11/12'}`}>
+    <div
+      id={String(property.property_id)}
+      className={`card ${!mapOpened ? 'w-1/5' : 'flex-row w-11/12'}`}
+    >
       <figure className={!mapOpened ? 'w-12/12' : 'w-4/12'}>
         <img
           src='https://s3-alpha-sig.figma.com/img/ebfd/d8cc/7eb42cf9d865b262fe2556f782aad1ea?Expires=1691366400&Signature=U7hzI5kJwalGftk9~-EKZxHwMmPvR~Km4pZ2TCTJuPsNbqKhLEDDwk3633LxbBC2aG6J1rGr2pWczCJlL7O4YMxwcoN8ym9-xJyRJmBlV3KZAg3FW84d4KxiJTZRXEwsOzafyLATediX4WVNfyqEHYU0m9c-~9BtIfPZepLeHWaNGPDfyqXvxpSnOjkrYMLYbTXEF2L301pO4S02wAdRgp~0Y8rGUB6O9PkRcco5tZVzt4wYeHePcvS~~UxvpewkQzgB349vGHn7BrxoOHacl9KJxflVkxaX1LYXus1LIkt9C~tm0tyWpn5d-zNcGkOPPbjUbWwemyppJHLc-GwfOw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
@@ -25,35 +31,45 @@ export default function PropertyCard({
           !mapOpened ? 'w-12/12' : 'w-6/12'
         } flex-col justify-between`}
       >
-        <div className='flex justify-between mb-2'>
-          <Typography variant='h2'>{t('Description')}</Typography>
-          <Typography variant='h2-primary'>{t('1505050€')}</Typography>
+        <div className='flex justify-between'>
+          <Typography variant='h2'>{property.name || ''}</Typography>
         </div>
-        <div className='flex justify-between  mb-2'>
-          <Typography variant='text-light' color='textLight'>
-            {t('Amiens, 80000')}
+        <div className='flex justify-between'>
+          <Typography variant='h2-primary' price>
+            {property.price || ''}
           </Typography>
+        </div>
+        <div className='flex justify-between'>
           <Typography variant='text-light' color='textLight'>
-            {t('200m²')}
+            {`${property.zipcode || ''} ${property.city || ''}`}
+          </Typography>
+          <Typography variant='text-light' color='textLight' surface>
+            {property.surface || ''}
           </Typography>
         </div>
         <div className='flex justify-between'>
           <div className='flex justify-between items-center'>
             <Bed marginRight />
             <Typography variant='tiny-text' color='secondary'>
-              {t('4 beds')}
+              {property.bedroom && property.bedroom > 1
+                ? `${property.bedroom} ${t('properties.bedrooms')}`
+                : `${property.bedroom} ${t('properties.bedroom')}`}
             </Typography>
           </div>
           <div className='flex justify-between items-center'>
             <Bath marginRight />
             <Typography variant='tiny-text' color='secondary'>
-              {t('3 baths')}
+              {property.bathroom && property.bathroom > 1
+                ? `${property.bathroom} ${t('properties.bathrooms')}`
+                : `${property.bathroom} ${t('properties.bathroom')}`}
             </Typography>
           </div>
           <div className='flex justify-between items-center'>
             <Kitchen marginRight />
             <Typography variant='tiny-text' color='secondary'>
-              {t('1 kitchen')}
+              {property.kitchen && property.kitchen > 1
+                ? `${property.kitchen} ${t('properties.kitchens')}`
+                : `${property.kitchen} ${t('properties.kitchen')}`}
             </Typography>
           </div>
         </div>
