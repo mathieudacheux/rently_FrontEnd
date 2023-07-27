@@ -1,6 +1,5 @@
 import { useTranslation } from 'react-i18next'
 import { useField } from 'formik'
-import Typography from '../../atoms/Typography.tsx'
 
 export default function FormikCheckbox({
   name,

@@ -1,10 +1,9 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { RoleSerializerRead } from '../../api/index.ts'
 import { RootState } from '../../store/store.ts'
 
 type Role = {
   id: number | null
-  fullRole: RoleSerializerRead | null
+  fullRole: any
 }
 
 const initialState: Role = {
@@ -25,7 +24,7 @@ export const setSelectedRoleId = createAsyncThunk(
 
 export const setSelectedRole = createAsyncThunk(
   'role/setSelectedRole',
-  (args: { selectedRole: RoleSerializerRead | null }) => {
+  (args: { selectedRole: any | null }) => {
     const { selectedRole } = args
 
     return {
