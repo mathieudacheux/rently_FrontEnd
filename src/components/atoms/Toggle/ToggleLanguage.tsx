@@ -12,6 +12,7 @@ export default function ToggleLanguage(): JSX.Element {
 
   useEffect(() => {
     i18next.changeLanguage(language)
+    window.localStorage.setItem('lang', language)
   }, [language])
 
   return (
