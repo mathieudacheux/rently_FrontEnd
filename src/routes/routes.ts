@@ -7,6 +7,7 @@ const APP_ROUTES = {
   REGISTER: '/register',
   FORGOT_PASSWORD: '/forgot-password',
   RESET_PASSWORD: '/reset-password',
+  ACCOUNT: '/account',
 
   // Navbar
   BUY: '/buy',

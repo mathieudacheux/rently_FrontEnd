@@ -31,6 +31,6 @@ const authSlice = createSlice({
   },
 })
 
-export const token = (state: RootState) => state.auth.token
+export const selectToken = (state: RootState) => state.auth.token
 
 export default authSlice
