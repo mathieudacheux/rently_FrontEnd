@@ -11,8 +11,7 @@
     "prepare": "husky install",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "format": "prettier --write \"**/*.{js,ts,json,md}\"",
-    "openapi:generate": "openapi-generator-cli generate -i https://back-rently.mathieudacheux.fr/doc/swagger.json -g typescript-redux-query -o src/api --skip-validate-spec && mv src/api/src/* src/api && rm -rf src/api/src && rm -rf src/api/.openapi-generator && rm -rf src/api/.gitignore && rm -rf src/api/tsconfig.json && rm -rf src/api/.openapi-generator-ignore",
-    "open:api": "npx @rtk-query/codegen-openapi openapi-config.ts"
+    "openapi:generate": "rm -rf src/api/ && openapi-generator-cli generate -i https://back-rently.mathieudacheux.fr/doc/swagger.json -g typescript-redux-query -o src/api --skip-validate-spec && mv src/api/src/* src/api && rm -rf src/api/src && rm -rf src/api/.openapi-generator && rm -rf src/api/.gitignore && rm -rf src/api/tsconfig.json && rm -rf src/api/.openapi-generator-ignore"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
