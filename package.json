@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npx eslint --fix src && tsc && vite build",
+    "build": "tsc && vite build",
     "preview": "vite preview",
     "host": "vite preview --host",
     "prepare": "husky install",
