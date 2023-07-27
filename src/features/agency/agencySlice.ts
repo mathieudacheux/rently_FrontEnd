@@ -1,10 +1,9 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { AgencySerializerRead } from '../../api/index.ts'
 import { RootState } from '../../store/store.ts'
 
 type Agency = {
   id: number | null
-  fullAgency: AgencySerializerRead | null
+  fullAgency: any
 }
 
 const initialState: Agency = {
@@ -25,7 +24,7 @@ export const setSelectedAgencyId = createAsyncThunk(
 
 export const setSelectedAgency = createAsyncThunk(
   'agency/setSelectedAgency',
-  (args: { selectedAgency: AgencySerializerRead | null }) => {
+  (args: { selectedAgency: any }) => {
     const { selectedAgency } = args
 
     return {

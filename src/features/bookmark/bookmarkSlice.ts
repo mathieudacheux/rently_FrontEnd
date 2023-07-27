@@ -1,10 +1,9 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { BookmarkSerializerRead } from '../../api/models/BookmarkSerializerRead.ts'
 import { RootState } from '../../store/store.ts'
 
 type Bookmark = {
   id: number | null
-  fullBookmark: BookmarkSerializerRead | null
+  fullBookmark: any
 }
 
 const initialState: Bookmark = {
@@ -25,7 +24,7 @@ export const setSelectedBookmarkId = createAsyncThunk(
 
 export const setSelectedBookmark = createAsyncThunk(
   'bookmark/setSelectedBookmark',
-  (args: { selectedBookmark: BookmarkSerializerRead | null }) => {
+  (args: { selectedBookmark: any }) => {
     const { selectedBookmark } = args
 
     return {
