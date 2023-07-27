@@ -15,219 +15,244 @@ import { exists, mapValues } from '../runtime'
 /**
  *
  * @export
- * @interface PropertySerializerPut
+ * @interface PropertySerializerRead
  */
-export interface PropertySerializerPut {
+export interface PropertySerializerRead {
+  /**
+   *
+   * @type {number}
+   * @memberof PropertySerializerRead
+   */
+  propertyId?: number
   /**
    *
    * @type {string}
-   * @memberof PropertySerializerPut
+   * @memberof PropertySerializerRead
    */
   name?: string
   /**
    *
    * @type {string}
-   * @memberof PropertySerializerPut
+   * @memberof PropertySerializerRead
    */
   description?: string
   /**
    *
    * @type {string}
-   * @memberof PropertySerializerPut
+   * @memberof PropertySerializerRead
    */
   signatureDate?: string
   /**
    *
    * @type {number}
-   * @memberof PropertySerializerPut
+   * @memberof PropertySerializerRead
    */
   propertyType?: number
   /**
    *
    * @type {number}
-   * @memberof PropertySerializerPut
+   * @memberof PropertySerializerRead
    */
   price?: number
   /**
    *
    * @type {string}
-   * @memberof PropertySerializerPut
+   * @memberof PropertySerializerRead
    */
   surface?: string
   /**
    *
    * @type {string}
-   * @memberof PropertySerializerPut
+   * @memberof PropertySerializerRead
    */
   landSize?: string
   /**
    *
    * @type {number}
-   * @memberof PropertySerializerPut
+   * @memberof PropertySerializerRead
    */
   bathroom?: number
   /**
    *
    * @type {number}
-   * @memberof PropertySerializerPut
+   * @memberof PropertySerializerRead
    */
   kitchen?: number
   /**
    *
    * @type {number}
-   * @memberof PropertySerializerPut
+   * @memberof PropertySerializerRead
    */
   toilet?: number
   /**
    *
    * @type {number}
-   * @memberof PropertySerializerPut
+   * @memberof PropertySerializerRead
    */
   bedroom?: number
   /**
    *
    * @type {boolean}
-   * @memberof PropertySerializerPut
+   * @memberof PropertySerializerRead
    */
   elevator?: boolean
   /**
    *
    * @type {boolean}
-   * @memberof PropertySerializerPut
+   * @memberof PropertySerializerRead
    */
   balcony?: boolean
   /**
    *
    * @type {boolean}
-   * @memberof PropertySerializerPut
+   * @memberof PropertySerializerRead
    */
   terrace?: boolean
   /**
    *
    * @type {boolean}
-   * @memberof PropertySerializerPut
+   * @memberof PropertySerializerRead
    */
   cellar?: boolean
   /**
    *
    * @type {boolean}
-   * @memberof PropertySerializerPut
+   * @memberof PropertySerializerRead
    */
   parking?: boolean
   /**
    *
    * @type {number}
-   * @memberof PropertySerializerPut
+   * @memberof PropertySerializerRead
    */
   numberRoom?: number
   /**
    *
    * @type {boolean}
-   * @memberof PropertySerializerPut
+   * @memberof PropertySerializerRead
    */
   pool?: boolean
   /**
    *
    * @type {boolean}
-   * @memberof PropertySerializerPut
+   * @memberof PropertySerializerRead
    */
   caretaker?: boolean
   /**
    *
    * @type {boolean}
-   * @memberof PropertySerializerPut
+   * @memberof PropertySerializerRead
    */
   fiberDeployed?: boolean
   /**
    *
    * @type {boolean}
-   * @memberof PropertySerializerPut
+   * @memberof PropertySerializerRead
    */
   duplex?: boolean
   /**
    *
    * @type {boolean}
-   * @memberof PropertySerializerPut
+   * @memberof PropertySerializerRead
    */
   topFloor?: boolean
   /**
    *
    * @type {boolean}
-   * @memberof PropertySerializerPut
+   * @memberof PropertySerializerRead
    */
   garage?: boolean
   /**
    *
    * @type {boolean}
-   * @memberof PropertySerializerPut
+   * @memberof PropertySerializerRead
    */
   workDone?: boolean
   /**
    *
    * @type {boolean}
-   * @memberof PropertySerializerPut
+   * @memberof PropertySerializerRead
    */
   lifeAnnuity?: boolean
   /**
    *
    * @type {boolean}
-   * @memberof PropertySerializerPut
+   * @memberof PropertySerializerRead
    */
   groundFloor?: boolean
   /**
    *
    * @type {string}
-   * @memberof PropertySerializerPut
+   * @memberof PropertySerializerRead
    */
   landSize1?: string
   /**
    *
    * @type {boolean}
-   * @memberof PropertySerializerPut
+   * @memberof PropertySerializerRead
    */
   garden?: boolean
   /**
    *
    * @type {number}
-   * @memberof PropertySerializerPut
+   * @memberof PropertySerializerRead
    */
   ownerId?: number
   /**
    *
    * @type {number}
-   * @memberof PropertySerializerPut
+   * @memberof PropertySerializerRead
    */
   statusId?: number
   /**
    *
    * @type {number}
-   * @memberof PropertySerializerPut
+   * @memberof PropertySerializerRead
    */
   tenantId?: number
   /**
    *
    * @type {number}
-   * @memberof PropertySerializerPut
+   * @memberof PropertySerializerRead
    */
   addressId?: number
   /**
    *
+   * @type {string}
+   * @memberof PropertySerializerRead
+   */
+  city?: string
+  /**
+   *
+   * @type {string}
+   * @memberof PropertySerializerRead
+   */
+  zipcode?: string
+  /**
+   *
+   * @type {string}
+   * @memberof PropertySerializerRead
+   */
+  way?: string
+  /**
+   *
    * @type {number}
-   * @memberof PropertySerializerPut
+   * @memberof PropertySerializerRead
    */
   dpe?: number
   /**
    *
    * @type {number}
-   * @memberof PropertySerializerPut
+   * @memberof PropertySerializerRead
    */
   agencyId?: number
 }
 
-export function PropertySerializerPutFromJSON(
+export function PropertySerializerReadFromJSON(
   json: any,
-): PropertySerializerPut {
+): PropertySerializerRead {
   return {
+    propertyId: !exists(json, 'property_id') ? undefined : json['property_id'],
     name: !exists(json, 'name') ? undefined : json['name'],
     description: !exists(json, 'description') ? undefined : json['description'],
     signatureDate: !exists(json, 'signature_date')
@@ -270,18 +295,22 @@ export function PropertySerializerPutFromJSON(
     statusId: !exists(json, 'status_id') ? undefined : json['status_id'],
     tenantId: !exists(json, 'tenant_id') ? undefined : json['tenant_id'],
     addressId: !exists(json, 'address_id') ? undefined : json['address_id'],
+    city: !exists(json, 'city') ? undefined : json['city'],
+    zipcode: !exists(json, 'zipcode') ? undefined : json['zipcode'],
+    way: !exists(json, 'way') ? undefined : json['way'],
     dpe: !exists(json, 'dpe') ? undefined : json['dpe'],
     agencyId: !exists(json, 'agency_id') ? undefined : json['agency_id'],
   }
 }
 
-export function PropertySerializerPutToJSON(
-  value?: PropertySerializerPut,
+export function PropertySerializerReadToJSON(
+  value?: PropertySerializerRead,
 ): any {
   if (value === undefined) {
     return undefined
   }
   return {
+    property_id: value.propertyId,
     name: value.name,
     description: value.description,
     signature_date: value.signatureDate,
@@ -314,6 +343,9 @@ export function PropertySerializerPutToJSON(
     status_id: value.statusId,
     tenant_id: value.tenantId,
     address_id: value.addressId,
+    city: value.city,
+    zipcode: value.zipcode,
+    way: value.way,
     dpe: value.dpe,
     agency_id: value.agencyId,
   }

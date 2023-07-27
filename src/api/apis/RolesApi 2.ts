@@ -19,48 +19,48 @@ import {
 } from 'redux-query'
 import * as runtime from '../runtime'
 import {
-  StatusSerializerPost,
-  StatusSerializerPostFromJSON,
-  StatusSerializerPostToJSON,
-  StatusSerializerPut,
-  StatusSerializerPutFromJSON,
-  StatusSerializerPutToJSON,
-  StatusSerializerRead,
-  StatusSerializerReadFromJSON,
-  StatusSerializerReadToJSON,
+  RoleSerializerPost,
+  RoleSerializerPostFromJSON,
+  RoleSerializerPostToJSON,
+  RoleSerializerPut,
+  RoleSerializerPutFromJSON,
+  RoleSerializerPutToJSON,
+  RoleSerializerRead,
+  RoleSerializerReadFromJSON,
+  RoleSerializerReadToJSON,
 } from '../models'
 
-export interface StatusesCreateStatusRequest {
-  statusSerializerPost: StatusSerializerPost
+export interface RolesCreateRoleRequest {
+  roleSerializerPost: RoleSerializerPost
 }
 
-export interface StatusesDeleteStatusRequest {
+export interface RolesDeleteRoleRequest {
   id: number
 }
 
-export interface StatusesGetStatusByIdRequest {
+export interface RolesGetRoleByIdRequest {
   id: number
 }
 
-export interface StatusesUpdateStatusRequest {
+export interface RolesUpdateRoleRequest {
   id: number
-  statusSerializerPut?: StatusSerializerPut
+  roleSerializerPut?: RoleSerializerPut
 }
 
 /**
- * Create a new status
+ * Create a new role
  */
-function statusesCreateStatusRaw<T>(
-  requestParameters: StatusesCreateStatusRequest,
-  requestConfig: runtime.TypedQueryConfig<T, StatusSerializerRead> = {},
+function rolesCreateRoleRaw<T>(
+  requestParameters: RolesCreateRoleRequest,
+  requestConfig: runtime.TypedQueryConfig<T, RoleSerializerRead> = {},
 ): QueryConfig<T> {
   if (
-    requestParameters.statusSerializerPost === null ||
-    requestParameters.statusSerializerPost === undefined
+    requestParameters.roleSerializerPost === null ||
+    requestParameters.roleSerializerPost === undefined
   ) {
     throw new runtime.RequiredError(
-      'statusSerializerPost',
-      'Required parameter requestParameters.statusSerializerPost was null or undefined when calling statusesCreateStatus.',
+      'roleSerializerPost',
+      'Required parameter requestParameters.roleSerializerPost was null or undefined when calling rolesCreateRole.',
     )
   }
 
@@ -74,7 +74,7 @@ function statusesCreateStatusRaw<T>(
 
   meta.authType = ['bearer']
   const config: QueryConfig<T> = {
-    url: `${runtime.Configuration.basePath}/statuses`,
+    url: `${runtime.Configuration.basePath}/roles`,
     meta,
     update: requestConfig.update,
     queryKey: requestConfig.queryKey,
@@ -87,39 +87,39 @@ function statusesCreateStatusRaw<T>(
     },
     body:
       queryParameters ||
-      StatusSerializerPostToJSON(requestParameters.statusSerializerPost),
+      RoleSerializerPostToJSON(requestParameters.roleSerializerPost),
   }
 
   const { transform: requestTransform } = requestConfig
   if (requestTransform) {
     config.transform = (body: ResponseBody, text: ResponseBody) =>
-      requestTransform(StatusSerializerReadFromJSON(body), text)
+      requestTransform(RoleSerializerReadFromJSON(body), text)
   }
 
   return config
 }
 
 /**
- * Create a new status
+ * Create a new role
  */
-export function statusesCreateStatus<T>(
-  requestParameters: StatusesCreateStatusRequest,
-  requestConfig?: runtime.TypedQueryConfig<T, StatusSerializerRead>,
+export function rolesCreateRole<T>(
+  requestParameters: RolesCreateRoleRequest,
+  requestConfig?: runtime.TypedQueryConfig<T, RoleSerializerRead>,
 ): QueryConfig<T> {
-  return statusesCreateStatusRaw(requestParameters, requestConfig)
+  return rolesCreateRoleRaw(requestParameters, requestConfig)
 }
 
 /**
- * Delete a status by its id
+ * Delete a role by its id
  */
-function statusesDeleteStatusRaw<T>(
-  requestParameters: StatusesDeleteStatusRequest,
+function rolesDeleteRoleRaw<T>(
+  requestParameters: RolesDeleteRoleRequest,
   requestConfig: runtime.TypedQueryConfig<T, void> = {},
 ): QueryConfig<T> {
   if (requestParameters.id === null || requestParameters.id === undefined) {
     throw new runtime.RequiredError(
       'id',
-      'Required parameter requestParameters.id was null or undefined when calling statusesDeleteStatus.',
+      'Required parameter requestParameters.id was null or undefined when calling rolesDeleteRole.',
     )
   }
 
@@ -131,7 +131,7 @@ function statusesDeleteStatusRaw<T>(
 
   meta.authType = ['bearer']
   const config: QueryConfig<T> = {
-    url: `${runtime.Configuration.basePath}/statuses/{id}`.replace(
+    url: `${runtime.Configuration.basePath}/roles/{id}`.replace(
       `{${'id'}}`,
       encodeURIComponent(String(requestParameters.id)),
     ),
@@ -156,20 +156,20 @@ function statusesDeleteStatusRaw<T>(
 }
 
 /**
- * Delete a status by its id
+ * Delete a role by its id
  */
-export function statusesDeleteStatus<T>(
-  requestParameters: StatusesDeleteStatusRequest,
+export function rolesDeleteRole<T>(
+  requestParameters: RolesDeleteRoleRequest,
   requestConfig?: runtime.TypedQueryConfig<T, void>,
 ): QueryConfig<T> {
-  return statusesDeleteStatusRaw(requestParameters, requestConfig)
+  return rolesDeleteRoleRaw(requestParameters, requestConfig)
 }
 
 /**
- * Return a list of all statuses
+ * Return a list of all roles
  */
-function statusesGetAllStatusRaw<T>(
-  requestConfig: runtime.TypedQueryConfig<T, Array<StatusSerializerRead>> = {},
+function rolesGetAllRolesRaw<T>(
+  requestConfig: runtime.TypedQueryConfig<T, Array<object>> = {},
 ): QueryConfig<T> {
   let queryParameters = null
 
@@ -179,7 +179,7 @@ function statusesGetAllStatusRaw<T>(
 
   meta.authType = ['bearer']
   const config: QueryConfig<T> = {
-    url: `${runtime.Configuration.basePath}/statuses`,
+    url: `${runtime.Configuration.basePath}/roles`,
     meta,
     update: requestConfig.update,
     queryKey: requestConfig.queryKey,
@@ -195,33 +195,31 @@ function statusesGetAllStatusRaw<T>(
 
   const { transform: requestTransform } = requestConfig
   if (requestTransform) {
-    config.transform = (body: ResponseBody, text: ResponseBody) =>
-      requestTransform(body.map(StatusSerializerReadFromJSON), text)
   }
 
   return config
 }
 
 /**
- * Return a list of all statuses
+ * Return a list of all roles
  */
-export function statusesGetAllStatus<T>(
-  requestConfig?: runtime.TypedQueryConfig<T, Array<StatusSerializerRead>>,
+export function rolesGetAllRoles<T>(
+  requestConfig?: runtime.TypedQueryConfig<T, Array<object>>,
 ): QueryConfig<T> {
-  return statusesGetAllStatusRaw(requestConfig)
+  return rolesGetAllRolesRaw(requestConfig)
 }
 
 /**
- * Return a status by his id
+ * Return a role by his id
  */
-function statusesGetStatusByIdRaw<T>(
-  requestParameters: StatusesGetStatusByIdRequest,
-  requestConfig: runtime.TypedQueryConfig<T, StatusSerializerRead> = {},
+function rolesGetRoleByIdRaw<T>(
+  requestParameters: RolesGetRoleByIdRequest,
+  requestConfig: runtime.TypedQueryConfig<T, RoleSerializerRead> = {},
 ): QueryConfig<T> {
   if (requestParameters.id === null || requestParameters.id === undefined) {
     throw new runtime.RequiredError(
       'id',
-      'Required parameter requestParameters.id was null or undefined when calling statusesGetStatusById.',
+      'Required parameter requestParameters.id was null or undefined when calling rolesGetRoleById.',
     )
   }
 
@@ -233,7 +231,7 @@ function statusesGetStatusByIdRaw<T>(
 
   meta.authType = ['bearer']
   const config: QueryConfig<T> = {
-    url: `${runtime.Configuration.basePath}/statuses/{id}`.replace(
+    url: `${runtime.Configuration.basePath}/roles/{id}`.replace(
       `{${'id'}}`,
       encodeURIComponent(String(requestParameters.id)),
     ),
@@ -253,33 +251,33 @@ function statusesGetStatusByIdRaw<T>(
   const { transform: requestTransform } = requestConfig
   if (requestTransform) {
     config.transform = (body: ResponseBody, text: ResponseBody) =>
-      requestTransform(StatusSerializerReadFromJSON(body), text)
+      requestTransform(RoleSerializerReadFromJSON(body), text)
   }
 
   return config
 }
 
 /**
- * Return a status by his id
+ * Return a role by his id
  */
-export function statusesGetStatusById<T>(
-  requestParameters: StatusesGetStatusByIdRequest,
-  requestConfig?: runtime.TypedQueryConfig<T, StatusSerializerRead>,
+export function rolesGetRoleById<T>(
+  requestParameters: RolesGetRoleByIdRequest,
+  requestConfig?: runtime.TypedQueryConfig<T, RoleSerializerRead>,
 ): QueryConfig<T> {
-  return statusesGetStatusByIdRaw(requestParameters, requestConfig)
+  return rolesGetRoleByIdRaw(requestParameters, requestConfig)
 }
 
 /**
- * Update a status by its id
+ * Update a role by its id
  */
-function statusesUpdateStatusRaw<T>(
-  requestParameters: StatusesUpdateStatusRequest,
-  requestConfig: runtime.TypedQueryConfig<T, StatusSerializerRead> = {},
+function rolesUpdateRoleRaw<T>(
+  requestParameters: RolesUpdateRoleRequest,
+  requestConfig: runtime.TypedQueryConfig<T, RoleSerializerRead> = {},
 ): QueryConfig<T> {
   if (requestParameters.id === null || requestParameters.id === undefined) {
     throw new runtime.RequiredError(
       'id',
-      'Required parameter requestParameters.id was null or undefined when calling statusesUpdateStatus.',
+      'Required parameter requestParameters.id was null or undefined when calling rolesUpdateRole.',
     )
   }
 
@@ -293,7 +291,7 @@ function statusesUpdateStatusRaw<T>(
 
   meta.authType = ['bearer']
   const config: QueryConfig<T> = {
-    url: `${runtime.Configuration.basePath}/statuses/{id}`.replace(
+    url: `${runtime.Configuration.basePath}/roles/{id}`.replace(
       `{${'id'}}`,
       encodeURIComponent(String(requestParameters.id)),
     ),
@@ -309,24 +307,24 @@ function statusesUpdateStatusRaw<T>(
     },
     body:
       queryParameters ||
-      StatusSerializerPutToJSON(requestParameters.statusSerializerPut),
+      RoleSerializerPutToJSON(requestParameters.roleSerializerPut),
   }
 
   const { transform: requestTransform } = requestConfig
   if (requestTransform) {
     config.transform = (body: ResponseBody, text: ResponseBody) =>
-      requestTransform(StatusSerializerReadFromJSON(body), text)
+      requestTransform(RoleSerializerReadFromJSON(body), text)
   }
 
   return config
 }
 
 /**
- * Update a status by its id
+ * Update a role by its id
  */
-export function statusesUpdateStatus<T>(
-  requestParameters: StatusesUpdateStatusRequest,
-  requestConfig?: runtime.TypedQueryConfig<T, StatusSerializerRead>,
+export function rolesUpdateRole<T>(
+  requestParameters: RolesUpdateRoleRequest,
+  requestConfig?: runtime.TypedQueryConfig<T, RoleSerializerRead>,
 ): QueryConfig<T> {
-  return statusesUpdateStatusRaw(requestParameters, requestConfig)
+  return rolesUpdateRoleRaw(requestParameters, requestConfig)
 }

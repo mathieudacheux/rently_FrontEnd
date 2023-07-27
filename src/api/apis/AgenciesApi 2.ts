@@ -19,53 +19,51 @@ import {
 } from 'redux-query'
 import * as runtime from '../runtime'
 import {
-  AppointmentSerializerPost,
-  AppointmentSerializerPostFromJSON,
-  AppointmentSerializerPostToJSON,
-  AppointmentSerializerPut,
-  AppointmentSerializerPutFromJSON,
-  AppointmentSerializerPutToJSON,
-  AppointmentSerializerRead,
-  AppointmentSerializerReadFromJSON,
-  AppointmentSerializerReadToJSON,
+  AgencySerializerPost,
+  AgencySerializerPostFromJSON,
+  AgencySerializerPostToJSON,
+  AgencySerializerRead,
+  AgencySerializerReadFromJSON,
+  AgencySerializerReadToJSON,
 } from '../models'
 
-export interface AppointmentsCreateAppointmentRequest {
-  appointmentSerializerPost: AppointmentSerializerPost
+export interface AgenciesCreateAgencyRequest {
+  agencySerializerPost: AgencySerializerPost
 }
 
-export interface AppointmentsDeleteAppointmentRequest {
+export interface AgenciesDeleteAgencyRequest {
   id: number
 }
 
-export interface AppointmentsGetAppointmentByIdRequest {
+export interface AgenciesGetAgenciesByFilterRequest {
+  name?: string
+  city?: string
+  zipcode?: string
+}
+
+export interface AgenciesGetAgencyByIdRequest {
   id: number
 }
 
-export interface AppointmentsGetAppointmentsByFilterRequest {
-  userId1?: number
-  userId2?: number
-}
-
-export interface AppointmentsUpdateAppointmentRequest {
+export interface AgenciesUpdateAgencyRequest {
   id: number
-  appointmentSerializerPut?: AppointmentSerializerPut
+  body?: object
 }
 
 /**
- * Create a new appointment
+ * Create a new agency
  */
-function appointmentsCreateAppointmentRaw<T>(
-  requestParameters: AppointmentsCreateAppointmentRequest,
-  requestConfig: runtime.TypedQueryConfig<T, AppointmentSerializerRead> = {},
+function agenciesCreateAgencyRaw<T>(
+  requestParameters: AgenciesCreateAgencyRequest,
+  requestConfig: runtime.TypedQueryConfig<T, AgencySerializerRead> = {},
 ): QueryConfig<T> {
   if (
-    requestParameters.appointmentSerializerPost === null ||
-    requestParameters.appointmentSerializerPost === undefined
+    requestParameters.agencySerializerPost === null ||
+    requestParameters.agencySerializerPost === undefined
   ) {
     throw new runtime.RequiredError(
-      'appointmentSerializerPost',
-      'Required parameter requestParameters.appointmentSerializerPost was null or undefined when calling appointmentsCreateAppointment.',
+      'agencySerializerPost',
+      'Required parameter requestParameters.agencySerializerPost was null or undefined when calling agenciesCreateAgency.',
     )
   }
 
@@ -79,7 +77,7 @@ function appointmentsCreateAppointmentRaw<T>(
 
   meta.authType = ['bearer']
   const config: QueryConfig<T> = {
-    url: `${runtime.Configuration.basePath}/appointments`,
+    url: `${runtime.Configuration.basePath}/agencies`,
     meta,
     update: requestConfig.update,
     queryKey: requestConfig.queryKey,
@@ -92,41 +90,39 @@ function appointmentsCreateAppointmentRaw<T>(
     },
     body:
       queryParameters ||
-      AppointmentSerializerPostToJSON(
-        requestParameters.appointmentSerializerPost,
-      ),
+      AgencySerializerPostToJSON(requestParameters.agencySerializerPost),
   }
 
   const { transform: requestTransform } = requestConfig
   if (requestTransform) {
     config.transform = (body: ResponseBody, text: ResponseBody) =>
-      requestTransform(AppointmentSerializerReadFromJSON(body), text)
+      requestTransform(AgencySerializerReadFromJSON(body), text)
   }
 
   return config
 }
 
 /**
- * Create a new appointment
+ * Create a new agency
  */
-export function appointmentsCreateAppointment<T>(
-  requestParameters: AppointmentsCreateAppointmentRequest,
-  requestConfig?: runtime.TypedQueryConfig<T, AppointmentSerializerRead>,
+export function agenciesCreateAgency<T>(
+  requestParameters: AgenciesCreateAgencyRequest,
+  requestConfig?: runtime.TypedQueryConfig<T, AgencySerializerRead>,
 ): QueryConfig<T> {
-  return appointmentsCreateAppointmentRaw(requestParameters, requestConfig)
+  return agenciesCreateAgencyRaw(requestParameters, requestConfig)
 }
 
 /**
- * Delete a appointment by its id
+ * Delete a agency by its id
  */
-function appointmentsDeleteAppointmentRaw<T>(
-  requestParameters: AppointmentsDeleteAppointmentRequest,
+function agenciesDeleteAgencyRaw<T>(
+  requestParameters: AgenciesDeleteAgencyRequest,
   requestConfig: runtime.TypedQueryConfig<T, void> = {},
 ): QueryConfig<T> {
   if (requestParameters.id === null || requestParameters.id === undefined) {
     throw new runtime.RequiredError(
       'id',
-      'Required parameter requestParameters.id was null or undefined when calling appointmentsDeleteAppointment.',
+      'Required parameter requestParameters.id was null or undefined when calling agenciesDeleteAgency.',
     )
   }
 
@@ -138,7 +134,7 @@ function appointmentsDeleteAppointmentRaw<T>(
 
   meta.authType = ['bearer']
   const config: QueryConfig<T> = {
-    url: `${runtime.Configuration.basePath}/appointments/{id}`.replace(
+    url: `${runtime.Configuration.basePath}/agencies/{id}`.replace(
       `{${'id'}}`,
       encodeURIComponent(String(requestParameters.id)),
     ),
@@ -163,25 +159,37 @@ function appointmentsDeleteAppointmentRaw<T>(
 }
 
 /**
- * Delete a appointment by its id
+ * Delete a agency by its id
  */
-export function appointmentsDeleteAppointment<T>(
-  requestParameters: AppointmentsDeleteAppointmentRequest,
+export function agenciesDeleteAgency<T>(
+  requestParameters: AgenciesDeleteAgencyRequest,
   requestConfig?: runtime.TypedQueryConfig<T, void>,
 ): QueryConfig<T> {
-  return appointmentsDeleteAppointmentRaw(requestParameters, requestConfig)
+  return agenciesDeleteAgencyRaw(requestParameters, requestConfig)
 }
 
 /**
- * Return a list of all appointments
+ * Return a list of agencies by filter
  */
-function appointmentsGetAllAppointmentsRaw<T>(
-  requestConfig: runtime.TypedQueryConfig<
-    T,
-    Array<AppointmentSerializerRead>
-  > = {},
+function agenciesGetAgenciesByFilterRaw<T>(
+  requestParameters: AgenciesGetAgenciesByFilterRequest,
+  requestConfig: runtime.TypedQueryConfig<T, Array<AgencySerializerRead>> = {},
 ): QueryConfig<T> {
   let queryParameters = null
+
+  queryParameters = {}
+
+  if (requestParameters.name !== undefined) {
+    queryParameters['name'] = requestParameters.name
+  }
+
+  if (requestParameters.city !== undefined) {
+    queryParameters['city'] = requestParameters.city
+  }
+
+  if (requestParameters.zipcode !== undefined) {
+    queryParameters['zipcode'] = requestParameters.zipcode
+  }
 
   const headerParameters: runtime.HttpHeaders = {}
 
@@ -189,7 +197,7 @@ function appointmentsGetAllAppointmentsRaw<T>(
 
   meta.authType = ['bearer']
   const config: QueryConfig<T> = {
-    url: `${runtime.Configuration.basePath}/appointments`,
+    url: `${runtime.Configuration.basePath}/agencies/agency_filter`,
     meta,
     update: requestConfig.update,
     queryKey: requestConfig.queryKey,
@@ -206,32 +214,33 @@ function appointmentsGetAllAppointmentsRaw<T>(
   const { transform: requestTransform } = requestConfig
   if (requestTransform) {
     config.transform = (body: ResponseBody, text: ResponseBody) =>
-      requestTransform(body.map(AppointmentSerializerReadFromJSON), text)
+      requestTransform(body.map(AgencySerializerReadFromJSON), text)
   }
 
   return config
 }
 
 /**
- * Return a list of all appointments
+ * Return a list of agencies by filter
  */
-export function appointmentsGetAllAppointments<T>(
-  requestConfig?: runtime.TypedQueryConfig<T, Array<AppointmentSerializerRead>>,
+export function agenciesGetAgenciesByFilter<T>(
+  requestParameters: AgenciesGetAgenciesByFilterRequest,
+  requestConfig?: runtime.TypedQueryConfig<T, Array<AgencySerializerRead>>,
 ): QueryConfig<T> {
-  return appointmentsGetAllAppointmentsRaw(requestConfig)
+  return agenciesGetAgenciesByFilterRaw(requestParameters, requestConfig)
 }
 
 /**
- * Return a appointment by his id
+ * Return a agency by his id
  */
-function appointmentsGetAppointmentByIdRaw<T>(
-  requestParameters: AppointmentsGetAppointmentByIdRequest,
-  requestConfig: runtime.TypedQueryConfig<T, AppointmentSerializerRead> = {},
+function agenciesGetAgencyByIdRaw<T>(
+  requestParameters: AgenciesGetAgencyByIdRequest,
+  requestConfig: runtime.TypedQueryConfig<T, AgencySerializerRead> = {},
 ): QueryConfig<T> {
   if (requestParameters.id === null || requestParameters.id === undefined) {
     throw new runtime.RequiredError(
       'id',
-      'Required parameter requestParameters.id was null or undefined when calling appointmentsGetAppointmentById.',
+      'Required parameter requestParameters.id was null or undefined when calling agenciesGetAgencyById.',
     )
   }
 
@@ -243,7 +252,7 @@ function appointmentsGetAppointmentByIdRaw<T>(
 
   meta.authType = ['bearer']
   const config: QueryConfig<T> = {
-    url: `${runtime.Configuration.basePath}/appointments/{id}`.replace(
+    url: `${runtime.Configuration.basePath}/agencies/{id}`.replace(
       `{${'id'}}`,
       encodeURIComponent(String(requestParameters.id)),
     ),
@@ -263,43 +272,29 @@ function appointmentsGetAppointmentByIdRaw<T>(
   const { transform: requestTransform } = requestConfig
   if (requestTransform) {
     config.transform = (body: ResponseBody, text: ResponseBody) =>
-      requestTransform(AppointmentSerializerReadFromJSON(body), text)
+      requestTransform(AgencySerializerReadFromJSON(body), text)
   }
 
   return config
 }
 
 /**
- * Return a appointment by his id
+ * Return a agency by his id
  */
-export function appointmentsGetAppointmentById<T>(
-  requestParameters: AppointmentsGetAppointmentByIdRequest,
-  requestConfig?: runtime.TypedQueryConfig<T, AppointmentSerializerRead>,
+export function agenciesGetAgencyById<T>(
+  requestParameters: AgenciesGetAgencyByIdRequest,
+  requestConfig?: runtime.TypedQueryConfig<T, AgencySerializerRead>,
 ): QueryConfig<T> {
-  return appointmentsGetAppointmentByIdRaw(requestParameters, requestConfig)
+  return agenciesGetAgencyByIdRaw(requestParameters, requestConfig)
 }
 
 /**
- * Return a list of appointments by filter
+ * Return a list of all agencies
  */
-function appointmentsGetAppointmentsByFilterRaw<T>(
-  requestParameters: AppointmentsGetAppointmentsByFilterRequest,
-  requestConfig: runtime.TypedQueryConfig<
-    T,
-    Array<AppointmentSerializerRead>
-  > = {},
+function agenciesGetAllAgenciesRaw<T>(
+  requestConfig: runtime.TypedQueryConfig<T, Array<AgencySerializerRead>> = {},
 ): QueryConfig<T> {
   let queryParameters = null
-
-  queryParameters = {}
-
-  if (requestParameters.userId1 !== undefined) {
-    queryParameters['user_id_1'] = requestParameters.userId1
-  }
-
-  if (requestParameters.userId2 !== undefined) {
-    queryParameters['user_id_2'] = requestParameters.userId2
-  }
 
   const headerParameters: runtime.HttpHeaders = {}
 
@@ -307,7 +302,7 @@ function appointmentsGetAppointmentsByFilterRaw<T>(
 
   meta.authType = ['bearer']
   const config: QueryConfig<T> = {
-    url: `${runtime.Configuration.basePath}/appointments/appointments_filter`,
+    url: `${runtime.Configuration.basePath}/agencies`,
     meta,
     update: requestConfig.update,
     queryKey: requestConfig.queryKey,
@@ -324,36 +319,32 @@ function appointmentsGetAppointmentsByFilterRaw<T>(
   const { transform: requestTransform } = requestConfig
   if (requestTransform) {
     config.transform = (body: ResponseBody, text: ResponseBody) =>
-      requestTransform(body.map(AppointmentSerializerReadFromJSON), text)
+      requestTransform(body.map(AgencySerializerReadFromJSON), text)
   }
 
   return config
 }
 
 /**
- * Return a list of appointments by filter
+ * Return a list of all agencies
  */
-export function appointmentsGetAppointmentsByFilter<T>(
-  requestParameters: AppointmentsGetAppointmentsByFilterRequest,
-  requestConfig?: runtime.TypedQueryConfig<T, Array<AppointmentSerializerRead>>,
+export function agenciesGetAllAgencies<T>(
+  requestConfig?: runtime.TypedQueryConfig<T, Array<AgencySerializerRead>>,
 ): QueryConfig<T> {
-  return appointmentsGetAppointmentsByFilterRaw(
-    requestParameters,
-    requestConfig,
-  )
+  return agenciesGetAllAgenciesRaw(requestConfig)
 }
 
 /**
- * Update a appointment by its id
+ * Update a agency by its id
  */
-function appointmentsUpdateAppointmentRaw<T>(
-  requestParameters: AppointmentsUpdateAppointmentRequest,
-  requestConfig: runtime.TypedQueryConfig<T, AppointmentSerializerRead> = {},
+function agenciesUpdateAgencyRaw<T>(
+  requestParameters: AgenciesUpdateAgencyRequest,
+  requestConfig: runtime.TypedQueryConfig<T, AgencySerializerRead> = {},
 ): QueryConfig<T> {
   if (requestParameters.id === null || requestParameters.id === undefined) {
     throw new runtime.RequiredError(
       'id',
-      'Required parameter requestParameters.id was null or undefined when calling appointmentsUpdateAppointment.',
+      'Required parameter requestParameters.id was null or undefined when calling agenciesUpdateAgency.',
     )
   }
 
@@ -367,7 +358,7 @@ function appointmentsUpdateAppointmentRaw<T>(
 
   meta.authType = ['bearer']
   const config: QueryConfig<T> = {
-    url: `${runtime.Configuration.basePath}/appointments/{id}`.replace(
+    url: `${runtime.Configuration.basePath}/agencies/{id}`.replace(
       `{${'id'}}`,
       encodeURIComponent(String(requestParameters.id)),
     ),
@@ -381,28 +372,24 @@ function appointmentsUpdateAppointmentRaw<T>(
       method: 'PUT',
       headers: headerParameters,
     },
-    body:
-      queryParameters ||
-      AppointmentSerializerPutToJSON(
-        requestParameters.appointmentSerializerPut,
-      ),
+    body: queryParameters || (requestParameters.body as any),
   }
 
   const { transform: requestTransform } = requestConfig
   if (requestTransform) {
     config.transform = (body: ResponseBody, text: ResponseBody) =>
-      requestTransform(AppointmentSerializerReadFromJSON(body), text)
+      requestTransform(AgencySerializerReadFromJSON(body), text)
   }
 
   return config
 }
 
 /**
- * Update a appointment by its id
+ * Update a agency by its id
  */
-export function appointmentsUpdateAppointment<T>(
-  requestParameters: AppointmentsUpdateAppointmentRequest,
-  requestConfig?: runtime.TypedQueryConfig<T, AppointmentSerializerRead>,
+export function agenciesUpdateAgency<T>(
+  requestParameters: AgenciesUpdateAgencyRequest,
+  requestConfig?: runtime.TypedQueryConfig<T, AgencySerializerRead>,
 ): QueryConfig<T> {
-  return appointmentsUpdateAppointmentRaw(requestParameters, requestConfig)
+  return agenciesUpdateAgencyRaw(requestParameters, requestConfig)
 }
