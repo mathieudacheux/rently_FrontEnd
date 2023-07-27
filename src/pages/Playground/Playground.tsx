@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import Typography from '../../components/atoms/Typography.tsx'
 import PropertyCard from '../../components/organisms/PropertyCard.tsx'
 import FormikTextField from '../../components/molecules/core/FormikTextField.tsx'
@@ -7,19 +6,13 @@ import { FormikProvider, useFormik } from 'formik'
 import Heart from '../../components/atoms/icons/Heart.tsx'
 import FormikCheckbox from '../../components/molecules/core/FormikCheckbox.tsx'
 import FormikTextArea from '../../components/molecules/core/FormikTextArea.tsx'
-import Toast from '../../components/molecules/Toast.tsx'
-import Button from '../../components/atoms/Button.tsx'
-import Popup from '../../components/molecules/Popup.tsx'
 
 export default function Playground(): JSX.Element {
-  const [open, setOpen] = useState(false)
   const initialValues = {
     test41: '',
     test2: false,
     test3: '',
   }
-
-  console.log(open)
 
   const handleSubmit = (values: any) => {
     console.log(values)

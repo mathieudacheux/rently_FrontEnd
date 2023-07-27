@@ -56,9 +56,7 @@ export default function Popup({
           </svg>
         )}
         <hr className='py-1 h-1' />
-        <p className='text-center text-neutral-900 font-normal'>
-          Lorem ipsum dolor sit amet consectetur adipisicing
-        </p>
+        <p className='text-center text-neutral-900 font-normal'>{t(text)}</p>
         <div className='modal-action flex justify-center align-middle'>
           <Button text='popup.close' />
         </div>
