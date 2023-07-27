@@ -18,8 +18,13 @@ export default function RegisterManagement({
   const [showPassword, setShowPassword] = useState<boolean>(false)
 
   return (
-    <div className='w-full flex h-[calc(100vh-75px)]'>
-      <div className='w-1/2 flex justify-center align-middle h-full'>
+    <div className='w-full flex justify-center h-[calc(100vh-75px)]'>
+      <img
+        className='w-1/2 object-cover h-full rounded-tr-[15px] hidden md:block'
+        src={LoginImage}
+        alt='Login'
+      />
+      <div className='w-10/12 md:w-1/2 flex justify-center align-middle h-full'>
         <div className='flex flex-col justify-center align-middle w-[400px]'>
           <Typography variant='h2'>{t('connection.register')}</Typography>
           <div className='flex flex-start pt-4'>
@@ -104,11 +109,6 @@ export default function RegisterManagement({
           </div>
         </div>
       </div>
-      <img
-        className='w-1/2 object-cover h-full rounded-tl-[15px]'
-        src={LoginImage}
-        alt='Login'
-      />
     </div>
   )
 }

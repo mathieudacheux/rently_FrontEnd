@@ -11,13 +11,27 @@ export default function Toast({
 }): JSX.Element {
   const { t } = useTranslation()
 
+  // -translate-x-1/2 md:-translate-x-0
+  // className={`alert sm:w-10/12 md:w-4/12 fixed top-[35px] md:top-[75px] sm:right-1/2 md:right-0
+  //     flex
+  //     flex-start
+  //     transition-all duration-700 ease-in-out
+  //     ${open ? 'opacity-100' : 'opacity-0'}
+  //     ${
+  //       open
+  //         ? 'translate-y-1/2 md:translate-y-0 md:translate-x-0'
+  //         : 'md:-translate-x-1/2'
+  //     }
+
+  // ${open ? 'opacity-100' : 'opacity-0'}
+  //     ${open ? 'translate-x-0' : 'translate-x-20'}
   return (
     <div
-      className={`alert h-25 absolute top-[75px] right-4
+      className={`alert fixed w-10/12 md:w-3/12 top-[75px] left-1/2 -translate-x-1/2 md:right-0 md:left-full md:-translate-x-1/2 
       flex flex-start
-      ${open ? 'opacity-100' : 'opacity-0'}
-      ${open ? 'translate-x-0' : 'translate-x-20'}
       transition-all duration-700 ease-in-out
+      ${open ? 'opacity-100' : 'opacity-0'}
+      ${open ? 'translate-x-0 md:-translate-x-[105%]' : 'translate-x-20 '}
     `}
     >
       {error ? (
