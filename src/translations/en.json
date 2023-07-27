@@ -16,7 +16,8 @@
     "not_found": "Page not found (404)",
     "server_error": "Server error (500)",
     "access_denied": "Access denied",
-    "unauthorized": "Unauthorized"
+    "unauthorized": "Unauthorized",
+    "accountValidation": "Account validation"
   },
   "navbar": {
     "buy": "Buy",
@@ -44,7 +45,11 @@
     "ctaLoginClick": "Connect to my account",
     "connected": "You are connected",
     "emailValidation": "A validation email has been sent to you",
-    "newsletter": "I want to receive the newsletter"
+    "newsletter": "I want to receive the newsletter",
+    "validateAccount": "Your account is being validated",
+    "invalidToken": "Your account is already validated or the link is invalid",
+    "expiredToken": "Your validation link has expired",
+    "accountValidated": "Your account has been validated"
   },
   "popup": {
     "close": "Continue"
