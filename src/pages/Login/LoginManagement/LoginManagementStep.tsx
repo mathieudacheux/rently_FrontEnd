@@ -8,11 +8,12 @@ import { useLazyGetUserByFilterQuery } from '../../../features/user/userApi.ts'
 import useFormikValidator from '../../../hooks/useFormikValidator.ts'
 import { useAppDispatch } from '../../../store/store.ts'
 import { setSelectedUser } from '../../../features/user/userSlice.ts'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { APP_ROUTES } from '../../../routes/routes.ts'
 
 export default function LoginManagementStep(): JSX.Element {
   const navigate = useNavigate()
+  const location = useLocation()
   const dispatch = useAppDispatch()
   const formikContext = useFormikContext<LoginFormik>()
   const formikValidator = useFormikValidator(formikContext)
@@ -20,6 +21,9 @@ export default function LoginManagementStep(): JSX.Element {
 
   const [createUser] = useLoginMutation()
   const [getUserByFilter] = useLazyGetUserByFilterQuery()
+
+  const fromValidateAccount =
+    location.state?.from === APP_ROUTES.VALIDATE_ACCOUNT
 
   const token = localStorage.getItem('token')
 
@@ -40,6 +44,34 @@ export default function LoginManagementStep(): JSX.Element {
     view: false,
     message: '',
   })
+
+  const [showValidateAccountToast, setShowValidateAccountToast] = useState<{
+    view: boolean
+    message: string
+  }>({
+    view: false,
+    message: '',
+  })
+
+  useEffect(() => {
+    if (fromValidateAccount) {
+      setShowValidateAccountToast({
+        view: true,
+        message: 'connection.accountValidated',
+      })
+    }
+  }, [])
+
+  useEffect(() => {
+    if (showValidateAccountToast.view) {
+      setTimeout(() => {
+        setShowValidateAccountToast({
+          view: false,
+          message: '',
+        })
+      }, 3000)
+    }
+  }, [showValidateAccountToast])
 
   useEffect(() => {
     if (showErrorToast.view) {
@@ -125,6 +157,11 @@ export default function LoginManagementStep(): JSX.Element {
       <Toast error open={showErrorToast.view} text={showErrorToast.message} />
 
       <Toast open={showSuccessToast.view} text={showSuccessToast.message} />
+
+      <Toast
+        open={showValidateAccountToast.view}
+        text={showValidateAccountToast.message}
+      />
     </>
   )
 }

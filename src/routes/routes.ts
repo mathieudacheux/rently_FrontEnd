@@ -8,6 +8,7 @@ const APP_ROUTES = {
   FORGOT_PASSWORD: '/forgot-password',
   RESET_PASSWORD: '/reset-password',
   ACCOUNT: '/account',
+  VALIDATE_ACCOUNT: '/validate-account',
 
   // Navbar
   BUY: '/buy',
@@ -48,6 +49,10 @@ const APP_TITLES = [
   {
     path: APP_ROUTES.RESET_PASSWORD,
     title: 'title.reset_password',
+  },
+  {
+    path: APP_ROUTES.VALIDATE_ACCOUNT,
+    title: 'title.accountValidation',
   },
   {
     path: APP_ROUTES.BUY,
