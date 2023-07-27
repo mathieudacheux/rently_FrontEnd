@@ -11,10 +11,12 @@
     "prepare": "husky install",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "format": "prettier --write \"**/*.{js,ts,json,md}\"",
-    "openapi:generate": "openapi-generator-cli generate -i https://back-rently.mathieudacheux.fr/doc/swagger.json -g typescript-redux-query -o src/api --skip-validate-spec && mv src/api/src/* src/api && rm -rf src/api/src && rm -rf src/api/.openapi-generator && rm -rf src/api/.gitignore && rm -rf src/api/tsconfig.json && rm -rf src/api/.openapi-generator-ignore"
+    "openapi:generate": "openapi-generator-cli generate -i https://back-rently.mathieudacheux.fr/doc/swagger.json -g typescript-redux-query -o src/api --skip-validate-spec && mv src/api/src/* src/api && rm -rf src/api/src && rm -rf src/api/.openapi-generator && rm -rf src/api/.gitignore && rm -rf src/api/tsconfig.json && rm -rf src/api/.openapi-generator-ignore",
+    "open:api": "npx @rtk-query/codegen-openapi openapi-config.ts"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
+    "@rtk-query/codegen-openapi": "^1.0.0",
     "@types/react-redux": "^7.1.25",
     "formik": "^2.4.2",
     "i18next": "^23.2.5",
@@ -43,6 +45,7 @@
     "@vitejs/plugin-react-swc": "^3.0.0",
     "autoprefixer": "^10.4.14",
     "daisyui": "^3.1.7",
+    "esbuild-runner": "^2.2.2",
     "eslint": "^8.38.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-import-resolver-typescript": "^3.5.5",
@@ -55,6 +58,7 @@
     "postcss": "^8.4.24",
     "prettier": "^2.8.8",
     "tailwindcss": "^3.3.2",
+    "ts-node": "^10.9.1",
     "typescript": "^5.0.2",
     "vite": "^4.3.9"
   }
