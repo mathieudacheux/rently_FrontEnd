@@ -92,17 +92,9 @@ export default function LoginManagementStep(): JSX.Element {
       return false
     }
 
-    const resultMail: any = await postConfirmationMail({
+    await postConfirmationMail({
       id: result?.data.user_id,
     })
-
-    if (resultMail?.error) {
-      setShowErrorToast({
-        view: true,
-        message: resultMail?.error?.data?.message,
-      })
-      return false
-    }
 
     setShowSuccessToast({
       view: true,
