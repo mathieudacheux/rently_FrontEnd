@@ -47,11 +47,13 @@ export default function PropertiesList({
         }`}
       >
         <div
-          className={`gap-4 pl-4 max-w-[1200px] ${
-            mapOpen ? 'flex flex-wrap' : 'grid grid-cols-4'
+          className={`gap-4 pl-4 max-w-[1200px] w-full relative ${
+            mapOpen ? 'flex flex-wrap justify-start' : 'grid grid-cols-4'
           }`}
         >
-          {mapOpen && <div className='topShadow w-11/12 -mt-4'></div>}
+          {mapOpen && (
+            <div className='topShadow w-11/12 absolute top-0 left-0 -mt-4'></div>
+          )}
           {properties.length
             ? properties.map((property: PropertySerializerRead) => (
                 <PropertyCard

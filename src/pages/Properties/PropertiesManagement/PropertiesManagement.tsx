@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import { useFormikContext } from 'formik'
-import { PropertySerializerRead } from '../../api/index.ts'
-import Searchbar from '../../components/organisms/Searchbar.tsx'
-import { PropertyFormikType } from './type.ts'
-import Filter from '../../components/atoms/icons/Filter.tsx'
-import Button from '../../components/atoms/Button.tsx'
-import Map from '../../components/atoms/icons/Map.tsx'
-import PropertiesList from './components/PropertiesList.tsx'
+import { PropertySerializerRead } from '../../../api/index.ts'
+import Searchbar from '../../../components/organisms/Searchbar.tsx'
+import { PropertyFormikType } from '../type.ts'
+import Filter from '../../../components/atoms/icons/Filter.tsx'
+import Button from '../../../components/atoms/Button.tsx'
+import Map from '../../../components/atoms/icons/Map.tsx'
+import PropertiesList from '../components/PropertiesList.tsx'
 
 export default function PropertiesManagement({
   properties,

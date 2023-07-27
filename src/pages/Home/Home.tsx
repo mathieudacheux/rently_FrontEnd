@@ -11,8 +11,8 @@ export default function Home(): JSX.Element {
   const dispatch = useAppDispatch()
   const { homeFormik } = useHomeFormik()
 
-  const navigateToProperties = () => {
-    dispatch(
+  const navigateToProperties = async () => {
+    await dispatch(
       setSearchFilter({
         searchFilter: {
           searchBudget: homeFormik.values.searchBudget,

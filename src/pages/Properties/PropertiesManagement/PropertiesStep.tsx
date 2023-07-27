@@ -1,18 +1,24 @@
 import { useEffect, useState } from 'react'
-import { FormikProvider } from 'formik'
-import { useLazyGetPropertyByFilterQuery } from '../../features/property/propertyApi.ts'
-import { PropertySerializerRead } from '../../api/index.ts'
-import usePropertyFormik from './hooks/usePropertyFormik.ts'
+import { useFormikContext } from 'formik'
+import { useLazyGetPropertyByFilterQuery } from '../../../features/property/propertyApi.ts'
+import { PropertySerializerRead } from '../../../api/index.ts'
 import PropertiesManagement from './PropertiesManagement.tsx'
+import { PropertyFormikType } from '../type.ts'
 
-export default function Properties() {
-  const propertyFormik = usePropertyFormik()
-
+export default function PropertiesStep() {
   const [triggerProperties, propertiesQuery] = useLazyGetPropertyByFilterQuery()
 
+  const { values } = useFormikContext<PropertyFormikType>()
+
+  console.log(values)
+
   useEffect(() => {
-    triggerProperties({ city: '' })
-  }, [])
+    triggerProperties({
+      city: values.searchCity,
+      price: values.searchBudget,
+      type: values.searchType,
+    })
+  }, [values])
 
   const handleSearch = ({
     city,
@@ -36,11 +42,5 @@ export default function Properties() {
     }
   }, [propertiesQuery.data])
 
-  return (
-    <>
-      <FormikProvider value={propertyFormik}>
-        <PropertiesManagement properties={properties} search={handleSearch} />
-      </FormikProvider>
-    </>
-  )
+  return <PropertiesManagement properties={properties} search={handleSearch} />
 }
