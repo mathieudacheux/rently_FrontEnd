@@ -15,37 +15,29 @@ import { exists, mapValues } from '../runtime';
 /**
  * 
  * @export
- * @interface TagSerializerRead
+ * @interface MailsConfirmAccountMailRequest
  */
-export interface TagSerializerRead  {
+export interface MailsConfirmAccountMailRequest  {
     /**
      * 
      * @type {number}
-     * @memberof TagSerializerRead
+     * @memberof MailsConfirmAccountMailRequest
      */
-    tag_id?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof TagSerializerRead
-     */
-    name?: string;
+    id?: number;
 }
 
-export function TagSerializerReadFromJSON(json: any): TagSerializerRead {
+export function MailsConfirmAccountMailRequestFromJSON(json: any): MailsConfirmAccountMailRequest {
     return {
-        'tag_id': !exists(json, 'tag_id') ? undefined : json['tag_id'],
-        'name': !exists(json, 'name') ? undefined : json['name'],
+        'id': !exists(json, 'id') ? undefined : json['id'],
     };
 }
 
-export function TagSerializerReadToJSON(value?: TagSerializerRead): any {
+export function MailsConfirmAccountMailRequestToJSON(value?: MailsConfirmAccountMailRequest): any {
     if (value === undefined) {
         return undefined;
     }
     return {
-        'tag_id': value.tag_id,
-        'name': value.name,
+        'id': value.id,
     };
 }
 

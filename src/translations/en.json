@@ -35,5 +35,13 @@
     "type": "Type",
     "filters": "Filters",
     "map": "Map"
+  },
+  "properties": {
+    "bedrooms": "Bedrooms",
+    "bathrooms": "Bathrooms",
+    "kitchens": "Kitchens",
+    "bedroom": "Bedroom",
+    "bathroom": "Bathroom",
+    "kitchen": "Kitchen"
   }
 }
