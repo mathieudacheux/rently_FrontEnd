@@ -84,5 +84,4 @@ export const selectedProperty = (state: RootState) =>
 
 export const searchFilter = (state: RootState) => state.property.searchFiter
 
-
 export default propertySlice

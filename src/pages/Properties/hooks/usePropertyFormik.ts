@@ -3,7 +3,6 @@ import { useFormik } from 'formik'
 import { useAppSelector } from '../../../store/store.ts'
 import { searchFilter } from '../../../features/property/propertySlice.ts'
 
-
 export default function usePropertyFormik() {
   const selectedSearchFilter = useAppSelector(searchFilter)
 

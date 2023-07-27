@@ -12,7 +12,6 @@ export default function useHomeFormik() {
     searchCity: '',
     searchBudget: null,
     searchType: '',
-    
   }
 
   const validationSchema = useMemo(
