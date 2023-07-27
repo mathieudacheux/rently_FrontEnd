@@ -36,7 +36,6 @@ export interface AgenciesDeleteAgencyRequest {
 }
 
 export interface AgenciesGetAgenciesByFilterRequest {
-  name?: string
   city?: string
   zipcode?: string
 }
@@ -178,10 +177,6 @@ function agenciesGetAgenciesByFilterRaw<T>(
   let queryParameters = null
 
   queryParameters = {}
-
-  if (requestParameters.name !== undefined) {
-    queryParameters['name'] = requestParameters.name
-  }
 
   if (requestParameters.city !== undefined) {
     queryParameters['city'] = requestParameters.city
