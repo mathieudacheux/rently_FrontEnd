@@ -72,7 +72,7 @@ export default {
           // Inputs settings
           '.input': {
             border: 'none',
-            'border-radius': '15px',
+            borderRadius: '7.5px',
             padding: '15px 23px',
             'box-shadow': '-5px 5px 15px 0px rgba(0, 0, 0, 0.15)',
             height: '52.5px',
@@ -141,7 +141,6 @@ export default {
           '.alert': {
             'font-size': '1rem',
             'font-weight': '400',
-            width: '400px',
             height: '75px',
             padding: '15px',
             'border-radius': '15px',
@@ -150,7 +149,7 @@ export default {
             'box-shadow': '-5px 5px 15px 0px rgba(0, 0, 0, 0.15)',
           },
 
-          // modal settings
+          // Modal settings
           '.modal-box': {
             width: '350px',
             height: '350px',
@@ -195,7 +194,6 @@ export default {
           },
           '.tiny-text': {
             'font-size': '14px',
-            'font-weight': '400',
           },
 
           '.no-scrollbar::-webkit-scrollbar': {

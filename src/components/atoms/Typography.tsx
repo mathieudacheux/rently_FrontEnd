@@ -7,12 +7,14 @@ import {
 export default function Typography({
   children,
   variant,
+  className = '',
   color = 'secondary',
   price,
   surface,
 }: {
   children: string | number
   variant: TypographyVariants
+  className?: string
   color?: TypographyColors
   price?: boolean
   surface?: boolean
@@ -22,7 +24,7 @@ export default function Typography({
   switch (variant) {
     case 'h1':
       element = (
-        <h1 className={`h1 text-${color}`}>
+        <h1 className={`h1 text-${color} ${className}`}>
           {children}
           {price ? '€' : ''}
           {surface ? 'm²' : ''}
@@ -31,7 +33,7 @@ export default function Typography({
       break
     case 'h2':
       element = (
-        <h2 className={`h2 text-secondary`}>
+        <h2 className={`h2 text-secondary ${className}`}>
           {children}
           {price ? '€' : ''}
           {surface ? 'm²' : ''}
@@ -40,7 +42,7 @@ export default function Typography({
       break
     case 'h2-primary':
       element = (
-        <h2 className={`h2 text-primary`}>
+        <h2 className={`h2 text-primary ${className}`}>
           {children}
           {price ? '€' : ''}
           {surface ? 'm²' : ''}
@@ -49,7 +51,7 @@ export default function Typography({
       break
     case 'h3':
       element = (
-        <h3 className={`h3 text-${color}`}>
+        <h3 className={`h3 text-${color} ${className}`}>
           {children}
           {price ? '€' : ''}
           {surface ? 'm²' : ''}
@@ -58,7 +60,7 @@ export default function Typography({
       break
     case 'span':
       element = (
-        <span className={`span text-${color}`}>
+        <span className={`span text-${color} ${className}`}>
           {children}
           {price ? '€' : ''}
           {surface ? 'm²' : ''}
@@ -67,7 +69,7 @@ export default function Typography({
       break
     case 'text-light':
       element = (
-        <p className={`text-light text-${color}`}>
+        <p className={`text-light text-${color} ${className}`}>
           {children}
           {price ? '€' : ''}
           {surface ? 'm²' : ''}
@@ -76,7 +78,7 @@ export default function Typography({
       break
     case 'tiny-text':
       element = (
-        <p className={`tiny-text text-${color}`}>
+        <p className={`tiny-text font-normal text-${color} ${className}`}>
           {children}
           {price ? '€' : ''}
           {surface ? 'm²' : ''}
@@ -85,7 +87,7 @@ export default function Typography({
       break
     default:
       element = (
-        <p className={`text text-${color}`}>
+        <p className={`text text-${color} ${className}`}>
           {children}
           {price ? '€' : ''}
           {surface ? 'm²' : ''}

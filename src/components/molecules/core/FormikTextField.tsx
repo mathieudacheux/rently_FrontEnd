@@ -5,18 +5,24 @@ import { useTranslation } from 'react-i18next'
 export default function FormikTextField({
   name,
   placeholder,
-  onlyAlpha,
-  onlyNumbers,
-  icon,
-  textCenter,
-  disableShadows,
+  onlyAlpha = false,
+  onlyNumbers = false,
+  password = false,
+  showPassword,
+  icon = null,
+  iconError = null,
+  textCenter = false,
+  disableShadows = false,
   handleKeyDown,
 }: {
   name: string
   placeholder?: string
   onlyAlpha?: boolean
   onlyNumbers?: boolean
+  password?: boolean
+  showPassword?: () => void
   icon?: React.ReactNode
+  iconError?: React.ReactNode
   textCenter?: boolean
   disableShadows?: boolean
   handleKeyDown?: () => void
@@ -45,32 +51,35 @@ export default function FormikTextField({
   }
 
   return (
-    <div className={`relative w-full max-w-xs dark:bg-red`}>
-      <input
-        {...field}
-        name={field.name}
-        value={field.value || ''}
-        onChange={handleChange}
-        onBlur={(event) => {
-          formik.handleBlur(event)
-        }}
-        onKeyDown={handleKeyDown}
-        type='text'
-        placeholder={placeholder ? t(placeholder) : ''}
-        className={`${
-          disableShadows ? 'input-no-shadow' : 'input'
-        } input-bordered w-full max-w-xs text-neutral-900 placeholder-neutral-500 shadow ${
-          textCenter ? 'text-center' : ''
-        }`}
-      />
-      {icon && (
-        <div className='w-fit input-icon absolute right-5 top-1/2 -translate-y-1/2'>
-          {icon}
-        </div>
-      )}
-      {meta.touched && meta.error ? (
-        <div className='text-xs text-error'>{t(meta.error)}</div>
-      ) : null}
-    </div>
+    <>
+      <div className={`relative w-full dark:bg-red`}>
+        <input
+          {...field}
+          name={field.name}
+          value={field.value || ''}
+          onChange={handleChange}
+          onBlur={(event) => {
+            formik.handleBlur(event)
+          }}
+          onKeyDown={handleKeyDown}
+          type={password ? 'password' : 'text'}
+          placeholder={placeholder ? t(placeholder) : ''}
+          className={`
+          ${
+            disableShadows ? 'input-no-shadow' : 'input'
+          } input-bordered w-full  text-neutral-900 placeholder-neutral-300 shadow 
+          ${textCenter ? 'text-center' : ''}`}
+        />
+        {icon && (
+          <div
+            onClick={() => showPassword && showPassword()}
+            className={`w-fit input-icon absolute right-5 top-1/2 -translate-y-1/2
+          ${showPassword ? 'cursor-pointer' : ''}`}
+          >
+            {meta?.touched && meta?.error ? iconError : icon}
+          </div>
+        )}
+      </div>
+    </>
   )
 }

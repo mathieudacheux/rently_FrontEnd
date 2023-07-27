@@ -1,6 +1,5 @@
 import { useTranslation } from 'react-i18next'
 import { useField } from 'formik'
-import Typography from '../../atoms/Typography.tsx'
 
 export default function FormikCheckbox({
   name,
@@ -17,7 +16,7 @@ export default function FormikCheckbox({
   return (
     <label
       className='label cursor-pointer flex justify-start 
-      items-center w-fit-content
+      items-center w-fit-content p-0
     '
     >
       <input

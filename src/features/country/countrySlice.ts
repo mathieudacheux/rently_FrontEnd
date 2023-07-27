@@ -1,10 +1,9 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { CountryModelRead } from '../../api/index.ts'
 import { RootState } from '../../store/store.ts'
 
 type Country = {
   id: number | null
-  fullCountry: CountryModelRead | null
+  fullCountry: any
 }
 
 const initialState: Country = {
@@ -25,7 +24,7 @@ export const setSelectedCountryId = createAsyncThunk(
 
 export const setSelectedCountry = createAsyncThunk(
   'country/setSelectedCountry',
-  (args: { selectedCountry: CountryModelRead | null }) => {
+  (args: { selectedCountry: any }) => {
     const { selectedCountry } = args
 
     return {

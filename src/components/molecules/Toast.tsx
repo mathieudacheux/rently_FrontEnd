@@ -13,11 +13,11 @@ export default function Toast({
 
   return (
     <div
-      className={`alert h-25 absolute top-5 right-5
+      className={`alert fixed w-10/12 md:w-3/12 top-[75px] left-1/2 -translate-x-1/2 md:right-0 md:left-full md:-translate-x-1/2 
       flex flex-start
-      ${open ? 'opacity-100' : 'opacity-0'}
-      ${open ? 'translate-x-0' : 'translate-x-20'}
       transition-all duration-700 ease-in-out
+      ${open ? 'opacity-100' : 'opacity-0'}
+      ${open ? ' md:-translate-x-[105%]' : 'translate-x-20 '}
     `}
     >
       {error ? (
@@ -27,7 +27,7 @@ export default function Toast({
           viewBox='0 0 26 31'
           fill='none'
           xmlns='http://www.w3.org/2000/svg'
-          className='w-2/12'
+          className='mr-1'
         >
           <path
             fillRule='evenodd'
@@ -43,6 +43,7 @@ export default function Toast({
           viewBox='0 0 26 31'
           fill='none'
           xmlns='http://www.w3.org/2000/svg'
+          className='mr-1'
         >
           <path
             fillRule='evenodd'
@@ -52,7 +53,7 @@ export default function Toast({
           />
         </svg>
       )}
-      <span className='text-neutral-900 w-10/12'>{t(text)}</span>
+      <span className='text-neutral-900'>{t(text)}</span>
     </div>
   )
 }

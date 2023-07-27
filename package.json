@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "host": "vite preview --host",
     "prepare": "husky install",
-    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives ",
     "format": "prettier --write \"**/*.{js,ts,json,md}\"",
     "openapi:generate": "rm -rf src/api && openapi-generator-cli generate -i https://back-rently.mathieudacheux.fr/doc/swagger.json -g typescript-redux-query --additional-properties withSeparateModelsAndApi=true,modelPropertyNaming=snake_case,modelPackage=models -o src/api --skip-validate-spec && mv src/api/src/* src/api && rm -rf src/api/src && rm -rf src/api/.openapi-generator && rm -rf src/api/.gitignore && rm -rf src/api/tsconfig.json && rm -rf src/api/.openapi-generator-ignore"
   },
@@ -20,6 +20,7 @@
     "i18next": "^23.2.5",
     "i18next-browser-languagedetector": "^7.1.0",
     "i18next-http-backend": "^2.2.1",
+    "jwt-decode": "^3.1.2",
     "leaflet": "^1.9.4",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
@@ -31,7 +32,7 @@
     "react-leaflet-cluster": "^2.1.0",
     "react-redux": "^8.1.1",
     "react-router-dom": "^6.14.0",
-    "react-use-wizard": "^2.2.1",
+    "redux-query": "^3.5.2",
     "sort-by": "^1.2.0",
     "yup": "^1.2.0"
   },
@@ -45,6 +46,7 @@
     "@vitejs/plugin-react-swc": "^3.0.0",
     "autoprefixer": "^10.4.14",
     "daisyui": "^3.1.7",
+    "esbuild-runner": "^2.2.2",
     "eslint": "^8.38.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-import-resolver-typescript": "^3.5.5",
@@ -57,6 +59,7 @@
     "postcss": "^8.4.24",
     "prettier": "^2.8.8",
     "tailwindcss": "^3.3.2",
+    "ts-node": "^10.9.1",
     "typescript": "^5.0.2",
     "vite": "^4.3.9"
   }

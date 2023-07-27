@@ -1,4 +1,8 @@
 {
+  "yup": {
+    "required": "Ce champ est requis",
+    "email": "L'email est invalide"
+  },
   "title": {
     "home": "Accueil",
     "login": "Connexion",
@@ -12,7 +16,8 @@
     "not_found": "Page non trouvée (404)",
     "server_error": "Erreur serveur (500)",
     "access_denied": "Accès refusé",
-    "unauthorized": "Non autorisé"
+    "unauthorized": "Non autorisé",
+    "accountValidation": "Validation du compte"
   },
   "navbar": {
     "buy": "Acheter",
@@ -23,8 +28,28 @@
     "register": "Inscription",
     "account": "Mon compte"
   },
-  "formik": {
-    "noData": "Aucune donnée"
+  "connection": {
+    "login": "Connexion",
+    "loginGoogle": "Connexion avec Google",
+    "loginApple": "Connexion avec Apple",
+    "register": "Inscription",
+    "registerGoogle": "Inscription avec Google",
+    "registerApple": "Inscription avec Apple",
+    "mail": "Address mail",
+    "password": "Mot de passe",
+    "button": "Se connecter",
+    "ctaRegister": "Vous n'avez pas de compte ?",
+    "ctaRegisterClick": "Inscrivez-vous",
+    "ctaForgotPassword": "Mot de passe oublié ?",
+    "ctaLogin": "Vous avez déjà un compte ?",
+    "ctaLoginClick": "Connectez-vous",
+    "connected": "Vous êtes connecté",
+    "emailValidation": "Un email de validation vous a été envoyé",
+    "newsletter": "S'inscrire à la newsletter",
+    "validateAccount": "Votre compte est en cours de validation",
+    "invalidToken": "Votre compte est déjà validé ou le lien est invalide",
+    "expiredToken": "Le lien de validation est expiré",
+    "accountValidated": "Votre compte est validé"
   },
   "popup": {
     "close": "Continuer"

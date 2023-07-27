@@ -1,10 +1,9 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { UserSerializerRead } from '../../api/models/UserSerializerRead.ts'
 import { RootState } from '../../store/store.ts'
 
 type User = {
   id: number | null
-  fullUser: UserSerializerRead | null
+  fullUser: any
 }
 
 const initialState: User = {
@@ -25,7 +24,7 @@ export const setSelectedUserId = createAsyncThunk(
 
 export const setSelectedUser = createAsyncThunk(
   'user/setSelectedUser',
-  (args: { selectedUser: UserSerializerRead | null }) => {
+  (args: { selectedUser: any }) => {
     const { selectedUser } = args
 
     return {
