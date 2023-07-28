@@ -96,7 +96,7 @@ export default function LoginManagementStep(): JSX.Element {
       id: result?.data.user_id,
     })
 
-    setShowSuccessToast({
+    await setShowSuccessToast({
       view: true,
       message: 'connection.emailValidation',
     })
