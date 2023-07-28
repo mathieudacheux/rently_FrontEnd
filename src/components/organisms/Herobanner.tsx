@@ -1,5 +1,5 @@
 import Searchbar from './Searchbar.tsx'
-import HerobannerImage from '../../assets/images/herobanner.png'
+import HerobannerImage from '../../assets/images/herobanner.webp'
 
 export default function Herobanner({
   onClick,
