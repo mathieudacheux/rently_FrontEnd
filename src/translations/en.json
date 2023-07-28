@@ -3,7 +3,8 @@
     "required": "This field is required",
     "email": "This field must be a valid email",
     "min": "{{ number }} characters minimum",
-    "password": "8 characters minimum, 1 uppercase, 1 lowercase, 1 number"
+    "password": "8 characters minimum, 1 uppercase, 1 lowercase, 1 number",
+    "passwordMatch": "Passwords must match"
   },
   "title": {
     "home": "Home",
@@ -31,6 +32,7 @@
   },
   "connection": {
     "login": "Login",
+    "modify": "Modify",
     "loginGoogle": "Login with Google",
     "loginApple": "Login with Apple",
     "register": "Register",
@@ -41,6 +43,7 @@
     "showPassword": "Show password",
     "mail": "Email",
     "password": "Password",
+    "passwordConfirm": "Confirm password",
     "button": "Login",
     "ctaRegister": "Don't have an account ?",
     "ctaRegisterClick": "Create my account",
@@ -57,7 +60,7 @@
     "accountValidated": "Your account has been validated",
     "forgotPassword": "Forgot password",
     "resetPassword": "Reset",
-    "passwordMatch": "Passwords must match"
+    "passwordUpdated": "Your password has been updated"
   },
   "popup": {
     "close": "Continue"

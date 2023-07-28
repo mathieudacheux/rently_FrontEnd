@@ -20,17 +20,14 @@ export default function useForgetPassword() {
     passwordTwo: '',
   }
 
+  const urlParams = new URLSearchParams(window.location.search)
+  const token = urlParams.get('token')
+
   const validationSchema = useMemo(
     () =>
-      location.pathname === APP_ROUTES.FORGOT_PASSWORD
+      token
         ? yup.object({
-            mail: yup
-              .string()
-              .email(t('yup.email'))
-              .required(t('yup.required')),
-          })
-        : yup.object({
-            password: yup
+            passwordOne: yup
               .string()
               .required(t('yup.required'))
               .matches(
@@ -40,6 +37,12 @@ export default function useForgetPassword() {
             passwordTwo: yup
               .string()
               .oneOf([yup.ref('passwordOne')], t('yup.passwordMatch'))
+              .required(t('yup.required')),
+          })
+        : yup.object({
+            mail: yup
+              .string()
+              .email(t('yup.email'))
               .required(t('yup.required')),
           }),
     [i18n.language, location.pathname],

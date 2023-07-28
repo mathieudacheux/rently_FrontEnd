@@ -3,7 +3,8 @@
     "required": "Ce champ est requis",
     "email": "L'email est invalide",
     "min": "{{ number }} caractères minimum",
-    "password": "8 caractères minimum, 1 majuscule, 1 minuscule, 1 chiffre"
+    "password": "8 caractères minimum, 1 majuscule, 1 minuscule, 1 chiffre",
+    "passwordMatch": "Les mots de passe ne correspondent pas"
   },
   "title": {
     "home": "Accueil",
@@ -31,6 +32,7 @@
   },
   "connection": {
     "login": "Connexion",
+    "modify": "Modifier",
     "loginGoogle": "Connexion avec Google",
     "loginApple": "Connexion avec Apple",
     "register": "Inscription",
@@ -41,6 +43,7 @@
     "showPassword": "Afficher le mot de passe",
     "mail": "Addresse email",
     "password": "Mot de passe",
+    "passwordConfirm": "Confirmer le mot de passe",
     "button": "Se connecter",
     "ctaRegister": "Vous n'avez pas de compte ?",
     "ctaRegisterClick": "Inscrivez-vous",
@@ -57,7 +60,7 @@
     "accountValidated": "Votre compte est validé",
     "forgotPassword": "Mot de passe oublié",
     "resetPassword": "Réinitialiser",
-    "passwordMatch": "Les mots de passe ne correspondent pas"
+    "passwordUpdated": "Votre mot de passe a été mis à jour"
   },
   "popup": {
     "close": "Continuer"
