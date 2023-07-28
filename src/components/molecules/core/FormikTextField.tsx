@@ -61,7 +61,11 @@ export default function FormikTextField({
           onBlur={(event) => {
             formik.handleBlur(event)
           }}
-          onKeyDown={handleKeyDown}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' && handleKeyDown) {
+              handleKeyDown()
+            }
+          }}
           type={password ? 'password' : 'text'}
           placeholder={placeholder ? t(placeholder) : ''}
           className={`
