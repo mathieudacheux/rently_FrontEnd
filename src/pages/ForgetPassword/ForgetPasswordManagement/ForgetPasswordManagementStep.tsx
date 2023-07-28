@@ -143,17 +143,13 @@ export default function ForgetPasswordManagementStep(): JSX.Element {
 
     const decodedToken: JWT = jwt_decode(token)
 
-    console.log(Date.now() >= decodedToken.exp * 1000)
-
-    if (Date.now() <= decodedToken.exp * 1000) {
+    if (Date.now() >= decodedToken.exp * 1000) {
       setShowErrorToastUpdatePassword({
         view: true,
         message: 'connection.expiredToken',
       })
       return false
     }
-
-    console.log(decodedToken)
 
     const result: any = await getUserById(decodedToken.user_id)
 
@@ -168,7 +164,7 @@ export default function ForgetPasswordManagementStep(): JSX.Element {
     if (result?.data?.user_id !== decodedToken.user_id) {
       setShowErrorToastUpdatePassword({
         view: true,
-        message: 'connection.tokenInvalid',
+        message: 'connection.invalidToken',
       })
       return false
     }
