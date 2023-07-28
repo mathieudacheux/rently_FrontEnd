@@ -25,6 +25,11 @@ export default function ForgetPasswordManagement({
         <div className='flex flex-col justify-center align-middle w-[400px]'>
           <Typography variant='h2'>{t('connection.forgotPassword')}</Typography>
           <div className='pt-4'>
+            <Typography variant='tiny-text'>
+              {t('connection.ctaPassword')}
+            </Typography>
+          </div>
+          <div className='pt-4'>
             <Typography variant='text'>{t('connection.mail')}</Typography>
           </div>
           <div className='pt-2'>
@@ -37,7 +42,7 @@ export default function ForgetPasswordManagement({
           <div className='pt-4'>
             <CardButton
               onClick={() => forgetPassword()}
-              text='connection.login'
+              text='connection.resetPassword'
             />
           </div>
         </div>

@@ -39,12 +39,13 @@
     "firstname": "Prénom",
     "lastname": "Nom",
     "showPassword": "Afficher le mot de passe",
-    "mail": "Address e-mail",
+    "mail": "Addresse email",
     "password": "Mot de passe",
     "button": "Se connecter",
     "ctaRegister": "Vous n'avez pas de compte ?",
     "ctaRegisterClick": "Inscrivez-vous",
     "ctaForgotPassword": "Mot de passe oublié ?",
+    "ctaPassword": "Réinitialiser le mot de passe de votre compte",
     "ctaLogin": "Vous avez déjà un compte ?",
     "ctaLoginClick": "Connectez-vous",
     "connected": "Vous êtes connecté",
@@ -54,7 +55,9 @@
     "invalidToken": "Votre compte est déjà validé ou le lien est invalide",
     "expiredToken": "Le lien de validation est expiré",
     "accountValidated": "Votre compte est validé",
-    "forgotPassword": "Mot de passe oublié"
+    "forgotPassword": "Mot de passe oublié",
+    "resetPassword": "Réinitialiser",
+    "passwordMatch": "Les mots de passe ne correspondent pas"
   },
   "popup": {
     "close": "Continuer"

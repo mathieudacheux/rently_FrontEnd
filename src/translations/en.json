@@ -45,6 +45,7 @@
     "ctaRegister": "Don't have an account ?",
     "ctaRegisterClick": "Create my account",
     "ctaForgotPassword": "Forgot password ?",
+    "ctaPassword": "Reset password of my account",
     "ctaLogin": "Already have an account ?",
     "ctaLoginClick": "Connect to my account",
     "connected": "You are connected",
@@ -54,7 +55,9 @@
     "invalidToken": "Your account is already validated or the link is invalid",
     "expiredToken": "Your validation link has expired",
     "accountValidated": "Your account has been validated",
-    "forgotPassword": "Forgot password"
+    "forgotPassword": "Forgot password",
+    "resetPassword": "Reset",
+    "passwordMatch": "Passwords must match"
   },
   "popup": {
     "close": "Continue"

@@ -22,11 +22,27 @@ export default function useForgetPassword() {
 
   const validationSchema = useMemo(
     () =>
-      yup.object({
-        mail: yup.string().email(t('yup.email')).required(t('yup.required')),
-        password: yup.string().required(t('yup.required')),
-      }),
-    [i18n.language],
+      location.pathname === APP_ROUTES.FORGOT_PASSWORD
+        ? yup.object({
+            mail: yup
+              .string()
+              .email(t('yup.email'))
+              .required(t('yup.required')),
+          })
+        : yup.object({
+            password: yup
+              .string()
+              .required(t('yup.required'))
+              .matches(
+                /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/,
+                t('yup.password'),
+              ),
+            passwordTwo: yup
+              .string()
+              .oneOf([yup.ref('passwordOne')], t('yup.passwordMatch'))
+              .required(t('yup.required')),
+          }),
+    [i18n.language, location.pathname],
   )
 
   const forgetPasswordFormik = useFormik({
