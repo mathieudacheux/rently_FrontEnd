@@ -20,8 +20,7 @@
     "accountValidation": "Account validation"
   },
   "navbar": {
-    "buy": "Buy",
-    "sell": "Sell",
+    "properties": "Our properties",
     "gestion": "Rental management",
     "agency": "Agencies",
     "login": "Login",
