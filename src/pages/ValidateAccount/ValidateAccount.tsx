@@ -47,7 +47,7 @@ export default function ValidateAccount(): JSX.Element {
 
   const decodedToken: JWT = jwt_decode(token as string)
 
-  if (decodedToken.exp < Date.now() / 1000) {
+  if (Date.now() >= decodedToken.exp * 1000) {
     setTimeout(() => {
       navigate(APP_ROUTES.HOME)
     }, 1500)
