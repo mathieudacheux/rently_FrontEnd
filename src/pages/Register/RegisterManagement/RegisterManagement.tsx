@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import FormikTextField from '../../../components/molecules/core/FormikTextField.tsx'
 import Mail from '../../../components/atoms/icons/Mail.tsx'
 import Password from '../../../components/atoms/icons/Password.tsx'
-import LoginImage from '../../../assets/images/login.png'
+import RegistrationImage from '../../../assets/images/registration.webp'
 import Typography from '../../../components/atoms/Typography.tsx'
 import CardButton from '../../../components/atoms/CardButton.tsx'
 import { Link } from 'react-router-dom'
@@ -21,7 +21,7 @@ export default function RegisterManagement({
     <div className='w-full flex justify-center h-[calc(100vh-75px)]'>
       <img
         className='w-1/2 object-cover h-full rounded-tr-[15px] hidden md:block'
-        src={LoginImage}
+        src={RegistrationImage}
         alt='Login'
       />
       <div className='w-10/12 md:w-1/2 flex justify-center align-middle h-full'>
