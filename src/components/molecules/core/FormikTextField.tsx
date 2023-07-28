@@ -13,6 +13,7 @@ export default function FormikTextField({
   iconError = null,
   textCenter = false,
   disableShadows = false,
+  handleKeyDown,
 }: {
   name: string
   placeholder?: string
@@ -24,6 +25,7 @@ export default function FormikTextField({
   iconError?: React.ReactNode
   textCenter?: boolean
   disableShadows?: boolean
+  handleKeyDown?: () => void
 }): JSX.Element {
   const { t } = useTranslation()
   const formik = useFormikContext()
@@ -58,6 +60,11 @@ export default function FormikTextField({
           onChange={handleChange}
           onBlur={(event) => {
             formik.handleBlur(event)
+          }}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' && handleKeyDown) {
+              handleKeyDown()
+            }
           }}
           type={password ? 'password' : 'text'}
           placeholder={placeholder ? t(placeholder) : ''}

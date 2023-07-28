@@ -3,7 +3,7 @@ import FormikTextField from '../molecules/core/FormikTextField.tsx'
 
 export default function Searchbar({ onClick }: { onClick: () => void }) {
   return (
-    <div className='searchbar flex justify-between items-center w-6/12'>
+    <div className='searchbar flex justify-between items-center w-10/12 md:w-6/12 bg-white'>
       <div className='flex w-11/12'>
         <div className='px-4 text-secondary text-center w-1/3 border-r-2 border-text-light'>
           <FormikTextField

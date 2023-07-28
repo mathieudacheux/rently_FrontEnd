@@ -4,11 +4,21 @@ import { RootState } from '../../store/store.ts'
 type User = {
   id: number | null
   fullProperty: any
+  searchFiter: {
+    searchCity: string
+    searchBudget: null
+    searchType: string
+  }
 }
 
 const initialState: User = {
   id: null,
   fullProperty: null,
+  searchFiter: {
+    searchCity: '',
+    searchBudget: null,
+    searchType: '',
+  },
 }
 
 export const setSelectedPropertyId = createAsyncThunk(
@@ -33,6 +43,23 @@ export const setSelectedProperty = createAsyncThunk(
   },
 )
 
+export const setSearchFilter = createAsyncThunk(
+  'property/setSearchFilter',
+  (args: {
+    searchFilter: {
+      searchCity: string
+      searchBudget: null
+      searchType: string
+    }
+  }) => {
+    const { searchFilter } = args
+
+    return {
+      searchFilter,
+    }
+  },
+)
+
 const propertySlice = createSlice({
   name: 'property',
   reducers: {},
@@ -44,6 +71,9 @@ const propertySlice = createSlice({
     builder.addCase(setSelectedProperty.fulfilled, (state, action) => {
       state.fullProperty = action.payload.selectedProperty
     })
+    builder.addCase(setSearchFilter.fulfilled, (state, action) => {
+      state.searchFiter = action.payload.searchFilter
+    })
   },
 })
 
@@ -51,5 +81,7 @@ export const selectedPropertyId = (state: RootState) => state.property.id
 
 export const selectedProperty = (state: RootState) =>
   state.property.fullProperty
+
+export const searchFilter = (state: RootState) => state.property.searchFiter
 
 export default propertySlice

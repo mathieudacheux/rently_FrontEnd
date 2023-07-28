@@ -60,5 +60,13 @@
     "type": "Type",
     "filters": "Filtres",
     "map": "Carte"
+  },
+  "properties": {
+    "bedrooms": "Ch.",
+    "bathrooms": "Sdb.",
+    "kitchens": "Cuis.",
+    "bedroom": "Ch.",
+    "bathroom": "Sdb",
+    "kitchen": "Cuis."
   }
 }
