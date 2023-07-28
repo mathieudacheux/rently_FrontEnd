@@ -1,7 +1,9 @@
 {
   "yup": {
     "required": "Ce champ est requis",
-    "email": "L'email est invalide"
+    "email": "L'email est invalide",
+    "min": "{{ number }} caractères minimum",
+    "password": "8 caractères minimum, 1 majuscule, 1 minuscule, 1 chiffre"
   },
   "title": {
     "home": "Accueil",

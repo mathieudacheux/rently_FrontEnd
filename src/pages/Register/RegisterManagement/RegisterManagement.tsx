@@ -76,7 +76,6 @@ export default function RegisterManagement({
               name='mail'
               placeholder={t('connection.mail')}
               icon={<Mail />}
-              iconError={<Mail error />}
             />
           </div>
           <div className='pt-4'>
@@ -89,7 +88,6 @@ export default function RegisterManagement({
               placeholder={t('connection.password')}
               showPassword={() => setShowPassword(!showPassword)}
               icon={<Password />}
-              iconError={<Password error />}
             />
           </div>
           <div className='pt-4'>

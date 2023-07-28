@@ -10,7 +10,6 @@ export default function FormikTextField({
   password = false,
   showPassword,
   icon = null,
-  iconError = null,
   textCenter = false,
   disableShadows = false,
   handleKeyDown,
@@ -22,7 +21,6 @@ export default function FormikTextField({
   password?: boolean
   showPassword?: () => void
   icon?: React.ReactNode
-  iconError?: React.ReactNode
   textCenter?: boolean
   disableShadows?: boolean
   handleKeyDown?: () => void
@@ -82,9 +80,14 @@ export default function FormikTextField({
             } ${showPassword ? 'cursor-pointer' : ''}`}
             data-tip={showPassword ? t('connection.showPassword') : ''}
           >
-            {meta?.touched && meta?.error ? iconError : icon}
+            {icon}
           </div>
         )}
+        {meta.touched && meta.error ? (
+          <div className='text-xs text-error mt-0.5 absolute transition-all'>
+            {t(meta.error)}
+          </div>
+        ) : null}
       </div>
     </>
   )

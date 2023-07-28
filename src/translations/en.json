@@ -1,7 +1,9 @@
 {
   "yup": {
     "required": "This field is required",
-    "email": "This field must be a valid email"
+    "email": "This field must be a valid email",
+    "min": "{{ number }} characters minimum",
+    "password": "8 characters minimum, 1 uppercase, 1 lowercase, 1 number"
   },
   "title": {
     "home": "Home",

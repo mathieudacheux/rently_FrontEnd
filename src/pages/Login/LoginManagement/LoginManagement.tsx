@@ -46,7 +46,6 @@ export default function LoginManagement({
               name='mail'
               placeholder={t('connection.mail')}
               icon={<Mail />}
-              iconError={<Mail error />}
             />
           </div>
           <div className='pt-4'>
@@ -59,7 +58,6 @@ export default function LoginManagement({
               placeholder={t('connection.password')}
               showPassword={() => setShowPassword(!showPassword)}
               icon={<Password />}
-              iconError={<Password error />}
             />
           </div>
           <div className='pt-4'>
