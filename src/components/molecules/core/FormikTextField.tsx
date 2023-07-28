@@ -77,8 +77,10 @@ export default function FormikTextField({
         {icon && (
           <div
             onClick={() => showPassword && showPassword()}
-            className={`w-fit input-icon absolute right-5 top-1/2 -translate-y-1/2
-          ${showPassword ? 'cursor-pointer' : ''}`}
+            className={`w-fit input-icon absolute right-5 top-1/2 -translate-y-1/2 ${
+              showPassword ? 'tooltip tooltip-primary' : ''
+            } ${showPassword ? 'cursor-pointer' : ''}`}
+            data-tip={showPassword ? t('connection.showPassword') : ''}
           >
             {meta?.touched && meta?.error ? iconError : icon}
           </div>

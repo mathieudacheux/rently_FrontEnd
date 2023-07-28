@@ -8,6 +8,7 @@ import Typography from '../../../components/atoms/Typography.tsx'
 import CardButton from '../../../components/atoms/CardButton.tsx'
 import { Link } from 'react-router-dom'
 import FormikCheckbox from '../../../components/molecules/core/FormikCheckbox.tsx'
+import Profil from '../../../components/atoms/icons/Profil.tsx'
 
 export default function RegisterManagement({
   create,
@@ -25,7 +26,7 @@ export default function RegisterManagement({
         alt='Login'
       />
       <div className='w-10/12 md:w-1/2 flex justify-center align-middle h-full'>
-        <div className='flex flex-col justify-center align-middle w-[400px]'>
+        <div className='flex flex-col justify-center align-middle w-[430px]'>
           <Typography variant='h2'>{t('connection.register')}</Typography>
           <div className='flex flex-start pt-4'>
             <Typography variant='tiny-text'>
@@ -36,6 +37,36 @@ export default function RegisterManagement({
                 {t('connection.ctaLoginClick')}
               </Typography>
             </Link>
+          </div>
+          <div className='flex justify-between items-center pt-4'>
+            <div className='flex flex-col w-[calc(50%-8px)]'>
+              <div>
+                <Typography variant='text'>
+                  {t('connection.firstname')}
+                </Typography>
+              </div>
+              <div className='pt-2'>
+                <FormikTextField
+                  name='firstname'
+                  placeholder={t('connection.firstname')}
+                  icon={<Profil primary />}
+                />
+              </div>
+            </div>
+            <div className='flex flex-col w-[calc(50%-8px)]'>
+              <div>
+                <Typography variant='text'>
+                  {t('connection.lastname')}
+                </Typography>
+              </div>
+              <div className='pt-2'>
+                <FormikTextField
+                  name='lastname'
+                  placeholder={t('connection.lastname')}
+                  icon={<Profil primary />}
+                />
+              </div>
+            </div>
           </div>
           <div className='pt-4'>
             <Typography variant='text'>{t('connection.mail')}</Typography>
