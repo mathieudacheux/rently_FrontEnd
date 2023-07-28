@@ -66,6 +66,8 @@
     "kitchens": "Kitchens",
     "bedroom": "Bedroom",
     "bathroom": "Bathroom",
-    "kitchen": "Kitchen"
+    "kitchen": "Kitchen",
+    "cardButton": "Details",
+    "landSize": "m²"
   }
 }

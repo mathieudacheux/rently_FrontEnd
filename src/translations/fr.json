@@ -66,6 +66,8 @@
     "kitchens": "Cuis.",
     "bedroom": "Ch.",
     "bathroom": "Sdb",
-    "kitchen": "Cuis."
+    "kitchen": "Cuis.",
+    "cardButton": "Détails",
+    "landSize": "m²"
   }
 }

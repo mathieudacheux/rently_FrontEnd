@@ -1,21 +1,16 @@
 import { useMemo } from 'react'
-import {
-  TypographyVariants,
-  TypographyColors,
-} from '../../constants/constants.ts'
+import { TypographyVariants } from '../../constants/constants.ts'
 
 export default function Typography({
   children,
   variant,
   className = '',
-  color = 'secondary',
   price,
   surface,
 }: {
   children: string | number
   variant: TypographyVariants
   className?: string
-  color?: TypographyColors
   price?: boolean
   surface?: boolean
 }): JSX.Element {
@@ -24,7 +19,7 @@ export default function Typography({
   switch (variant) {
     case 'h1':
       element = (
-        <h1 className={`h1 text-${color} ${className}`}>
+        <h1 className={`h1 ${className}`}>
           {children}
           {price ? '€' : ''}
           {surface ? 'm²' : ''}
@@ -33,7 +28,7 @@ export default function Typography({
       break
     case 'h2':
       element = (
-        <h2 className={`h2 text-secondary ${className}`}>
+        <h2 className={`h2 ${className}`}>
           {children}
           {price ? '€' : ''}
           {surface ? 'm²' : ''}
@@ -42,7 +37,7 @@ export default function Typography({
       break
     case 'h2-primary':
       element = (
-        <h2 className={`h2 text-primary ${className}`}>
+        <h2 className={`h2 ${className}`}>
           {children}
           {price ? '€' : ''}
           {surface ? 'm²' : ''}
@@ -51,7 +46,7 @@ export default function Typography({
       break
     case 'h3':
       element = (
-        <h3 className={`h3 text-${color} ${className}`}>
+        <h3 className={`h3 ${className}`}>
           {children}
           {price ? '€' : ''}
           {surface ? 'm²' : ''}
@@ -60,7 +55,7 @@ export default function Typography({
       break
     case 'span':
       element = (
-        <span className={`span text-${color} ${className}`}>
+        <span className={`span ${className}`}>
           {children}
           {price ? '€' : ''}
           {surface ? 'm²' : ''}
@@ -69,7 +64,7 @@ export default function Typography({
       break
     case 'text-light':
       element = (
-        <p className={`text-light text-${color} ${className}`}>
+        <p className={`textLight ${className}`}>
           {children}
           {price ? '€' : ''}
           {surface ? 'm²' : ''}
@@ -78,7 +73,7 @@ export default function Typography({
       break
     case 'tiny-text':
       element = (
-        <p className={`tiny-text font-normal text-${color} ${className}`}>
+        <p className={`tiny-text font-normal ${className}`}>
           {children}
           {price ? '€' : ''}
           {surface ? 'm²' : ''}
@@ -87,7 +82,7 @@ export default function Typography({
       break
     default:
       element = (
-        <p className={`text text-${color} ${className}`}>
+        <p className={`text ${className}`}>
           {children}
           {price ? '€' : ''}
           {surface ? 'm²' : ''}

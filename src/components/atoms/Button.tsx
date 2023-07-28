@@ -4,11 +4,13 @@ export default function Button({
   text,
   icon,
   rounded,
+  className = '',
   onClick,
 }: {
   text: string
   icon?: React.ReactNode
   rounded?: boolean
+  className?: string
   onClick?: () => void
 }): JSX.Element {
   const { t } = useTranslation()
@@ -16,7 +18,7 @@ export default function Button({
     <button
       className={`${
         rounded ? 'roundedBtn' : 'btn'
-      } btn-xs sm:btn-sm md:btn-md lg:btn-md bg-primary hover:bg-primary text-white border-0 ml-4 flex justify-between items-center`}
+      } md:btn-md lg:btn-md bg-primary hover:bg-primary text-white border-0 ml-4 flex justify-between items-center ${className}`}
       onClick={onClick}
     >
       {icon && <div className='mr-2'>{icon}</div>}
