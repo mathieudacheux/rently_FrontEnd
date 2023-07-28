@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useFormikContext } from 'formik'
 import { ForgetPasswordFormik } from '../types.ts'
 import ForgetPasswordManagement from './ForgetPasswordManagement.tsx'
@@ -30,6 +30,28 @@ export default function ForgetPasswordManagementStep(): JSX.Element {
     view: false,
     message: '',
   })
+
+  useEffect(() => {
+    if (showErrorToast.view) {
+      setTimeout(() => {
+        setShowErrorToast({
+          view: false,
+          message: '',
+        })
+      }, 3000)
+    }
+  }, [showErrorToast])
+
+  useEffect(() => {
+    if (showSuccessToast.view) {
+      setTimeout(() => {
+        setShowSuccessToast({
+          view: false,
+          message: '',
+        })
+      }, 3000)
+    }
+  }, [showSuccessToast])
 
   const resetPassword = async () => {
     const formIsValid = await formikValidator(values)
