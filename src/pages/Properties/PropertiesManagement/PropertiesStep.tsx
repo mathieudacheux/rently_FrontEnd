@@ -4,13 +4,23 @@ import { useLazyGetPropertyByFilterQuery } from '../../../features/property/prop
 import { PropertySerializerRead } from '../../../api/index.ts'
 import PropertiesManagement from './PropertiesManagement.tsx'
 import { PropertyFormikType } from '../type.ts'
+import { useAppDispatch } from '../../../store/store.ts'
+import { setSearchFilter } from '../../../features/property/propertySlice.ts'
 
 export default function PropertiesStep() {
+  const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    dispatch(
+      setSearchFilter({
+        searchFilter: { searchCity: '', searchBudget: null, searchType: '' },
+      }),
+    )
+  }, [])
+
   const [triggerProperties, propertiesQuery] = useLazyGetPropertyByFilterQuery()
 
   const { values } = useFormikContext<PropertyFormikType>()
-
-  console.log(values)
 
   useEffect(() => {
     triggerProperties({
