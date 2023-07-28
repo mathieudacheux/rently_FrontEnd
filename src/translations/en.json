@@ -1,7 +1,10 @@
 {
   "yup": {
     "required": "This field is required",
-    "email": "This field must be a valid email"
+    "email": "This field must be a valid email",
+    "min": "{{ number }} characters minimum",
+    "password": "8 characters minimum, 1 uppercase, 1 lowercase, 1 number",
+    "passwordMatch": "Passwords must match"
   },
   "title": {
     "home": "Home",
@@ -11,6 +14,7 @@
     "reset_password": "Reset password",
     "buy": "Buy",
     "sell": "Sell",
+    "rent": "Rent",
     "gestion": "Rental management",
     "agency": "Agencies",
     "not_found": "Page not found (404)",
@@ -29,17 +33,23 @@
   },
   "connection": {
     "login": "Login",
+    "modify": "Modify",
     "loginGoogle": "Login with Google",
     "loginApple": "Login with Apple",
     "register": "Register",
     "registerGoogle": "Sign up with Google",
     "registerApple": "Sign up with Apple",
+    "firstname": "Firstname",
+    "lastname": "Lastname",
+    "showPassword": "Show password",
     "mail": "Email",
     "password": "Password",
+    "passwordConfirm": "Confirm password",
     "button": "Login",
     "ctaRegister": "Don't have an account ?",
     "ctaRegisterClick": "Create my account",
     "ctaForgotPassword": "Forgot password ?",
+    "ctaPassword": "Reset password of my account",
     "ctaLogin": "Already have an account ?",
     "ctaLoginClick": "Connect to my account",
     "connected": "You are connected",
@@ -48,7 +58,10 @@
     "validateAccount": "Your account is being validated",
     "invalidToken": "Your account is already validated or the link is invalid",
     "expiredToken": "Your validation link has expired",
-    "accountValidated": "Your account has been validated"
+    "accountValidated": "Your account has been validated",
+    "forgotPassword": "Forgot password",
+    "resetPassword": "Reset",
+    "passwordUpdated": "Your password has been updated"
   },
   "popup": {
     "close": "Continue"

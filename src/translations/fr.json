@@ -1,7 +1,10 @@
 {
   "yup": {
     "required": "Ce champ est requis",
-    "email": "L'email est invalide"
+    "email": "L'email est invalide",
+    "min": "{{ number }} caractères minimum",
+    "password": "8 caractères minimum, 1 majuscule, 1 minuscule, 1 chiffre",
+    "passwordMatch": "Les mots de passe ne correspondent pas"
   },
   "title": {
     "home": "Accueil",
@@ -11,6 +14,7 @@
     "reset_password": "Réinitialiser le mot de passe",
     "buy": "Acheter",
     "sell": "Vendre",
+    "rent": "Louer",
     "gestion": "Gestion locative",
     "agency": "Nos agences",
     "not_found": "Page non trouvée (404)",
@@ -29,17 +33,23 @@
   },
   "connection": {
     "login": "Connexion",
+    "modify": "Modifier",
     "loginGoogle": "Connexion avec Google",
     "loginApple": "Connexion avec Apple",
     "register": "Inscription",
     "registerGoogle": "Inscription avec Google",
     "registerApple": "Inscription avec Apple",
-    "mail": "Address mail",
+    "firstname": "Prénom",
+    "lastname": "Nom",
+    "showPassword": "Afficher le mot de passe",
+    "mail": "Addresse email",
     "password": "Mot de passe",
+    "passwordConfirm": "Confirmer le mot de passe",
     "button": "Se connecter",
     "ctaRegister": "Vous n'avez pas de compte ?",
     "ctaRegisterClick": "Inscrivez-vous",
     "ctaForgotPassword": "Mot de passe oublié ?",
+    "ctaPassword": "Réinitialiser le mot de passe de votre compte",
     "ctaLogin": "Vous avez déjà un compte ?",
     "ctaLoginClick": "Connectez-vous",
     "connected": "Vous êtes connecté",
@@ -48,7 +58,10 @@
     "validateAccount": "Votre compte est en cours de validation",
     "invalidToken": "Votre compte est déjà validé ou le lien est invalide",
     "expiredToken": "Le lien de validation est expiré",
-    "accountValidated": "Votre compte est validé"
+    "accountValidated": "Votre compte est validé",
+    "forgotPassword": "Mot de passe oublié",
+    "resetPassword": "Réinitialiser",
+    "passwordUpdated": "Votre mot de passe a été mis à jour"
   },
   "popup": {
     "close": "Continuer"

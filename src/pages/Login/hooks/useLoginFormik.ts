@@ -25,7 +25,7 @@ export default function useLoginFormik() {
   const loginFormik = useFormik({
     initialValues,
     validateOnChange: false,
-    validateOnBlur: false,
+    validateOnBlur: true,
     validationSchema,
     onSubmit,
   })
