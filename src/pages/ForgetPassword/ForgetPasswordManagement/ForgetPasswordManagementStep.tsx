@@ -14,6 +14,7 @@ import { JWT } from '../../ValidateAccount/types.ts'
 import jwt_decode from 'jwt-decode'
 import { useNavigate } from 'react-router-dom'
 import { APP_ROUTES } from '../../../routes/routes.ts'
+import { ToastState } from '../../../types.ts'
 
 export default function ForgetPasswordManagementStep(): JSX.Element {
   const navigate = useNavigate()
@@ -30,27 +31,24 @@ export default function ForgetPasswordManagementStep(): JSX.Element {
   const token = urlParams.get('token')
   const isToken = token ? true : false
 
-  const [showErrorToast, setShowErrorToast] = useState<{
-    view: boolean
-    message: string
-  }>({
+  const [showErrorToast, setShowErrorToast] = useState<ToastState>({
     view: false,
     message: '',
   })
 
-  const [showSuccessToast, setShowSuccessToast] = useState<{
-    view: boolean
-    message: string
-  }>({
+  const [showSuccessToast, setShowSuccessToast] = useState<ToastState>({
     view: false,
     message: '',
   })
 
   const [showSuccessToastUpdatePassword, setShowSuccessToastUpdatePassword] =
-    useState<{
-      view: boolean
-      message: string
-    }>({
+    useState<ToastState>({
+      view: false,
+      message: '',
+    })
+
+  const [showErrorToastUpdatePassword, setShowErrorToastUpdatePassword] =
+    useState<ToastState>({
       view: false,
       message: '',
     })
@@ -62,10 +60,22 @@ export default function ForgetPasswordManagementStep(): JSX.Element {
           view: false,
           message: '',
         })
+        navigate(APP_ROUTES.LOGIN)
       }, 1500)
-      navigate(APP_ROUTES.LOGIN)
     }
   }, [showSuccessToastUpdatePassword])
+
+  useEffect(() => {
+    if (showErrorToastUpdatePassword.view) {
+      setTimeout(() => {
+        setShowErrorToastUpdatePassword({
+          view: false,
+          message: '',
+        })
+        navigate(APP_ROUTES.LOGIN)
+      }, 1500)
+    }
+  }, [showErrorToastUpdatePassword])
 
   useEffect(() => {
     if (showErrorToast.view) {
@@ -123,22 +133,32 @@ export default function ForgetPasswordManagementStep(): JSX.Element {
 
     if (!formIsValid) return false
 
-    if (!token) return false
-
-    const decodedToken: JWT = jwt_decode(token)
-
-    if (decodedToken.exp < Date.now() / 1000) {
-      setShowErrorToast({
+    if (!token) {
+      setShowErrorToastUpdatePassword({
         view: true,
-        message: 'connection.tokenExpired',
+        message: 'connection.invalidToken',
       })
       return false
     }
 
+    const decodedToken: JWT = jwt_decode(token)
+
+    console.log(Date.now() >= decodedToken.exp * 1000)
+
+    if (Date.now() <= decodedToken.exp * 1000) {
+      setShowErrorToastUpdatePassword({
+        view: true,
+        message: 'connection.expiredToken',
+      })
+      return false
+    }
+
+    console.log(decodedToken)
+
     const result: any = await getUserById(decodedToken.user_id)
 
     if (!result?.data || result?.error) {
-      setShowErrorToast({
+      setShowErrorToastUpdatePassword({
         view: true,
         message: result?.error?.data?.message,
       })
@@ -146,7 +166,7 @@ export default function ForgetPasswordManagementStep(): JSX.Element {
     }
 
     if (result?.data?.user_id !== decodedToken.user_id) {
-      setShowErrorToast({
+      setShowErrorToastUpdatePassword({
         view: true,
         message: 'connection.tokenInvalid',
       })
@@ -159,7 +179,7 @@ export default function ForgetPasswordManagementStep(): JSX.Element {
     })
 
     if (!update?.data || update?.error) {
-      setShowErrorToast({
+      setShowErrorToastUpdatePassword({
         view: true,
         message: update?.error?.data?.message,
       })
@@ -185,6 +205,17 @@ export default function ForgetPasswordManagementStep(): JSX.Element {
       <Toast error open={showErrorToast.view} text={showErrorToast.message} />
 
       <Toast open={showSuccessToast.view} text={showSuccessToast.message} />
+
+      <Toast
+        error
+        open={showErrorToastUpdatePassword.view}
+        text={showErrorToastUpdatePassword.message}
+      />
+
+      <Toast
+        open={showSuccessToastUpdatePassword.view}
+        text={showSuccessToastUpdatePassword.message}
+      />
     </>
   )
 }

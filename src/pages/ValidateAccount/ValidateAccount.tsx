@@ -21,7 +21,7 @@ export default function ValidateAccount(): JSX.Element {
         navigate(APP_ROUTES.LOGIN, {
           state: { from: APP_ROUTES.VALIDATE_ACCOUNT },
         })
-      }, 2000)
+      }, 1500)
       setRedirection(false)
     }
   }, [redirection])
@@ -32,7 +32,7 @@ export default function ValidateAccount(): JSX.Element {
   if (!token) {
     setTimeout(() => {
       navigate(APP_ROUTES.HOME)
-    }, 3000)
+    }, 1500)
     return (
       <div className='h-[calc(100vh-75px)] flex justify-center items-center'>
         <div className='h-full w-10/12 flex flex-col justify-center items-center'>
@@ -50,7 +50,7 @@ export default function ValidateAccount(): JSX.Element {
   if (decodedToken.exp < Date.now() / 1000) {
     setTimeout(() => {
       navigate(APP_ROUTES.HOME)
-    }, 3000)
+    }, 1500)
     return (
       <div className='h-[calc(100vh-75px)] w-10/12 flex flex-col justify-center items-center'>
         <span className='loading loading-spinner loading-lg bg-primary mb-4'></span>
