@@ -1,5 +1,4 @@
 import { useField, useFormikContext } from 'formik'
-import { ChangeEvent } from 'react'
 
 export default function FormikSwitchButton({
   textOne,

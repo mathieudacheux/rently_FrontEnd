@@ -1,5 +1,4 @@
 import { PropertySerializerRead } from '../../api/index.ts'
-import Typography from '../atoms/Typography.tsx'
 
 export default function PropertyCardMapPopup({
   property,
