@@ -39,7 +39,6 @@ export default function PropertiesList({
             position: [Number(property.latitude), Number(property.longitude)],
           }))}
           onClick={setItemToView}
-          properties={properties}
         />
       </div>
       <div

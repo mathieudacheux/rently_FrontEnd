@@ -26,8 +26,6 @@ export default function MapComponent({
     return null
   }
 
-  console.log(properties)
-
   const myIcon = new L.Icon({
     iconUrl: Icon,
     iconRetinaUrl: Icon,
