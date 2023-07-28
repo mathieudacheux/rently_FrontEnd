@@ -1,19 +1,23 @@
 import { MapContainer, TileLayer, Popup, Marker, useMap } from 'react-leaflet'
 import L from 'leaflet'
-import 'leaflet/dist/leaflet.css'
 import { MarkerType } from '../type.ts'
 import Icon from '../../../assets/icons/MapIcon.svg'
 import MarkerClusterGroup from 'react-leaflet-cluster'
-import PropertyCard from '../../../components/organisms/PropertyCard.tsx'
 import { PropertySerializerRead } from '../../../api/index.ts'
+import 'leaflet/dist/leaflet.css'
+import PropertyCardMapPopup from '../../../components/organisms/PropertyCardMapPopup.tsx'
 
 export default function MapComponent({
   markers,
   properties,
+  height,
+  marginTop,
   onClick,
 }: {
   markers: MarkerType[]
   properties: PropertySerializerRead[]
+  height: string
+  marginTop?: string
   onClick: (itemId: number) => void
 }): JSX.Element {
   function ResizeMap() {
@@ -39,7 +43,8 @@ export default function MapComponent({
       zoom={13}
       scrollWheelZoom={true}
       style={{
-        height: '100%',
+        height,
+        marginTop,
         width: '100%',
         transition: 'all 0.7s linear',
       }}
@@ -59,10 +64,10 @@ export default function MapComponent({
                 click: () => onClick(marker.property_id),
               }}
             >
-              <Popup>
+              <Popup className='customPopup'>
                 <div className='h-full w-full'>
                   {properties?.length && (
-                    <PropertyCard property={properties[index]} />
+                    <PropertyCardMapPopup property={properties[index]} />
                   )}
                 </div>
               </Popup>

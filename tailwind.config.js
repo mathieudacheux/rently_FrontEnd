@@ -173,6 +173,27 @@ export default {
             'box-shadow': '-5px 5px 15px 0px rgba(0, 0, 0, 0.15)',
           },
 
+          '.customPopup .leaflet-popup-content-wrapper .leaflet-popup-content':
+            {
+              margin: '0 !important',
+              width: '250px',
+              background: '#FFFFFF35',
+            },
+
+          '.customPopup .leaflet-popup-content-wrapper, .leaflet-popup-tip': {
+            background: 'transparent',
+            'box-shadow': 'none',
+          },
+
+          '.mobileMapContainer': {
+            'border-radius': '15px 15px 0 0',
+            'box-shadow': '0px -10px 10px 0px rgba(0, 0, 0, 0.15)',
+            position: 'fixed',
+            bottom: '32px',
+            left: '0',
+            zIndex: '1000',
+          },
+
           // Global settings
           '--def-padding': '15px',
 
@@ -188,7 +209,7 @@ export default {
             'font-size': '18px',
             'font-weight': '500',
           },
-          '.text-light': {
+          '.textLight': {
             'font-size': '18px',
             'font-weight': '400',
           },

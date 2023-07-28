@@ -18,6 +18,7 @@ import countryApi from '../features/country/countryApi.ts'
 import roleSlice from '../features/role/roleSlice.ts'
 import roleApi from '../features/role/roleApi.ts'
 import sectorApi from '../features/sector/sectorApi.ts'
+import mailApi from '../features/mail/mailApi.ts'
 
 export const store = configureStore({
   reducer: {
@@ -38,6 +39,7 @@ export const store = configureStore({
     [roleSlice.name]: roleSlice.reducer,
     [roleApi.reducerPath]: roleApi.reducer,
     [sectorApi.reducerPath]: sectorApi.reducer,
+    [mailApi.reducerPath]: mailApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
@@ -51,7 +53,8 @@ export const store = configureStore({
       .concat([agencyApi.middleware])
       .concat([countryApi.middleware])
       .concat([roleApi.middleware])
-      .concat([sectorApi.middleware]),
+      .concat([sectorApi.middleware])
+      .concat([mailApi.middleware]),
   devTools: true,
 })
 

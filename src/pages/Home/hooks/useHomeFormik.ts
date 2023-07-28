@@ -12,13 +12,16 @@ export default function useHomeFormik() {
     searchCity: '',
     searchBudget: null,
     searchType: '',
+    status: true,
   }
 
   const validationSchema = useMemo(
     () =>
       yup.object({
-        mail: yup.string().email(t('yup.email')).required(t('yup.required')),
-        password: yup.string().required(t('yup.required')),
+        searchCity: yup.string().required(t('required')),
+        searchBudget: yup.number().required(t('required')),
+        searchType: yup.string().required(t('required')),
+        status: yup.number().required(t('required')),
       }),
     [i18n.language],
   )
@@ -26,7 +29,7 @@ export default function useHomeFormik() {
   const homeFormik = useFormik({
     initialValues,
     validateOnChange: false,
-    validateOnBlur: false,
+    validateOnBlur: true,
     validationSchema,
     onSubmit,
   })

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { useFormikContext } from 'formik'
 import { PropertySerializerRead } from '../../../api/index.ts'
 import Searchbar from '../../../components/organisms/Searchbar.tsx'
@@ -26,10 +26,32 @@ export default function PropertiesManagement({
   const { values } = useFormikContext<PropertyFormikType>()
 
   const [mapOpen, setMapOpen] = useState<boolean>(false)
+  const [mobileMapOpen, setMobileMapOpen] = useState<boolean>(false)
+
+  const [windowSize, setWindowSize] = useState<number>(window.innerWidth)
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setWindowSize(window.innerWidth)
+    }
+
+    window.addEventListener('resize', handleWindowResize)
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize)
+    }
+  }, [])
+
+  useEffect(() => {
+    setMapOpen(false)
+    setMobileMapOpen(false)
+  }, [windowSize])
+
+  const setMapState = () => setMobileMapOpen(!mobileMapOpen)
 
   return (
     <>
-      <div className='flex justify-center items-center h-[80px]'>
+      <div className='flex justify-center items-center flex-wrap md:flex-nowrap h-auto md:h-[80px] mb-4'>
         <Searchbar
           onClick={() =>
             search({
@@ -44,10 +66,23 @@ export default function PropertiesManagement({
           text='searchbar.map'
           icon={<Map />}
           rounded
+          className='hidden md:flex'
           onClick={() => setMapOpen(!mapOpen)}
         />
+        <Button
+          text='searchbar.map'
+          icon={<Map />}
+          rounded
+          className='md:hidden'
+          onClick={() => setMobileMapOpen(!mobileMapOpen)}
+        />
       </div>
-      <PropertiesList mapOpen={mapOpen} properties={properties} />
+      <PropertiesList
+        mapOpen={mapOpen}
+        mobileMapOpen={mobileMapOpen}
+        properties={properties}
+        setMapState={setMapState}
+      />
     </>
   )
 }

@@ -10,6 +10,7 @@ import { useAppDispatch } from '../../../store/store.ts'
 import { setSelectedUser } from '../../../features/user/userSlice.ts'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { APP_ROUTES } from '../../../routes/routes.ts'
+import { ToastState } from '../../../types.ts'
 
 export default function LoginManagementStep(): JSX.Element {
   const navigate = useNavigate()
@@ -29,29 +30,21 @@ export default function LoginManagementStep(): JSX.Element {
 
   const [userToken, setUserToken] = useState<boolean>(false)
 
-  const [showErrorToast, setShowErrorToast] = useState<{
-    view: boolean
-    message: string
-  }>({
+  const [showErrorToast, setShowErrorToast] = useState<ToastState>({
     view: false,
     message: '',
   })
 
-  const [showSuccessToast, setShowSuccessToast] = useState<{
-    view: boolean
-    message: string
-  }>({
+  const [showSuccessToast, setShowSuccessToast] = useState<ToastState>({
     view: false,
     message: '',
   })
 
-  const [showValidateAccountToast, setShowValidateAccountToast] = useState<{
-    view: boolean
-    message: string
-  }>({
-    view: false,
-    message: '',
-  })
+  const [showValidateAccountToast, setShowValidateAccountToast] =
+    useState<ToastState>({
+      view: false,
+      message: '',
+    })
 
   useEffect(() => {
     if (fromValidateAccount) {
@@ -91,8 +84,6 @@ export default function LoginManagementStep(): JSX.Element {
           view: false,
           message: '',
         })
-      }, 3000)
-      setTimeout(() => {
         navigate(APP_ROUTES.HOME)
       }, 3000)
     }

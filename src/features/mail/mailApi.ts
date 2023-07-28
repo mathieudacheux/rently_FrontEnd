@@ -20,9 +20,17 @@ const mailApi = createApi({
         body: id,
       }),
     }),
+    resetPasswordMail: builder.mutation({
+      query: (id) => ({
+        url: `/mail/reset_password`,
+        method: 'POST',
+        body: id,
+      }),
+    }),
   }),
 })
 
-export const { useConfirmationMailMutation } = mailApi
+export const { useConfirmationMailMutation, useResetPasswordMailMutation } =
+  mailApi
 
 export default mailApi

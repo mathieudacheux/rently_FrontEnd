@@ -9,6 +9,7 @@ import { useLazyGetCountriesQuery } from '../../../features/country/countryApi.t
 import { useLazyGetRolesQuery } from '../../../features/role/roleApi.ts'
 import { useConfirmationMailMutation } from '../../../features/mail/mailApi.ts'
 import { useTranslation } from 'react-i18next'
+import { ToastState } from '../../../types.ts'
 
 export default function LoginManagementStep(): JSX.Element {
   const { i18n } = useTranslation()
@@ -21,18 +22,12 @@ export default function LoginManagementStep(): JSX.Element {
   const [getCountry, { data: dataCountry }] = useLazyGetCountriesQuery()
   const [getRole, { data: dataRole }] = useLazyGetRolesQuery()
 
-  const [showErrorToast, setShowErrorToast] = useState<{
-    view: boolean
-    message: string
-  }>({
+  const [showErrorToast, setShowErrorToast] = useState<ToastState>({
     view: false,
     message: '',
   })
 
-  const [showSuccessToast, setShowSuccessToast] = useState<{
-    view: boolean
-    message: string
-  }>({
+  const [showSuccessToast, setShowSuccessToast] = useState<ToastState>({
     view: false,
     message: '',
   })
@@ -77,6 +72,8 @@ export default function LoginManagementStep(): JSX.Element {
     if (!formIsValid) return false
 
     const result: any = await postUser({
+      firstname: values.firstName,
+      lastname: values.lastName,
       mail: values.mail,
       password: values.password,
       country_id: dataCountry[0].country_id,
