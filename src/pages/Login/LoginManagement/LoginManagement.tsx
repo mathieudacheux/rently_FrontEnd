@@ -7,6 +7,9 @@ import LoginImage from '../../../assets/images/login.webp'
 import Typography from '../../../components/atoms/Typography.tsx'
 import CardButton from '../../../components/atoms/CardButton.tsx'
 import { Link } from 'react-router-dom'
+import { APP_ROUTES } from '../../../routes/routes.ts'
+import { useFormikContext } from 'formik'
+import { LoginFormik } from '../types.ts'
 
 export default function LoginManagement({
   login,
@@ -14,6 +17,7 @@ export default function LoginManagement({
   login: () => Promise<boolean>
 }): JSX.Element {
   const { t } = useTranslation()
+  const { values } = useFormikContext<LoginFormik>()
   const [showPassword, setShowPassword] = useState<boolean>(false)
 
   return (
@@ -32,7 +36,7 @@ export default function LoginManagement({
             <Typography variant='tiny-text'>
               {t('connection.ctaRegister')}
             </Typography>
-            <Link to='/register' className='ml-1'>
+            <Link to={APP_ROUTES.REGISTER} className='ml-1'>
               <Typography variant='tiny-text' className='font-semibold'>
                 {t('connection.ctaRegisterClick')}
               </Typography>
@@ -64,7 +68,13 @@ export default function LoginManagement({
             <CardButton onClick={() => login()} text='connection.login' />
           </div>
           <div className='pt-4 flex justify-center'>
-            <Link to='/register'>
+            <Link
+              to={APP_ROUTES.FORGOT_PASSWORD}
+              state={{
+                from: APP_ROUTES.LOGIN,
+                email: values.mail !== '' ? values.mail : '',
+              }}
+            >
               <Typography variant='tiny-text'>
                 {t('connection.ctaForgotPassword')}
               </Typography>
