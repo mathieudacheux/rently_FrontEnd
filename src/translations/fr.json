@@ -53,7 +53,8 @@
     "validateAccount": "Votre compte est en cours de validation",
     "invalidToken": "Votre compte est déjà validé ou le lien est invalide",
     "expiredToken": "Le lien de validation est expiré",
-    "accountValidated": "Votre compte est validé"
+    "accountValidated": "Votre compte est validé",
+    "forgotPassword": "Mot de passe oublié"
   },
   "popup": {
     "close": "Continuer"

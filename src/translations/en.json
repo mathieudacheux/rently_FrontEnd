@@ -53,7 +53,8 @@
     "validateAccount": "Your account is being validated",
     "invalidToken": "Your account is already validated or the link is invalid",
     "expiredToken": "Your validation link has expired",
-    "accountValidated": "Your account has been validated"
+    "accountValidated": "Your account has been validated",
+    "forgotPassword": "Forgot password"
   },
   "popup": {
     "close": "Continue"
