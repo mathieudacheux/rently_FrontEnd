@@ -13,12 +13,15 @@ export default function BestProperties(): JSX.Element {
     })?.data ?? []
 
   return (
-    <div className='flex flex-col items-center justify-center py-7'>
-      <Typography variant='h2' className='text-neutral-900'>
+    <div className='flex flex-col items-center justify-center'>
+      <Typography variant='h2' className=' text-center text-neutral-900 py-7'>
         {t('home.titleProperties')}
       </Typography>
-      <div className='flex flex-row flex-wrap items-center justify-center w-full'>
-        {propertyData.map((property) => (
+      <div
+        className='gap-4 md:max-w-[1200px] md:w-11/12 grid w-10/12
+        md:grid-cols-4 grid-cols-1 justify-items-center'
+      >
+        {propertyData.slice(0, 8).map((property) => (
           <PropertyCard key={property.property_id} property={property} />
         ))}
       </div>
