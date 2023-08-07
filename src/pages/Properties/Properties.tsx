@@ -1,6 +1,6 @@
 import { FormikProvider } from 'formik'
 import usePropertyFormik from './hooks/usePropertyFormik.ts'
-import PropertiesStep from './PropertiesManagement/PropertiesStep.tsx'
+import PropertiesManagementStep from './PropertiesManagement/PropertiesManagementStep.tsx'
 
 export default function Properties(): JSX.Element {
   const propertyFormik = usePropertyFormik()
@@ -8,7 +8,7 @@ export default function Properties(): JSX.Element {
   return (
     <>
       <FormikProvider value={propertyFormik}>
-        <PropertiesStep />
+        <PropertiesManagementStep />
       </FormikProvider>
     </>
   )

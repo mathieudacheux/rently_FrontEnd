@@ -7,7 +7,7 @@ import { PropertyFormikType } from '../type.ts'
 import { useAppDispatch } from '../../../store/store.ts'
 import { setSearchFilter } from '../../../features/property/propertySlice.ts'
 
-export default function PropertiesStep() {
+export default function PropertiesManagementStep() {
   const dispatch = useAppDispatch()
 
   useEffect(() => {

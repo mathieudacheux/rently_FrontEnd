@@ -31,6 +31,9 @@
     "register": "Register",
     "account": "My account"
   },
+  "home": {
+    "titleProperties": "Our most popular properties"
+  },
   "connection": {
     "login": "Login",
     "modify": "Modify",

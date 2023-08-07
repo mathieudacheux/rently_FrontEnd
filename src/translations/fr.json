@@ -31,6 +31,9 @@
     "register": "Inscription",
     "account": "Mon compte"
   },
+  "home": {
+    "titleProperties": "Nos biens immobiliers les plus populaires"
+  },
   "connection": {
     "login": "Connexion",
     "modify": "Modifier",
