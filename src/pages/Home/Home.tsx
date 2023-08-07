@@ -10,7 +10,6 @@ export default function Home(): JSX.Element {
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
   const { homeFormik } = useHomeFormik()
-  console.log(homeFormik.values.status)
 
   const navigateToProperties = async () => {
     await dispatch(
