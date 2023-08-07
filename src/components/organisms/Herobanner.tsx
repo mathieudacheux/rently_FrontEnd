@@ -12,7 +12,7 @@ export default function Herobanner({
 
   return (
     <div
-      className='w-full h-[calc(80vh-75px)] md:h-[calc(100vh-75px)] flex flex-col justify-center items-center'
+      className='w-full h-[calc(100dvh-75px)] md:h-[calc(100vh-75px)] flex flex-col justify-center items-center'
       style={{
         background: `linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url(${HerobannerImage})`,
         backgroundSize: 'cover',
