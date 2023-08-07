@@ -7,7 +7,7 @@ export default function Footer(): JSX.Element {
   return (
     <footer className='footer p-10 bg-primary text-white mt-7'>
       <div>
-        <img src={Rently} className='logo p-2' alt='Rently Logo' />
+        <img src={Rently} className='logo' alt='Rently Logo' />
       </div>
       <div>
         <span className='footer-title'>{t('footer.sectionOne.title')}</span>
