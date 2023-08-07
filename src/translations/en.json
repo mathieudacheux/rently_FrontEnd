@@ -32,7 +32,8 @@
     "account": "My account"
   },
   "home": {
-    "titleProperties": "Our most popular properties"
+    "titleProperties": "Our most popular properties",
+    "seeMore": "See more"
   },
   "connection": {
     "login": "Login",

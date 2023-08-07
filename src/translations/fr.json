@@ -31,8 +31,33 @@
     "register": "Inscription",
     "account": "Mon compte"
   },
+  "footer": {
+    "sectionOne": {
+      "title": "Découvrir",
+      "first": "Découvrez votre futur bien",
+      "second": "Vendez ou louez votre bien",
+      "third": "Trouver une agence Rently",
+      "fourth": "Nos conseils immobiliers",
+      "fifth": "Découvrir Rently"
+    },
+    "sectionTwo": {
+      "title": "L'agence Rently",
+      "first": "Nous contacter",
+      "second": "Nous recrutons",
+      "third": "Besoin d’aide",
+      "fourth": "Notre objectif",
+      "fifth": "Votre avis nous intéresse"
+    },
+    "sectionThree": {
+      "title": "Retrouvez-nous",
+      "first": "Facebook",
+      "second": "Instagram",
+      "third": "LinkedIn"
+    }
+  },
   "home": {
-    "titleProperties": "Nos biens immobiliers les plus populaires"
+    "titleProperties": "Nos biens immobiliers les plus populaires",
+    "seeMore": "Voir plus"
   },
   "connection": {
     "login": "Connexion",
