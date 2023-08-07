@@ -47,7 +47,7 @@ export default {
             padding: '14px',
             'border-radius': '15px',
             gap: '15px',
-            'min-width': '250px',
+            width: '350px',
             'max-height': '320px',
           },
           '.card-body': {
@@ -58,8 +58,8 @@ export default {
           },
 
           // Card image settings
-          '.card figure img': {
-            'border-radius': '7.5px',
+          '.card figure': {
+            'border-radius': '5.5px',
           },
 
           // Searchbar for properties
