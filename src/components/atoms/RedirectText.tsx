@@ -7,11 +7,13 @@ export default function RedirectText({
   to,
   variant = 'navbar',
   target = '_self',
+  onClick,
 }: {
   text: string
   to: keyof typeof APP_ROUTES
   variant?: 'navbar' | 'footer'
   target?: '_self' | '_blank'
+  onClick?: () => void
 }): JSX.Element {
   const { t } = useTranslation()
 
@@ -21,6 +23,7 @@ export default function RedirectText({
         className='text-lg font-semibold text-neutral-900 p-2 ml-2'
         to={APP_ROUTES[to]}
         target={target}
+        onClick={onClick}
       >
         <p>{t(text)}</p>
       </Link>
@@ -34,6 +37,7 @@ export default function RedirectText({
         '
         to={APP_ROUTES[to]}
         target={target}
+        onClick={onClick}
       >
         <p>{t(text)}</p>
       </Link>
