@@ -28,13 +28,15 @@ export default function RegisterManagement({
       />
       <div className='w-10/12 md:w-1/2 flex justify-center align-middle h-full'>
         <div className='flex flex-col justify-center align-middle w-[430px]'>
-          <Typography variant='h2'>{t('connection.register')}</Typography>
+          <Typography variant='h2' className='text-neutral-900'>
+            {t('connection.register')}
+          </Typography>
           <div className='flex flex-start pt-4'>
-            <Typography variant='tiny-text'>
+            <Typography variant='tiny-text' className='text-neutral-900'>
               {t('connection.ctaLogin')}
             </Typography>
             <Link to={APP_ROUTES.LOGIN} className='ml-1'>
-              <Typography variant='tiny-text' className='font-semibold'>
+              <Typography variant='cta' className='font-semibold'>
                 {t('connection.ctaLoginClick')}
               </Typography>
             </Link>
@@ -42,7 +44,7 @@ export default function RegisterManagement({
           <div className='flex justify-between items-center pt-4'>
             <div className='flex flex-col w-[calc(50%-8px)]'>
               <div>
-                <Typography variant='text'>
+                <Typography variant='text' className='text-neutral-900'>
                   {t('connection.firstname')}
                 </Typography>
               </div>
@@ -56,7 +58,7 @@ export default function RegisterManagement({
             </div>
             <div className='flex flex-col w-[calc(50%-8px)]'>
               <div>
-                <Typography variant='text'>
+                <Typography variant='text' className='text-neutral-900'>
                   {t('connection.lastname')}
                 </Typography>
               </div>
@@ -70,7 +72,9 @@ export default function RegisterManagement({
             </div>
           </div>
           <div className='pt-4'>
-            <Typography variant='text'>{t('connection.mail')}</Typography>
+            <Typography variant='text' className='text-neutral-900'>
+              {t('connection.mail')}
+            </Typography>
           </div>
           <div className='pt-2'>
             <FormikTextField
@@ -80,7 +84,9 @@ export default function RegisterManagement({
             />
           </div>
           <div className='pt-4'>
-            <Typography variant='text'>{t('connection.password')}</Typography>
+            <Typography variant='text' className='text-neutral-900'>
+              {t('connection.password')}
+            </Typography>
           </div>
           <div className='pt-2'>
             <FormikTextField
@@ -115,7 +121,7 @@ export default function RegisterManagement({
                 alt='google'
                 className='mr-2'
               />
-              <Typography variant='tiny-text'>
+              <Typography variant='tiny-text' className='text-neutral-900'>
                 {t('connection.registerGoogle')}
               </Typography>
             </button>
@@ -132,7 +138,7 @@ export default function RegisterManagement({
                 alt='apple'
                 className='mr-2 w-5'
               />
-              <Typography variant='tiny-text'>
+              <Typography variant='tiny-text' className='text-neutral-900'>
                 {t('connection.registerApple')}
               </Typography>
             </button>
