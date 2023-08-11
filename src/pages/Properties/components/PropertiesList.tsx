@@ -49,12 +49,12 @@ export default function PropertiesList({
       </div>
       <div
         className={`mobileMapContainer ${
-          mobileMapOpen ? 'h-2/3' : 'h-0'
+          mobileMapOpen ? 'h-4/5' : 'h-0'
         } transition-all duration-700 linear w-full rounded-t-lg`}
       >
         <div
           onClick={setMapState}
-          className='h-8 w-full z-50 rounded-t-lg flex items-center justify-center bg-primary md:hidden'
+          className='h-[40px] w-full z-50 rounded-t-lg flex items-center justify-center bg-primary md:hidden'
         >
           <Arrow rotate={!mobileMapOpen} color='white' />
         </div>

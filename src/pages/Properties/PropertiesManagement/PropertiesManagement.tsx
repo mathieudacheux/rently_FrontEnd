@@ -51,7 +51,7 @@ export default function PropertiesManagement({
 
   return (
     <>
-      <div className='flex justify-center items-center flex-wrap md:flex-nowrap h-auto md:h-[80px] mb-4'>
+      <div className='flex justify-center items-center flex-wrap md:flex-nowrap h-auto md:h-[80px]'>
         <Searchbar
           onClick={() =>
             search({
@@ -61,7 +61,12 @@ export default function PropertiesManagement({
             })
           }
         />
-        <Button text='searchbar.filters' icon={<Filter />} rounded />
+        <Button
+          text='searchbar.filters'
+          icon={<Filter />}
+          rounded
+          className='mx-4'
+        />
         <Button
           text='searchbar.map'
           icon={<Map />}
