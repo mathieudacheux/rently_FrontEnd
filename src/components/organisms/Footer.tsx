@@ -79,16 +79,19 @@ export default function Footer(): JSX.Element {
           to='FACEBOOK'
           text='footer.sectionThree.first'
           variant='footer'
+          target='_blank'
         />
         <RedirectText
           to='INSTAGRAM'
           text='footer.sectionThree.second'
           variant='footer'
+          target='_blank'
         />
         <RedirectText
           to='LINKEDIN'
           text='footer.sectionThree.third'
           variant='footer'
+          target='_blank'
         />
       </div>
     </footer>
