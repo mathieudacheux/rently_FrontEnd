@@ -22,8 +22,6 @@ export default function RouterElement(): JSX.Element {
     [location.pathname],
   )
 
-  console.log(showFooter)
-
   return (
     <>
       <Routes>
