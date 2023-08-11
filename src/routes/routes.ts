@@ -10,20 +10,27 @@ const APP_ROUTES = {
   ACCOUNT: '/account',
   VALIDATE_ACCOUNT: '/validate-account',
 
-  // Navbar
+  // Navbar & Footer
   BUY: '/buy',
   SELL: '/sell',
   GESTION: '/gestion',
   AGENCY: '/agency',
+  BLOG: '/blog',
+  WHYRENTLY: '/whyrently',
+  CONTACT: '/contact',
+  HIRING: '/hiring',
+  HELP: '/help',
+  OBJECTIF: '/objectif',
+  REVIEW: 'https://trustpilot.com',
+  FACEBOOK: 'https://www.facebook.com/',
+  INSTAGRAM: 'https://www.instagram.com/',
+  LINKEDIN: 'https://www.linkedin.com/',
 
   // Error pages
   NOT_FOUND: '/404',
   SERVER_ERROR: '/500',
   ACCESS_DENIED: '/403',
   UNAUTHORIZED: '/401',
-
-  // Playground
-  PLAYGROUND: '/test',
 
   // Properties
   PROPERTIES: '/properties',
@@ -85,10 +92,6 @@ const APP_TITLES = [
   {
     path: APP_ROUTES.UNAUTHORIZED,
     title: 'title.unauthorized',
-  },
-  {
-    path: APP_ROUTES.PLAYGROUND,
-    title: 'title.home',
   },
   {
     path: APP_ROUTES.PROPERTIES,
