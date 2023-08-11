@@ -4,7 +4,7 @@ import * as yup from 'yup'
 import { useTranslation } from 'react-i18next'
 
 export default function useHomeFormik() {
-  const { t, i18n } = useTranslation()
+  const { i18n } = useTranslation()
 
   const onSubmit = useCallback(async () => null, [])
 
