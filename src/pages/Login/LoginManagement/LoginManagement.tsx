@@ -31,19 +31,23 @@ export default function LoginManagement({
       />
       <div className='w-10/12 md:w-1/2 flex justify-center align-middle h-full'>
         <div className='flex flex-col justify-center align-middle w-[400px]'>
-          <Typography variant='h2'>{t('connection.login')}</Typography>
+          <Typography variant='h2' className='text-neutral-900'>
+            {t('connection.login')}
+          </Typography>
           <div className='flex flex-start pt-4'>
-            <Typography variant='tiny-text'>
+            <Typography variant='tiny-text' className='text-neutral-900'>
               {t('connection.ctaRegister')}
             </Typography>
             <Link to={APP_ROUTES.REGISTER} className='ml-1'>
-              <Typography variant='tiny-text' className='font-semibold'>
+              <Typography variant='cta' className='font-semibold'>
                 {t('connection.ctaRegisterClick')}
               </Typography>
             </Link>
           </div>
           <div className='pt-4'>
-            <Typography variant='text'>{t('connection.mail')}</Typography>
+            <Typography variant='text' className='text-neutral-900'>
+              {t('connection.mail')}
+            </Typography>
           </div>
           <div className='pt-2'>
             <FormikTextField
@@ -53,7 +57,9 @@ export default function LoginManagement({
             />
           </div>
           <div className='pt-4'>
-            <Typography variant='text'>{t('connection.password')}</Typography>
+            <Typography variant='text' className='text-neutral-900'>
+              {t('connection.password')}
+            </Typography>
           </div>
           <div className='pt-2'>
             <FormikTextField
@@ -75,7 +81,7 @@ export default function LoginManagement({
                 email: values.mail !== '' ? values.mail : '',
               }}
             >
-              <Typography variant='tiny-text'>
+              <Typography variant='tiny-text' className='text-neutral-900'>
                 {t('connection.ctaForgotPassword')}
               </Typography>
             </Link>
@@ -95,7 +101,7 @@ export default function LoginManagement({
                 alt='google'
                 className='mr-2'
               />
-              <Typography variant='tiny-text'>
+              <Typography variant='tiny-text' className='text-neutral-900'>
                 {t('connection.loginGoogle')}
               </Typography>
             </button>
@@ -112,7 +118,7 @@ export default function LoginManagement({
                 alt='apple'
                 className='mr-2 w-5'
               />
-              <Typography variant='tiny-text'>
+              <Typography variant='tiny-text' className='text-neutral-900'>
                 {t('connection.loginApple')}
               </Typography>
             </button>

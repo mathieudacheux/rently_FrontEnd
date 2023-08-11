@@ -7,5 +7,6 @@ export type TypographyVariants =
   | 'text-light'
   | 'tiny-text'
   | 'span'
+  | 'cta'
 
 export type TypographyColors = 'primary' | 'secondary' | 'textLight'
