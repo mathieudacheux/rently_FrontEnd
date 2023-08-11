@@ -69,7 +69,7 @@ export default function FormikTextField({
           className={`
           ${
             disableShadows ? 'input-no-shadow' : 'input'
-          } input-bordered w-full  text-neutral-900 placeholder-neutral-300 shadow 
+          } bg-white input-bordered w-full  text-neutral-900 placeholder-neutral-300 shadow 
           ${textCenter ? 'text-center' : ''}`}
         />
         {icon && (

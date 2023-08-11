@@ -6,7 +6,7 @@ export default function Footer(): JSX.Element {
   const { t } = useTranslation()
 
   return (
-    <footer className='footer p-10 bg-white mt-7'>
+    <footer className='footer p-10 bg-white'>
       <div>
         <img src={Rently} className='logo' alt='Rently Logo' />
       </div>

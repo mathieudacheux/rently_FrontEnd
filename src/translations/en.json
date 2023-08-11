@@ -31,6 +31,31 @@
     "register": "Register",
     "account": "My account"
   },
+  "newsletter": "Subscribe to our newsletter to receive our latest announcements and best advice in advance.",
+  "footer": {
+    "sectionOne": {
+      "title": " Discover",
+      "first": "Discover your future property",
+      "second": "Sell or rent your property",
+      "third": "Find a Rently agency",
+      "fourth": "Nos conseils immobiliers",
+      "fifth": "Our real estate tips"
+    },
+    "sectionTwo": {
+      "title": "Agence Rently",
+      "first": "Contact us",
+      "second": "We are recruiting",
+      "third": "Need help ?",
+      "fourth": "Our target",
+      "fifth": "We value your opinion"
+    },
+    "sectionThree": {
+      "title": "Visit us at",
+      "first": "Facebook",
+      "second": "Instagram",
+      "third": "LinkedIn"
+    }
+  },
   "home": {
     "titleProperties": "Our most popular properties",
     "seeMore": "See more"
