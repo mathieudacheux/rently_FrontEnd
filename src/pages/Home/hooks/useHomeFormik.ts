@@ -4,7 +4,7 @@ import * as yup from 'yup'
 import { useTranslation } from 'react-i18next'
 
 export default function useHomeFormik() {
-  const { t, i18n } = useTranslation()
+  const { i18n } = useTranslation()
 
   const onSubmit = useCallback(async () => null, [])
 
@@ -18,10 +18,10 @@ export default function useHomeFormik() {
   const validationSchema = useMemo(
     () =>
       yup.object({
-        searchCity: yup.string().required(t('required')),
-        searchBudget: yup.number().required(t('required')),
-        searchType: yup.string().required(t('required')),
-        status: yup.number().required(t('required')),
+        searchCity: yup.string(),
+        searchBudget: yup.number(),
+        searchType: yup.string(),
+        status: yup.number(),
       }),
     [i18n.language],
   )

@@ -18,28 +18,29 @@ export default function ForgetPasswordManagement({
   const { t } = useTranslation()
 
   return (
-    <div className='w-full flex justify-center h-[calc(100vh-75px)]'>
+    <div className='w-full flex flex-col md:flex-row items-center md:justify-center h-[calc(100vh-75px)]'>
       <img
-        className='w-1/2 object-cover h-full rounded-tr-[15px] 
-        hidden md:block 
+        className='w-full md:w-1/2 object-cover md:rounded-tr-[15px] block 
+        h-[100px] md:h-[calc(100vh-75px)]
         '
         src={LoginImage}
         alt='Login'
       />
-
       {token ? (
         <div className='w-10/12 md:w-1/2 flex justify-center align-middle h-full'>
           <div className='flex flex-col justify-center align-middle w-[400px]'>
-            <Typography variant='h2'>
+            <Typography variant='h2' className='text-neutral-900'>
               {t('connection.forgotPassword')}
             </Typography>
             <div className='pt-4'>
-              <Typography variant='tiny-text'>
+              <Typography variant='tiny-text' className='text-neutral-900'>
                 {t('connection.ctaPassword')}
               </Typography>
             </div>
             <div className='pt-4'>
-              <Typography variant='text'>{t('connection.password')}</Typography>
+              <Typography variant='text' className='text-neutral-900'>
+                {t('connection.password')}
+              </Typography>
             </div>
             <div className='pt-2'>
               <FormikTextField
@@ -50,7 +51,7 @@ export default function ForgetPasswordManagement({
               />
             </div>
             <div className='pt-4'>
-              <Typography variant='text'>
+              <Typography variant='text' className='text-neutral-900'>
                 {t('connection.passwordConfirm')}
               </Typography>
             </div>
@@ -73,16 +74,18 @@ export default function ForgetPasswordManagement({
       ) : (
         <div className='w-10/12 md:w-1/2 flex justify-center align-middle h-full'>
           <div className='flex flex-col justify-center align-middle w-[400px]'>
-            <Typography variant='h2'>
+            <Typography variant='h2' className='text-neutral-900'>
               {t('connection.forgotPassword')}
             </Typography>
             <div className='pt-4'>
-              <Typography variant='tiny-text'>
+              <Typography variant='tiny-text' className='text-neutral-900'>
                 {t('connection.ctaPassword')}
               </Typography>
             </div>
             <div className='pt-4'>
-              <Typography variant='text'>{t('connection.mail')}</Typography>
+              <Typography variant='text' className='text-neutral-900'>
+                {t('connection.mail')}
+              </Typography>
             </div>
             <div className='pt-2'>
               <FormikTextField
