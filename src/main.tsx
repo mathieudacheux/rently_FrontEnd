@@ -9,7 +9,6 @@ import Title from './pages/Title/Title.tsx'
 import { Provider } from 'react-redux'
 import { store } from './store/store.ts'
 import Navbar from './components/organisms/Navbar.tsx'
-import Footer from './components/organisms/Footer.tsx'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
@@ -20,7 +19,6 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
           <Title />
         </PageTitleProvider>
         <RouterElement />
-        <Footer />
       </BrowserRouter>
     </Provider>
   </React.StrictMode>,
