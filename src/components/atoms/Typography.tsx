@@ -80,6 +80,15 @@ export default function Typography({
         </p>
       )
       break
+    case 'cta':
+      element = (
+        <p className={`tiny-text font-normal text-primary ${className}`}>
+          {children}
+          {price ? '€' : ''}
+          {surface ? 'm²' : ''}
+        </p>
+      )
+      break
     default:
       element = (
         <p className={`text ${className}`}>

@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import Button from '../atoms/Button.tsx'
 import RedirectText from '../atoms/RedirectText.tsx'
 import Rently from '../../assets/Rently.svg'
@@ -7,6 +8,12 @@ import { APP_ROUTES } from '../../routes/routes.ts'
 export default function Navbar(): JSX.Element {
   const navigate = useNavigate()
   const isConnected = window.localStorage.getItem('token')
+
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen)
+  }
 
   return (
     <nav className='navbar bg-background'>
@@ -35,6 +42,7 @@ export default function Navbar(): JSX.Element {
         <label
           tabIndex={0}
           className='btn btn-ghost btn-circle text-neutral-900'
+          onClick={toggleMenu}
         >
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -52,25 +60,45 @@ export default function Navbar(): JSX.Element {
             />
           </svg>
         </label>
-        <ul
-          tabIndex={0}
-          className='menu menu-sm dropdown-content z-[1] p-2 shadow bg-white w-52 rounded-md top-[60px]'
-        >
-          <RedirectText text='navbar.properties' to='PROPERTIES' />
-          <RedirectText text='navbar.gestion' to='GESTION' />
-          <RedirectText text='navbar.agency' to='AGENCY' />
-          {isConnected ? (
-            <Button
-              onClick={() => navigate(APP_ROUTES.ACCOUNT)}
-              text='navbar.account'
+        {isMenuOpen && (
+          <ul
+            tabIndex={0}
+            className='menu menu-sm dropdown-content z-[1] p-2 shadow bg-white w-52 rounded-md top-[60px]'
+          >
+            <RedirectText
+              text='navbar.properties'
+              to='PROPERTIES'
+              onClick={toggleMenu}
             />
-          ) : (
-            <Button
-              onClick={() => navigate(APP_ROUTES.LOGIN)}
-              text='navbar.login'
+            <RedirectText
+              text='navbar.gestion'
+              to='GESTION'
+              onClick={toggleMenu}
             />
-          )}
-        </ul>
+            <RedirectText
+              text='navbar.agency'
+              to='AGENCY'
+              onClick={toggleMenu}
+            />
+            {isConnected ? (
+              <Button
+                onClick={() => {
+                  toggleMenu()
+                  navigate(APP_ROUTES.ACCOUNT)
+                }}
+                text='navbar.account'
+              />
+            ) : (
+              <Button
+                onClick={() => {
+                  toggleMenu()
+                  navigate(APP_ROUTES.LOGIN)
+                }}
+                text='navbar.login'
+              />
+            )}
+          </ul>
+        )}
       </div>
     </nav>
   )

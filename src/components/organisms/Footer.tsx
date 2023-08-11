@@ -1,35 +1,98 @@
 import { useTranslation } from 'react-i18next'
 import Rently from '../../assets/Rently.svg'
+import RedirectText from '../atoms/RedirectText.tsx'
 
 export default function Footer(): JSX.Element {
   const { t } = useTranslation()
 
   return (
-    <footer className='footer p-10 bg-primary text-white mt-7'>
+    <footer className='footer p-10 bg-white'>
       <div>
         <img src={Rently} className='logo' alt='Rently Logo' />
       </div>
       <div>
-        <span className='footer-title'>{t('footer.sectionOne.title')}</span>
-        <a className='link link-hover'>{t('footer.sectionOne.first')}</a>
-        <a className='link link-hover'>{t('footer.sectionOne.second')}</a>
-        <a className='link link-hover'>{t('footer.sectionOne.third')}</a>
-        <a className='link link-hover'>{t('footer.sectionOne.fourth')}</a>
-        <a className='link link-hover'>{t('footer.sectionOne.fifth')}</a>
+        <span className='footer-title text-primary opacity-100'>
+          {t('footer.sectionOne.title')}
+        </span>
+        <RedirectText
+          to='PROPERTIES'
+          text='footer.sectionOne.first'
+          variant='footer'
+        />
+        <RedirectText
+          to='GESTION'
+          text='footer.sectionOne.second'
+          variant='footer'
+        />
+        <RedirectText
+          to='AGENCY'
+          text='footer.sectionOne.third'
+          variant='footer'
+        />
+        <RedirectText
+          to='BLOG'
+          text='footer.sectionOne.fourth'
+          variant='footer'
+        />
+
+        <RedirectText
+          to='WHYRENTLY'
+          text='footer.sectionOne.fifth'
+          variant='footer'
+        />
       </div>
       <div>
-        <span className='footer-title'>{t('footer.sectionTwo.title')}</span>
-        <a className='link link-hover'>{t('footer.sectionTwo.first')}</a>
-        <a className='link link-hover'>{t('footer.sectionTwo.second')}</a>
-        <a className='link link-hover'>{t('footer.sectionTwo.third')}</a>
-        <a className='link link-hover'>{t('footer.sectionTwo.fourth')}</a>
-        <a className='link link-hover'>{t('footer.sectionTwo.fifth')}</a>
+        <span className='footer-title text-primary opacity-100'>
+          {t('footer.sectionTwo.title')}
+        </span>
+        <RedirectText
+          to='CONTACT'
+          text='footer.sectionTwo.first'
+          variant='footer'
+        />
+        <RedirectText
+          to='HIRING'
+          text='footer.sectionTwo.second'
+          variant='footer'
+        />
+        <RedirectText
+          to='HELP'
+          text='footer.sectionTwo.third'
+          variant='footer'
+        />
+        <RedirectText
+          to='OBJECTIF'
+          text='footer.sectionTwo.fourth'
+          variant='footer'
+        />
+        <RedirectText
+          to='REVIEW'
+          text='footer.sectionTwo.fifth'
+          variant='footer'
+        />
       </div>
       <div>
-        <span className='footer-title'>{t('footer.sectionThree.title')}</span>
-        <a className='link link-hover'>{t('footer.sectionThree.first')}</a>
-        <a className='link link-hover'>{t('footer.sectionThree.second')}</a>
-        <a className='link link-hover'>{t('footer.sectionThree.third')}</a>
+        <span className='footer-title text-primary opacity-100'>
+          {t('footer.sectionThree.title')}
+        </span>
+        <RedirectText
+          to='FACEBOOK'
+          text='footer.sectionThree.first'
+          variant='footer'
+          target='_blank'
+        />
+        <RedirectText
+          to='INSTAGRAM'
+          text='footer.sectionThree.second'
+          variant='footer'
+          target='_blank'
+        />
+        <RedirectText
+          to='LINKEDIN'
+          text='footer.sectionThree.third'
+          variant='footer'
+          target='_blank'
+        />
       </div>
     </footer>
   )
