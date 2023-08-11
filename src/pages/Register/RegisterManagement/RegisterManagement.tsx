@@ -23,7 +23,7 @@ export default function RegisterManagement({
     <div className='w-full flex flex-col md:flex-row items-center md:justify-center h-[calc(100dvh-75px)]'>
       <img
         className='w-full md:w-1/2 object-cover md:rounded-tr-[15px] block 
-        h-[100px] md:h-[calc(100dvh-75px)]
+        h-[75px] md:h-[calc(100dvh-75px)]
         '
         src={RegistrationImage}
         alt='Login'
