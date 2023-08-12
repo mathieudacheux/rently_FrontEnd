@@ -7,7 +7,7 @@ import Button from '../../../components/atoms/Button.tsx'
 import { useNavigate } from 'react-router-dom'
 import { APP_ROUTES } from '../../../routes/routes.ts'
 
-export default function BestProperties(): JSX.Element {
+export default function PropertiesSection(): JSX.Element {
   const { t } = useTranslation()
   const navigate = useNavigate()
 
@@ -23,10 +23,17 @@ export default function BestProperties(): JSX.Element {
       </Typography>
       <div
         className='gap-y-12 gap-x-4 w-11/12 md:max-w-[1200px] md:w-11/12 grid 
-        grid-cols-1 md:grid-cols-2 xl:grid-cols-3 justify-items-center'
+        grid-cols-1 md:grid-cols-2 xl:grid-cols-3'
       >
-        {propertyData.slice(0, 6).map((property) => (
-          <PropertyCard key={property.property_id} property={property} />
+        {propertyData.slice(0, 6).map((property, index) => (
+          <div
+            key={property.property_id}
+            className={`flex  ${
+              index === 0 || index === 3 ? 'justify-end' : 'justify-start'
+            } `}
+          >
+            <PropertyCard property={property} />
+          </div>
         ))}
       </div>
       <div className='w-full flex justify-center pt-7'>

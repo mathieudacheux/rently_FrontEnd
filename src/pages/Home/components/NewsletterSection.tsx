@@ -3,7 +3,7 @@ import Mail from '../../../components/atoms/icons/Mail.tsx'
 import { useTranslation } from 'react-i18next'
 import Typography from '../../../components/atoms/Typography.tsx'
 
-export default function Newsletter(): JSX.Element {
+export default function NewsletterSection(): JSX.Element {
   const { t } = useTranslation()
   return (
     <div
