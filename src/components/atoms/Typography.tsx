@@ -4,7 +4,7 @@ import { TypographyVariants } from '../../constants/constants.ts'
 export default function Typography({
   children,
   variant,
-  className = '',
+  className = 'text-secondary',
   price,
   surface,
 }: {
