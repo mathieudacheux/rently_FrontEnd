@@ -18,19 +18,20 @@ export default function PropertiesSection(): JSX.Element {
 
   return (
     <div className='flex flex-col items-center justify-center'>
-      <Typography variant='h2' className=' text-center text-neutral-900 py-7'>
+      <Typography
+        variant='h2'
+        className=' text-center w-11/12 text-neutral-900 pt-7'
+      >
         {t('home.titleProperties')}
       </Typography>
-      <div
-        className='gap-y-12 gap-x-4 w-11/12 md:max-w-[1200px] md:w-11/12 grid 
-        grid-cols-1 md:grid-cols-2 xl:grid-cols-3'
-      >
+      <div className='w-11/12 md:max-w-[1200px] flex flex-col md:flex-wrap md:flex-row items-center md:justify-between'>
         {propertyData.slice(0, 6).map((property, index) => (
           <div
             key={property.property_id}
-            className={`flex  ${
-              index === 0 || index === 3 ? 'justify-end' : 'justify-start'
-            } `}
+            className={`flex justify-center w-full ${
+              index >= 3 ? 'md:mt-7' : 'md:mt-0'
+            } mt-7
+            `}
           >
             <PropertyCard property={property} />
           </div>
