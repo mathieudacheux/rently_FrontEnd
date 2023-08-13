@@ -12,7 +12,7 @@ export default function BlogCard({
 }): JSX.Element {
   const { t } = useTranslation()
   return (
-    <div className='blog w-10/12 h-full md:w-[590px]'>
+    <div className='blog w-full h-full'>
       <Typography variant='h2' className='mb-2'>
         {t(title)}
       </Typography>

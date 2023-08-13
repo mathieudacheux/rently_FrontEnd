@@ -8,6 +8,7 @@ import { APP_ROUTES } from '../../routes/routes.ts'
 import PropertiesSection from './components/PropertiesSection.tsx'
 import NewsletterSection from './components/NewsletterSection.tsx'
 import BlogSection from './components/BlogSection.tsx'
+import AgencySection from './components/AgencySection.tsx'
 
 export default function Home(): JSX.Element {
   const navigate = useNavigate()
@@ -32,6 +33,7 @@ export default function Home(): JSX.Element {
       <Herobanner onClick={navigateToProperties} />
       <PropertiesSection />
       <BlogSection />
+      <AgencySection />
       <NewsletterSection />
     </FormikProvider>
   )

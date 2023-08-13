@@ -20,7 +20,7 @@ export default function PropertiesSection(): JSX.Element {
     <div className='flex flex-col items-center justify-center'>
       <Typography
         variant='h2'
-        className=' text-center w-11/12 text-neutral-900 pt-7'
+        className=' text-center w-11/12 text-neutral-900 pt-7 md:pb-7'
       >
         {t('home.titleProperties')}
       </Typography>
@@ -28,7 +28,7 @@ export default function PropertiesSection(): JSX.Element {
         {propertyData.slice(0, 6).map((property, index) => (
           <div
             key={property.property_id}
-            className={`flex justify-center w-full ${
+            className={`flex justify-center md:w-[350px] w-full ${
               index >= 3 ? 'md:mt-7' : 'md:mt-0'
             } mt-7
             `}
