@@ -5,8 +5,10 @@ import { useAppDispatch } from '../../store/store.ts'
 import { setSearchFilter } from '../../features/property/propertySlice.ts'
 import { useNavigate } from 'react-router-dom'
 import { APP_ROUTES } from '../../routes/routes.ts'
-import BestProperties from './components/BestProperties.tsx'
-import Newsletter from './components/Newsletter.tsx'
+import PropertiesSection from './components/PropertiesSection.tsx'
+import NewsletterSection from './components/NewsletterSection.tsx'
+import BlogSection from './components/BlogSection.tsx'
+import AgencySection from './components/AgencySection.tsx'
 
 export default function Home(): JSX.Element {
   const navigate = useNavigate()
@@ -29,8 +31,10 @@ export default function Home(): JSX.Element {
   return (
     <FormikProvider value={homeFormik}>
       <Herobanner onClick={navigateToProperties} />
-      <BestProperties />
-      <Newsletter />
+      <PropertiesSection />
+      <BlogSection />
+      <AgencySection />
+      <NewsletterSection />
     </FormikProvider>
   )
 }
