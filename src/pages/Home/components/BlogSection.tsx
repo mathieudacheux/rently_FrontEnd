@@ -4,16 +4,29 @@ import { useTranslation } from 'react-i18next'
 import Button from '../../../components/atoms/Button.tsx'
 import { APP_ROUTES } from '../../../routes/routes.ts'
 import { useNavigate } from 'react-router-dom'
+import { useGetArticlesQuery } from '../../../features/article/articleApi.ts'
+import { ArticleSerializerRead } from '../../../api/index.ts'
 
 export default function AgencySection(): JSX.Element {
   const { t } = useTranslation()
   const navigate = useNavigate()
 
+  const articlesData = useGetArticlesQuery({})?.data
+
+  const blogComponents = articlesData?.map((article: ArticleSerializerRead) => (
+    <BlogCard
+      key={article.article_id}
+      title={article.name === undefined ? '' : article.name.replace(/\\/g, ' ')}
+      id={article.article_id || 0}
+      description='blogCard.description'
+    />
+  ))
+
   return (
     <div className='flex flex-col items-center justify-center'>
       <Typography
         variant='h2'
-        className='text-center w-11/12 text-neutral-900 pt-7'
+        className='text-center text-neutral-900 w-11/12 pt-7'
       >
         {t('home.titleBlog')}
       </Typography>
@@ -23,26 +36,14 @@ export default function AgencySection(): JSX.Element {
       >
         <div className='flex flex-col items-center md:items-start w-full md:1/2'>
           <div className='h-[390px] w-full md:w-[calc(100%-30px)] flex justify-center'>
-            <BlogCard
-              title='blogCard.title'
-              link='blogCard.link'
-              description='blogCard.description'
-            />
+            {blogComponents?.[0]}
           </div>
           <div className='h-[390px] w-full md:w-[calc(100%-30px)] flex justify-center mt-[30px]'>
-            <BlogCard
-              title='blogCard.title'
-              link='blogCard.link'
-              description='blogCard.description'
-            />
+            {blogComponents?.[1]}
           </div>
         </div>
         <div className='h-[810px] w-full md:max-w-[50%] flex justify-center mb-[30px] md:mb-0'>
-          <BlogCard
-            title='blogCard.title'
-            link='blogCard.link'
-            description='blogCard.description'
-          />
+          {blogComponents?.[2]}
         </div>
       </div>
       <div className='w-full flex justify-center pt-7'>

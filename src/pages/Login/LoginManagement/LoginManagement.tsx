@@ -23,7 +23,7 @@ export default function LoginManagement({
   return (
     <div className='w-full flex flex-col md:flex-row items-center md:justify-center h-[calc(100dvh-75px)]'>
       <img
-        className='w-full md:w-1/2 object-cover md:rounded-tr-[15px] block 
+        className='w-full md:w-1/2 object-cover md:rounded-tr-[15px] hidden md:block 
         h-[75px] md:h-[calc(100dvh-75px)]
         '
         src={LoginImage}
