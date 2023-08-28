@@ -1,19 +1,14 @@
-import L from 'leaflet'
+// import L from 'leaflet'
 import { MapContainer, TileLayer } from 'react-leaflet'
-import Icon from '../../../assets/icons/MapIcon.svg'
-import { useGetAgenciesQuery } from '../../../features/agency/agencyApi.ts'
+// import Icon from '../../../assets/icons/MapIcon.svg'
 
 export default function MapHome(): JSX.Element {
-  const agenciesList = useGetAgenciesQuery({})
-
-  console.log(agenciesList.data)
-
-  const myIcon = new L.Icon({
-    iconUrl: Icon,
-    iconRetinaUrl: Icon,
-    popupAnchor: [-0, -0],
-    iconSize: [25, 30],
-  })
+  // const myIcon = new L.Icon({
+  //   iconUrl: Icon,
+  //   iconRetinaUrl: Icon,
+  //   popupAnchor: [-0, -0],
+  //   iconSize: [25, 30],
+  // })
 
   return (
     <MapContainer
