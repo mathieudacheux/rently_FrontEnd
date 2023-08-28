@@ -60,8 +60,31 @@
     "titleProperties": "Our most popular properties",
     "titleBlog": "Our real estate tips",
     "titleAgency": "A rently agency near you",
-    "seeMore": "See more",
-    "readMore": "Read more"
+    "seeProperties": "All our properties",
+    "seeBlog": "All our articles",
+    "seeAgency": "All our agencies",
+    "readBlog": "Read the article",
+    "readAgency": "See the agency"
+  },
+  "myAccount": {
+    "personalInformation": "Personal information",
+    "changePassword": "Change password",
+    "myWishlist": "My wishlist",
+    "personalSection": {
+      "phone": "Phone number",
+      "newsletter": "Newsletter subscription"
+    },
+    "passwordSection": {
+      "title": "Change password",
+      "oldPassword": "Actual password",
+      "newPassword": "New password",
+      "confirmPassword": "Confirm password",
+      "button": "Save"
+    },
+    "wishlistSection": {
+      "title": "My favorites list",
+      "empty": "Your wishlist is empty"
+    }
   },
   "connection": {
     "login": "Login",

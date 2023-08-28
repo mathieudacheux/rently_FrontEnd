@@ -13,14 +13,23 @@ export default function AgencySection(): JSX.Element {
 
   const articlesData = useGetArticlesQuery({})?.data
 
-  const blogComponents = articlesData?.map((article: ArticleSerializerRead) => (
-    <BlogCard
-      key={article.article_id}
-      title={article.name === undefined ? '' : article.name.replace(/\\/g, ' ')}
-      id={article.article_id || 0}
-      description='blogCard.description'
-    />
-  ))
+  const blogComponents = articlesData?.map(
+    (article: ArticleSerializerRead, index: number) => (
+      <BlogCard
+        key={article.article_id}
+        title={
+          article.name === undefined ? '' : article.name.replace(/\\/g, ' ')
+        }
+        id={article.article_id || 0}
+        description={
+          article.content === undefined
+            ? ''
+            : article.content.replace(/\\/g, ' ')
+        }
+        full={index === 2}
+      />
+    ),
+  )
 
   return (
     <div className='flex flex-col items-center justify-center'>
@@ -48,7 +57,7 @@ export default function AgencySection(): JSX.Element {
       </div>
       <div className='w-full flex justify-center pt-7'>
         <Button
-          text={t('home.seeMore')}
+          text={t('home.seeBlog')}
           onClick={() => navigate(APP_ROUTES.BLOG)}
         />
       </div>

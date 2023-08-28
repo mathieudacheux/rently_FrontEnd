@@ -39,7 +39,7 @@ export default function PropertiesSection(): JSX.Element {
       </div>
       <div className='w-full flex justify-center pt-7'>
         <Button
-          text={t('home.seeMore')}
+          text={t('home.seeProperties')}
           onClick={() => navigate(APP_ROUTES.PROPERTIES)}
         />
       </div>

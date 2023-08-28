@@ -39,7 +39,6 @@ export default function MapComponent({
     return null
   }
 
-  // Get the user location and set it as the default location
   const [userLocation, setUserLocation] = useState<number[]>([
     48.866667, 2.333333,
   ])
