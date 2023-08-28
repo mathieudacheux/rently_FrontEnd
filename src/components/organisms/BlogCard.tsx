@@ -85,7 +85,7 @@ export default function BlogCard({
         {showDescription}
         <Button
           text={t('home.readMore')}
-          onClick={() => navigate(`${APP_ROUTES.BLOG}/${id}`)}
+          onClick={() => navigate(`${APP_ROUTES.BLOG}/${title}`)}
         />
       </div>
     </div>
