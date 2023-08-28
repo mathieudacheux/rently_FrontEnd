@@ -12,11 +12,29 @@ export default function BlogCard({
 }: {
   title: string
   id: number
+  description: string
   full?: boolean
-  description?: string
 }): JSX.Element {
   const { t } = useTranslation()
   const navigate = useNavigate()
+
+  const descriptionText =
+    window.innerWidth > 768
+      ? description
+          .slice(0, 400)
+          .concat('...')
+          .replace(new RegExp(title, 'g'), '')
+      : description
+          .slice(0, 250)
+          .concat('...')
+          .replace(new RegExp(title, 'g'), '')
+
+  const showDescription = (
+    <div
+      className='text-neutral-900'
+      dangerouslySetInnerHTML={{ __html: descriptionText }}
+    />
+  )
 
   if (!full) {
     return (
@@ -47,23 +65,24 @@ export default function BlogCard({
   }
 
   return (
-    <div className='blog w-[350px] md:w-full h-full relative'>
+    <div className='blog w-[350px] md:w-full h-full'>
       <div
-        className='absolute inset-0 bg-cover bg-center bg-no-repeat rounded-[10px]'
+        className='inset-0 bg-cover bg-center bg-no-repeat rounded-t-[10px] h-3/5'
         style={{
           backgroundImage:
             'url(https://images.crowdspring.com/blog/wp-content/uploads/2017/08/23163415/pexels-binyamin-mellish-106399.jpg)',
         }}
       >
-        <div className='absolute inset-0 bg-black opacity-40 mix-blend-darken rounded-[10px]' />
+        <div className='absolute inset-0 bg-black opacity-40 mix-blend-darken rounded-t-[10px]' />
       </div>
-      <div className='h-full flex items-center justify-center flex-col relative z-10'>
+      <div className='h-2/5 flex items-center justify-between flex-col p-4'>
         <Typography
           variant='h2'
-          className='mb-[15px] text-center text-white w-7/12'
+          className='text-center text-neutral-900 w-full'
         >
           {title}
         </Typography>
+        {showDescription}
         <Button
           text={t('home.readMore')}
           onClick={() => navigate(`${APP_ROUTES.BLOG}/${id}`)}
