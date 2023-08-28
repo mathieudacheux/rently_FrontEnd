@@ -70,6 +70,7 @@
     "personalInformation": "Informations personnelles",
     "changePassword": "Changer le mot de passe",
     "myWishlist": "Ma liste de favoris",
+    "personalSection": {},
     "passwordSection": {
       "title": "Changement de mot de passe",
       "oldPassword": "Mot de passe actuel",

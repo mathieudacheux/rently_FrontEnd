@@ -69,6 +69,7 @@
     "personalInformation": "Personal information",
     "changePassword": "Change password",
     "myWishlist": "My wishlist",
+    "personalSection": {},
     "passwordSection": {
       "title": "Change password",
       "oldPassword": "Actual password",
