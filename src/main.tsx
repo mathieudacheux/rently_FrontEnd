@@ -9,16 +9,19 @@ import Title from './pages/Title/Title.tsx'
 import { Provider } from 'react-redux'
 import { store } from './store/store.ts'
 import Navbar from './components/organisms/Navbar.tsx'
+import { UserLocationProvider } from './contexts/UserLocationProvider.tsx'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
-        <Navbar />
-        <PageTitleProvider>
-          <Title />
-        </PageTitleProvider>
-        <RouterElement />
+        <UserLocationProvider>
+          <Navbar />
+          <PageTitleProvider>
+            <Title />
+          </PageTitleProvider>
+          <RouterElement />
+        </UserLocationProvider>
       </BrowserRouter>
     </Provider>
   </React.StrictMode>,
