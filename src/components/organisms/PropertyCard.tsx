@@ -17,7 +17,9 @@ export default function PropertyCard({
   return (
     <div
       id={String(property.property_id)}
-      className={`card ${!mapOpened ? 'w-1/5' : 'flex-row w-full h-[220px]'}`}
+      className={`card ${
+        !mapOpened ? 'w-[350px]' : 'flex-row w-full h-[220px]'
+      }`}
     >
       <figure className={!mapOpened ? 'w-12/12' : 'w-5/12'}>
         <img

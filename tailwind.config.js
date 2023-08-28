@@ -47,7 +47,6 @@ export default {
             padding: '14px',
             'border-radius': '15px',
             gap: '15px',
-            width: '350px',
             'max-height': '320px',
           },
           '.card-body': {
