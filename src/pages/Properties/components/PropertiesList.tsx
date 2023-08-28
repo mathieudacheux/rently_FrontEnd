@@ -30,10 +30,14 @@ export default function PropertiesList({
   }, [item])
 
   return (
-    <div className='flex h-[calc(100vh-165px)] transition-all duration-700 linear '>
+    <div
+      className={`flex ${
+        mapOpen ? 'md:h-[calc(100vh-165px)]' : ''
+      } transition-all duration-700 linear`}
+    >
       <div
         className={`mapContainer ${
-          mapOpen ? 'w-7/12 h-full' : 'w-0 h-full'
+          mapOpen ? 'w-9/12 h-full' : 'w-0 h-full'
         } transition-all duration-700 linear h-full rounded-r-lg`}
       >
         <MapComponent
@@ -78,7 +82,7 @@ export default function PropertiesList({
           className={`gap-4 md:pl-4 pt-3 md:max-w-[1200px] md:w-11/12 grid w-10/12 relative ${
             mapOpen
               ? 'flex flex-wrap md:w-full justify-center'
-              : 'grid md:grid-cols-4 grid-cols-1 justify-items-center '
+              : 'grid md:grid-cols-3 grid-cols-1 justify-items-center '
           }`}
         >
           {mapOpen && (
