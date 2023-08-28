@@ -9,9 +9,20 @@ import Properties from '../pages/Properties/Properties.tsx'
 import MyAccount from '../pages/MyAccount/MyAccount.tsx'
 import Footer from '../components/organisms/Footer.tsx'
 import { useMemo } from 'react'
+import { useGetUserByFilterQuery } from '../features/user/userApi.ts'
 
 export default function RouterElement(): JSX.Element {
   const location = useLocation()
+
+  if (localStorage.getItem('mail')) {
+    const response = useGetUserByFilterQuery({
+      mail: localStorage.getItem('mail'),
+    })
+
+    if (response?.data) {
+      localStorage.setItem('user', JSON.stringify(response.data))
+    }
+  }
 
   const showFooter = useMemo(
     () =>

@@ -6,9 +6,33 @@ import Profil from '../../../../components/atoms/icons/Profil.tsx'
 import Mail from '../../../../components/atoms/icons/Mail.tsx'
 import CardButton from '../../../../components/atoms/CardButton.tsx'
 import ToggleLanguage from '../../../../components/atoms/Toggle/ToggleLanguage.tsx'
+import { useUpdateUserMutation } from '../../../../features/user/userApi.ts'
+import { useFormikContext } from 'formik'
 
 export default function PersonnalSection(): JSX.Element {
   const { t } = useTranslation()
+  const { values } = useFormikContext()
+  const [updateUser] = useUpdateUserMutation()
+
+  const userData =
+    window.localStorage.getItem('user') !== null
+      ? JSON.parse(window.localStorage.getItem('user') as string)
+      : null
+
+  const handleSubmit = async (values: any) => {
+    const response: any = await updateUser({
+      id: userData[0].user_id,
+      firstname: values.firstname,
+      lastname: values.lastname,
+      mail: values.mail,
+      phone: values.phone,
+      newsletter: values.newsletter,
+    })
+
+    if (response?.data) {
+      localStorage.setItem('user', JSON.stringify(response.data))
+    }
+  }
 
   return (
     <div className='pl-4'>
@@ -84,7 +108,7 @@ export default function PersonnalSection(): JSX.Element {
       <ToggleLanguage />
       <div className='pt-4 w-[125px]'>
         <CardButton
-          onClick={() => console.log('z')}
+          onClick={() => handleSubmit(values)}
           text='myAccount.passwordSection.button'
         />
       </div>

@@ -106,6 +106,8 @@ export default function LoginManagementStep(): JSX.Element {
       }
 
       dispatch(setSelectedUser(result.data))
+      window.localStorage.setItem('mail', values.mail)
+
       setShowSuccessToast({
         view: true,
         message: 'connection.connected',

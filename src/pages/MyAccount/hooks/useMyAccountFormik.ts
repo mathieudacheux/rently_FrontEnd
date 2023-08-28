@@ -8,12 +8,23 @@ export default function useMyAccountFormik() {
 
   const onSubmit = useCallback(async () => null, [])
 
-  const initialValues = {
-    mail: '',
-    oldPassword: '',
-    newPassword: '',
-    newPasswordConfirm: '',
-  }
+  const userData =
+    window.localStorage.getItem('user') !== null
+      ? JSON.parse(window.localStorage.getItem('user') as string)
+      : null
+
+  const initialValues = useMemo(() => {
+    return {
+      mail: userData === null ? '' : userData[0].mail || '',
+      firstname: userData === null ? '' : userData[0].firstname || '',
+      lastname: userData === null ? '' : userData[0].name || '',
+      phone: userData === null ? '' : userData[0].phone || '',
+      oldPassword: '',
+      newPassword: '',
+      newPasswordConfirm: '',
+      newsletter: userData === null ? false : userData[0].newsletter || false,
+    }
+  }, [userData])
 
   const validationSchema = useMemo(
     () =>
