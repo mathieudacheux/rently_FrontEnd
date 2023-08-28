@@ -60,8 +60,11 @@
     "titleProperties": "Nos biens immobiliers les plus populaires",
     "titleBlog": "Nos conseils immobiliers",
     "titleAgency": "Une agence rently proche de chez vous",
-    "seeMore": "Voir plus",
-    "readMore": "Lire la suite"
+    "seeProperties": "Tous nos biens",
+    "seeBlog": "Tous nos articles",
+    "seeAgency": "Toutes nos agences",
+    "readBlog": "Lire l'article",
+    "readAgency": "Voir l'agence"
   },
   "connection": {
     "login": "Connexion",

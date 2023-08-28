@@ -56,7 +56,7 @@ export default function BlogCard({
             {title}
           </Typography>
           <Button
-            text={t('home.readMore')}
+            text={t('home.readBlog')}
             onClick={() => navigate(`${APP_ROUTES.BLOG}/${id}`)}
           />
         </div>
@@ -84,7 +84,7 @@ export default function BlogCard({
         </Typography>
         {showDescription}
         <Button
-          text={t('home.readMore')}
+          text={t('home.readBlog')}
           onClick={() => navigate(`${APP_ROUTES.BLOG}/${title}`)}
         />
       </div>

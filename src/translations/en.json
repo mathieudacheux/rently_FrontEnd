@@ -60,7 +60,9 @@
     "titleProperties": "Our most popular properties",
     "titleBlog": "Our real estate tips",
     "titleAgency": "A rently agency near you",
-    "seeMore": "See more",
+    "seeProperties": "All our properties",
+    "seeBlog": "All our articles",
+    "seeAgency": "All our agencies",
     "readMore": "Read more"
   },
   "connection": {

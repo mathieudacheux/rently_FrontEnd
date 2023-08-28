@@ -47,7 +47,7 @@ export default function AgencySection(): JSX.Element {
       </div>
       <div className='w-full flex justify-center pt-7'>
         <Button
-          text={t('home.seeMore')}
+          text={t('home.seeAgency')}
           onClick={() => navigate(APP_ROUTES.AGENCY)}
         />
       </div>
