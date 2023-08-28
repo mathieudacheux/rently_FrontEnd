@@ -22,7 +22,7 @@ export default function Button({
       onClick={onClick}
     >
       {icon && <div className='mr-2'>{icon}</div>}
-      {t(text)}
+      <div className='text-sm'>{t(text)}</div>
     </button>
   )
 }

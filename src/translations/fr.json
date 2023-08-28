@@ -60,8 +60,31 @@
     "titleProperties": "Nos biens immobiliers les plus populaires",
     "titleBlog": "Nos conseils immobiliers",
     "titleAgency": "Une agence rently proche de chez vous",
-    "seeMore": "Voir plus",
-    "readMore": "Lire la suite"
+    "seeProperties": "Tous nos biens",
+    "seeBlog": "Tous nos articles",
+    "seeAgency": "Toutes nos agences",
+    "readBlog": "Lire l'article",
+    "readAgency": "Voir l'agence"
+  },
+  "myAccount": {
+    "personalInformation": "Informations personnelles",
+    "changePassword": "Changer le mot de passe",
+    "myWishlist": "Ma liste de favoris",
+    "personalSection": {
+      "phone": "Téléphone",
+      "newsletter": "Abonnement à la newsletter"
+    },
+    "passwordSection": {
+      "title": "Changement de mot de passe",
+      "oldPassword": "Mot de passe actuel",
+      "newPassword": "Nouveau mot de passe",
+      "confirmPassword": "Confirmer le nouveau mot de passe",
+      "button": "Sauvegarder"
+    },
+    "wishlistSection": {
+      "title": "Ma liste de favoris",
+      "empty": "Vous n'avez pas de favoris"
+    }
   },
   "connection": {
     "login": "Connexion",
