@@ -19,6 +19,7 @@ export default function RouterElement(): JSX.Element {
       location.pathname === APP_ROUTES.VALIDATE_ACCOUNT ||
       location.pathname === APP_ROUTES.FORGOT_PASSWORD ||
       location.pathname === APP_ROUTES.LOGIN ||
+      location.pathname === APP_ROUTES.ACCOUNT ||
       location.pathname === APP_ROUTES.VALIDATE_ACCOUNT,
     [location.pathname],
   )

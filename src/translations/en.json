@@ -65,6 +65,11 @@
     "seeAgency": "All our agencies",
     "readMore": "Read more"
   },
+  "myAccount": {
+    "personalInformation": "Personal information",
+    "changePassword": "Change password",
+    "myWishlist": "My wishlist"
+  },
   "connection": {
     "login": "Login",
     "modify": "Modify",

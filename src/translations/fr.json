@@ -66,6 +66,11 @@
     "readBlog": "Lire l'article",
     "readAgency": "Voir l'agence"
   },
+  "myAccount": {
+    "personalInformation": "Informations personnelles",
+    "changePassword": "Changer le mot de passe",
+    "myWishlist": "Ma liste de favoris"
+  },
   "connection": {
     "login": "Connexion",
     "modify": "Modifier",
