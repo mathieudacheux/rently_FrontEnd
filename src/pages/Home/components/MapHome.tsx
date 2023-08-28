@@ -1,7 +1,7 @@
 import L from 'leaflet'
 import { MapContainer, TileLayer } from 'react-leaflet'
 import Icon from '../../../assets/icons/MapIcon.svg'
-import { useGetAgenciesQuery } from '../../../features/agency/agencyApi'
+import { useGetAgenciesQuery } from '../../../features/agency/agencyApi.ts'
 
 export default function MapHome(): JSX.Element {
   const agenciesList = useGetAgenciesQuery({})
