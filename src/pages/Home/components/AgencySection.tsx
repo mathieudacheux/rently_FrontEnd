@@ -5,10 +5,13 @@ import Button from '../../../components/atoms/Button.tsx'
 import { APP_ROUTES } from '../../../routes/routes.ts'
 import { useNavigate } from 'react-router-dom'
 import MapHome from './MapHome.tsx'
+import { useUserLocation } from '../../../hooks/useUserLocation.ts'
 
 export default function AgencySection(): JSX.Element {
   const { t } = useTranslation()
   const navigate = useNavigate()
+
+  const { userLocation } = useUserLocation()
 
   return (
     <div className='flex flex-col items-center justify-center'>
