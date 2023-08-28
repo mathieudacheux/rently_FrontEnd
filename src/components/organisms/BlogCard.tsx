@@ -65,7 +65,7 @@ export default function BlogCard({
   }
 
   return (
-    <div className='blog w-[350px] md:w-full h-full'>
+    <div className='blog w-[350px] md:w-full h-full relative'>
       <div
         className='inset-0 bg-cover bg-center bg-no-repeat rounded-t-[10px] h-3/5'
         style={{
@@ -73,7 +73,7 @@ export default function BlogCard({
             'url(https://images.crowdspring.com/blog/wp-content/uploads/2017/08/23163415/pexels-binyamin-mellish-106399.jpg)',
         }}
       >
-        <div className='absolute inset-0 bg-black opacity-40 mix-blend-darken rounded-t-[10px]' />
+        <div className='absolute inset-0 bg-black opacity-40 mix-blend-darken rounded-t-[10px] h-3/5' />
       </div>
       <div className='h-2/5 flex items-center justify-between flex-col p-4'>
         <Typography
