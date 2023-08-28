@@ -68,7 +68,14 @@
   "myAccount": {
     "personalInformation": "Personal information",
     "changePassword": "Change password",
-    "myWishlist": "My wishlist"
+    "myWishlist": "My wishlist",
+    "passwordSection": {
+      "title": "Change password",
+      "oldPassword": "Actual password",
+      "newPassword": "New password",
+      "confirmPassword": "Confirm password",
+      "button": "Save"
+    }
   },
   "connection": {
     "login": "Login",
