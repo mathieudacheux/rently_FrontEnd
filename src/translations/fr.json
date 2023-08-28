@@ -70,13 +70,20 @@
     "personalInformation": "Informations personnelles",
     "changePassword": "Changer le mot de passe",
     "myWishlist": "Ma liste de favoris",
-    "personalSection": {},
+    "personalSection": {
+      "phone": "Téléphone",
+      "newsletter": "Abonnement à la newsletter"
+    },
     "passwordSection": {
       "title": "Changement de mot de passe",
       "oldPassword": "Mot de passe actuel",
       "newPassword": "Nouveau mot de passe",
       "confirmPassword": "Confirmer le nouveau mot de passe",
       "button": "Sauvegarder"
+    },
+    "wishlistSection": {
+      "title": "Ma liste de favoris",
+      "empty": "Vous n'avez pas de favoris"
     }
   },
   "connection": {

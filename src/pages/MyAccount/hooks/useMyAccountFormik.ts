@@ -10,14 +10,21 @@ export default function useMyAccountFormik() {
 
   const initialValues = {
     mail: '',
-    password: '',
+    oldPassword: '',
+    newPassword: '',
+    newPasswordConfirm: '',
   }
 
   const validationSchema = useMemo(
     () =>
       yup.object({
         mail: yup.string().email(t('yup.email')).required(t('yup.required')),
-        password: yup.string().required(t('yup.required')),
+        oldPassword: yup.string().required(t('yup.required')),
+        newPassword: yup.string().required(t('yup.required')),
+        newPasswordConfirm: yup
+          .string()
+          .oneOf([yup.ref('newPassword')], t('yup.passwordMatch'))
+          .required(t('yup.required')),
       }),
     [i18n.language],
   )

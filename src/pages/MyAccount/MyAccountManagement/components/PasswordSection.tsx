@@ -18,9 +18,9 @@ export default function PasswordSection(): JSX.Element {
             {t('myAccount.passwordSection.oldPassword')}
           </Typography>
         </div>
-        <div className='pt-4 w-2/5'>
+        <div className='pt-2 w-2/5'>
           <FormikTextField
-            name='passwordOne'
+            name='oldPassword'
             password
             placeholder={t('connection.password')}
             icon={<Password />}
@@ -35,7 +35,7 @@ export default function PasswordSection(): JSX.Element {
             </div>
             <div className='pt-2 w-full'>
               <FormikTextField
-                name='passwordOne'
+                name='newPassword'
                 password
                 placeholder={t('connection.password')}
                 icon={<Password />}
@@ -50,7 +50,7 @@ export default function PasswordSection(): JSX.Element {
             </div>
             <div className='pt-2'>
               <FormikTextField
-                name='passwordTwo'
+                name='newPasswordConfirm'
                 password
                 placeholder={t('connection.password')}
                 icon={<Password />}

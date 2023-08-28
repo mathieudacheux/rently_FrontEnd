@@ -63,19 +63,27 @@
     "seeProperties": "All our properties",
     "seeBlog": "All our articles",
     "seeAgency": "All our agencies",
-    "readMore": "Read more"
+    "readBlog": "Read the article",
+    "readAgency": "See the agency"
   },
   "myAccount": {
     "personalInformation": "Personal information",
     "changePassword": "Change password",
     "myWishlist": "My wishlist",
-    "personalSection": {},
+    "personalSection": {
+      "phone": "Phone number",
+      "newsletter": "Newsletter subscription"
+    },
     "passwordSection": {
       "title": "Change password",
       "oldPassword": "Actual password",
       "newPassword": "New password",
       "confirmPassword": "Confirm password",
       "button": "Save"
+    },
+    "wishlistSection": {
+      "title": "My wishlist",
+      "empty": "Your wishlist is empty"
     }
   },
   "connection": {

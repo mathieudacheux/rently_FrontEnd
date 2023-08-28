@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import { settingsList } from './constants/constants.ts'
 import { useTranslation } from 'react-i18next'
+import PersonnalSection from './components/PersonnalSection.tsx'
 import PasswordSection from './components/PasswordSection.tsx'
+import WishlistSection from './components/WishlistSection.tsx'
 
 export default function MyAccountManagement(): JSX.Element {
   const { t } = useTranslation()
@@ -27,7 +29,9 @@ export default function MyAccountManagement(): JSX.Element {
         ))}
       </div>
       <div className='w-[calc(100vw-250px)]'>
+        {activeSetting === 1 && <PersonnalSection />}
         {activeSetting === 2 && <PasswordSection />}
+        {activeSetting === 3 && <WishlistSection />}
       </div>
     </div>
   )
