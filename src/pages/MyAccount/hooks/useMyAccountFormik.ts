@@ -1,28 +1,36 @@
-import { useCallback, useMemo } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 import { useFormik } from 'formik'
 import * as yup from 'yup'
 import { useTranslation } from 'react-i18next'
+import { useGetUserByFilterQuery } from '../../../features/user/userApi.ts'
 
 export default function useMyAccountFormik() {
   const { t, i18n } = useTranslation()
 
   const onSubmit = useCallback(async () => null, [])
 
-  const userData =
-    window.localStorage.getItem('user') !== null
-      ? JSON.parse(window.localStorage.getItem('user') as string)
-      : null
+  if (localStorage.getItem('mail')) {
+    const response = useGetUserByFilterQuery({
+      mail: localStorage.getItem('mail'),
+    })
+
+    if (response?.data) {
+      localStorage.setItem('user', JSON.stringify(response.data))
+    }
+  }
+
+  const userData = JSON.parse(localStorage.getItem('user') as string)
 
   const initialValues = useMemo(() => {
     return {
-      mail: userData === null ? '' : userData[0].mail || '',
-      firstname: userData === null ? '' : userData[0].firstname || '',
-      lastname: userData === null ? '' : userData[0].name || '',
-      phone: userData === null ? '' : userData[0].phone || '',
+      mail: userData[0]?.mail || '',
+      firstname: userData[0]?.firstname || '',
+      lastname: userData[0]?.name || '',
+      phone: userData[0]?.phone || '',
       oldPassword: '',
       newPassword: '',
       newPasswordConfirm: '',
-      newsletter: userData === null ? false : userData[0].newsletter || false,
+      newsletter: userData[0]?.newsletter || false,
     }
   }, [userData])
 
@@ -40,7 +48,7 @@ export default function useMyAccountFormik() {
     [i18n.language],
   )
 
-  const loginFormik = useFormik({
+  const accountFormik = useFormik({
     initialValues,
     validateOnChange: false,
     validateOnBlur: true,
@@ -49,6 +57,6 @@ export default function useMyAccountFormik() {
   })
 
   return {
-    loginFormik,
+    accountFormik,
   }
 }

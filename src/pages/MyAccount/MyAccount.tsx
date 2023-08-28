@@ -3,10 +3,10 @@ import useMyAccountFormik from './hooks/useMyAccountFormik.ts'
 import MyAccountManagementStep from './MyAccountManagement/MyAccountManagementStep.tsx'
 
 export default function MyAccount(): JSX.Element {
-  const { loginFormik } = useMyAccountFormik()
+  const { accountFormik } = useMyAccountFormik()
 
   return (
-    <FormikProvider value={loginFormik}>
+    <FormikProvider value={accountFormik}>
       <MyAccountManagementStep />
     </FormikProvider>
   )
