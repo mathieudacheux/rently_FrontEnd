@@ -155,7 +155,7 @@ export default function PersonnalSection(): JSX.Element {
           </div>
         </div>
         <ToggleLanguage />
-        <div className='pt-4 w-[125px]'>
+        <div className='pt-4 w-full md:w-[125px]'>
           <CardButton
             onClick={() => handleSubmit(values)}
             text='myAccount.passwordSection.button'

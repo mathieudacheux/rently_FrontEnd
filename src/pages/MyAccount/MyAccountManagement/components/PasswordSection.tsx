@@ -77,7 +77,7 @@ export default function PasswordSection(): JSX.Element {
 
   return (
     <>
-      <div className='pl-4 w-full'>
+      <div className='md:pl-4'>
         <div className='flex flex-col justify-center align-middle w-full'>
           <Typography variant='h2' className='text-neutral-900'>
             {t('myAccount.passwordSection.title')}
@@ -87,7 +87,7 @@ export default function PasswordSection(): JSX.Element {
               {t('myAccount.passwordSection.oldPassword')}
             </Typography>
           </div>
-          <div className='pt-2 w-2/5'>
+          <div className='pt-2 w-full md:w-2/5'>
             <FormikTextField
               name='oldPassword'
               password
@@ -96,7 +96,7 @@ export default function PasswordSection(): JSX.Element {
             />
           </div>
           <div className='flex flex-col md:flex-row flex-start w-full'>
-            <div className='flex flex-col w-2/5 mr-4'>
+            <div className='flex flex-col w-full md:w-2/5 md:mr-4'>
               <div className='pt-4 w-full'>
                 <Typography variant='text' className='text-neutral-900'>
                   {t('connection.password')}
@@ -111,7 +111,7 @@ export default function PasswordSection(): JSX.Element {
                 />
               </div>
             </div>
-            <div className='flex flex-col w-2/5'>
+            <div className='flex flex-col w-full md:w-2/5'>
               <div className='pt-4 w-full'>
                 <Typography variant='text' className='text-neutral-900'>
                   {t('connection.passwordConfirm')}
@@ -127,7 +127,7 @@ export default function PasswordSection(): JSX.Element {
               </div>
             </div>
           </div>
-          <div className='pt-4 w-[125px]'>
+          <div className='pt-4 md:w-[125px]'>
             <CardButton
               onClick={() => handleSubmit(values)}
               text='myAccount.passwordSection.button'
