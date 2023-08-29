@@ -13,13 +13,13 @@
 
 import { QueryConfig } from 'redux-query'
 import {
-  AuthentificationsLoginRequest,
+  AuthentificationsLogin,
   AuthentificationsLoginRequestToJSON,
 } from '../models'
 import * as runtime from '../runtime'
 
 export interface AuthentificationsLoginRequest {
-  authentificationsLoginRequest?: AuthentificationsLoginRequest
+  authentificationsLoginRequest?: AuthentificationsLogin
 }
 
 /**
