@@ -19,6 +19,8 @@ import {
   BookmarkSerializerPutToJSON,
   BookmarkSerializerRead,
   BookmarkSerializerReadFromJSON,
+  PropertySerializerRead,
+  PropertySerializerReadFromJSON,
 } from '../models'
 import * as runtime from '../runtime'
 
@@ -31,6 +33,10 @@ export interface BookmarksDeleteBookmarkRequest {
 }
 
 export interface BookmarksGetBookmarkByIdRequest {
+  id: number
+}
+
+export interface BookmarksGetBookmarkByUserIdRequest {
   id: number
 }
 
@@ -262,6 +268,64 @@ export function bookmarksGetBookmarkById<T>(
   requestConfig?: runtime.TypedQueryConfig<T, BookmarkSerializerRead>,
 ): QueryConfig<T> {
   return bookmarksGetBookmarkByIdRaw(requestParameters, requestConfig)
+}
+
+/**
+ * Return all properties of a user by his id
+ */
+function bookmarksGetBookmarkByUserIdRaw<T>(
+  requestParameters: BookmarksGetBookmarkByUserIdRequest,
+  requestConfig: runtime.TypedQueryConfig<T, PropertySerializerRead> = {},
+): QueryConfig<T> {
+  if (requestParameters.id === null || requestParameters.id === undefined) {
+    throw new runtime.RequiredError(
+      'id',
+      'Required parameter requestParameters.id was null or undefined when calling bookmarksGetBookmarkByUserId.',
+    )
+  }
+
+  let queryParameters = null
+
+  const headerParameters: runtime.HttpHeaders = {}
+
+  const { meta = {} } = requestConfig
+
+  meta.authType = ['bearer']
+  const config: QueryConfig<T> = {
+    url: `${runtime.Configuration.basePath}/bookmarks/user/{id}`.replace(
+      `{${'id'}}`,
+      encodeURIComponent(String(requestParameters.id)),
+    ),
+    meta,
+    update: requestConfig.update,
+    queryKey: requestConfig.queryKey,
+    optimisticUpdate: requestConfig.optimisticUpdate,
+    force: requestConfig.force,
+    rollback: requestConfig.rollback,
+    options: {
+      method: 'GET',
+      headers: headerParameters,
+    },
+    body: queryParameters,
+  }
+
+  const { transform: requestTransform } = requestConfig
+  if (requestTransform) {
+    config.transform = (body: ResponseBody, text: ResponseBody) =>
+      requestTransform(PropertySerializerReadFromJSON(body), text)
+  }
+
+  return config
+}
+
+/**
+ * Return all properties of a user by his id
+ */
+export function bookmarksGetBookmarkByUserId<T>(
+  requestParameters: BookmarksGetBookmarkByUserIdRequest,
+  requestConfig?: runtime.TypedQueryConfig<T, PropertySerializerRead>,
+): QueryConfig<T> {
+  return bookmarksGetBookmarkByUserIdRaw(requestParameters, requestConfig)
 }
 
 /**

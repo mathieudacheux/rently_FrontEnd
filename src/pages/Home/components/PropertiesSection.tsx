@@ -1,20 +1,27 @@
 import { useTranslation } from 'react-i18next'
 import Typography from '../../../components/atoms/Typography.tsx'
 import PropertyCard from '../../../components/organisms/PropertyCard.tsx'
-import { useGetPropertyByFilterQuery } from '../../../features/property/propertyApi.ts'
+import { useLazyGetPropertyHomeQuery } from '../../../features/property/propertyApi.ts'
 import { PropertySerializerRead } from '../../../api/models/PropertySerializerRead.ts'
 import Button from '../../../components/atoms/Button.tsx'
 import { useNavigate } from 'react-router-dom'
 import { APP_ROUTES } from '../../../routes/routes.ts'
+import { useUserLocation } from '../../../hooks/useUserLocation.ts'
+import { useEffect } from 'react'
 
 export default function PropertiesSection(): JSX.Element {
   const { t } = useTranslation()
   const navigate = useNavigate()
+  const { userLocation } = useUserLocation()
 
-  const propertyData: PropertySerializerRead[] =
-    useGetPropertyByFilterQuery({
-      city: 'Amiens',
-    })?.data ?? []
+  const [triggerProperties, resultProperties] = useLazyGetPropertyHomeQuery()
+
+  useEffect(() => {
+    triggerProperties({
+      base_latitude: userLocation[0],
+      base_longitude: userLocation[1],
+    })
+  }, [userLocation])
 
   return (
     <div className='flex flex-col items-center justify-center'>
@@ -25,17 +32,21 @@ export default function PropertiesSection(): JSX.Element {
         {t('home.titleProperties')}
       </Typography>
       <div className='w-11/12 md:max-w-[1200px] flex flex-col md:flex-wrap md:flex-row items-center md:justify-between'>
-        {propertyData.slice(0, 6).map((property, index) => (
-          <div
-            key={property.property_id}
-            className={`flex justify-center md:w-[350px] w-full ${
-              index >= 3 ? 'md:mt-7' : 'md:mt-0'
-            } mt-7
+        {resultProperties?.data?.length
+          ? resultProperties?.data
+              .slice(0, 6)
+              .map((property: PropertySerializerRead, index: number) => (
+                <div
+                  key={property.property_id}
+                  className={`flex justify-center md:w-[350px] w-full ${
+                    index >= 3 ? 'md:mt-7' : 'md:mt-0'
+                  } mt-7
             `}
-          >
-            <PropertyCard property={property} />
-          </div>
-        ))}
+                >
+                  <PropertyCard property={property} />
+                </div>
+              ))
+          : null}
       </div>
       <div className='w-full flex justify-center pt-7'>
         <Button

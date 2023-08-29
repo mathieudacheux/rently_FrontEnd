@@ -215,6 +215,18 @@ export interface PropertySerializerPut {
    * @type {number}
    * @memberof PropertySerializerPut
    */
+  latitude?: number
+  /**
+   *
+   * @type {number}
+   * @memberof PropertySerializerPut
+   */
+  longitude?: number
+  /**
+   *
+   * @type {number}
+   * @memberof PropertySerializerPut
+   */
   dpe?: number
   /**
    *
@@ -270,6 +282,8 @@ export function PropertySerializerPutFromJSON(
     status_id: !exists(json, 'status_id') ? undefined : json['status_id'],
     tenant_id: !exists(json, 'tenant_id') ? undefined : json['tenant_id'],
     address_id: !exists(json, 'address_id') ? undefined : json['address_id'],
+    latitude: !exists(json, 'latitude') ? undefined : json['latitude'],
+    longitude: !exists(json, 'longitude') ? undefined : json['longitude'],
     dpe: !exists(json, 'dpe') ? undefined : json['dpe'],
     agency_id: !exists(json, 'agency_id') ? undefined : json['agency_id'],
   }
@@ -314,6 +328,8 @@ export function PropertySerializerPutToJSON(
     status_id: value.status_id,
     tenant_id: value.tenant_id,
     address_id: value.address_id,
+    latitude: value.latitude,
+    longitude: value.longitude,
     dpe: value.dpe,
     agency_id: value.agency_id,
   }

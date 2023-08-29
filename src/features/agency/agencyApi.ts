@@ -14,10 +14,19 @@ const agencyApi = createApi({
   baseQuery,
   endpoints: (builder) => ({
     getAgencies: builder.query({
-      query: () => 'agencies',
+      query: (filter) => ({
+        url: 'agencies',
+        params: filter,
+      }),
     }),
     getAgencyById: builder.query({
       query: (id) => `agencies/${id}`,
+    }),
+    getAgenciesByFilter: builder.query({
+      query: (filter) => ({
+        url: 'agencies/filter',
+        params: filter,
+      }),
     }),
     createAgency: builder.mutation({
       query: (newAgency) => ({
@@ -47,6 +56,8 @@ export const {
   useLazyGetAgenciesQuery,
   useGetAgencyByIdQuery,
   useLazyGetAgencyByIdQuery,
+  useGetAgenciesByFilterQuery,
+  useLazyGetAgenciesByFilterQuery,
   useCreateAgencyMutation,
   useUpdateAgencyMutation,
   useDeleteAgencyMutation,

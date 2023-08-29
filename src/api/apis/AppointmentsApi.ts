@@ -288,6 +288,14 @@ function appointmentsGetAppointmentsByFilterRaw<T>(
     user_id_2: requestParameters.userId2,
   }
 
+  if (requestParameters.userId1 !== undefined) {
+    queryParameters['user_id_1'] = requestParameters.userId1
+  }
+
+  if (requestParameters.userId2 !== undefined) {
+    queryParameters['user_id_2'] = requestParameters.userId2
+  }
+
   const headerParameters: runtime.HttpHeaders = {}
 
   const { meta = {} } = requestConfig

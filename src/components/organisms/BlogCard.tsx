@@ -8,11 +8,13 @@ export default function BlogCard({
   title,
   description,
   full = false,
+  buttonTitle = 'home.readBlog',
   id,
 }: {
   title: string
   id: number
   description: string
+  buttonTitle?: string
   full?: boolean
 }): JSX.Element {
   const { t } = useTranslation()
@@ -56,7 +58,7 @@ export default function BlogCard({
             {title}
           </Typography>
           <Button
-            text={t('home.readBlog')}
+            text={t(buttonTitle)}
             onClick={() => navigate(`${APP_ROUTES.BLOG}/${id}`)}
           />
         </div>
@@ -84,7 +86,7 @@ export default function BlogCard({
         </Typography>
         {showDescription}
         <Button
-          text={t('home.readBlog')}
+          text={t(buttonTitle)}
           onClick={() => navigate(`${APP_ROUTES.BLOG}/${title}`)}
         />
       </div>

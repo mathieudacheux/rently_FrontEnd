@@ -121,6 +121,10 @@ function usersGetAllUsersRaw<T>(
     page: requestParameters.page,
   }
 
+  if (requestParameters.page !== undefined) {
+    queryParameters['page'] = requestParameters.page
+  }
+
   const headerParameters: runtime.HttpHeaders = {}
 
   const { meta = {} } = requestConfig
@@ -234,6 +238,30 @@ function usersGetUsersByFilterRaw<T>(
     firstname: requestParameters.firstname,
     city: requestParameters.city,
     zipcode: requestParameters.zipcode,
+  }
+
+  if (requestParameters.mail !== undefined) {
+    queryParameters['mail'] = requestParameters.mail
+  }
+
+  if (requestParameters.phone !== undefined) {
+    queryParameters['phone'] = requestParameters.phone
+  }
+
+  if (requestParameters.name !== undefined) {
+    queryParameters['name'] = requestParameters.name
+  }
+
+  if (requestParameters.firstname !== undefined) {
+    queryParameters['firstname'] = requestParameters.firstname
+  }
+
+  if (requestParameters.city !== undefined) {
+    queryParameters['city'] = requestParameters.city
+  }
+
+  if (requestParameters.zipcode !== undefined) {
+    queryParameters['zipcode'] = requestParameters.zipcode
   }
 
   const headerParameters: runtime.HttpHeaders = {}

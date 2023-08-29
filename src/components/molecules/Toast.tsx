@@ -15,7 +15,7 @@ export default function Toast({
     <div
       className={`alert fixed w-10/12 md:w-3/12 top-[75px] left-1/2 -translate-x-1/2 md:right-0 md:left-full md:-translate-x-1/2 
       flex flex-start
-      transition-all duration-700 ease-in-out
+      transition-all duration-700 ease-in-out z-50
       ${open ? 'opacity-100' : 'opacity-0'}
       ${open ? ' md:-translate-x-[105%]' : 'translate-x-20 '}
     `}
