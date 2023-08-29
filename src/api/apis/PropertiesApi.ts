@@ -65,6 +65,11 @@ export interface PropertiesGetPropertiesByFilterRequest {
   zipcode?: string
 }
 
+export interface PropertiesGetPropertiesForHomeRequest {
+  baseLatitude?: number
+  baseLongitude?: number
+}
+
 export interface PropertiesGetPropertyByIdRequest {
   id: number
 }
@@ -208,6 +213,10 @@ function propertiesGetPropertiesRaw<T>(
     page: requestParameters.page,
   }
 
+  if (requestParameters.page !== undefined) {
+    queryParameters['page'] = requestParameters.page
+  }
+
   const headerParameters: runtime.HttpHeaders = {}
 
   const { meta = {} } = requestConfig
@@ -285,10 +294,121 @@ function propertiesGetPropertiesByFilterRaw<T>(
     ground_floor: requestParameters.groundFloor,
     land_size_1: requestParameters.landSize1,
     garden: requestParameters.garden,
-
     dpe: requestParameters.dpe,
     city: requestParameters.city,
     zipcode: requestParameters.zipcode,
+  }
+
+  if (requestParameters.propertyType !== undefined) {
+    queryParameters['property_type'] = requestParameters.propertyType
+  }
+
+  if (requestParameters.price !== undefined) {
+    queryParameters['price'] = requestParameters.price
+  }
+
+  if (requestParameters.surface !== undefined) {
+    queryParameters['surface'] = requestParameters.surface
+  }
+
+  if (requestParameters.landSize !== undefined) {
+    queryParameters['land_size'] = requestParameters.landSize
+  }
+
+  if (requestParameters.bathroom !== undefined) {
+    queryParameters['bathroom'] = requestParameters.bathroom
+  }
+
+  if (requestParameters.kitchen !== undefined) {
+    queryParameters['kitchen'] = requestParameters.kitchen
+  }
+
+  if (requestParameters.toilet !== undefined) {
+    queryParameters['toilet'] = requestParameters.toilet
+  }
+
+  if (requestParameters.bedroom !== undefined) {
+    queryParameters['bedroom'] = requestParameters.bedroom
+  }
+
+  if (requestParameters.elevator !== undefined) {
+    queryParameters['elevator'] = requestParameters.elevator
+  }
+
+  if (requestParameters.balcony !== undefined) {
+    queryParameters['balcony'] = requestParameters.balcony
+  }
+
+  if (requestParameters.terrace !== undefined) {
+    queryParameters['terrace'] = requestParameters.terrace
+  }
+
+  if (requestParameters.cellar !== undefined) {
+    queryParameters['cellar'] = requestParameters.cellar
+  }
+
+  if (requestParameters.parking !== undefined) {
+    queryParameters['parking'] = requestParameters.parking
+  }
+
+  if (requestParameters.numberRoom !== undefined) {
+    queryParameters['number_room'] = requestParameters.numberRoom
+  }
+
+  if (requestParameters.pool !== undefined) {
+    queryParameters['pool'] = requestParameters.pool
+  }
+
+  if (requestParameters.caretaker !== undefined) {
+    queryParameters['caretaker'] = requestParameters.caretaker
+  }
+
+  if (requestParameters.fiberDeployed !== undefined) {
+    queryParameters['fiber_deployed'] = requestParameters.fiberDeployed
+  }
+
+  if (requestParameters.duplex !== undefined) {
+    queryParameters['duplex'] = requestParameters.duplex
+  }
+
+  if (requestParameters.topFloor !== undefined) {
+    queryParameters['top_floor'] = requestParameters.topFloor
+  }
+
+  if (requestParameters.garage !== undefined) {
+    queryParameters['garage'] = requestParameters.garage
+  }
+
+  if (requestParameters.workDone !== undefined) {
+    queryParameters['work_done'] = requestParameters.workDone
+  }
+
+  if (requestParameters.lifeAnnuity !== undefined) {
+    queryParameters['life_annuity'] = requestParameters.lifeAnnuity
+  }
+
+  if (requestParameters.groundFloor !== undefined) {
+    queryParameters['ground_floor'] = requestParameters.groundFloor
+  }
+
+  if (requestParameters.landSize1 !== undefined) {
+    queryParameters['land_size_1'] = requestParameters.landSize1
+  }
+
+  if (requestParameters.garden !== undefined) {
+    queryParameters['garden'] = requestParameters.garden
+  }
+
+  if (requestParameters.dpe !== undefined) {
+    queryParameters['dpe'] = requestParameters.dpe
+  }
+
+  if (requestParameters.city !== undefined) {
+    queryParameters['city'] = requestParameters.city
+  }
+
+  if (requestParameters.zipcode !== undefined) {
+    queryParameters['zipcode'] = requestParameters.zipcode
   }
 
   const headerParameters: runtime.HttpHeaders = {}
@@ -328,6 +448,70 @@ export function propertiesGetPropertiesByFilter<T>(
   requestConfig?: runtime.TypedQueryConfig<T, Array<PropertySerializerRead>>,
 ): QueryConfig<T> {
   return propertiesGetPropertiesByFilterRaw(requestParameters, requestConfig)
+}
+
+/**
+ * Return a list of 6 properties for the home page
+ */
+function propertiesGetPropertiesForHomeRaw<T>(
+  requestParameters: PropertiesGetPropertiesForHomeRequest,
+  requestConfig: runtime.TypedQueryConfig<
+    T,
+    Array<PropertySerializerRead>
+  > = {},
+): QueryConfig<T> {
+  let queryParameters = null
+
+  queryParameters = {
+    base_latitude: requestParameters.baseLatitude,
+    base_longitude: requestParameters.baseLongitude,
+  }
+
+  if (requestParameters.baseLatitude !== undefined) {
+    queryParameters['base_latitude'] = requestParameters.baseLatitude
+  }
+
+  if (requestParameters.baseLongitude !== undefined) {
+    queryParameters['base_longitude'] = requestParameters.baseLongitude
+  }
+
+  const headerParameters: runtime.HttpHeaders = {}
+
+  const { meta = {} } = requestConfig
+
+  meta.authType = ['bearer']
+  const config: QueryConfig<T> = {
+    url: `${runtime.Configuration.basePath}/properties/properties_home`,
+    meta,
+    update: requestConfig.update,
+    queryKey: requestConfig.queryKey,
+    optimisticUpdate: requestConfig.optimisticUpdate,
+    force: requestConfig.force,
+    rollback: requestConfig.rollback,
+    options: {
+      method: 'GET',
+      headers: headerParameters,
+    },
+    body: queryParameters,
+  }
+
+  const { transform: requestTransform } = requestConfig
+  if (requestTransform) {
+    config.transform = (body: ResponseBody, text: ResponseBody) =>
+      requestTransform(body.map(PropertySerializerReadFromJSON), text)
+  }
+
+  return config
+}
+
+/**
+ * Return a list of 6 properties for the home page
+ */
+export function propertiesGetPropertiesForHome<T>(
+  requestParameters: PropertiesGetPropertiesForHomeRequest,
+  requestConfig?: runtime.TypedQueryConfig<T, Array<PropertySerializerRead>>,
+): QueryConfig<T> {
+  return propertiesGetPropertiesForHomeRaw(requestParameters, requestConfig)
 }
 
 /**

@@ -44,6 +44,12 @@ export interface UserSerializerPut {
   password?: string
   /**
    *
+   * @type {string}
+   * @memberof UserSerializerPut
+   */
+  new_password?: string
+  /**
+   *
    * @type {boolean}
    * @memberof UserSerializerPut
    */
@@ -86,6 +92,9 @@ export function UserSerializerPutFromJSON(json: any): UserSerializerPut {
     phone: !exists(json, 'phone') ? undefined : json['phone'],
     mail: !exists(json, 'mail') ? undefined : json['mail'],
     password: !exists(json, 'password') ? undefined : json['password'],
+    new_password: !exists(json, 'newPassword')
+      ? undefined
+      : json['newPassword'],
     newsletter: !exists(json, 'newsletter') ? undefined : json['newsletter'],
     validated_at: !exists(json, 'validated_at')
       ? undefined
@@ -106,6 +115,7 @@ export function UserSerializerPutToJSON(value?: UserSerializerPut): any {
     phone: value.phone,
     mail: value.mail,
     password: value.password,
+    newPassword: value.new_password,
     newsletter: value.newsletter,
     validated_at: value.validated_at,
     address_id: value.address_id,

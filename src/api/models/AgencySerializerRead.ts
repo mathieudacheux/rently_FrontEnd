@@ -42,6 +42,36 @@ export interface AgencySerializerRead {
    * @memberof AgencySerializerRead
    */
   address_id?: number
+  /**
+   *
+   * @type {string}
+   * @memberof AgencySerializerRead
+   */
+  city?: string
+  /**
+   *
+   * @type {string}
+   * @memberof AgencySerializerRead
+   */
+  zipcode?: string
+  /**
+   *
+   * @type {string}
+   * @memberof AgencySerializerRead
+   */
+  way?: string
+  /**
+   *
+   * @type {string}
+   * @memberof AgencySerializerRead
+   */
+  longitude?: string
+  /**
+   *
+   * @type {string}
+   * @memberof AgencySerializerRead
+   */
+  latitude?: string
 }
 
 export function AgencySerializerReadFromJSON(json: any): AgencySerializerRead {
@@ -50,6 +80,11 @@ export function AgencySerializerReadFromJSON(json: any): AgencySerializerRead {
     name: !exists(json, 'name') ? undefined : json['name'],
     fee_id: !exists(json, 'fee_id') ? undefined : json['fee_id'],
     address_id: !exists(json, 'address_id') ? undefined : json['address_id'],
+    city: !exists(json, 'city') ? undefined : json['city'],
+    zipcode: !exists(json, 'zipcode') ? undefined : json['zipcode'],
+    way: !exists(json, 'way') ? undefined : json['way'],
+    longitude: !exists(json, 'longitude') ? undefined : json['longitude'],
+    latitude: !exists(json, 'latitude') ? undefined : json['latitude'],
   }
 }
 
@@ -62,5 +97,10 @@ export function AgencySerializerReadToJSON(value?: AgencySerializerRead): any {
     name: value.name,
     fee_id: value.fee_id,
     address_id: value.address_id,
+    city: value.city,
+    zipcode: value.zipcode,
+    way: value.way,
+    longitude: value.longitude,
+    latitude: value.latitude,
   }
 }

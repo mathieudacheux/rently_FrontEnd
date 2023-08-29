@@ -59,7 +59,7 @@ export default function PersonnalSection(): JSX.Element {
     const response: any = await updateUser({
       id: userData[0].user_id,
       firstname: values.firstname,
-      lastname: values.lastname,
+      name: values.lastname,
       mail: values.mail,
       phone: values.phone,
       newsletter: values.newsletter,
@@ -78,18 +78,16 @@ export default function PersonnalSection(): JSX.Element {
       view: true,
       message: 'myAccount.success',
     })
-
-    resetForm()
   }
 
   return (
     <>
-      <div className='pl-4'>
+      <div className='md:pl-4'>
         <Typography variant='h2' className='text-neutral-900'>
           {t('myAccount.personalInformation')}
         </Typography>
         <div className='flex flex-row mt-4'>
-          <div className='flex flex-col w-2/5 mr-4'>
+          <div className='flex flex-col w-[calc(50%-8px)] md:w-2/5 mr-4'>
             <div>
               <Typography variant='text' className='text-neutral-900'>
                 {t('connection.firstname')}
@@ -103,7 +101,7 @@ export default function PersonnalSection(): JSX.Element {
               />
             </div>
           </div>
-          <div className='flex flex-col w-2/5'>
+          <div className='flex flex-col w-[calc(50%-8px)] md:w-2/5'>
             <div>
               <Typography variant='text' className='text-neutral-900'>
                 {t('connection.lastname')}
@@ -118,7 +116,7 @@ export default function PersonnalSection(): JSX.Element {
             </div>
           </div>
         </div>
-        <div className='pt-4 w-[calc(80%+16px)]'>
+        <div className='pt-4 w-full md:w-[calc(80%+16px)]'>
           <Typography variant='text' className='text-neutral-900'>
             {t('connection.mail')}
           </Typography>
@@ -130,8 +128,8 @@ export default function PersonnalSection(): JSX.Element {
             />
           </div>
         </div>
-        <div className='flex flex-row mt-4'>
-          <div className='flex flex-col w-2/5 mr-4'>
+        <div className='flex flex-col md:flex-row mt-4'>
+          <div className='flex flex-col w-full md:w-2/5 mr-4'>
             <div>
               <Typography variant='text' className='text-neutral-900'>
                 {t('myAccount.personalSection.phone')}
@@ -145,7 +143,7 @@ export default function PersonnalSection(): JSX.Element {
               />
             </div>
           </div>
-          <div className='flex flex-col w-2/5 justify-center'>
+          <div className='flex flex-col w-full md:w-2/5 justify-center'>
             <div className='flex items-center pt-4'>
               <FormikCheckbox
                 name='newsletter'
@@ -155,7 +153,7 @@ export default function PersonnalSection(): JSX.Element {
           </div>
         </div>
         <ToggleLanguage />
-        <div className='pt-4 w-[125px]'>
+        <div className='pt-4 w-full md:w-[125px]'>
           <CardButton
             onClick={() => handleSubmit(values)}
             text='myAccount.passwordSection.button'

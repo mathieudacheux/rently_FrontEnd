@@ -9,6 +9,7 @@
   "title": {
     "home": "Home",
     "login": "Login",
+    "account": "My account",
     "register": "Register",
     "forgot_password": "Forgot password",
     "reset_password": "Reset password",
@@ -64,7 +65,8 @@
     "seeBlog": "All our articles",
     "seeAgency": "All our agencies",
     "readBlog": "Read the article",
-    "readAgency": "See the agency"
+    "readAgency": "See the agency",
+    "newsletter": "Successful newsletter subscription"
   },
   "myAccount": {
     "personalInformation": "Personal information",

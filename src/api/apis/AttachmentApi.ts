@@ -14,6 +14,24 @@
 import { QueryConfig } from 'redux-query'
 import * as runtime from '../runtime'
 
+export interface AttachmentGetAllFolderImgRequest {
+  id: number
+}
+
+export interface AttachmentGetAllFolderPdfRequest {
+  id: number
+}
+
+export interface AttachmentGetOneFileImgRequest {
+  id: number
+  file: string
+}
+
+export interface AttachmentGetOneFilePdfRequest {
+  id: number
+  file: string
+}
+
 export interface AttachmentUploadFileImgRequest {
   folder: string
   id: number
@@ -27,6 +45,249 @@ export interface AttachmentUploadFilePdfRequest {
 }
 
 /**
+ * Return all the images in the folder \'id\'
+ */
+function attachmentGetAllFolderImgRaw<T>(
+  requestParameters: AttachmentGetAllFolderImgRequest,
+  requestConfig: runtime.TypedQueryConfig<T, void> = {},
+): QueryConfig<T> {
+  if (requestParameters.id === null || requestParameters.id === undefined) {
+    throw new runtime.RequiredError(
+      'id',
+      'Required parameter requestParameters.id was null or undefined when calling attachmentGetAllFolderImg.',
+    )
+  }
+
+  let queryParameters = null
+
+  const headerParameters: runtime.HttpHeaders = {}
+
+  const { meta = {} } = requestConfig
+
+  meta.authType = ['bearer']
+  const config: QueryConfig<T> = {
+    url: `${runtime.Configuration.basePath}/file/img/{id}`.replace(
+      `{${'id'}}`,
+      encodeURIComponent(String(requestParameters.id)),
+    ),
+    meta,
+    update: requestConfig.update,
+    queryKey: requestConfig.queryKey,
+    optimisticUpdate: requestConfig.optimisticUpdate,
+    force: requestConfig.force,
+    rollback: requestConfig.rollback,
+    options: {
+      method: 'GET',
+      headers: headerParameters,
+    },
+    body: queryParameters,
+  }
+
+  const { transform: requestTransform } = requestConfig
+  if (requestTransform) {
+  }
+
+  return config
+}
+
+/**
+ * Return all the images in the folder \'id\'
+ */
+export function attachmentGetAllFolderImg<T>(
+  requestParameters: AttachmentGetAllFolderImgRequest,
+  requestConfig?: runtime.TypedQueryConfig<T, void>,
+): QueryConfig<T> {
+  return attachmentGetAllFolderImgRaw(requestParameters, requestConfig)
+}
+
+/**
+ * Return all the pdf in the folder \'id\'
+ */
+function attachmentGetAllFolderPdfRaw<T>(
+  requestParameters: AttachmentGetAllFolderPdfRequest,
+  requestConfig: runtime.TypedQueryConfig<T, void> = {},
+): QueryConfig<T> {
+  if (requestParameters.id === null || requestParameters.id === undefined) {
+    throw new runtime.RequiredError(
+      'id',
+      'Required parameter requestParameters.id was null or undefined when calling attachmentGetAllFolderPdf.',
+    )
+  }
+
+  let queryParameters = null
+
+  const headerParameters: runtime.HttpHeaders = {}
+
+  const { meta = {} } = requestConfig
+
+  meta.authType = ['bearer']
+  const config: QueryConfig<T> = {
+    url: `${runtime.Configuration.basePath}/file/pdf/{id}`.replace(
+      `{${'id'}}`,
+      encodeURIComponent(String(requestParameters.id)),
+    ),
+    meta,
+    update: requestConfig.update,
+    queryKey: requestConfig.queryKey,
+    optimisticUpdate: requestConfig.optimisticUpdate,
+    force: requestConfig.force,
+    rollback: requestConfig.rollback,
+    options: {
+      method: 'GET',
+      headers: headerParameters,
+    },
+    body: queryParameters,
+  }
+
+  const { transform: requestTransform } = requestConfig
+  if (requestTransform) {
+  }
+
+  return config
+}
+
+/**
+ * Return all the pdf in the folder \'id\'
+ */
+export function attachmentGetAllFolderPdf<T>(
+  requestParameters: AttachmentGetAllFolderPdfRequest,
+  requestConfig?: runtime.TypedQueryConfig<T, void>,
+): QueryConfig<T> {
+  return attachmentGetAllFolderPdfRaw(requestParameters, requestConfig)
+}
+
+/**
+ * Return the image \'file\' in the folder \'id\'
+ */
+function attachmentGetOneFileImgRaw<T>(
+  requestParameters: AttachmentGetOneFileImgRequest,
+  requestConfig: runtime.TypedQueryConfig<T, void> = {},
+): QueryConfig<T> {
+  if (requestParameters.id === null || requestParameters.id === undefined) {
+    throw new runtime.RequiredError(
+      'id',
+      'Required parameter requestParameters.id was null or undefined when calling attachmentGetOneFileImg.',
+    )
+  }
+
+  if (requestParameters.file === null || requestParameters.file === undefined) {
+    throw new runtime.RequiredError(
+      'file',
+      'Required parameter requestParameters.file was null or undefined when calling attachmentGetOneFileImg.',
+    )
+  }
+
+  let queryParameters = null
+
+  const headerParameters: runtime.HttpHeaders = {}
+
+  const { meta = {} } = requestConfig
+
+  meta.authType = ['bearer']
+  const config: QueryConfig<T> = {
+    url: `${runtime.Configuration.basePath}/file/img/{id}/{file}`
+      .replace(`{${'id'}}`, encodeURIComponent(String(requestParameters.id)))
+      .replace(
+        `{${'file'}}`,
+        encodeURIComponent(String(requestParameters.file)),
+      ),
+    meta,
+    update: requestConfig.update,
+    queryKey: requestConfig.queryKey,
+    optimisticUpdate: requestConfig.optimisticUpdate,
+    force: requestConfig.force,
+    rollback: requestConfig.rollback,
+    options: {
+      method: 'GET',
+      headers: headerParameters,
+    },
+    body: queryParameters,
+  }
+
+  const { transform: requestTransform } = requestConfig
+  if (requestTransform) {
+  }
+
+  return config
+}
+
+/**
+ * Return the image \'file\' in the folder \'id\'
+ */
+export function attachmentGetOneFileImg<T>(
+  requestParameters: AttachmentGetOneFileImgRequest,
+  requestConfig?: runtime.TypedQueryConfig<T, void>,
+): QueryConfig<T> {
+  return attachmentGetOneFileImgRaw(requestParameters, requestConfig)
+}
+
+/**
+ * Return the pdf \'file\' in the folder \'id\'
+ */
+function attachmentGetOneFilePdfRaw<T>(
+  requestParameters: AttachmentGetOneFilePdfRequest,
+  requestConfig: runtime.TypedQueryConfig<T, void> = {},
+): QueryConfig<T> {
+  if (requestParameters.id === null || requestParameters.id === undefined) {
+    throw new runtime.RequiredError(
+      'id',
+      'Required parameter requestParameters.id was null or undefined when calling attachmentGetOneFilePdf.',
+    )
+  }
+
+  if (requestParameters.file === null || requestParameters.file === undefined) {
+    throw new runtime.RequiredError(
+      'file',
+      'Required parameter requestParameters.file was null or undefined when calling attachmentGetOneFilePdf.',
+    )
+  }
+
+  let queryParameters = null
+
+  const headerParameters: runtime.HttpHeaders = {}
+
+  const { meta = {} } = requestConfig
+
+  meta.authType = ['bearer']
+  const config: QueryConfig<T> = {
+    url: `${runtime.Configuration.basePath}/file/pdf/{id}/{file}`
+      .replace(`{${'id'}}`, encodeURIComponent(String(requestParameters.id)))
+      .replace(
+        `{${'file'}}`,
+        encodeURIComponent(String(requestParameters.file)),
+      ),
+    meta,
+    update: requestConfig.update,
+    queryKey: requestConfig.queryKey,
+    optimisticUpdate: requestConfig.optimisticUpdate,
+    force: requestConfig.force,
+    rollback: requestConfig.rollback,
+    options: {
+      method: 'GET',
+      headers: headerParameters,
+    },
+    body: queryParameters,
+  }
+
+  const { transform: requestTransform } = requestConfig
+  if (requestTransform) {
+  }
+
+  return config
+}
+
+/**
+ * Return the pdf \'file\' in the folder \'id\'
+ */
+export function attachmentGetOneFilePdf<T>(
+  requestParameters: AttachmentGetOneFilePdfRequest,
+  requestConfig?: runtime.TypedQueryConfig<T, void>,
+): QueryConfig<T> {
+  return attachmentGetOneFilePdfRaw(requestParameters, requestConfig)
+}
+
+/**
+ * Create the image in the folder \'id\' in the folder \'folder\'
  */
 function attachmentUploadFileImgRaw<T>(
   requestParameters: AttachmentUploadFileImgRequest,
@@ -48,6 +309,8 @@ function attachmentUploadFileImgRaw<T>(
       'Required parameter requestParameters.id was null or undefined when calling attachmentUploadFileImg.',
     )
   }
+
+  let queryParameters = null
 
   const headerParameters: runtime.HttpHeaders = {}
 
@@ -87,6 +350,7 @@ function attachmentUploadFileImgRaw<T>(
 }
 
 /**
+ * Create the image in the folder \'id\' in the folder \'folder\'
  */
 export function attachmentUploadFileImg<T>(
   requestParameters: AttachmentUploadFileImgRequest,
@@ -96,6 +360,7 @@ export function attachmentUploadFileImg<T>(
 }
 
 /**
+ * Create the pdf in the folder \'id\' in the folder \'folder\'
  */
 function attachmentUploadFilePdfRaw<T>(
   requestParameters: AttachmentUploadFilePdfRequest,
@@ -117,6 +382,8 @@ function attachmentUploadFilePdfRaw<T>(
       'Required parameter requestParameters.id was null or undefined when calling attachmentUploadFilePdf.',
     )
   }
+
+  let queryParameters = null
 
   const headerParameters: runtime.HttpHeaders = {}
 
@@ -156,6 +423,7 @@ function attachmentUploadFilePdfRaw<T>(
 }
 
 /**
+ * Create the pdf in the folder \'id\' in the folder \'folder\'
  */
 export function attachmentUploadFilePdf<T>(
   requestParameters: AttachmentUploadFilePdfRequest,

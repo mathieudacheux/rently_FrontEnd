@@ -174,6 +174,10 @@ function rolesGetAllRolesRaw<T>(
     name: requestParameters.name,
   }
 
+  if (requestParameters.name !== undefined) {
+    queryParameters['name'] = requestParameters.name
+  }
+
   const headerParameters: runtime.HttpHeaders = {}
 
   const { meta = {} } = requestConfig
