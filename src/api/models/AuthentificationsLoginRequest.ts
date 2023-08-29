@@ -15,9 +15,9 @@ import { exists } from '../runtime'
 /**
  *
  * @export
- * @interface AuthentificationsLoginRequest
+ * @interface AuthentificationsLogin
  */
-export interface AuthentificationsLoginRequest {
+export interface AuthentificationsLogin {
   /**
    *
    * @type {string}
@@ -34,7 +34,7 @@ export interface AuthentificationsLoginRequest {
 
 export function AuthentificationsLoginRequestFromJSON(
   json: any,
-): AuthentificationsLoginRequest {
+): AuthentificationsLogin {
   return {
     mail: !exists(json, 'mail') ? undefined : json['mail'],
     password: !exists(json, 'password') ? undefined : json['password'],
@@ -42,7 +42,7 @@ export function AuthentificationsLoginRequestFromJSON(
 }
 
 export function AuthentificationsLoginRequestToJSON(
-  value?: AuthentificationsLoginRequest,
+  value?: AuthentificationsLogin,
 ): any {
   if (value === undefined) {
     return undefined

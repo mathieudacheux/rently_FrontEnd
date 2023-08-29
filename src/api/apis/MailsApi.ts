@@ -18,7 +18,7 @@ import {
 } from '../models'
 import * as runtime from '../runtime'
 
-export interface MailsConfirmAccountMailRequest {
+export interface MailsConfirmAccountMail {
   mailsConfirmAccountMailRequest?: MailsConfirmAccountMailRequest
 }
 
@@ -30,7 +30,7 @@ export interface MailsResetPasswordMailRequest {
  * Send a mail with sendingblue
  */
 function mailsConfirmAccountMailRaw<T>(
-  requestParameters: MailsConfirmAccountMailRequest,
+  requestParameters: MailsConfirmAccountMail,
   requestConfig: runtime.TypedQueryConfig<T, object> = {},
 ): QueryConfig<T> {
   let queryParameters = null
@@ -72,7 +72,7 @@ function mailsConfirmAccountMailRaw<T>(
  * Send a mail with sendingblue
  */
 export function mailsConfirmAccountMail<T>(
-  requestParameters: MailsConfirmAccountMailRequest,
+  requestParameters: MailsConfirmAccountMail,
   requestConfig?: runtime.TypedQueryConfig<T, object>,
 ): QueryConfig<T> {
   return mailsConfirmAccountMailRaw(requestParameters, requestConfig)
