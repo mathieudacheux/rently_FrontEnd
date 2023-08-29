@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import Typography from '../../../../components/atoms/Typography.tsx'
 import FormikTextField from '../../../../components/molecules/core/FormikTextField.tsx'
@@ -5,11 +6,45 @@ import Password from '../../../../components/atoms/icons/Password.tsx'
 import CardButton from '../../../../components/atoms/CardButton.tsx'
 import { useFormikContext } from 'formik'
 import { useUpdateUserMutation } from '../../../../features/user/userApi.ts'
+import { ToastState } from '../../../../types.ts'
 
 export default function PasswordSection(): JSX.Element {
   const { t } = useTranslation()
   const { values, resetForm } = useFormikContext()
+
   const [updateUser] = useUpdateUserMutation()
+
+  const [showErrorToast, setShowErrorToast] = useState<ToastState>({
+    view: false,
+    message: '',
+  })
+
+  const [showSuccessToast, setShowSuccessToast] = useState<ToastState>({
+    view: false,
+    message: '',
+  })
+
+  useEffect(() => {
+    if (showErrorToast.view) {
+      setTimeout(() => {
+        setShowErrorToast({
+          view: false,
+          message: '',
+        })
+      }, 3000)
+    }
+  }, [showErrorToast])
+
+  useEffect(() => {
+    if (showSuccessToast.view) {
+      setTimeout(() => {
+        setShowSuccessToast({
+          view: false,
+          message: '',
+        })
+      }, 3000)
+    }
+  }, [showSuccessToast])
 
   const userData =
     window.localStorage.getItem('user') !== null
@@ -22,9 +57,19 @@ export default function PasswordSection(): JSX.Element {
       password: values.newPassword,
     })
 
-    if (response?.data) {
-      localStorage.setItem('user', JSON.stringify(response.data))
+    if (!response?.data || response?.error) {
+      setShowErrorToast({
+        view: true,
+        message: response?.error?.data?.message,
+      })
+      return
     }
+
+    localStorage.setItem('user', JSON.stringify(response.data))
+    setShowSuccessToast({
+      view: true,
+      message: 'myAccount.success',
+    })
 
     resetForm()
   }

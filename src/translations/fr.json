@@ -70,6 +70,7 @@
     "personalInformation": "Informations personnelles",
     "changePassword": "Changer le mot de passe",
     "myWishlist": "Ma liste de favoris",
+    "success": "Vos informations ont été mises à jour",
     "personalSection": {
       "phone": "Téléphone",
       "newsletter": "Abonnement à la newsletter"
