@@ -10,6 +10,7 @@ import ToggleLanguage from '../../../../components/atoms/Toggle/ToggleLanguage.t
 import { useUpdateUserMutation } from '../../../../features/user/userApi.ts'
 import { useFormikContext } from 'formik'
 import { ToastState } from '../../../../types.ts'
+import Toast from '../../../../components/molecules/Toast.tsx'
 
 export default function PersonnalSection(): JSX.Element {
   const { t } = useTranslation()
@@ -82,83 +83,88 @@ export default function PersonnalSection(): JSX.Element {
   }
 
   return (
-    <div className='pl-4'>
-      <Typography variant='h2' className='text-neutral-900'>
-        {t('myAccount.personalInformation')}
-      </Typography>
-      <div className='flex flex-row mt-4'>
-        <div className='flex flex-col w-2/5 mr-4'>
-          <div>
-            <Typography variant='text' className='text-neutral-900'>
-              {t('connection.firstname')}
-            </Typography>
-          </div>
-          <div className='pt-2'>
-            <FormikTextField
-              name='firstname'
-              placeholder={t('connection.firstname')}
-              icon={<Profil primary />}
-            />
-          </div>
-        </div>
-        <div className='flex flex-col w-2/5'>
-          <div>
-            <Typography variant='text' className='text-neutral-900'>
-              {t('connection.lastname')}
-            </Typography>
-          </div>
-          <div className='pt-2'>
-            <FormikTextField
-              name='lastname'
-              placeholder={t('connection.lastname')}
-              icon={<Profil primary />}
-            />
-          </div>
-        </div>
-      </div>
-      <div className='pt-4 w-[calc(80%+16px)]'>
-        <Typography variant='text' className='text-neutral-900'>
-          {t('connection.mail')}
+    <>
+      <div className='pl-4'>
+        <Typography variant='h2' className='text-neutral-900'>
+          {t('myAccount.personalInformation')}
         </Typography>
-        <div className='pt-2'>
-          <FormikTextField
-            name='mail'
-            placeholder={t('connection.mail')}
-            icon={<Mail />}
+        <div className='flex flex-row mt-4'>
+          <div className='flex flex-col w-2/5 mr-4'>
+            <div>
+              <Typography variant='text' className='text-neutral-900'>
+                {t('connection.firstname')}
+              </Typography>
+            </div>
+            <div className='pt-2'>
+              <FormikTextField
+                name='firstname'
+                placeholder={t('connection.firstname')}
+                icon={<Profil primary />}
+              />
+            </div>
+          </div>
+          <div className='flex flex-col w-2/5'>
+            <div>
+              <Typography variant='text' className='text-neutral-900'>
+                {t('connection.lastname')}
+              </Typography>
+            </div>
+            <div className='pt-2'>
+              <FormikTextField
+                name='lastname'
+                placeholder={t('connection.lastname')}
+                icon={<Profil primary />}
+              />
+            </div>
+          </div>
+        </div>
+        <div className='pt-4 w-[calc(80%+16px)]'>
+          <Typography variant='text' className='text-neutral-900'>
+            {t('connection.mail')}
+          </Typography>
+          <div className='pt-2'>
+            <FormikTextField
+              name='mail'
+              placeholder={t('connection.mail')}
+              icon={<Mail />}
+            />
+          </div>
+        </div>
+        <div className='flex flex-row mt-4'>
+          <div className='flex flex-col w-2/5 mr-4'>
+            <div>
+              <Typography variant='text' className='text-neutral-900'>
+                {t('myAccount.personalSection.phone')}
+              </Typography>
+            </div>
+            <div className='pt-2'>
+              <FormikTextField
+                name='phone'
+                placeholder={t('myAccount.personalSection.phone')}
+                icon={<Profil primary />}
+              />
+            </div>
+          </div>
+          <div className='flex flex-col w-2/5 justify-center'>
+            <div className='flex items-center pt-4'>
+              <FormikCheckbox
+                name='newsletter'
+                label={t('myAccount.personalSection.newsletter')}
+              />
+            </div>
+          </div>
+        </div>
+        <ToggleLanguage />
+        <div className='pt-4 w-[125px]'>
+          <CardButton
+            onClick={() => handleSubmit(values)}
+            text='myAccount.passwordSection.button'
           />
         </div>
       </div>
-      <div className='flex flex-row mt-4'>
-        <div className='flex flex-col w-2/5 mr-4'>
-          <div>
-            <Typography variant='text' className='text-neutral-900'>
-              {t('myAccount.personalSection.phone')}
-            </Typography>
-          </div>
-          <div className='pt-2'>
-            <FormikTextField
-              name='phone'
-              placeholder={t('myAccount.personalSection.phone')}
-              icon={<Profil primary />}
-            />
-          </div>
-        </div>
-        <div className='flex flex-col w-2/5 justify-center'>
-          <div className='flex items-center pt-4'>
-            <FormikCheckbox
-              name='newsletter'
-              label={t('myAccount.personalSection.newsletter')}
-            />
-          </div>
-        </div>
-      </div>
-      <ToggleLanguage />
-      <div className='pt-4 w-[125px]'>
-        <CardButton
-          onClick={() => handleSubmit(values)}
-          text='myAccount.passwordSection.button'
-        />
-      </div>
-    </div>
+
+      <Toast error open={showErrorToast.view} text={showErrorToast.message} />
+      <Toast open={showSuccessToast.view} text={showSuccessToast.message} />
+    </>
   )
 }
