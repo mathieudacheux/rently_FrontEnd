@@ -51,12 +51,18 @@ export default function MapHome(): JSX.Element {
             <Popup className='customPopup'>
               <div className='h-full w-full'>
                 {agenciesMarkers?.data.length && (
-                  <figure className='w-[150px] h-[50px] bg-white rounded-[10px] flex items-center justify-center'>
+                  <figure className='w-[150px] h-[75px] bg-white rounded-[10px] flex flex-col items-center justify-center'>
+                    <Typography
+                      variant='h3'
+                      className='text-center text-neutral-900 mb-2'
+                    >
+                      {agency.name}
+                    </Typography>
                     <Typography
                       variant='h3'
                       className='text-center text-neutral-900'
                     >
-                      {agency.name}
+                      {`${agency.way}, ${agency.city}, ${agency.zipcode}`}
                     </Typography>
                   </figure>
                 )}
