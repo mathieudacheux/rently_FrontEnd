@@ -25,6 +25,12 @@ const propertyApi = createApi({
         params: filter,
       }),
     }),
+    getPropertyHome: builder.query({
+      query: (filter) => ({
+        url: 'properties/properties_home',
+        params: filter,
+      }),
+    }),
     createProperty: builder.mutation({
       query: (newProperty) => ({
         url: 'properties',
@@ -55,6 +61,8 @@ export const {
   useLazyGetPropertyByIdQuery,
   useGetPropertyByFilterQuery,
   useLazyGetPropertyByFilterQuery,
+  useGetPropertyHomeQuery,
+  useLazyGetPropertyHomeQuery,
   useCreatePropertyMutation,
   useUpdatePropertyMutation,
   useDeletePropertyMutation,

@@ -1,19 +1,22 @@
 import { useTranslation } from 'react-i18next'
 import Typography from '../../../components/atoms/Typography.tsx'
 import PropertyCard from '../../../components/organisms/PropertyCard.tsx'
-import { useGetPropertyByFilterQuery } from '../../../features/property/propertyApi.ts'
+import { useGetPropertyHomeQuery } from '../../../features/property/propertyApi.ts'
 import { PropertySerializerRead } from '../../../api/models/PropertySerializerRead.ts'
 import Button from '../../../components/atoms/Button.tsx'
 import { useNavigate } from 'react-router-dom'
 import { APP_ROUTES } from '../../../routes/routes.ts'
+import { useUserLocation } from '../../../hooks/useUserLocation.ts'
 
 export default function PropertiesSection(): JSX.Element {
   const { t } = useTranslation()
   const navigate = useNavigate()
+  const { userLocation } = useUserLocation()
 
   const propertyData: PropertySerializerRead[] =
-    useGetPropertyByFilterQuery({
-      city: 'Amiens',
+    useGetPropertyHomeQuery({
+      base_latitude: userLocation[0],
+      base_longitude: userLocation[1],
     })?.data ?? []
 
   return (
