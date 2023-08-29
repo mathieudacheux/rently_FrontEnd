@@ -9,6 +9,7 @@
   "title": {
     "home": "Home",
     "login": "Login",
+    "account": "My account",
     "register": "Register",
     "forgot_password": "Forgot password",
     "reset_password": "Reset password",

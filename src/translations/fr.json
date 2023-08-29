@@ -9,6 +9,7 @@
   "title": {
     "home": "Accueil",
     "login": "Connexion",
+    "account": "Mon compte",
     "register": "Inscription",
     "forgot_password": "Mot de passe oublié",
     "reset_password": "Réinitialiser le mot de passe",
