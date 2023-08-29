@@ -11,24 +11,16 @@
  * Do not edit the class manually.
  */
 
-import {
-  HttpMethods,
-  QueryConfig,
-  ResponseBody,
-  ResponseText,
-} from 'redux-query'
-import * as runtime from '../runtime'
+import { QueryConfig, ResponseBody } from 'redux-query'
 import {
   SectorSerializerPost,
-  SectorSerializerPostFromJSON,
   SectorSerializerPostToJSON,
   SectorSerializerPut,
-  SectorSerializerPutFromJSON,
   SectorSerializerPutToJSON,
   SectorSerializerRead,
   SectorSerializerReadFromJSON,
-  SectorSerializerReadToJSON,
 } from '../models'
+import * as runtime from '../runtime'
 
 export interface SectorsCreateSectorRequest {
   sectorSerializerPost: SectorSerializerPost

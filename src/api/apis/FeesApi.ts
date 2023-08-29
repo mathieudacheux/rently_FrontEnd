@@ -11,21 +11,14 @@
  * Do not edit the class manually.
  */
 
-import {
-  HttpMethods,
-  QueryConfig,
-  ResponseBody,
-  ResponseText,
-} from 'redux-query'
-import * as runtime from '../runtime'
+import { QueryConfig, ResponseBody } from 'redux-query'
 import {
   FeeSerializerPut,
-  FeeSerializerPutFromJSON,
   FeeSerializerPutToJSON,
   FeeSerializerRead,
   FeeSerializerReadFromJSON,
-  FeeSerializerReadToJSON,
 } from '../models'
+import * as runtime from '../runtime'
 
 export interface FeesCreateFeeRequest {
   feeSerializerPut: FeeSerializerPut

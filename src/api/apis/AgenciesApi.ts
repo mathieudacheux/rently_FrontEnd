@@ -11,21 +11,14 @@
  * Do not edit the class manually.
  */
 
-import {
-  HttpMethods,
-  QueryConfig,
-  ResponseBody,
-  ResponseText,
-} from 'redux-query'
-import * as runtime from '../runtime'
+import { QueryConfig, ResponseBody } from 'redux-query'
 import {
   AgencySerializerPost,
-  AgencySerializerPostFromJSON,
   AgencySerializerPostToJSON,
   AgencySerializerRead,
   AgencySerializerReadFromJSON,
-  AgencySerializerReadToJSON,
 } from '../models'
+import * as runtime from '../runtime'
 
 export interface AgenciesCreateAgencyRequest {
   agencySerializerPost: AgencySerializerPost
@@ -180,7 +173,10 @@ function agenciesGetAgenciesByFilterRaw<T>(
 ): QueryConfig<T> {
   let queryParameters = null
 
-  queryParameters = {}
+  queryParameters = {
+    city: requestParameters.city,
+    zipcode: requestParameters.zipcode,
+  }
 
   if (requestParameters.city !== undefined) {
     queryParameters['city'] = requestParameters.city
@@ -296,7 +292,9 @@ function agenciesGetAllAgenciesRaw<T>(
 ): QueryConfig<T> {
   let queryParameters = null
 
-  queryParameters = {}
+  queryParameters = {
+    expanded: requestParameters.expanded,
+  }
 
   if (requestParameters.expanded !== undefined) {
     queryParameters['expanded'] = requestParameters.expanded

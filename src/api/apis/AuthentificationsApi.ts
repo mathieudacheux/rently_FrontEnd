@@ -11,18 +11,12 @@
  * Do not edit the class manually.
  */
 
-import {
-  HttpMethods,
-  QueryConfig,
-  ResponseBody,
-  ResponseText,
-} from 'redux-query'
-import * as runtime from '../runtime'
+import { QueryConfig } from 'redux-query'
 import {
   AuthentificationsLoginRequest,
-  AuthentificationsLoginRequestFromJSON,
   AuthentificationsLoginRequestToJSON,
 } from '../models'
+import * as runtime from '../runtime'
 
 export interface AuthentificationsLoginRequest {
   authentificationsLoginRequest?: AuthentificationsLoginRequest

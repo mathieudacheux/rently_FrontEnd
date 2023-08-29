@@ -11,24 +11,16 @@
  * Do not edit the class manually.
  */
 
-import {
-  HttpMethods,
-  QueryConfig,
-  ResponseBody,
-  ResponseText,
-} from 'redux-query'
-import * as runtime from '../runtime'
+import { QueryConfig, ResponseBody } from 'redux-query'
 import {
   RoleSerializerPost,
-  RoleSerializerPostFromJSON,
   RoleSerializerPostToJSON,
   RoleSerializerPut,
-  RoleSerializerPutFromJSON,
   RoleSerializerPutToJSON,
   RoleSerializerRead,
   RoleSerializerReadFromJSON,
-  RoleSerializerReadToJSON,
 } from '../models'
+import * as runtime from '../runtime'
 
 export interface RolesCreateRoleRequest {
   roleSerializerPost: RoleSerializerPost
@@ -178,7 +170,9 @@ function rolesGetAllRolesRaw<T>(
 ): QueryConfig<T> {
   let queryParameters = null
 
-  queryParameters = {}
+  queryParameters = {
+    name: requestParameters.name,
+  }
 
   if (requestParameters.name !== undefined) {
     queryParameters['name'] = requestParameters.name

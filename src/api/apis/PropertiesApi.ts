@@ -11,24 +11,16 @@
  * Do not edit the class manually.
  */
 
-import {
-  HttpMethods,
-  QueryConfig,
-  ResponseBody,
-  ResponseText,
-} from 'redux-query'
-import * as runtime from '../runtime'
+import { QueryConfig, ResponseBody } from 'redux-query'
 import {
   PropertySerializerPost,
-  PropertySerializerPostFromJSON,
   PropertySerializerPostToJSON,
   PropertySerializerPut,
-  PropertySerializerPutFromJSON,
   PropertySerializerPutToJSON,
   PropertySerializerRead,
   PropertySerializerReadFromJSON,
-  PropertySerializerReadToJSON,
 } from '../models'
+import * as runtime from '../runtime'
 
 export interface PropertiesCreatePropertyRequest {
   propertySerializerPost: PropertySerializerPost
@@ -217,7 +209,9 @@ function propertiesGetPropertiesRaw<T>(
 ): QueryConfig<T> {
   let queryParameters = null
 
-  queryParameters = {}
+  queryParameters = {
+    page: requestParameters.page,
+  }
 
   if (requestParameters.page !== undefined) {
     queryParameters['page'] = requestParameters.page
@@ -274,7 +268,36 @@ function propertiesGetPropertiesByFilterRaw<T>(
 ): QueryConfig<T> {
   let queryParameters = null
 
-  queryParameters = {}
+  queryParameters = {
+    property_type: requestParameters.propertyType,
+    price: requestParameters.price,
+    surface: requestParameters.surface,
+    land_size: requestParameters.landSize,
+    bathroom: requestParameters.bathroom,
+    kitchen: requestParameters.kitchen,
+    toilet: requestParameters.toilet,
+    bedroom: requestParameters.bedroom,
+    elevator: requestParameters.elevator,
+    balcony: requestParameters.balcony,
+    terrace: requestParameters.terrace,
+    cellar: requestParameters.cellar,
+    parking: requestParameters.parking,
+    number_room: requestParameters.numberRoom,
+    pool: requestParameters.pool,
+    caretaker: requestParameters.caretaker,
+    fiber_deployed: requestParameters.fiberDeployed,
+    duplex: requestParameters.duplex,
+    top_floor: requestParameters.topFloor,
+    garage: requestParameters.garage,
+    work_done: requestParameters.workDone,
+    life_annuity: requestParameters.lifeAnnuity,
+    ground_floor: requestParameters.groundFloor,
+    land_size_1: requestParameters.landSize1,
+    garden: requestParameters.garden,
+    dpe: requestParameters.dpe,
+    city: requestParameters.city,
+    zipcode: requestParameters.zipcode,
+  }
 
   if (requestParameters.propertyType !== undefined) {
     queryParameters['property_type'] = requestParameters.propertyType
@@ -439,7 +462,10 @@ function propertiesGetPropertiesForHomeRaw<T>(
 ): QueryConfig<T> {
   let queryParameters = null
 
-  queryParameters = {}
+  queryParameters = {
+    base_latitude: requestParameters.baseLatitude,
+    base_longitude: requestParameters.baseLongitude,
+  }
 
   if (requestParameters.baseLatitude !== undefined) {
     queryParameters['base_latitude'] = requestParameters.baseLatitude

@@ -11,24 +11,16 @@
  * Do not edit the class manually.
  */
 
-import {
-  HttpMethods,
-  QueryConfig,
-  ResponseBody,
-  ResponseText,
-} from 'redux-query'
-import * as runtime from '../runtime'
+import { QueryConfig, ResponseBody } from 'redux-query'
 import {
   AppointmentSerializerPost,
-  AppointmentSerializerPostFromJSON,
   AppointmentSerializerPostToJSON,
   AppointmentSerializerPut,
-  AppointmentSerializerPutFromJSON,
   AppointmentSerializerPutToJSON,
   AppointmentSerializerRead,
   AppointmentSerializerReadFromJSON,
-  AppointmentSerializerReadToJSON,
 } from '../models'
+import * as runtime from '../runtime'
 
 export interface AppointmentsCreateAppointmentRequest {
   appointmentSerializerPost: AppointmentSerializerPost
@@ -291,7 +283,10 @@ function appointmentsGetAppointmentsByFilterRaw<T>(
 ): QueryConfig<T> {
   let queryParameters = null
 
-  queryParameters = {}
+  queryParameters = {
+    user_id_1: requestParameters.userId1,
+    user_id_2: requestParameters.userId2,
+  }
 
   if (requestParameters.userId1 !== undefined) {
     queryParameters['user_id_1'] = requestParameters.userId1

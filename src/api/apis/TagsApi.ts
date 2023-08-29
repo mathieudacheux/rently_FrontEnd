@@ -11,24 +11,16 @@
  * Do not edit the class manually.
  */
 
-import {
-  HttpMethods,
-  QueryConfig,
-  ResponseBody,
-  ResponseText,
-} from 'redux-query'
-import * as runtime from '../runtime'
+import { QueryConfig, ResponseBody } from 'redux-query'
 import {
   TagSerializerPost,
-  TagSerializerPostFromJSON,
   TagSerializerPostToJSON,
   TagSerializerPut,
-  TagSerializerPutFromJSON,
   TagSerializerPutToJSON,
   TagSerializerRead,
   TagSerializerReadFromJSON,
-  TagSerializerReadToJSON,
 } from '../models'
+import * as runtime from '../runtime'
 
 export interface TagsCreateTagRequest {
   tagSerializerPost: TagSerializerPost

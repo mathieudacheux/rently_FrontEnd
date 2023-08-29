@@ -11,24 +11,16 @@
  * Do not edit the class manually.
  */
 
-import {
-  HttpMethods,
-  QueryConfig,
-  ResponseBody,
-  ResponseText,
-} from 'redux-query'
-import * as runtime from '../runtime'
+import { QueryConfig, ResponseBody } from 'redux-query'
 import {
   ArticleSerializerPost,
-  ArticleSerializerPostFromJSON,
   ArticleSerializerPostToJSON,
   ArticleSerializerPut,
-  ArticleSerializerPutFromJSON,
   ArticleSerializerPutToJSON,
   ArticleSerializerRead,
   ArticleSerializerReadFromJSON,
-  ArticleSerializerReadToJSON,
 } from '../models'
+import * as runtime from '../runtime'
 
 export interface ArticlesCreateArticleRequest {
   articleSerializerPost: ArticleSerializerPost
@@ -184,7 +176,9 @@ function articlesGetAllArticlesRaw<T>(
 ): QueryConfig<T> {
   let queryParameters = null
 
-  queryParameters = {}
+  queryParameters = {
+    page: requestParameters.page,
+  }
 
   if (requestParameters.page !== undefined) {
     queryParameters['page'] = requestParameters.page
@@ -296,7 +290,11 @@ function articlesGetArticlesByFilterRaw<T>(
 ): QueryConfig<T> {
   let queryParameters = null
 
-  queryParameters = {}
+  queryParameters = {
+    name: requestParameters.name,
+    tag_id: requestParameters.tagId,
+    user_id: requestParameters.userId,
+  }
 
   if (requestParameters.name !== undefined) {
     queryParameters['name'] = requestParameters.name

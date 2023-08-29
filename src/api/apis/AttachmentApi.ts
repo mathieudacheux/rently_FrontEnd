@@ -11,14 +11,8 @@
  * Do not edit the class manually.
  */
 
-import {
-  HttpMethods,
-  QueryConfig,
-  ResponseBody,
-  ResponseText,
-} from 'redux-query'
+import { QueryConfig } from 'redux-query'
 import * as runtime from '../runtime'
-import { BadRequest, BadRequestFromJSON, BadRequestToJSON } from '../models'
 
 export interface AttachmentGetAllFolderImgRequest {
   id: number

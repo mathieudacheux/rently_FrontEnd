@@ -11,24 +11,16 @@
  * Do not edit the class manually.
  */
 
-import {
-  HttpMethods,
-  QueryConfig,
-  ResponseBody,
-  ResponseText,
-} from 'redux-query'
-import * as runtime from '../runtime'
+import { QueryConfig, ResponseBody } from 'redux-query'
 import {
   UserSerializerPost,
-  UserSerializerPostFromJSON,
   UserSerializerPostToJSON,
   UserSerializerPut,
-  UserSerializerPutFromJSON,
   UserSerializerPutToJSON,
   UserSerializerRead,
   UserSerializerReadFromJSON,
-  UserSerializerReadToJSON,
 } from '../models'
+import * as runtime from '../runtime'
 
 export interface UsersDeleteUserRequest {
   id: number
@@ -125,7 +117,9 @@ function usersGetAllUsersRaw<T>(
 ): QueryConfig<T> {
   let queryParameters = null
 
-  queryParameters = {}
+  queryParameters = {
+    page: requestParameters.page,
+  }
 
   if (requestParameters.page !== undefined) {
     queryParameters['page'] = requestParameters.page
@@ -237,7 +231,14 @@ function usersGetUsersByFilterRaw<T>(
 ): QueryConfig<T> {
   let queryParameters = null
 
-  queryParameters = {}
+  queryParameters = {
+    mail: requestParameters.mail,
+    phone: requestParameters.phone,
+    name: requestParameters.name,
+    firstname: requestParameters.firstname,
+    city: requestParameters.city,
+    zipcode: requestParameters.zipcode,
+  }
 
   if (requestParameters.mail !== undefined) {
     queryParameters['mail'] = requestParameters.mail
