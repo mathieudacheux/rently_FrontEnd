@@ -27,10 +27,20 @@ const mailApi = createApi({
         body: id,
       }),
     }),
+    subscribeNewsletter: builder.mutation({
+      query: (mail) => ({
+        url: `/mail/subscribe_newsletter`,
+        method: 'POST',
+        body: mail,
+      }),
+    }),
   }),
 })
 
-export const { useConfirmationMailMutation, useResetPasswordMailMutation } =
-  mailApi
+export const {
+  useConfirmationMailMutation,
+  useResetPasswordMailMutation,
+  useSubscribeNewsletterMutation,
+} = mailApi
 
 export default mailApi

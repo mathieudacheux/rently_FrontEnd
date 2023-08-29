@@ -4,7 +4,7 @@ import * as yup from 'yup'
 import { useTranslation } from 'react-i18next'
 
 export default function useHomeFormik() {
-  const { i18n } = useTranslation()
+  const { t, i18n } = useTranslation()
 
   const onSubmit = useCallback(async () => null, [])
 
@@ -13,6 +13,7 @@ export default function useHomeFormik() {
     searchBudget: null,
     searchType: '',
     status: true,
+    newsletter: '',
   }
 
   const validationSchema = useMemo(
@@ -22,6 +23,7 @@ export default function useHomeFormik() {
         searchBudget: yup.number(),
         searchType: yup.string(),
         status: yup.number(),
+        newsletter: yup.string().email(t('yup.email')),
       }),
     [i18n.language],
   )

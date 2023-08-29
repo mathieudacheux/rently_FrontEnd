@@ -59,7 +59,7 @@ export default function PersonnalSection(): JSX.Element {
     const response: any = await updateUser({
       id: userData[0].user_id,
       firstname: values.firstname,
-      lastname: values.lastname,
+      name: values.lastname,
       mail: values.mail,
       phone: values.phone,
       newsletter: values.newsletter,
@@ -78,8 +78,6 @@ export default function PersonnalSection(): JSX.Element {
       view: true,
       message: 'myAccount.success',
     })
-
-    resetForm()
   }
 
   return (

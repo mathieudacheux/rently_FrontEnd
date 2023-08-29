@@ -55,7 +55,8 @@ export default function PasswordSection(): JSX.Element {
   const handleSubmit = async (values: any) => {
     const response: any = await updateUser({
       id: userData[0].user_id,
-      password: values.newPassword,
+      password: values.oldPassword,
+      newPassword: values.newPassword,
     })
 
     if (!response?.data || response?.error) {
