@@ -37,8 +37,6 @@ export default function AgencySection(): JSX.Element {
     [agencies.data],
   )
 
-  console.log(closestAgencies?.lenght)
-
   return (
     <div className='flex flex-col items-center justify-center'>
       <Typography
@@ -63,7 +61,12 @@ export default function AgencySection(): JSX.Element {
                   ${index === 0 ? 'mb-[30px]' : ''}  
                 `}
                 >
-                  <BlogCard id={agency.id} title={agency.name} description='' />
+                  <BlogCard
+                    id={agency.id}
+                    title={agency.name}
+                    description=''
+                    buttonTitle='home.readAgency'
+                  />
                 </div>
               ))
             : null}
