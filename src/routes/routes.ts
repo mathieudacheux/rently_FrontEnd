@@ -101,6 +101,10 @@ const APP_TITLES = [
     path: APP_ROUTES.PROPERTIES,
     title: 'title.home',
   },
+  {
+    path: APP_ROUTES.BLOG,
+    title: 'title.blog',
+  },
 ]
 
 export { APP_ROUTES, APP_TITLES }

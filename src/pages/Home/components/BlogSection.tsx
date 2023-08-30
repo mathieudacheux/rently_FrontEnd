@@ -11,7 +11,9 @@ export default function AgencySection(): JSX.Element {
   const { t } = useTranslation()
   const navigate = useNavigate()
 
-  const articlesData = useGetArticlesQuery({})?.data
+  const articlesData = useGetArticlesQuery({
+    home: true,
+  })?.data
 
   const blogComponents = articlesData?.map(
     (article: ArticleSerializerRead, index: number) => (
