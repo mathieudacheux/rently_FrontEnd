@@ -6,12 +6,12 @@ export default function Tags({
   handleTagClick,
 }: {
   activeTag: number | null
-  handleTagClick: (tagId: number) => void
+  handleTagClick: (tagId: number | null) => void
 }): JSX.Element {
   const tagsData: TagSerializerRead[] = useGetTagsQuery({})?.data
 
   return (
-    <div className='flex w-11/12 md:w-full flex-row flex-wrap justify-between md:justify-center px-4'>
+    <div className='flex w-11/12 md:w-full flex-row flex-wrap justify-between md:justify-center px-4 mb-7'>
       {tagsData?.map((tag, index: number) => (
         <div
           className={`w-[125px] bg-neutral-100 rounded-[10px] p-2 mr-4 mb-4 md:mb-0
@@ -24,7 +24,10 @@ export default function Tags({
           }
           `}
           key={index}
-          onClick={() => handleTagClick(tag.tag_id as number)}
+          onClick={() => {
+            const isEquals = activeTag === tag.tag_id
+            handleTagClick(isEquals ? null : (tag.tag_id as number))
+          }}
         >
           {tag.name}
         </div>

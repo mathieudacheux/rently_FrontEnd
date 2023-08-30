@@ -177,6 +177,11 @@ export default {
             'box-shadow': '-5px 5px 15px 0px rgba(0, 0, 0, 0.15)',
           },
 
+          '.blogcard': {
+            'border-radius': '15px',
+            'box-shadow': '-5px 5px 15px 0px rgba(0, 0, 0, 0.15)',
+          },
+
           '.customPopup .leaflet-popup-content-wrapper .leaflet-popup-content':
             {
               margin: '0 !important',
