@@ -236,16 +236,16 @@ export interface PropertySerializerRead {
   way?: string
   /**
    *
-   * @type {string}
+   * @type {number}
    * @memberof PropertySerializerRead
    */
-  longitude?: string
+  latitude?: number
   /**
    *
-   * @type {string}
+   * @type {number}
    * @memberof PropertySerializerRead
    */
-  latitude?: string
+  longitude?: number
   /**
    *
    * @type {number}
@@ -310,8 +310,8 @@ export function PropertySerializerReadFromJSON(
     city: !exists(json, 'city') ? undefined : json['city'],
     zipcode: !exists(json, 'zipcode') ? undefined : json['zipcode'],
     way: !exists(json, 'way') ? undefined : json['way'],
-    longitude: !exists(json, 'longitude') ? undefined : json['longitude'],
     latitude: !exists(json, 'latitude') ? undefined : json['latitude'],
+    longitude: !exists(json, 'longitude') ? undefined : json['longitude'],
     dpe: !exists(json, 'dpe') ? undefined : json['dpe'],
     agency_id: !exists(json, 'agency_id') ? undefined : json['agency_id'],
   }
@@ -360,8 +360,8 @@ export function PropertySerializerReadToJSON(
     city: value.city,
     zipcode: value.zipcode,
     way: value.way,
-    longitude: value.longitude,
     latitude: value.latitude,
+    longitude: value.longitude,
     dpe: value.dpe,
     agency_id: value.agency_id,
   }

@@ -180,6 +180,10 @@ function articlesGetAllArticlesRaw<T>(
     page: requestParameters.page,
   }
 
+  if (requestParameters.page !== undefined) {
+    queryParameters['page'] = requestParameters.page
+  }
+
   const headerParameters: runtime.HttpHeaders = {}
 
   const { meta = {} } = requestConfig
@@ -290,6 +294,18 @@ function articlesGetArticlesByFilterRaw<T>(
     name: requestParameters.name,
     tag_id: requestParameters.tagId,
     user_id: requestParameters.userId,
+  }
+
+  if (requestParameters.name !== undefined) {
+    queryParameters['name'] = requestParameters.name
+  }
+
+  if (requestParameters.tagId !== undefined) {
+    queryParameters['tag_id'] = requestParameters.tagId
+  }
+
+  if (requestParameters.userId !== undefined) {
+    queryParameters['user_id'] = requestParameters.userId
   }
 
   const headerParameters: runtime.HttpHeaders = {}

@@ -37,6 +37,10 @@ export interface AgenciesGetAgencyByIdRequest {
   id: number
 }
 
+export interface AgenciesGetAllAgenciesRequest {
+  expanded?: boolean
+}
+
 export interface AgenciesUpdateAgencyRequest {
   id: number
   body?: object
@@ -174,6 +178,14 @@ function agenciesGetAgenciesByFilterRaw<T>(
     zipcode: requestParameters.zipcode,
   }
 
+  if (requestParameters.city !== undefined) {
+    queryParameters['city'] = requestParameters.city
+  }
+
+  if (requestParameters.zipcode !== undefined) {
+    queryParameters['zipcode'] = requestParameters.zipcode
+  }
+
   const headerParameters: runtime.HttpHeaders = {}
 
   const { meta = {} } = requestConfig
@@ -275,9 +287,18 @@ export function agenciesGetAgencyById<T>(
  * Return a list of all agencies
  */
 function agenciesGetAllAgenciesRaw<T>(
+  requestParameters: AgenciesGetAllAgenciesRequest,
   requestConfig: runtime.TypedQueryConfig<T, Array<AgencySerializerRead>> = {},
 ): QueryConfig<T> {
   let queryParameters = null
+
+  queryParameters = {
+    expanded: requestParameters.expanded,
+  }
+
+  if (requestParameters.expanded !== undefined) {
+    queryParameters['expanded'] = requestParameters.expanded
+  }
 
   const headerParameters: runtime.HttpHeaders = {}
 
@@ -312,9 +333,10 @@ function agenciesGetAllAgenciesRaw<T>(
  * Return a list of all agencies
  */
 export function agenciesGetAllAgencies<T>(
+  requestParameters: AgenciesGetAllAgenciesRequest,
   requestConfig?: runtime.TypedQueryConfig<T, Array<AgencySerializerRead>>,
 ): QueryConfig<T> {
-  return agenciesGetAllAgenciesRaw(requestConfig)
+  return agenciesGetAllAgenciesRaw(requestParameters, requestConfig)
 }
 
 /**

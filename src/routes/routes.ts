@@ -63,6 +63,10 @@ const APP_TITLES = [
     title: 'title.accountValidation',
   },
   {
+    path: APP_ROUTES.ACCOUNT,
+    title: 'title.account',
+  },
+  {
     path: APP_ROUTES.BUY,
     title: 'title.buy',
   },

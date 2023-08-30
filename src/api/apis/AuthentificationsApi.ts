@@ -12,22 +12,24 @@
  */
 
 import { QueryConfig } from 'redux-query'
+import {
+  AuthentificationsLogin,
+  AuthentificationsLoginRequestToJSON,
+} from '../models'
 import * as runtime from '../runtime'
 
-export interface LoginRequest {
-  LoginRequest?: LoginRequest
+export interface AuthentificationsLoginRequest {
+  authentificationsLoginRequest?: AuthentificationsLogin
 }
 
 /**
  * Login an user and return a token
  */
 function authentificationsLoginRaw<T>(
-  requestParameters: LoginRequest,
+  requestParameters: AuthentificationsLoginRequest,
   requestConfig: runtime.TypedQueryConfig<T, object> = {},
 ): QueryConfig<T> {
-  let queryParameters = {
-    LoginRequest: requestParameters.LoginRequest,
-  }
+  let queryParameters = null
 
   const headerParameters: runtime.HttpHeaders = {}
 
@@ -48,7 +50,11 @@ function authentificationsLoginRaw<T>(
       method: 'POST',
       headers: headerParameters,
     },
-    body: queryParameters,
+    body:
+      queryParameters ||
+      AuthentificationsLoginRequestToJSON(
+        requestParameters.authentificationsLoginRequest,
+      ),
   }
 
   const { transform: requestTransform } = requestConfig
@@ -62,7 +68,7 @@ function authentificationsLoginRaw<T>(
  * Login an user and return a token
  */
 export function authentificationsLogin<T>(
-  requestParameters: LoginRequest,
+  requestParameters: AuthentificationsLoginRequest,
   requestConfig?: runtime.TypedQueryConfig<T, object>,
 ): QueryConfig<T> {
   return authentificationsLoginRaw(requestParameters, requestConfig)

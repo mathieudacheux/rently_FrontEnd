@@ -9,6 +9,7 @@
   "title": {
     "home": "Accueil",
     "login": "Connexion",
+    "account": "Mon compte",
     "register": "Inscription",
     "forgot_password": "Mot de passe oublié",
     "reset_password": "Réinitialiser le mot de passe",
@@ -64,12 +65,14 @@
     "seeBlog": "Tous nos articles",
     "seeAgency": "Toutes nos agences",
     "readBlog": "Lire l'article",
-    "readAgency": "Voir l'agence"
+    "readAgency": "Voir l'agence",
+    "newsletter": "Inscription à la newsletter réussie"
   },
   "myAccount": {
     "personalInformation": "Informations personnelles",
     "changePassword": "Changer le mot de passe",
     "myWishlist": "Ma liste de favoris",
+    "success": "Vos informations ont été mises à jour",
     "personalSection": {
       "phone": "Téléphone",
       "newsletter": "Abonnement à la newsletter"
