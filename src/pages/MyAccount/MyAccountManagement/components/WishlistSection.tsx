@@ -21,8 +21,8 @@ export default function WishlistSection(): JSX.Element {
             <PropertyCard key={property.property_id} property={property} />
           ))
         ) : (
-          <Typography variant='text' className='mb-2'>
-            {t('myAccount.wishlistSection.noWishlist')}
+          <Typography variant='text' className='text-neutral-900 mb-2'>
+            {t('myAccount.wishlistSection.empty')}
           </Typography>
         )}
       </div>
