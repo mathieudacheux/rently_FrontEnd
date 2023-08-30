@@ -3,7 +3,7 @@ import { useFormik } from 'formik'
 import { useAppSelector } from '../../../store/store.ts'
 import { searchFilter } from '../../../features/property/propertySlice.ts'
 
-export default function usePropertyFormik() {
+export default function usePropertiesFormik() {
   const selectedSearchFilter = useAppSelector(searchFilter)
 
   const initialValues = useMemo(
@@ -15,12 +15,12 @@ export default function usePropertyFormik() {
     [selectedSearchFilter],
   )
 
-  const form = useFormik({
+  const propertiesFormik = useFormik({
     initialValues,
     validateOnBlur: true,
     validateOnChange: false,
     onSubmit: useCallback(async () => null, []),
   })
 
-  return form
+  return { propertiesFormik }
 }

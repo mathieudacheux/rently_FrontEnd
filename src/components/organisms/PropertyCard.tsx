@@ -1,10 +1,12 @@
 import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router-dom'
 import CardButton from '../atoms/CardButton.tsx'
 import Typography from '../atoms/Typography.tsx'
 import Bed from '../atoms/icons/Bed.tsx'
 import Bath from '../atoms/icons/Bath.tsx'
 import { PropertySerializerRead } from '../../api/index.ts'
 import Tree from '../atoms/icons/Tree.tsx'
+import { APP_ROUTES } from '../../routes/routes.ts'
 
 export default function PropertyCard({
   mapOpened,
@@ -14,12 +16,18 @@ export default function PropertyCard({
   property: PropertySerializerRead
 }): JSX.Element {
   const { t } = useTranslation()
+  const navigate = useNavigate()
   return (
     <div
       id={String(property.property_id)}
       className={`card ${
         !mapOpened ? 'w-[350px]' : 'flex-row w-full h-[220px]'
-      }`}
+      } hover:cursor-pointer`}
+      onClick={() =>
+        navigate(
+          `${APP_ROUTES.PROPERTIES_DETAILS}/${property.name}/${property.property_id}`,
+        )
+      }
     >
       <figure className={!mapOpened ? 'w-12/12' : 'w-5/12'}>
         <img

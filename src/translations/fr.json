@@ -137,5 +137,23 @@
     "kitchen": "Cuis.",
     "cardButton": "Détails",
     "landSize": "m²"
+  },
+  "propertyDetails": {
+    "yes": "Yes",
+    "no": "No",
+    "caracteristics": "Caractéristiques",
+    "surface": "Surface : {{ surface }} m²",
+    "bedroom": "Nombre de chambres: {{bedroom}}",
+    "bathroom": "Nombre de salles de bain: {{bathroom}}",
+    "elevator": "Ascenseur",
+    "cellar": "Cave",
+    "balcony": "Balcon",
+    "garage": "Garage",
+    "priceTitle": "Prix",
+    "price": "Le prix du bien : {{price}} €",
+    "priceSquare": "Le prix au mètre carré : {{price}} €/m²",
+    "call": "Appeler",
+    "calendar": "Visiter",
+    "contact": "Contacter"
   }
 }

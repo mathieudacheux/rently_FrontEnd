@@ -61,6 +61,30 @@ export default {
             'border-radius': '5.5px',
           },
 
+          // Button call settings
+          '.btn-cta': {
+            'border-radius': '15px',
+            width: '85px',
+            height: '85px',
+            display: 'flex',
+            'flex-direction': 'column',
+            'justify-content': 'center',
+            'align-items': 'center',
+            color: 'black',
+            'font-size': '0.8rem',
+            cursor: 'pointer',
+          },
+
+          '.btn-call': {
+            background: '#20C74525',
+          },
+          '.btn-calendar': {
+            background: '#F4525225',
+          },
+          '.btn-contact': {
+            background: '#44D2F125',
+          },
+
           // Searchbar for properties
           '.searchbar': {
             'border-radius': '15px',
