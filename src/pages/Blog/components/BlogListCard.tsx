@@ -10,6 +10,14 @@ export default function BlogListCard({
   const title =
     article.name === undefined ? '' : article.name.replace(/\\/g, ' ')
 
+  const description =
+    article.content === undefined
+      ? ''
+      : article.content
+          .replace(/\\/g, '')
+          .replace(/<[^>]*>/g, '')
+          .replace(title, '')
+
   return (
     <div className='blogcard w-11/12 mb-7 p-4 h-[230px] flex flex-row'>
       <img
@@ -21,8 +29,11 @@ export default function BlogListCard({
         <Typography variant='h2' className='text-neutral-900'>
           {title}
         </Typography>
-        <Typography variant='text' className='h-[100px]'>
-          {article.content as string}
+        <Typography
+          variant='text'
+          className='h-[80px] text-neutral-700 overflow-hidden'
+        >
+          {description}
         </Typography>
         <CardButton text='home.readBlog' />
       </div>
