@@ -19,6 +19,9 @@ const bookmarkApi = createApi({
     getBookmarkById: builder.query({
       query: (id) => `bookmarks/${id}`,
     }),
+    getBookmarksByUserId: builder.query({
+      query: (userId) => `bookmarks/user/${userId}`,
+    }),
     createBookmark: builder.mutation({
       query: (newBookmark) => ({
         url: 'bookmarks',
@@ -47,6 +50,8 @@ export const {
   useLazyGetBookmarksQuery,
   useGetBookmarkByIdQuery,
   useLazyGetBookmarkByIdQuery,
+  useGetBookmarksByUserIdQuery,
+  useLazyGetBookmarksByUserIdQuery,
   useCreateBookmarkMutation,
   useUpdateBookmarkMutation,
   useDeleteBookmarkMutation,

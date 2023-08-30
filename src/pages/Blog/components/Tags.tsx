@@ -11,10 +11,10 @@ export default function Tags({
   const tagsData: TagSerializerRead[] = useGetTagsQuery({})?.data
 
   return (
-    <div className='flex w-11/12 md:w-full flex-row flex-wrap justify-between md:justify-center px-4 mb-7'>
+    <div className='flex w-11/12 md:w-full flex-row flex-wrap justify-center md:px-4 mb-7'>
       {tagsData?.map((tag, index: number) => (
         <div
-          className={`w-[125px] bg-neutral-100 rounded-[10px] p-2 mr-4 mb-4 md:mb-0
+          className={`w-[115px] bg-neutral-100 rounded-[10px] p-2 mr-4 mb-4 md:mb-0
           hover:bg-primary cursor-pointer transition-all duration-300
           hover:text-neutral-100 text-center
           ${
