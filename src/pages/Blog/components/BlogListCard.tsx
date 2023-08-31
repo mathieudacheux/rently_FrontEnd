@@ -1,12 +1,19 @@
 import Typography from '../../../components/atoms/Typography.tsx'
 import { ArticleSerializerRead } from '../../../api/models/ArticleSerializerRead.ts'
 import CardButton from '../../../components/atoms/CardButton.tsx'
+import { useNavigate } from 'react-router-dom'
+import { APP_ROUTES } from '../../../routes/routes.ts'
+import { useAppDispatch } from '../../../store/store.ts'
+import { setSelectedArticle } from '../../../features/article/articleSlice.ts'
 
 export default function BlogListCard({
   article,
 }: {
   article: ArticleSerializerRead
 }): JSX.Element {
+  const dispatch = useAppDispatch()
+  const navigate = useNavigate()
+
   const title =
     article.name === undefined ? '' : article.name.replace(/\\/g, ' ')
 
@@ -17,6 +24,11 @@ export default function BlogListCard({
           .replace(/\\/g, '')
           .replace(/<[^>]*>/g, '')
           .replace(title, '')
+
+  const navigateToArticle = () => {
+    dispatch(setSelectedArticle({ selectedArticle: article }))
+    navigate(`${APP_ROUTES.BLOG_DETAIL}/${article.name}`)
+  }
 
   return (
     <div className='blogcard w-11/12 mb-7 p-4 h-[350px] md:h-[230px] flex flex-col md:flex-row'>
@@ -35,7 +47,7 @@ export default function BlogListCard({
         >
           {description}
         </Typography>
-        <CardButton text='home.readBlog' />
+        <CardButton text='home.readBlog' onClick={navigateToArticle} />
       </div>
     </div>
   )

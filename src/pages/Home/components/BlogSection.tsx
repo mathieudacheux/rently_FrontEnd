@@ -22,7 +22,6 @@ export default function AgencySection(): JSX.Element {
         title={
           article.name === undefined ? '' : article.name.replace(/\\/g, ' ')
         }
-        id={article.article_id || 0}
         description={
           article.content === undefined
             ? ''

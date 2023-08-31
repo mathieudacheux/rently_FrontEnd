@@ -8,6 +8,7 @@ import ForgetPassword from '../pages/ForgetPassword/ForgetPassword.tsx'
 import Properties from '../pages/Properties/Properties.tsx'
 import MyAccount from '../pages/MyAccount/MyAccount.tsx'
 import Blog from '../pages/Blog/Blog.tsx'
+import BlogDetail from '../pages/BlogDetail/BlogDetail.tsx'
 import Footer from '../components/organisms/Footer.tsx'
 import { useMemo } from 'react'
 
@@ -39,6 +40,10 @@ export default function RouterElement(): JSX.Element {
         <Route path={APP_ROUTES.PROPERTIES} element={<Properties />} />
         <Route path={APP_ROUTES.ACCOUNT} element={<MyAccount />} />
         <Route path={APP_ROUTES.BLOG} element={<Blog />} />
+        <Route
+          path={`${APP_ROUTES.BLOG_DETAIL}/:title`}
+          element={<BlogDetail />}
+        />
       </Routes>
       {!showFooter && <Footer />}
     </>

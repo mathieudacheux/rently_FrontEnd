@@ -16,6 +16,7 @@ const APP_ROUTES = {
   GESTION: '/gestion',
   AGENCY: '/agency',
   BLOG: '/blog',
+  BLOG_DETAIL: '/blog-detail',
   WHYRENTLY: '/whyrently',
   CONTACT: '/contact',
   HIRING: '/hiring',
