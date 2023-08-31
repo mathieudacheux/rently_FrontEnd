@@ -41,7 +41,7 @@ export default function RouterElement(): JSX.Element {
         <Route path={APP_ROUTES.ACCOUNT} element={<MyAccount />} />
         <Route path={APP_ROUTES.BLOG} element={<Blog />} />
         <Route
-          path={`${APP_ROUTES.BLOG_DETAIL}/:title`}
+          path={`${APP_ROUTES.BLOG_DETAIL}/:id/:title`}
           element={<BlogDetail />}
         />
       </Routes>
