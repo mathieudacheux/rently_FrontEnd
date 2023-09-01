@@ -93,6 +93,24 @@
   "blog": {
     "title": "Nos conseils immobiliers"
   },
+  "gestion": {
+    "title": "Renty, votre partenaire de confiance pour la gestion locative",
+    "summary": "La gestion de votre bien immobilier est une étape cruciale pour assurer sa rentabilité et sa pérennité. Chez Rently, nous comprenons l'importance de cette responsabilité et nous sommes là pour vous aider à gérer votre bien en toute tranquillité.",
+    "title2": "Pourquoi Rently pour la gestion de votre bien ?",
+    "paragraph2": "Notre équipe dévouée et expérimentée est prête à prendre en charge tous les aspects de la gestion de votre bien immobilier. Voici pourquoi vous devriez choisir Rently comme partenaire de confiance :",
+    "title3": "Expertise immobilière",
+    "paragraph3": "En tant que professionnels de l'immobilier, nous avons une connaissance approfondie du marché. Nous surveillons les tendances, les lois et les réglementations pour vous assurer que votre bien est géré de manière optimale.",
+    "title4": "Maximisation des Revenus",
+    "paragraph4": "Notre objectif est de maximiser vos revenus locatifs. Nous fixons les loyers au juste prix, trouvons des locataires fiables et nous assurons que votre propriété est bien entretenue pour attirer de futurs locataires.",
+    "title5": "Tranquillité d'esprit",
+    "paragraph5": "Nous nous occupons de tout, de la recherche de locataires à la gestion des réparations et de la maintenance. Vous pouvez vous détendre en sachant que votre bien est entre de bonnes mains.",
+    "title6": "Maintenance et réparations",
+    "paragraph6": "Nous nous occupons de toutes les réparations et de l'entretien de votre bien. Nous avons des partenariats avec des professionnels de confiance qui peuvent intervenir rapidement et à un prix raisonnable.",
+    "title7": "Rapports Financiers Transparent",
+    "paragraph7": "Nous fournissons des rapports financiers détaillés, vous tenant informé de toutes les transactions liées à votre bien. Vous saurez toujours où va votre argent.",
+    "cta": "Contactez-nous",
+    "paragraphCTA": "Que vous soyez propriétaire d'une maison, d'un appartement ou d'un immeuble, [Votre Entreprise] est là pour vous aider à gérer votre bien immobilier de manière efficace et rentable. Contactez-nous dès aujourd'hui pour discuter de vos besoins en gestion immobilière."
+  },
   "connection": {
     "login": "Connexion",
     "modify": "Modifier",

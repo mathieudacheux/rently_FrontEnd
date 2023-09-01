@@ -6,6 +6,7 @@ import Register from '../pages/Register/Register.tsx'
 import ValidateAccount from '../pages/ValidateAccount/ValidateAccount.tsx'
 import ForgetPassword from '../pages/ForgetPassword/ForgetPassword.tsx'
 import Properties from '../pages/Properties/Properties.tsx'
+import Gestion from '../pages/Gestion/Gestion.tsx'
 import MyAccount from '../pages/MyAccount/MyAccount.tsx'
 import Blog from '../pages/Blog/Blog.tsx'
 import BlogDetail from '../pages/BlogDetail/BlogDetail.tsx'
@@ -38,6 +39,7 @@ export default function RouterElement(): JSX.Element {
         />
         <Route path={APP_ROUTES.FORGOT_PASSWORD} element={<ForgetPassword />} />
         <Route path={APP_ROUTES.PROPERTIES} element={<Properties />} />
+        <Route path={APP_ROUTES.GESTION} element={<Gestion />} />
         <Route path={APP_ROUTES.ACCOUNT} element={<MyAccount />} />
         <Route path={APP_ROUTES.BLOG} element={<Blog />} />
         <Route
