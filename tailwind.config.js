@@ -113,6 +113,13 @@ export default {
             'box-shadow': '-5px 5px 15px 0px rgba(0, 0, 0, 0.15)',
           },
 
+          // Filter container settings
+          '.filterContainer': {
+            'border-radius': '15px',
+            padding: '40px 20px',
+            'box-shadow': '-5px 5px 15px 0px rgba(0, 0, 0, 0.15)',
+          },
+
           // Inputs settings
           '.input': {
             border: 'none',
