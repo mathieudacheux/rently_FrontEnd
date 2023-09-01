@@ -111,6 +111,32 @@
     "cta": "Contactez-nous",
     "paragraphCTA": "Que vous soyez propriétaire d'une maison, d'un appartement ou d'un immeuble, [Votre Entreprise] est là pour vous aider à gérer votre bien immobilier de manière efficace et rentable. Contactez-nous dès aujourd'hui pour discuter de vos besoins en gestion immobilière."
   },
+  "why": {
+    "title": "Pourquoi nous choisir ?",
+    "paragraph": "Rently est une agence immobilière qui vous accompagne dans tous vos projets immobiliers. Nous vous proposons un service de qualité et sur-mesure pour vous aider à trouver le bien de vos rêves ou à vendre votre bien dans les meilleures conditions.",
+    "title2": "Une équipe d'experts",
+    "paragraph2": "Notre équipe est composée d'experts de l'immobilier qui connaissent parfaitement le marché local. Nous sommes là pour vous conseiller et vous accompagner dans tous vos projets immobiliers.",
+    "title3": "Un service sur-mesure",
+    "paragraph3": "Nous vous proposons un service sur-mesure pour répondre à vos besoins. Nous sommes à votre écoute pour vous aider à trouver le bien de vos rêves ou à vendre votre bien dans les meilleures conditions.",
+    "title4": "Une agence à taille humaine",
+    "paragraph4": "Nous sommes une agence à taille humaine qui vous propose un service personnalisé. Nous sommes là pour vous accompagner dans tous vos projets immobiliers et vous aider à trouver le bien de vos rêves ou à vendre votre bien dans les meilleures conditions.",
+    "title5": "Une agence de proximité",
+    "paragraph5": "Nous sommes une agence de proximité qui vous propose un service personnalisé. Nous sommes là pour vous accompagner dans tous vos projets immobiliers et vous aider à trouver le bien de vos rêves ou à vendre votre bien dans les meilleures conditions.",
+    "title6": "Une agence à l'écoute de ses clients",
+    "paragraph6": "Nous sommes une agence à l'écoute de ses clients qui vous propose un service personnalisé. Nous sommes là pour vous accompagner dans tous vos projets immobiliers et vous aider à trouver le bien de vos rêves ou à vendre votre bien dans les meilleures conditions.",
+    "title7": "Une agence qui vous accompagne dans tous vos projets immobiliers",
+    "paragraph7": "Nous sommes une agence qui vous accompagne dans tous vos projets immobiliers. Nous sommes là pour vous aider à trouver le bien de vos rêves ou à vendre votre bien dans les meilleures conditions."
+  },
+  "target": {
+    "title": "Nos clients",
+    "paragraph": "Nous accompagnons nos clients dans tous leurs projets immobiliers. Nous sommes là pour vous aider à trouver le bien de vos rêves ou à vendre votre bien dans les meilleures conditions.",
+    "title2": "Les particuliers",
+    "paragraph2": "Nous accompagnons les particuliers dans tous leurs projets immobiliers. Nous sommes là pour vous aider à trouver le bien de vos rêves ou à vendre votre bien dans les meilleures conditions.",
+    "title3": "Les professionnels",
+    "paragraph3": "Nous accompagnons les professionnels dans tous leurs projets immobiliers. Nous sommes là pour vous aider à trouver le bien de vos rêves ou à vendre votre bien dans les meilleures conditions.",
+    "title4": "Les investisseurs",
+    "paragraph4": "Nous accompagnons les investisseurs dans tous leurs projets immobiliers. Nous sommes là pour vous aider à trouver le bien de vos rêves ou à vendre votre bien dans les meilleures conditions."
+  },
   "connection": {
     "login": "Connexion",
     "modify": "Modifier",

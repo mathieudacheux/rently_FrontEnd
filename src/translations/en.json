@@ -111,6 +111,32 @@
     "cta": "Contact-us",
     "paragraphCTA": "Whether you own a house, apartment or building, [Your Company] is here to help you manage your property efficiently and profitably. Contact us today to discuss your property management needs."
   },
+  "why": {
+    "title": "Why choose Rently ?",
+    "paragraph": "Rently is a real estate agency that offers a wide range of services to help you buy, sell or rent your property. We are committed to providing you with the best possible service, and we are constantly looking for new ways to improve our services. Here are some of the reasons why you should choose Rently:",
+    "title2": "A team of experts",
+    "paragraph2": "Our team is made up of experienced real estate professionals who are passionate about their work. We are committed to providing you with the best possible service, and we are constantly looking for new ways to improve our services.",
+    "title3": "A wide range of services",
+    "paragraph3": "We offer a wide range of services to help you buy, sell or rent your property. We are committed to providing you with the best possible service, and we are constantly looking for new ways to improve our services.",
+    "title4": "A personalized service",
+    "paragraph4": "We offer a personalized service to help you find the property that best suits your needs. We are committed to providing you with the best possible service, and we are constantly looking for new ways to improve our services.",
+    "title5": "A local agency",
+    "paragraph5": "We are a local agency that knows the market well. We are committed to providing you with the best possible service, and we are constantly looking for new ways to improve our services.",
+    "title6": "A network of partners",
+    "paragraph6": "We have a network of partners who can help you with all your real estate needs. We are committed to providing you with the best possible service, and we are constantly looking for new ways to improve our services.",
+    "title7": "A customer service available 7 days a week",
+    "paragraph7": "We have a customer service available 7 days a week to answer all your questions. We are committed to providing you with the best possible service, and we are constantly looking for new ways to improve our services."
+  },
+  "target": {
+    "title": "Our target",
+    "paragraph": "We are a real estate agency that offers a wide range of services to help you buy, sell or rent your property. We are committed to providing you with the best possible service, and we are constantly looking for new ways to improve our services.",
+    "title2": "Our mission",
+    "paragraph2": "Our mission is to help you find the property that best suits your needs. We are committed to providing you with the best possible service, and we are constantly looking for new ways to improve our services.",
+    "title3": "Our values",
+    "paragraph3": "We are committed to providing you with the best possible service, and we are constantly looking for new ways to improve our services. We are committed to providing you with the best possible service, and we are constantly looking for new ways to improve our services.",
+    "title4": "Our vision",
+    "paragraph4": "We are committed to providing you with the best possible service, and we are constantly looking for new ways to improve our services. We are committed to providing you with the best possible service, and we are constantly looking for new ways to improve our services."
+  },
   "connection": {
     "login": "Login",
     "modify": "Modify",

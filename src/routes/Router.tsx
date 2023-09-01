@@ -11,6 +11,8 @@ import MyAccount from '../pages/MyAccount/MyAccount.tsx'
 import Blog from '../pages/Blog/Blog.tsx'
 import BlogDetail from '../pages/BlogDetail/BlogDetail.tsx'
 import Footer from '../components/organisms/Footer.tsx'
+import Why from '../pages/Why/Why.tsx'
+import Target from '../pages/Target/Target.tsx'
 import { useMemo } from 'react'
 
 export default function RouterElement(): JSX.Element {
@@ -46,6 +48,8 @@ export default function RouterElement(): JSX.Element {
           path={`${APP_ROUTES.BLOG_DETAIL}/:id/:title`}
           element={<BlogDetail />}
         />
+        <Route path={APP_ROUTES.WHYRENTLY} element={<Why />} />
+        <Route path={APP_ROUTES.OBJECTIF} element={<Target />} />
       </Routes>
       {!showFooter && <Footer />}
     </>
