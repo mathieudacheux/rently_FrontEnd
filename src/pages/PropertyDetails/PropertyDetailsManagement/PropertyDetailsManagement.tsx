@@ -24,7 +24,7 @@ export default function PropertyDetailsDetailsManagement({
 
   return (
     property && (
-      <div className='w-11/12 md:w-[1200px] flex flex-col items-center'>
+      <div className='w-11/12 md:w-full md:max-w-[1200px] flex flex-col items-center'>
         {window.innerWidth > 768 ? (
           <PropertyDetailsDesktopImages
             property={property}
@@ -38,7 +38,7 @@ export default function PropertyDetailsDetailsManagement({
             openModal={openModal}
           />
         )}
-        <div className='md:w-11/12 flex flex-col md:flex-row pt-4'>
+        <div className='flex flex-col md:flex-row pt-4'>
           <PropertyDetailsLeftSide property={property} />
           <PropertyDetailsRightSide property={property} />
         </div>
