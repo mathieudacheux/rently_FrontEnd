@@ -40,8 +40,8 @@
       "first": "Discover your future property",
       "second": "Sell or rent your property",
       "third": "Find a Rently agency",
-      "fourth": "Nos conseils immobiliers",
-      "fifth": "Our real estate tips"
+      "fourth": "Our real estate tips",
+      "fifth": "Why choose Rently ?"
     },
     "sectionTwo": {
       "title": "Agence Rently",
@@ -92,6 +92,50 @@
   },
   "blog": {
     "title": "Our real estate tips"
+  },
+  "gestion": {
+    "title": "Renty, your trusted partner for rental management",
+    "summary": "Managing your property is a crucial step in ensuring its profitability and longevity. At Rently, we understand the importance of this responsibility, and we're here to help you manage your property with peace of mind.",
+    "title2": "Why choose Rently to manage your property?",
+    "paragraph2": "Our dedicated and experienced team is ready to take on every aspect of managing your property. Here's why you should choose Rently as your trusted partner:",
+    "title3": "Real estate appraisal",
+    "paragraph3": "As real estate professionals, we have in-depth knowledge of the market. We monitor trends, laws and regulations to ensure that your property is optimally managed.",
+    "title4": "Revenue maximization",
+    "paragraph4": "Our goal is to maximize your rental income. We set rents at the right price, find reliable tenants and make sure your property is well maintained to attract future tenants.",
+    "title5": "Peace of mind",
+    "paragraph5": "We take care of everything, from finding tenants to managing repairs and maintenance. You can relax in the knowledge that your property is in safe hands.",
+    "title6": "Maintenance and repairs",
+    "paragraph6": "We take care of all repairs and maintenance for your property. We have partnerships with trusted professionals who can intervene quickly and at a reasonable price.",
+    "title7": "Transparent Financial Reporting",
+    "paragraph7": "We provide detailed financial reports, keeping you informed of all transactions relating to your property. You'll always know where your money is going.",
+    "cta": "Contact-us",
+    "paragraphCTA": "Whether you own a house, apartment or building, [Your Company] is here to help you manage your property efficiently and profitably. Contact us today to discuss your property management needs."
+  },
+  "why": {
+    "title": "Why choose Rently ?",
+    "paragraph": "Rently is a real estate agency that offers a wide range of services to help you buy, sell or rent your property. We are committed to providing you with the best possible service, and we are constantly looking for new ways to improve our services. Here are some of the reasons why you should choose Rently:",
+    "title2": "A team of experts",
+    "paragraph2": "Our team is made up of experienced real estate professionals who are passionate about their work. We are committed to providing you with the best possible service, and we are constantly looking for new ways to improve our services.",
+    "title3": "A wide range of services",
+    "paragraph3": "We offer a wide range of services to help you buy, sell or rent your property. We are committed to providing you with the best possible service, and we are constantly looking for new ways to improve our services.",
+    "title4": "A personalized service",
+    "paragraph4": "We offer a personalized service to help you find the property that best suits your needs. We are committed to providing you with the best possible service, and we are constantly looking for new ways to improve our services.",
+    "title5": "A local agency",
+    "paragraph5": "We are a local agency that knows the market well. We are committed to providing you with the best possible service, and we are constantly looking for new ways to improve our services.",
+    "title6": "A network of partners",
+    "paragraph6": "We have a network of partners who can help you with all your real estate needs. We are committed to providing you with the best possible service, and we are constantly looking for new ways to improve our services.",
+    "title7": "A customer service available 7 days a week",
+    "paragraph7": "We have a customer service available 7 days a week to answer all your questions. We are committed to providing you with the best possible service, and we are constantly looking for new ways to improve our services."
+  },
+  "target": {
+    "title": "Our target",
+    "paragraph": "We are a real estate agency that offers a wide range of services to help you buy, sell or rent your property. We are committed to providing you with the best possible service, and we are constantly looking for new ways to improve our services.",
+    "title2": "Our mission",
+    "paragraph2": "Our mission is to help you find the property that best suits your needs. We are committed to providing you with the best possible service, and we are constantly looking for new ways to improve our services.",
+    "title3": "Our values",
+    "paragraph3": "We are committed to providing you with the best possible service, and we are constantly looking for new ways to improve our services. We are committed to providing you with the best possible service, and we are constantly looking for new ways to improve our services.",
+    "title4": "Our vision",
+    "paragraph4": "We are committed to providing you with the best possible service, and we are constantly looking for new ways to improve our services. We are committed to providing you with the best possible service, and we are constantly looking for new ways to improve our services."
   },
   "connection": {
     "login": "Login",

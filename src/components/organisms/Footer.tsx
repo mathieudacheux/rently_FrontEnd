@@ -34,7 +34,6 @@ export default function Footer(): JSX.Element {
           text='footer.sectionOne.fourth'
           variant='footer'
         />
-
         <RedirectText
           to='WHYRENTLY'
           text='footer.sectionOne.fifth'
