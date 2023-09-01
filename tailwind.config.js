@@ -18,6 +18,10 @@ export default {
           background: '#ffffff',
           transition: 'all 0.3s ease',
 
+          '*': {
+            'box-sizing': 'border-box',
+          },
+
           // Logo settings
           '.logo': {
             height: '4rem',
@@ -73,6 +77,23 @@ export default {
             color: 'black',
             'font-size': '0.8rem',
             cursor: 'pointer',
+          },
+
+          // Property details image settings
+          '.property-image': {
+            'object-fit': 'cover',
+            cursor: 'pointer',
+            '&:hover': {
+              transform: 'scale(1.02)',
+              transition: 'all 0.2s ease',
+            },
+          },
+
+          '.modal .modal-box': {
+            width: '85%',
+            height: '60%',
+            'max-width': 'none',
+            padding: 0,
           },
 
           '.btn-call': {

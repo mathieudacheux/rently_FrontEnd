@@ -157,6 +157,7 @@
     "priceSquare": "Le prix au mètre carré : {{price}} €/m²",
     "call": "Appeler",
     "calendar": "Visiter",
-    "contact": "Contacter"
+    "contact": "Contacter",
+    "noAgent": "Aucun agent disponible"
   }
 }

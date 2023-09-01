@@ -157,6 +157,7 @@
     "priceSquare": "Price square meter : {{price}} €/m²",
     "call": "Call",
     "calendar": "Visit",
-    "contact": "Contact"
+    "contact": "Contact",
+    "noAgent": "No agent available"
   }
 }

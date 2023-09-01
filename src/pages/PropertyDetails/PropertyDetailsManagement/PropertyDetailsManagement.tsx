@@ -2,65 +2,63 @@ import { PropertySerializerRead } from '../../../api/index.ts'
 import PropertyDetailsRightSide from './components/PropertyDetailsRightSide.tsx'
 import PropertyDetailsLeftSide from './components/PropertyDetailsLeftSide.tsx'
 import { useGetAllFolderImageQuery } from '../../../features/attachment/attachmentApi.ts'
+import PropertyDetailsDesktopImages from './components/PropertyDetailsDesktopImages.tsx'
+import PropertyDetailsMobileImages from './components/PropertyDetailsMobileImages.tsx'
+import { useState } from 'react'
 
 export default function PropertyDetailsDetailsManagement({
   property,
 }: {
   property: PropertySerializerRead
 }): JSX.Element {
-  const images = property?.property_id
-    ? useGetAllFolderImageQuery({ id: property?.property_id }).data
-    : []
+  const images = useGetAllFolderImageQuery({
+    id: Number(property?.property_id),
+  }).data
+
+  const [selectedImage, setSelectedImage] = useState<number>(0)
+
+  const openModal = (selectedImage: number) => {
+    window.image_modal.showModal()
+    setSelectedImage(selectedImage)
+  }
 
   return (
     property && (
-      <div className='md:w-[1200px] flex flex-col items-center'>
-        <div className='w-11/12 flex justify-center'>
-          {images && (
-            <div className='flex h-[250px] md:h-[500px]'>
-              <div className='w-1/2 h-full p-1 rounded-md'>
-                <img
-                  src={`https://back-rently.mathieudacheux.fr/public/img/property/${property?.property_id}/${images[0]}`}
-                  alt='property'
-                  key={`${property.property_id}-${images[0]}`}
-                  className='object-cover h-full w-full rounded-md'
-                />
-              </div>
-              <div className='w-1/2 h-full'>
-                <div className='h-1/2 w-full flex'>
-                  <div className='p-1 rounded-md'>
-                    <img
-                      src={`https://back-rently.mathieudacheux.fr/public/img/property/${property?.property_id}/${images[1]}`}
-                      alt='property'
-                      key={`${property.property_id}-${images[1]}`}
-                      className='object-cover h-full w-full rounded-md'
-                    />
-                  </div>
-                  <div className='p-1 rounded-md'>
-                    <img
-                      src={`https://back-rently.mathieudacheux.fr/public/img/property/${property?.property_id}/${images[2]}`}
-                      alt='property'
-                      key={`${property.property_id}-${images[2]}`}
-                      className='object-cover h-full w-full rounded-md'
-                    />
-                  </div>
-                </div>
-                <div className='w-full h-1/2 p-1 rounded-md'>
-                  <img
-                    src={`https://back-rently.mathieudacheux.fr/public/img/property/${property?.property_id}/${images[3]}`}
-                    alt='property'
-                    key={`${property.property_id}-${images[3]}`}
-                    className='object-cover h-full w-full rounded-md'
-                  />
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
+      <div className='w-11/12 md:w-[1200px] flex flex-col items-center'>
+        {window.innerWidth > 768 ? (
+          <PropertyDetailsDesktopImages
+            property={property}
+            images={images}
+            openModal={openModal}
+          />
+        ) : (
+          <PropertyDetailsMobileImages
+            property={property}
+            images={images}
+            openModal={openModal}
+          />
+        )}
         <div className='md:w-11/12 flex flex-col md:flex-row pt-4'>
           <PropertyDetailsLeftSide property={property} />
           <PropertyDetailsRightSide property={property} />
         </div>
+
+        <dialog id='image_modal' className='modal w-full h-full'>
+          <form method='dialog' className='modal-box'>
+            <img
+              src={
+                images?.length
+                  ? `https://back-rently.mathieudacheux.fr/public/img/property/${property?.property_id}/${images[selectedImage]}`
+                  : ''
+              }
+              alt=''
+              className='w-full h-full object-cover'
+            />
+            <button className='fixed right-5 top-2 w-[25px] h-[25px] bg-white text-black rounded-md'>
+              ✕
+            </button>
+          </form>
+        </dialog>
       </div>
     )
   )

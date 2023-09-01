@@ -9,15 +9,18 @@ export default function PropertyDetailsLeftSide({
 }) {
   const { t } = useTranslation()
   return (
-    <div className='w- full md:w-1/2 px-2'>
+    <div className='md:w-1/2 px-2 md:pr-4'>
       <Typography variant='h2' className='text-secondary my-4'>{`${
         property?.name || ''
       } - ${property?.price || ''}€`}</Typography>
-      <div className='text-neutral-900'>{property?.description}</div>
+      <div
+        className='text-neutral-900 text-justify'
+        dangerouslySetInnerHTML={{ __html: property?.description || '' }}
+      ></div>
       <Typography variant='h2' className='text-secondary my-4'>
         {t('propertyDetails.caracteristics')}
       </Typography>
-      <ul className='ml-8 text-neutral-900'>
+      <ul className='list ml-8 text-neutral-900 md:leading-10'>
         {property?.surface && (
           <li className='list-disc'>
             {t('propertyDetails.surface', { surface: property.surface })}
@@ -63,7 +66,7 @@ export default function PropertyDetailsLeftSide({
       <Typography variant='h2' className='text-secondary my-4'>
         {t('propertyDetails.priceTitle')}
       </Typography>
-      <ul className='ml-8 text-neutral-900'>
+      <ul className='ml-8 text-neutral-900 md:leading-10'>
         {property?.price && (
           <li className='list-disc'>
             {t('propertyDetails.price', { price: property.price })}
