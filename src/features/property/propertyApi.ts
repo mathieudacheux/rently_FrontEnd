@@ -1,6 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { FETCH_BASE_URL } from '../../utils/constants.ts'
-import { PropertySerializerRead } from '../../api/index.ts'
 
 const baseQuery = fetchBaseQuery({
   baseUrl: FETCH_BASE_URL,
