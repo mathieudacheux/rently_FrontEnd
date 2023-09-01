@@ -20,11 +20,9 @@ const articleApi = createApi({
       query: (id) => `articles/${id}`,
     }),
     getArticleByFilter: builder.query({
-      query: ({ filter }) => ({
+      query: (filter) => ({
         url: 'articles/articles_filter',
-        params: {
-          filter,
-        },
+        params: filter,
       }),
     }),
     createArticle: builder.mutation({

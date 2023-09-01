@@ -18,6 +18,7 @@
     "rent": "Louer",
     "gestion": "Gestion locative",
     "agency": "Nos agences",
+    "blog": "Blog",
     "not_found": "Page non trouvée (404)",
     "server_error": "Erreur serveur (500)",
     "access_denied": "Accès refusé",
@@ -88,6 +89,9 @@
       "title": "Ma liste de favoris",
       "empty": "Vous n'avez pas de favoris"
     }
+  },
+  "blog": {
+    "title": "Nos conseils immobiliers"
   },
   "connection": {
     "login": "Connexion",

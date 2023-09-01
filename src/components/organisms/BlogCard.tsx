@@ -7,13 +7,13 @@ import { useNavigate } from 'react-router-dom'
 export default function BlogCard({
   title,
   description,
-  full = false,
-  buttonTitle = 'home.readBlog',
   id,
+  buttonTitle = 'home.readBlog',
+  full = false,
 }: {
   title: string
-  id: number
   description: string
+  id: number
   buttonTitle?: string
   full?: boolean
 }): JSX.Element {
@@ -59,7 +59,7 @@ export default function BlogCard({
           </Typography>
           <Button
             text={t(buttonTitle)}
-            onClick={() => navigate(`${APP_ROUTES.BLOG}/${id}`)}
+            onClick={() => navigate(`${APP_ROUTES.BLOG_DETAIL}/${id}/${title}`)}
           />
         </div>
       </div>
@@ -87,7 +87,7 @@ export default function BlogCard({
         {showDescription}
         <Button
           text={t(buttonTitle)}
-          onClick={() => navigate(`${APP_ROUTES.BLOG}/${title}`)}
+          onClick={() => navigate(`${APP_ROUTES.BLOG_DETAIL}/${id}/${title}`)}
         />
       </div>
     </div>

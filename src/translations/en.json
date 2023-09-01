@@ -18,6 +18,7 @@
     "rent": "Rent",
     "gestion": "Rental management",
     "agency": "Agencies",
+    "blog": "Blog",
     "not_found": "Page not found (404)",
     "server_error": "Server error (500)",
     "access_denied": "Access denied",
@@ -88,6 +89,9 @@
       "title": "My favorites list",
       "empty": "Your wishlist is empty"
     }
+  },
+  "blog": {
+    "title": "Our real estate tips"
   },
   "connection": {
     "login": "Login",

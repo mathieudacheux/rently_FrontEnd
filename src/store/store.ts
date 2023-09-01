@@ -21,6 +21,7 @@ import roleApi from '../features/role/roleApi.ts'
 import sectorApi from '../features/sector/sectorApi.ts'
 import mailApi from '../features/mail/mailApi.ts'
 import attachmentApi from '../features/attachment/attachmentApi.ts'
+import tagApi from '../features/tag/tagApi.ts'
 
 export const store = configureStore({
   reducer: {
@@ -44,6 +45,7 @@ export const store = configureStore({
     [sectorApi.reducerPath]: sectorApi.reducer,
     [mailApi.reducerPath]: mailApi.reducer,
     [attachmentApi.reducerPath]: attachmentApi.reducer,
+    [tagApi.reducerPath]: tagApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
@@ -60,7 +62,8 @@ export const store = configureStore({
       .concat([roleApi.middleware])
       .concat([sectorApi.middleware])
       .concat([mailApi.middleware])
-      .concat([attachmentApi.middleware]),
+      .concat([attachmentApi.middleware])
+      .concat([tagApi.middleware]),
   devTools: true,
 })
 

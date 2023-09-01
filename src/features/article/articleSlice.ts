@@ -1,10 +1,11 @@
+import { ArticleSerializerRead } from '../../api/index.ts'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
 import { RootState } from '../../store/store.ts'
 
 type Article = {
   id: number | null
-  fullArticle: any
+  fullArticle: ArticleSerializerRead | null
 }
 
 const initialState: Article = {
@@ -25,7 +26,7 @@ export const setSelectedArticleId = createAsyncThunk(
 
 export const setSelectedArticle = createAsyncThunk(
   'article/setSelectedArticle',
-  (args: { selectedArticle: any }) => {
+  (args: { selectedArticle: ArticleSerializerRead }) => {
     const { selectedArticle } = args
 
     return {
