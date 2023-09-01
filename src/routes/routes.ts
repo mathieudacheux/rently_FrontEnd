@@ -101,7 +101,7 @@ const APP_TITLES = [
   },
   {
     path: APP_ROUTES.PROPERTIES,
-    title: 'title.home',
+    title: 'title.properties',
   },
   {
     path: APP_ROUTES.BLOG,
