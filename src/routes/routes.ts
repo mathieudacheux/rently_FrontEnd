@@ -35,6 +35,7 @@ const APP_ROUTES = {
 
   // Properties
   PROPERTIES: '/properties',
+  PROPERTIES_DETAILS: '/property_details',
 }
 
 const APP_TITLES = [

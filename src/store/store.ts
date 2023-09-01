@@ -7,6 +7,7 @@ import propertySlice from '../features/property/propertySlice.ts'
 import propertyApi from '../features/property/propertyApi.ts'
 import articleSlice from '../features/article/articleSlice.ts'
 import articleApi from '../features/article/articleApi.ts'
+import addressApi from '../features/address/addressApi.ts'
 import authSlice from '../features/auth/authSlice.ts'
 import authApi from '../features/auth/authApi.ts'
 import bookmarkSlice from '../features/bookmark/bookmarkSlice.ts'
@@ -19,6 +20,7 @@ import roleSlice from '../features/role/roleSlice.ts'
 import roleApi from '../features/role/roleApi.ts'
 import sectorApi from '../features/sector/sectorApi.ts'
 import mailApi from '../features/mail/mailApi.ts'
+import attachmentApi from '../features/attachment/attachmentApi.ts'
 import tagApi from '../features/tag/tagApi.ts'
 
 export const store = configureStore({
@@ -29,6 +31,7 @@ export const store = configureStore({
     [propertyApi.reducerPath]: propertyApi.reducer,
     [articleSlice.name]: articleSlice.reducer,
     [articleApi.reducerPath]: articleApi.reducer,
+    [addressApi.reducerPath]: addressApi.reducer,
     [authSlice.name]: authSlice.reducer,
     [authApi.reducerPath]: authApi.reducer,
     [bookmarkSlice.name]: bookmarkSlice.reducer,
@@ -41,6 +44,7 @@ export const store = configureStore({
     [roleApi.reducerPath]: roleApi.reducer,
     [sectorApi.reducerPath]: sectorApi.reducer,
     [mailApi.reducerPath]: mailApi.reducer,
+    [attachmentApi.reducerPath]: attachmentApi.reducer,
     [tagApi.reducerPath]: tagApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
@@ -50,6 +54,7 @@ export const store = configureStore({
       .concat([userApi.middleware])
       .concat([propertyApi.middleware])
       .concat([articleApi.middleware])
+      .concat([addressApi.middleware])
       .concat([authApi.middleware])
       .concat([bookmarkApi.middleware])
       .concat([agencyApi.middleware])
@@ -57,6 +62,7 @@ export const store = configureStore({
       .concat([roleApi.middleware])
       .concat([sectorApi.middleware])
       .concat([mailApi.middleware])
+      .concat([attachmentApi.middleware])
       .concat([tagApi.middleware]),
   devTools: true,
 })

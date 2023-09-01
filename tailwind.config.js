@@ -18,6 +18,10 @@ export default {
           background: '#ffffff',
           transition: 'all 0.3s ease',
 
+          '*': {
+            'box-sizing': 'border-box',
+          },
+
           // Logo settings
           '.logo': {
             height: '4rem',
@@ -59,6 +63,47 @@ export default {
           // Card image settings
           '.card figure': {
             'border-radius': '5.5px',
+          },
+
+          // Button call settings
+          '.btn-cta': {
+            'border-radius': '15px',
+            width: '85px',
+            height: '85px',
+            display: 'flex',
+            'flex-direction': 'column',
+            'justify-content': 'center',
+            'align-items': 'center',
+            color: 'black',
+            'font-size': '0.8rem',
+            cursor: 'pointer',
+          },
+
+          // Property details image settings
+          '.property-image': {
+            'object-fit': 'cover',
+            cursor: 'pointer',
+            '&:hover': {
+              transform: 'scale(1.02)',
+              transition: 'all 0.2s ease',
+            },
+          },
+
+          '.modal .modal-box': {
+            width: '85%',
+            height: '60%',
+            'max-width': 'none',
+            padding: 0,
+          },
+
+          '.btn-call': {
+            background: '#20C74525',
+          },
+          '.btn-calendar': {
+            background: '#F4525225',
+          },
+          '.btn-contact': {
+            background: '#44D2F125',
           },
 
           // Searchbar for properties

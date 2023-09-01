@@ -14,6 +14,7 @@ import Footer from '../components/organisms/Footer.tsx'
 import Why from '../pages/Why/Why.tsx'
 import Target from '../pages/Target/Target.tsx'
 import { useMemo } from 'react'
+import PropertyDetails from '../pages/PropertyDetails/PropertyDetails.tsx'
 
 export default function RouterElement(): JSX.Element {
   const location = useLocation()
@@ -41,6 +42,10 @@ export default function RouterElement(): JSX.Element {
         />
         <Route path={APP_ROUTES.FORGOT_PASSWORD} element={<ForgetPassword />} />
         <Route path={APP_ROUTES.PROPERTIES} element={<Properties />} />
+        <Route
+          path={`${APP_ROUTES.PROPERTIES_DETAILS}/:property_name/:property_id`}
+          element={<PropertyDetails />}
+        />
         <Route path={APP_ROUTES.GESTION} element={<Gestion />} />
         <Route path={APP_ROUTES.ACCOUNT} element={<MyAccount />} />
         <Route path={APP_ROUTES.BLOG} element={<Blog />} />
