@@ -15,40 +15,32 @@ import { exists } from '../runtime'
 /**
  *
  * @export
- * @interface AuthentificationsLoginRequest
+ * @interface MailsSubscribeNewsletterRequest
  */
-export interface AuthentificationsLoginRequest {
+export interface MailsSubscribeNewsletterRequest {
   /**
    *
    * @type {string}
-   * @memberof AuthentificationsLoginRequest
+   * @memberof MailsSubscribeNewsletterRequest
    */
   mail?: string
-  /**
-   *
-   * @type {string}
-   * @memberof AuthentificationsLoginRequest
-   */
-  password?: string
 }
 
-export function AuthentificationsLoginRequestFromJSON(
+export function MailsSubscribeNewsletterRequestFromJSON(
   json: any,
-): AuthentificationsLoginRequest {
+): MailsSubscribeNewsletterRequest {
   return {
     mail: !exists(json, 'mail') ? undefined : json['mail'],
-    password: !exists(json, 'password') ? undefined : json['password'],
   }
 }
 
-export function AuthentificationsLoginRequestToJSON(
-  value?: AuthentificationsLoginRequest,
+export function MailsSubscribeNewsletterRequestToJSON(
+  value?: MailsSubscribeNewsletterRequest,
 ): any {
   if (value === undefined) {
     return undefined
   }
   return {
     mail: value.mail,
-    password: value.password,
   }
 }

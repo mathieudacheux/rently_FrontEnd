@@ -12,6 +12,7 @@
  */
 
 import { QueryConfig, ResponseBody } from 'redux-query'
+import * as runtime from '../runtime'
 import {
   MessageSerializerPost,
   MessageSerializerPostToJSON,
@@ -20,7 +21,6 @@ import {
   MessageSerializerRead,
   MessageSerializerReadFromJSON,
 } from '../models'
-import * as runtime from '../runtime'
 
 export interface MessagesCreateMessageRequest {
   messageSerializerPost: MessageSerializerPost

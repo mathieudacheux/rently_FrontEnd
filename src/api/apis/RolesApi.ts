@@ -12,6 +12,7 @@
  */
 
 import { QueryConfig, ResponseBody } from 'redux-query'
+import * as runtime from '../runtime'
 import {
   RoleSerializerPost,
   RoleSerializerPostToJSON,
@@ -20,7 +21,6 @@ import {
   RoleSerializerRead,
   RoleSerializerReadFromJSON,
 } from '../models'
-import * as runtime from '../runtime'
 
 export interface RolesCreateRoleRequest {
   roleSerializerPost: RoleSerializerPost
@@ -173,7 +173,6 @@ function rolesGetAllRolesRaw<T>(
   queryParameters = {
     name: requestParameters.name,
   }
-
   if (requestParameters.name !== undefined) {
     queryParameters['name'] = requestParameters.name
   }

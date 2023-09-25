@@ -12,11 +12,11 @@
  */
 
 import { QueryConfig, ResponseBody } from 'redux-query'
+import * as runtime from '../runtime'
 import {
   AppointmentTagSerializerRead,
   AppointmentTagSerializerReadFromJSON,
 } from '../models'
-import * as runtime from '../runtime'
 
 export interface AppointmentTagsGetAppointmentTagByIdRequest {
   id: number

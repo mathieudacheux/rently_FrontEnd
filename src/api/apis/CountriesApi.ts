@@ -12,13 +12,13 @@
  */
 
 import { QueryConfig, ResponseBody } from 'redux-query'
+import * as runtime from '../runtime'
 import {
   CountryModelCreation,
   CountryModelCreationToJSON,
   CountryModelRead,
   CountryModelReadFromJSON,
 } from '../models'
-import * as runtime from '../runtime'
 
 export interface CountriesCreateCountryRequest {
   countryModelCreation: CountryModelCreation
@@ -171,7 +171,6 @@ function countriesGetAllCountriesRaw<T>(
   queryParameters = {
     name: requestParameters.name,
   }
-
   if (requestParameters.name !== undefined) {
     queryParameters['name'] = requestParameters.name
   }

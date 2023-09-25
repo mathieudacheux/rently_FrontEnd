@@ -12,13 +12,13 @@
  */
 
 import { QueryConfig, ResponseBody } from 'redux-query'
+import * as runtime from '../runtime'
 import {
   FeeSerializerPut,
   FeeSerializerPutToJSON,
   FeeSerializerRead,
   FeeSerializerReadFromJSON,
 } from '../models'
-import * as runtime from '../runtime'
 
 export interface FeesCreateFeeRequest {
   feeSerializerPut: FeeSerializerPut

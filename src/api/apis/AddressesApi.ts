@@ -12,6 +12,7 @@
  */
 
 import { QueryConfig, ResponseBody } from 'redux-query'
+import * as runtime from '../runtime'
 import {
   AddressSerializerPost,
   AddressSerializerPostToJSON,
@@ -20,7 +21,6 @@ import {
   AddressSerializerRead,
   AddressSerializerReadFromJSON,
 } from '../models'
-import * as runtime from '../runtime'
 
 export interface AddressesCreateAddressRequest {
   addressSerializerPost: AddressSerializerPost

@@ -12,6 +12,7 @@
  */
 
 import { QueryConfig, ResponseBody } from 'redux-query'
+import * as runtime from '../runtime'
 import {
   StatusSerializerPost,
   StatusSerializerPostToJSON,
@@ -20,7 +21,6 @@ import {
   StatusSerializerRead,
   StatusSerializerReadFromJSON,
 } from '../models'
-import * as runtime from '../runtime'
 
 export interface StatusesCreateStatusRequest {
   statusSerializerPost: StatusSerializerPost
