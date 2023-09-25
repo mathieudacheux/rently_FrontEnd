@@ -12,6 +12,7 @@
  */
 
 import { QueryConfig, ResponseBody } from 'redux-query'
+import * as runtime from '../runtime'
 import {
   ArticleSerializerPost,
   ArticleSerializerPostToJSON,
@@ -20,7 +21,6 @@ import {
   ArticleSerializerRead,
   ArticleSerializerReadFromJSON,
 } from '../models'
-import * as runtime from '../runtime'
 
 export interface ArticlesCreateArticleRequest {
   articleSerializerPost: ArticleSerializerPost
@@ -42,6 +42,7 @@ export interface ArticlesGetArticlesByFilterRequest {
   name?: string
   tagId?: number
   userId?: number
+  home?: boolean
 }
 
 export interface ArticlesUpdateArticleRequest {
@@ -179,7 +180,6 @@ function articlesGetAllArticlesRaw<T>(
   queryParameters = {
     page: requestParameters.page,
   }
-
   if (requestParameters.page !== undefined) {
     queryParameters['page'] = requestParameters.page
   }
@@ -295,7 +295,6 @@ function articlesGetArticlesByFilterRaw<T>(
     tag_id: requestParameters.tagId,
     user_id: requestParameters.userId,
   }
-
   if (requestParameters.name !== undefined) {
     queryParameters['name'] = requestParameters.name
   }
@@ -306,6 +305,10 @@ function articlesGetArticlesByFilterRaw<T>(
 
   if (requestParameters.userId !== undefined) {
     queryParameters['user_id'] = requestParameters.userId
+  }
+
+  if (requestParameters.home !== undefined) {
+    queryParameters['home'] = requestParameters.home
   }
 
   const headerParameters: runtime.HttpHeaders = {}

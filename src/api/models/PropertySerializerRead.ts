@@ -258,6 +258,36 @@ export interface PropertySerializerRead {
    * @memberof PropertySerializerRead
    */
   agency_id?: number
+  /**
+   *
+   * @type {number}
+   * @memberof PropertySerializerRead
+   */
+  agent_id?: number
+  /**
+   *
+   * @type {string}
+   * @memberof PropertySerializerRead
+   */
+  agent_firstname?: string
+  /**
+   *
+   * @type {string}
+   * @memberof PropertySerializerRead
+   */
+  agent_name?: string
+  /**
+   *
+   * @type {string}
+   * @memberof PropertySerializerRead
+   */
+  agent_phone?: string
+  /**
+   *
+   * @type {string}
+   * @memberof PropertySerializerRead
+   */
+  agent_mail?: string
 }
 
 export function PropertySerializerReadFromJSON(
@@ -314,6 +344,13 @@ export function PropertySerializerReadFromJSON(
     longitude: !exists(json, 'longitude') ? undefined : json['longitude'],
     dpe: !exists(json, 'dpe') ? undefined : json['dpe'],
     agency_id: !exists(json, 'agency_id') ? undefined : json['agency_id'],
+    agent_id: !exists(json, 'agent_id') ? undefined : json['agent_id'],
+    agent_firstname: !exists(json, 'agent_firstname')
+      ? undefined
+      : json['agent_firstname'],
+    agent_name: !exists(json, 'agent_name') ? undefined : json['agent_name'],
+    agent_phone: !exists(json, 'agent_phone') ? undefined : json['agent_phone'],
+    agent_mail: !exists(json, 'agent_mail') ? undefined : json['agent_mail'],
   }
 }
 
@@ -364,5 +401,10 @@ export function PropertySerializerReadToJSON(
     longitude: value.longitude,
     dpe: value.dpe,
     agency_id: value.agency_id,
+    agent_id: value.agent_id,
+    agent_firstname: value.agent_firstname,
+    agent_name: value.agent_name,
+    agent_phone: value.agent_phone,
+    agent_mail: value.agent_mail,
   }
 }

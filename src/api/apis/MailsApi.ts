@@ -12,18 +12,24 @@
  */
 
 import { QueryConfig } from 'redux-query'
+import * as runtime from '../runtime'
 import {
   MailsConfirmAccountMailRequest,
   MailsConfirmAccountMailRequestToJSON,
+  MailsSubscribeNewsletterRequest,
+  MailsSubscribeNewsletterRequestToJSON,
 } from '../models'
-import * as runtime from '../runtime'
 
 export interface MailsConfirmAccountMail {
   mailsConfirmAccountMailRequest?: MailsConfirmAccountMailRequest
 }
 
-export interface MailsResetPasswordMailRequest {
+export interface MailsResetPasswordMail {
   mailsConfirmAccountMailRequest?: MailsConfirmAccountMailRequest
+}
+
+export interface MailsSubscribeNewsletter {
+  mailsSubscribeNewsletterRequest?: MailsSubscribeNewsletterRequest
 }
 
 /**
@@ -82,7 +88,7 @@ export function mailsConfirmAccountMail<T>(
  * Send a mail with sendingblue
  */
 function mailsResetPasswordMailRaw<T>(
-  requestParameters: MailsResetPasswordMailRequest,
+  requestParameters: MailsResetPasswordMail,
   requestConfig: runtime.TypedQueryConfig<T, object> = {},
 ): QueryConfig<T> {
   let queryParameters = null
@@ -124,8 +130,60 @@ function mailsResetPasswordMailRaw<T>(
  * Send a mail with sendingblue
  */
 export function mailsResetPasswordMail<T>(
-  requestParameters: MailsResetPasswordMailRequest,
+  requestParameters: MailsResetPasswordMail,
   requestConfig?: runtime.TypedQueryConfig<T, object>,
 ): QueryConfig<T> {
   return mailsResetPasswordMailRaw(requestParameters, requestConfig)
+}
+
+/**
+ * Subscribe to newsletter
+ */
+function mailsSubscribeNewsletterRaw<T>(
+  requestParameters: MailsSubscribeNewsletter,
+  requestConfig: runtime.TypedQueryConfig<T, object> = {},
+): QueryConfig<T> {
+  let queryParameters = null
+
+  const headerParameters: runtime.HttpHeaders = {}
+
+  headerParameters['Content-Type'] = 'application/json'
+
+  const { meta = {} } = requestConfig
+
+  meta.authType = ['bearer']
+  const config: QueryConfig<T> = {
+    url: `${runtime.Configuration.basePath}/mail/subscribe_newsletter`,
+    meta,
+    update: requestConfig.update,
+    queryKey: requestConfig.queryKey,
+    optimisticUpdate: requestConfig.optimisticUpdate,
+    force: requestConfig.force,
+    rollback: requestConfig.rollback,
+    options: {
+      method: 'POST',
+      headers: headerParameters,
+    },
+    body:
+      queryParameters ||
+      MailsSubscribeNewsletterRequestToJSON(
+        requestParameters.mailsSubscribeNewsletterRequest,
+      ),
+  }
+
+  const { transform: requestTransform } = requestConfig
+  if (requestTransform) {
+  }
+
+  return config
+}
+
+/**
+ * Subscribe to newsletter
+ */
+export function mailsSubscribeNewsletter<T>(
+  requestParameters: MailsSubscribeNewsletter,
+  requestConfig?: runtime.TypedQueryConfig<T, object>,
+): QueryConfig<T> {
+  return mailsSubscribeNewsletterRaw(requestParameters, requestConfig)
 }

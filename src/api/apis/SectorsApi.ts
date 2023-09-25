@@ -12,6 +12,7 @@
  */
 
 import { QueryConfig, ResponseBody } from 'redux-query'
+import * as runtime from '../runtime'
 import {
   SectorSerializerPost,
   SectorSerializerPostToJSON,
@@ -20,7 +21,6 @@ import {
   SectorSerializerRead,
   SectorSerializerReadFromJSON,
 } from '../models'
-import * as runtime from '../runtime'
 
 export interface SectorsCreateSectorRequest {
   sectorSerializerPost: SectorSerializerPost

@@ -234,6 +234,18 @@ export interface PropertySerializerPost {
    * @memberof PropertySerializerPost
    */
   agency_id?: number
+  /**
+   *
+   * @type {number}
+   * @memberof PropertySerializerPost
+   */
+  agent_id?: number
+  /**
+   *
+   * @type {string}
+   * @memberof PropertySerializerPost
+   */
+  agent_mail?: string
 }
 
 export function PropertySerializerPostFromJSON(
@@ -286,6 +298,8 @@ export function PropertySerializerPostFromJSON(
     longitude: !exists(json, 'longitude') ? undefined : json['longitude'],
     dpe: !exists(json, 'dpe') ? undefined : json['dpe'],
     agency_id: !exists(json, 'agency_id') ? undefined : json['agency_id'],
+    agent_id: !exists(json, 'agent_id') ? undefined : json['agent_id'],
+    agent_mail: !exists(json, 'agent_mail') ? undefined : json['agent_mail'],
   }
 }
 
@@ -332,5 +346,7 @@ export function PropertySerializerPostToJSON(
     longitude: value.longitude,
     dpe: value.dpe,
     agency_id: value.agency_id,
+    agent_id: value.agent_id,
+    agent_mail: value.agent_mail,
   }
 }

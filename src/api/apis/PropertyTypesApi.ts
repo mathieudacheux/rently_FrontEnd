@@ -12,11 +12,11 @@
  */
 
 import { QueryConfig, ResponseBody } from 'redux-query'
+import * as runtime from '../runtime'
 import {
   PropertyTypeSerializerRead,
   PropertyTypeSerializerReadFromJSON,
 } from '../models'
-import * as runtime from '../runtime'
 
 export interface PropertyTypesGetPropertyTypeByIdRequest {
   id: number
