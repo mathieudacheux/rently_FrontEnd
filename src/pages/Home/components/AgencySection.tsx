@@ -66,6 +66,7 @@ export default function AgencySection(): JSX.Element {
                     title={agency.name}
                     description=''
                     buttonTitle='home.readAgency'
+                    agency
                   />
                 </div>
               ))

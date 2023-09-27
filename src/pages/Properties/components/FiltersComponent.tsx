@@ -22,6 +22,7 @@ export default function FiltersComponent({ open }: { open: boolean }) {
   const expandFilters = () => {
     setFiltersOpen(!filtersOpen)
   }
+
   return (
     <div
       className={`w-full flex items-center flex-col bg-white rounded-md ${

@@ -70,6 +70,9 @@
     "readAgency": "Voir l'agence",
     "newsletter": "Inscription à la newsletter réussie"
   },
+  "agency": {
+    "title": "Votre agence Rently: {{ agency }}"
+  },
   "myAccount": {
     "personalInformation": "Informations personnelles",
     "changePassword": "Changer le mot de passe",

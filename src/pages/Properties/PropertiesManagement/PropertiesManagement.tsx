@@ -76,8 +76,6 @@ export default function PropertiesManagement({
 }): JSX.Element {
   const { values } = useFormikContext<PropertyFormikType>()
 
-  console.log(values)
-
   const [mapOpen, setMapOpen] = useState<boolean>(false)
   const [mobileMapOpen, setMobileMapOpen] = useState<boolean>(false)
 
@@ -145,7 +143,7 @@ export default function PropertiesManagement({
           text='searchbar.filters'
           icon={<Filter />}
           rounded
-          className='mx-4'
+          className='mx-4 mb-4 md:mb-0'
           onClick={() => setOpenFilters(!openFilters)}
         />
         <Button
@@ -159,7 +157,7 @@ export default function PropertiesManagement({
           text='searchbar.map'
           icon={<Map />}
           rounded
-          className='md:hidden'
+          className='md:hidden mb-4 md:mb-0'
           onClick={() => setMobileMapOpen(!mobileMapOpen)}
         />
       </div>
