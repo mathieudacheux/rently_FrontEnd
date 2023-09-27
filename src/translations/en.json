@@ -71,6 +71,7 @@
     "newsletter": "Successful newsletter subscription"
   },
   "agency": {
+    "home": "Our agencies",
     "title": "Your Rently agency: {{ agency }}"
   },
   "myAccount": {
