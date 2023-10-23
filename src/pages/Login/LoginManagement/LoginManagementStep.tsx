@@ -50,8 +50,8 @@ export default function LoginManagementStep(): JSX.Element {
         return
       }
 
-      dispatch(setSelectedUser(result.data))
       window.localStorage.setItem('mail', values.mail)
+      window.localStorage.setItem('user', JSON.stringify(result?.data))
 
       toast.success(t('connection.connected'))
 

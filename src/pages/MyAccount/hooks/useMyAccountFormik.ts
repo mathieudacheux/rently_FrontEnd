@@ -1,25 +1,32 @@
-import { useCallback, useMemo } from 'react'
+import { useCallback, useEffect, useMemo } from 'react'
 import { useFormik } from 'formik'
 import * as yup from 'yup'
 import { useTranslation } from 'react-i18next'
-import { useGetUserByFilterQuery } from '../../../features/user/userApi.ts'
+import { useLazyGetUserByFilterQuery } from '../../../features/user/userApi.ts'
 
 export default function useMyAccountFormik() {
   const { t, i18n } = useTranslation()
 
   const onSubmit = useCallback(async () => null, [])
+  const [triggerUser, { data: retrievedUser }] = useLazyGetUserByFilterQuery()
 
-  if (localStorage.getItem('mail')) {
-    const response = useGetUserByFilterQuery({
-      mail: localStorage.getItem('mail'),
-    })
-
-    if (response?.data) {
-      localStorage.setItem('user', JSON.stringify(response.data))
+  useEffect(() => {
+    if (localStorage.getItem('mail')) {
+      triggerUser({
+        mail: localStorage.getItem('mail'),
+      })
     }
-  }
+  }, [])
 
-  const userData = JSON.parse(localStorage.getItem('user') as string)
+  useEffect(() => {
+    if (retrievedUser?.data) {
+      localStorage.setItem('user', JSON.stringify(retrievedUser.data))
+    }
+  }, [retrievedUser])
+
+  const userData = useMemo(() => {
+    return JSON.parse(localStorage.getItem('user') as string) || []
+  }, [localStorage.getItem('user')])
 
   const initialValues = useMemo(() => {
     return {

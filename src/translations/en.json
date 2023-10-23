@@ -92,7 +92,9 @@
     },
     "wishlistSection": {
       "title": "My favorites list",
-      "empty": "Your wishlist is empty"
+      "empty": "Your wishlist is empty",
+      "connection": "Log in to add properties to your favourites list",
+      "done": "Property added to your favourites list"
     }
   },
   "blog": {

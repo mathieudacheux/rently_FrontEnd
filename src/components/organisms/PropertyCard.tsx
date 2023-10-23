@@ -8,6 +8,9 @@ import { PropertySerializerRead } from '../../api/index.ts'
 import Tree from '../atoms/icons/Tree.tsx'
 import { APP_ROUTES } from '../../routes/routes.ts'
 import { useGetAllFolderImageQuery } from '../../features/attachment/attachmentApi.ts'
+import Heart from '../atoms/icons/Heart.tsx'
+import { useCreateBookmarkMutation } from '../../features/bookmark/bookmarkApi.ts'
+import { toast } from 'sonner'
 
 export default function PropertyCard({
   mapOpened,
@@ -19,6 +22,29 @@ export default function PropertyCard({
   const { t } = useTranslation()
   const navigate = useNavigate()
 
+  const [addBookmark] = useCreateBookmarkMutation()
+  const userId =
+    JSON.parse(localStorage.getItem('user') || '{}')[0]?.user_id || null
+
+  const addBookmarkHandler = async () => {
+    if (!userId) {
+      toast.error(t('myAccount.wishlistSection.connection'))
+      return false
+    }
+
+    const result: any = await addBookmark({
+      property_id: property.property_id,
+      user_id: userId,
+    })
+
+    if (!result?.data || result?.error) {
+      toast.error(result?.error?.data?.message)
+      return false
+    }
+
+    toast.success(t('myAccount.wishlistSection.done'))
+  }
+
   const images = useGetAllFolderImageQuery({
     id: Number(property?.property_id),
   }).data
@@ -26,16 +52,11 @@ export default function PropertyCard({
   return (
     <div
       id={String(property.property_id)}
-      className={`card ${
+      className={`card z-10 ${
         !mapOpened ? 'w-[350px]' : 'flex-row w-full h-[220px]'
-      } hover:cursor-pointer`}
-      onClick={() =>
-        navigate(
-          `${APP_ROUTES.PROPERTIES_DETAILS}/${property.name}/${property.property_id}`,
-        )
-      }
+      }`}
     >
-      <figure className={!mapOpened ? 'w-12/12' : 'w-5/12'}>
+      <figure className={`${!mapOpened ? 'w-12/12' : 'w-5/12'}`}>
         <img
           src={
             images?.length
@@ -43,14 +64,25 @@ export default function PropertyCard({
               : ''
           }
           alt='Album'
-          className='h-full w-full object-cover'
+          className='h-full w-full object-cover hover:cursor-pointer'
+          onClick={() =>
+            navigate(
+              `${APP_ROUTES.PROPERTIES_DETAILS}/${property.name}/${property.property_id}`,
+            )
+          }
         />
       </figure>
       <div
-        className={`card-body ${
+        className={`card-body relative ${
           !mapOpened ? 'w-12/12' : 'w-7/12'
         } flex-col justify-between`}
       >
+        <div
+          className='absolute top-1 right-1 z-50'
+          onClick={() => addBookmarkHandler()}
+        >
+          <Heart />
+        </div>
         <div className='flex justify-between'>
           <Typography variant='h2' className='text-secondary'>
             {property.name || ''}
