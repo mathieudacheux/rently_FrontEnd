@@ -21,7 +21,6 @@ export default function BlogCard({
 }): JSX.Element {
   const { t } = useTranslation()
   const navigate = useNavigate()
-  console.log(id)
 
   const descriptionText =
     window.innerWidth > 768
