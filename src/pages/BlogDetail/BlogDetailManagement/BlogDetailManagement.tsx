@@ -1,5 +1,5 @@
-import { ArticleSerializerRead } from '../../../api/index.ts'
 import parse from 'html-react-parser'
+import { ArticleSerializerRead } from '../../../api/index.ts'
 
 export default function BlogDetailManagement({
   articleData,
