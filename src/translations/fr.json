@@ -94,7 +94,8 @@
       "title": "Ma liste de favoris",
       "empty": "Vous n'avez pas de favoris",
       "connection": "Connectez-vous pour ajouter des biens à votre liste de favoris",
-      "done": "Propriété ajoutée à votre liste de favoris"
+      "done": "Propriété ajoutée à votre liste de favoris",
+      "delete": "Propriété supprimée de votre liste de favoris"
     }
   },
   "blog": {

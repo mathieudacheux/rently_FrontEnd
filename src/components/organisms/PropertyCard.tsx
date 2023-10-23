@@ -78,21 +78,23 @@ export default function PropertyCard({
   }
 
   const deleteBookmarkHandler = async (bookmarkId: number) => {
+    console.log(bookmarkId)
     if (!userId) {
       toast.error(t('myAccount.wishlistSection.connection'))
       return false
     }
 
-    const result: any = await deleteBookmark({
-      bookmark_id: bookmarkId,
-    })
+    const result: any = await deleteBookmark(bookmarkId)
 
-    if (!result?.data || result?.error) {
+    if (result?.error) {
       toast.error(result?.error?.data?.message)
       return false
     }
 
-    toast.success(t('myAccount.wishlistSection.done'))
+    setBookmarked(
+      bookmarked.filter((bookmark: any) => bookmark.bookmark_id !== bookmarkId),
+    )
+    toast.success(t('myAccount.wishlistSection.delete'))
   }
 
   const images = useGetAllFolderImageQuery({
@@ -106,7 +108,7 @@ export default function PropertyCard({
         !mapOpened ? 'w-[350px]' : 'flex-row w-full h-[220px]'
       }`}
     >
-      <figure className={`${!mapOpened ? 'w-12/12' : 'w-5/12'}`}>
+      <figure className={`h-1/2 ${!mapOpened ? 'w-12/12' : 'w-5/12'}`}>
         <img
           src={
             images?.length
@@ -127,76 +129,79 @@ export default function PropertyCard({
           !mapOpened ? 'w-12/12' : 'w-7/12'
         } flex-col justify-between`}
       >
-        {bookmarked?.find(
-          (propertyBookmarked: any) =>
-            propertyBookmarked.property_id === property.property_id,
-        ) ? (
-          <div
-            className='absolute top-1 right-1 z-50 hover:cursor-pointer'
-            onClick={() => deleteBookmarkHandler(bookmarkId as number)}
-          >
+        <div
+          className='absolute top-1 right-1 z-50 hover:cursor-pointer'
+          onClick={() =>
+            bookmarked?.find(
+              (propertyBookmarked: any) =>
+                propertyBookmarked.property_id === property.property_id,
+            )
+              ? deleteBookmarkHandler(bookmarkId as number)
+              : addBookmarkHandler()
+          }
+        >
+          {bookmarked?.find(
+            (propertyBookmarked: any) =>
+              propertyBookmarked.property_id === property.property_id,
+          ) ? (
             <HeartFull />
-          </div>
-        ) : (
-          <div
-            className='absolute top-1 right-1 z-50 hover:cursor-pointer'
-            onClick={() => addBookmarkHandler()}
-          >
+          ) : (
             <Heart />
-          </div>
-        )}
-      </div>
-      <div className='flex justify-between'>
-        <Typography variant='h2' className='text-secondary'>
-          {property.name || ''}
-        </Typography>
-      </div>
-      <div className='flex justify-between'>
-        <Typography variant='h2' className='text-primary' price>
-          {property.price || ''}
-        </Typography>
-      </div>
-      <div className='flex justify-between'>
-        <Typography variant='text-light'>
-          {`${property.zipcode || ''} ${property.city || ''}`}
-        </Typography>
-        <Typography variant='text-light' surface>
-          {property.surface || ''}
-        </Typography>
-      </div>
-      <div className='flex justify-between'>
-        <div className='flex justify-between items-center'>
-          <Bed marginRight />
-          <Typography variant='tiny-text' className='text-secondary'>
-            {property.bedroom && property.bedroom > 1
-              ? `${property.bedroom} ${t('properties.bedrooms')}`
-              : `${property.bedroom} ${t('properties.bedroom')}`}
+          )}
+        </div>
+
+        <div className='flex justify-between'>
+          <Typography variant='h2' className='text-secondary'>
+            {property.name || ''}
           </Typography>
         </div>
-        <div className='flex justify-between items-center'>
-          <Bath marginRight />
-          <Typography variant='tiny-text' className='text-secondary'>
-            {property.bathroom && property.bathroom > 1
-              ? `${property.bathroom} ${t('properties.bathrooms')}`
-              : `${property.bathroom} ${t('properties.bathroom')}`}
+        <div className='flex justify-between'>
+          <Typography variant='h2' className='text-primary' price>
+            {property.price || ''}
           </Typography>
         </div>
-        {property.land_size && (
+        <div className='flex justify-between'>
+          <Typography variant='text-light'>
+            {`${property.zipcode || ''} ${property.city || ''}`}
+          </Typography>
+          <Typography variant='text-light' surface>
+            {property.surface || ''}
+          </Typography>
+        </div>
+        <div className='flex justify-between'>
           <div className='flex justify-between items-center'>
-            <Tree marginRight />
+            <Bed marginRight />
             <Typography variant='tiny-text' className='text-secondary'>
-              {`${property.land_size} ${t('properties.landSize')}`}
+              {property.bedroom && property.bedroom > 1
+                ? `${property.bedroom} ${t('properties.bedrooms')}`
+                : `${property.bedroom} ${t('properties.bedroom')}`}
             </Typography>
           </div>
+          <div className='flex justify-between items-center'>
+            <Bath marginRight />
+            <Typography variant='tiny-text' className='text-secondary'>
+              {property.bathroom && property.bathroom > 1
+                ? `${property.bathroom} ${t('properties.bathrooms')}`
+                : `${property.bathroom} ${t('properties.bathroom')}`}
+            </Typography>
+          </div>
+          {property.land_size && (
+            <div className='flex justify-between items-center'>
+              <Tree marginRight />
+              <Typography variant='tiny-text' className='text-secondary'>
+                {`${property.land_size} ${t('properties.landSize')}`}
+              </Typography>
+            </div>
+          )}
+        </div>
+        {mapOpened ? (
+          <div className='card-actions'>
+            <CardButton text={t('properties.cardButton')} />
+          </div>
+        ) : (
+          ''
         )}
       </div>
-      {mapOpened ? (
-        <div className='card-actions'>
-          <CardButton text={t('properties.cardButton')} />
-        </div>
-      ) : (
-        ''
-      )}
     </div>
   )
 }
