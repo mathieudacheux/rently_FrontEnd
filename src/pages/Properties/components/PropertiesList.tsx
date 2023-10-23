@@ -27,6 +27,14 @@ export default function PropertiesList({
     document
       .getElementById(String(item))
       ?.scrollIntoView({ behavior: 'smooth' })
+
+    // change color of the selected property card in red (inlined style) when the scroll is finished
+    setTimeout(() => {
+      document.getElementById(String(item))?.classList.add('bg-blue-100')
+    }, 700)
+    setTimeout(() => {
+      document.getElementById(String(item))?.classList.remove('bg-blue-100')
+    }, 2000)
   }, [item])
 
   return (

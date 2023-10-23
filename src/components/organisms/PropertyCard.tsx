@@ -108,7 +108,7 @@ export default function PropertyCard({
         !mapOpened ? 'w-[350px]' : 'flex-row w-full h-[220px]'
       }`}
     >
-      <figure className={`h-1/2 ${!mapOpened ? 'w-12/12' : 'w-5/12'}`}>
+      <figure className={`${!mapOpened ? 'w-12/12' : 'w-5/12'}`}>
         <img
           src={
             images?.length
