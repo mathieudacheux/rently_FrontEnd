@@ -307,10 +307,6 @@ function articlesGetArticlesByFilterRaw<T>(
     queryParameters['user_id'] = requestParameters.userId
   }
 
-  if (requestParameters.home !== undefined) {
-    queryParameters['home'] = requestParameters.home
-  }
-
   const headerParameters: runtime.HttpHeaders = {}
 
   const { meta = {} } = requestConfig
