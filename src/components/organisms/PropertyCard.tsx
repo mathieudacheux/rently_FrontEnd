@@ -7,6 +7,7 @@ import Bath from '../atoms/icons/Bath.tsx'
 import { PropertySerializerRead } from '../../api/index.ts'
 import Tree from '../atoms/icons/Tree.tsx'
 import { APP_ROUTES } from '../../routes/routes.ts'
+import { useGetAllFolderImageQuery } from '../../features/attachment/attachmentApi.ts'
 
 export default function PropertyCard({
   mapOpened,
@@ -17,6 +18,11 @@ export default function PropertyCard({
 }): JSX.Element {
   const { t } = useTranslation()
   const navigate = useNavigate()
+
+  const images = useGetAllFolderImageQuery({
+    id: Number(property?.property_id),
+  }).data
+
   return (
     <div
       id={String(property.property_id)}
@@ -31,7 +37,11 @@ export default function PropertyCard({
     >
       <figure className={!mapOpened ? 'w-12/12' : 'w-5/12'}>
         <img
-          src='https://images.crowdspring.com/blog/wp-content/uploads/2017/08/23163415/pexels-binyamin-mellish-106399.jpg'
+          src={
+            images?.length
+              ? `https://back-rently.mathieudacheux.fr/public/img/property/${property?.property_id}/${images[0]}`
+              : ''
+          }
           alt='Album'
           className='h-full w-full object-cover'
         />

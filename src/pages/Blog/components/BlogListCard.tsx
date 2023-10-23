@@ -27,7 +27,7 @@ export default function BlogListCard({
 
   const navigateToArticle = () => {
     dispatch(setSelectedArticle({ selectedArticle: article }))
-    navigate(`${APP_ROUTES.BLOG_DETAIL}/${article.article_id}/${article.name}`)
+    navigate(`${APP_ROUTES.BLOG_DETAIL}/${article.article_id}`)
   }
 
   return (

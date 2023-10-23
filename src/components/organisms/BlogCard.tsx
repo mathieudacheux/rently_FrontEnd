@@ -10,12 +10,14 @@ export default function BlogCard({
   id,
   buttonTitle = 'home.readBlog',
   full = false,
+  agency = false,
 }: {
   title: string
   description: string
   id: number
   buttonTitle?: string
   full?: boolean
+  agency?: boolean
 }): JSX.Element {
   const { t } = useTranslation()
   const navigate = useNavigate()
@@ -55,7 +57,7 @@ export default function BlogCard({
             variant='h2'
             className='mb-[15px] text-center text-white w-7/12'
           >
-            {title}
+            {agency ? t('agency.title', { agency: title }) : title}
           </Typography>
           <Button
             text={t(buttonTitle)}
