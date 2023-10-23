@@ -23,7 +23,6 @@ export default function NewsletterSection(): JSX.Element {
     }
 
     toast.success(t('home.newsletter'))
-    toast.success(t('home.newsletter2'))
   }
 
   return (
