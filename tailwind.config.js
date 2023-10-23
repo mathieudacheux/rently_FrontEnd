@@ -90,7 +90,7 @@ export default {
           },
 
           '.modal .modal-box': {
-            width: '85%',
+            width: '60%',
             height: '60%',
             'max-width': 'none',
             padding: 0,
