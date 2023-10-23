@@ -5,6 +5,7 @@ import { useGetAllFolderImageQuery } from '../../../features/attachment/attachme
 import PropertyDetailsDesktopImages from './components/PropertyDetailsDesktopImages.tsx'
 import PropertyDetailsMobileImages from './components/PropertyDetailsMobileImages.tsx'
 import { useState } from 'react'
+import Arrow from '../../../components/atoms/icons/Arrow.tsx'
 
 export default function PropertyDetailsDetailsManagement({
   property,
@@ -54,9 +55,29 @@ export default function PropertyDetailsDetailsManagement({
               alt=''
               className='w-full h-full object-cover'
             />
-            <button className='fixed right-5 top-2 w-[25px] h-[25px] bg-white text-black rounded-md'>
+            <button className='fixed right-5 top-5 w-[35px] h-[35px] bg-white rounded-md text-primary font-extrabold'>
               ✕
             </button>
+            <div
+              className='fixed cursor-pointer -rotate-90 right-5 top-[50%] w-[35px] h-[35px] text-xl flex justify-center items-center bg-white text-black rounded-md'
+              onClick={() =>
+                setSelectedImage(
+                  selectedImage === images.length - 1 ? 0 : selectedImage + 1,
+                )
+              }
+            >
+              <Arrow />
+            </div>
+            <div
+              className='fixed cursor-pointer rotate-90 left-5 top-[50%] w-[35px] h-[35px] text-xl flex justify-center items-center bg-white text-black rounded-md'
+              onClick={() =>
+                setSelectedImage(
+                  selectedImage === 0 ? images.length - 1 : selectedImage - 1,
+                )
+              }
+            >
+              <Arrow />
+            </div>
           </form>
         </dialog>
       </div>
