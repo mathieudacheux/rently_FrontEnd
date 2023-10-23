@@ -15,7 +15,7 @@ export default function WishlistSection(): JSX.Element {
       <Typography variant='h2' className='text-neutral-900 mb-4'>
         {t('myAccount.wishlistSection.title')}
       </Typography>
-      <div className='w-full flex flex-col flex-wrap'>
+      <div className='w-full flex flex-row flex-wrap gap-10'>
         {bookmarks ? (
           bookmarks?.map((property: PropertySerializerRead) => (
             <PropertyCard key={property.property_id} property={property} />

@@ -78,7 +78,7 @@ export default function PropertyCard({
         } flex-col justify-between`}
       >
         <div
-          className='absolute top-1 right-1 z-50'
+          className='absolute top-1 right-1 z-50 hover:cursor-pointer'
           onClick={() => addBookmarkHandler()}
         >
           <Heart />
