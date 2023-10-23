@@ -12,6 +12,7 @@
  */
 
 import { QueryConfig, ResponseBody } from 'redux-query'
+import * as runtime from '../runtime'
 import {
   BookmarkSerializerPost,
   BookmarkSerializerPostToJSON,
@@ -22,7 +23,6 @@ import {
   PropertySerializerRead,
   PropertySerializerReadFromJSON,
 } from '../models'
-import * as runtime from '../runtime'
 
 export interface BookmarksCreateBookmarkRequest {
   bookmarkSerializerPost: BookmarkSerializerPost

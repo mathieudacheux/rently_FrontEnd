@@ -17,7 +17,7 @@ const propertyApi = createApi({
       query: () => 'properties',
     }),
     getPropertyById: builder.query({
-      query: (id) => `properties/${id}`,
+      query: (id: number) => `properties/${id}`,
     }),
     getPropertyByFilter: builder.query({
       query: (filter) => ({

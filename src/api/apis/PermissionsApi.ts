@@ -12,6 +12,7 @@
  */
 
 import { QueryConfig, ResponseBody } from 'redux-query'
+import * as runtime from '../runtime'
 import {
   PermissionSerializerPost,
   PermissionSerializerPostToJSON,
@@ -20,7 +21,6 @@ import {
   PermissionSerializerRead,
   PermissionSerializerReadFromJSON,
 } from '../models'
-import * as runtime from '../runtime'
 
 export interface PermissionsCreatePermissionRequest {
   permissionSerializerPost: PermissionSerializerPost

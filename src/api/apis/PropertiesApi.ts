@@ -12,6 +12,7 @@
  */
 
 import { QueryConfig, ResponseBody } from 'redux-query'
+import * as runtime from '../runtime'
 import {
   PropertySerializerPost,
   PropertySerializerPostToJSON,
@@ -20,7 +21,6 @@ import {
   PropertySerializerRead,
   PropertySerializerReadFromJSON,
 } from '../models'
-import * as runtime from '../runtime'
 
 export interface PropertiesCreatePropertyRequest {
   propertySerializerPost: PropertySerializerPost
@@ -212,7 +212,6 @@ function propertiesGetPropertiesRaw<T>(
   queryParameters = {
     page: requestParameters.page,
   }
-
   if (requestParameters.page !== undefined) {
     queryParameters['page'] = requestParameters.page
   }
@@ -298,7 +297,6 @@ function propertiesGetPropertiesByFilterRaw<T>(
     city: requestParameters.city,
     zipcode: requestParameters.zipcode,
   }
-
   if (requestParameters.propertyType !== undefined) {
     queryParameters['property_type'] = requestParameters.propertyType
   }
@@ -466,7 +464,6 @@ function propertiesGetPropertiesForHomeRaw<T>(
     base_latitude: requestParameters.baseLatitude,
     base_longitude: requestParameters.baseLongitude,
   }
-
   if (requestParameters.baseLatitude !== undefined) {
     queryParameters['base_latitude'] = requestParameters.baseLatitude
   }

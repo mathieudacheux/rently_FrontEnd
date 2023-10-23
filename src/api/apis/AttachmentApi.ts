@@ -310,8 +310,6 @@ function attachmentUploadFileImgRaw<T>(
     )
   }
 
-  let queryParameters = null
-
   const headerParameters: runtime.HttpHeaders = {}
 
   const { meta = {} } = requestConfig
@@ -382,8 +380,6 @@ function attachmentUploadFilePdfRaw<T>(
       'Required parameter requestParameters.id was null or undefined when calling attachmentUploadFilePdf.',
     )
   }
-
-  let queryParameters = null
 
   const headerParameters: runtime.HttpHeaders = {}
 

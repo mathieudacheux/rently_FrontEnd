@@ -14,7 +14,7 @@ import Toast from '../../../../components/molecules/Toast.tsx'
 
 export default function PersonnalSection(): JSX.Element {
   const { t } = useTranslation()
-  const { values, resetForm } = useFormikContext()
+  const { values } = useFormikContext()
 
   const [updateUser] = useUpdateUserMutation()
 

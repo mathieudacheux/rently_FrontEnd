@@ -6,13 +6,24 @@ import MarkerClusterGroup from 'react-leaflet-cluster'
 import { PropertySerializerRead } from '../../../api/index.ts'
 import 'leaflet/dist/leaflet.css'
 import PropertyCardMapPopup from '../../../components/organisms/PropertyCardMapPopup.tsx'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
+import { useUserLocation } from '../../../hooks/useUserLocation.ts'
 
 const Recenter = ({ lat, lng }: { lat: number; lng: number }) => {
   const map = useMap()
   useEffect(() => {
     map.setView([lat, lng])
   }, [lat, lng])
+  return null
+}
+
+function ResizeMap() {
+  const map = useMap()
+
+  setTimeout(function () {
+    map.invalidateSize()
+  }, 400)
+
   return null
 }
 
@@ -29,32 +40,7 @@ export default function MapComponent({
   marginTop?: string
   onClick: (itemId: number) => void
 }): JSX.Element {
-  function ResizeMap() {
-    const map = useMap()
-
-    setTimeout(function () {
-      map.invalidateSize()
-    }, 400)
-
-    return null
-  }
-
-  const [userLocation, setUserLocation] = useState<number[]>([
-    48.866667, 2.333333,
-  ])
-
-  const setUserLocationToDefault = async (position: number[]) => {
-    setUserLocation(position)
-  }
-
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition((position) => {
-      setUserLocationToDefault([
-        position.coords.latitude,
-        position.coords.longitude,
-      ])
-    })
-  }, [navigator.geolocation])
+  const { userLocation } = useUserLocation()
 
   const myIcon = new L.Icon({
     iconUrl: Icon,
@@ -106,3 +92,5 @@ export default function MapComponent({
     </MapContainer>
   )
 }
+
+export { Recenter }

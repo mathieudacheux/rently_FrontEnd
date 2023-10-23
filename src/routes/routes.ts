@@ -16,6 +16,7 @@ const APP_ROUTES = {
   GESTION: '/gestion',
   AGENCY: '/agency',
   BLOG: '/blog',
+  BLOG_DETAIL: '/blog-detail',
   WHYRENTLY: '/whyrently',
   CONTACT: '/contact',
   HIRING: '/hiring',
@@ -34,6 +35,7 @@ const APP_ROUTES = {
 
   // Properties
   PROPERTIES: '/properties',
+  PROPERTIES_DETAILS: '/property_details',
 }
 
 const APP_TITLES = [
@@ -99,7 +101,11 @@ const APP_TITLES = [
   },
   {
     path: APP_ROUTES.PROPERTIES,
-    title: 'title.home',
+    title: 'title.properties',
+  },
+  {
+    path: APP_ROUTES.BLOG,
+    title: 'title.blog',
   },
 ]
 

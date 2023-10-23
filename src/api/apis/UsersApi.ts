@@ -12,6 +12,7 @@
  */
 
 import { QueryConfig, ResponseBody } from 'redux-query'
+import * as runtime from '../runtime'
 import {
   UserSerializerPost,
   UserSerializerPostToJSON,
@@ -20,7 +21,6 @@ import {
   UserSerializerRead,
   UserSerializerReadFromJSON,
 } from '../models'
-import * as runtime from '../runtime'
 
 export interface UsersDeleteUserRequest {
   id: number
@@ -120,7 +120,6 @@ function usersGetAllUsersRaw<T>(
   queryParameters = {
     page: requestParameters.page,
   }
-
   if (requestParameters.page !== undefined) {
     queryParameters['page'] = requestParameters.page
   }
@@ -239,7 +238,6 @@ function usersGetUsersByFilterRaw<T>(
     city: requestParameters.city,
     zipcode: requestParameters.zipcode,
   }
-
   if (requestParameters.mail !== undefined) {
     queryParameters['mail'] = requestParameters.mail
   }

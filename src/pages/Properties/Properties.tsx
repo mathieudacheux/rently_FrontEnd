@@ -1,13 +1,13 @@
 import { FormikProvider } from 'formik'
-import usePropertyFormik from './hooks/usePropertyFormik.ts'
+import usePropertyFormik from './hooks/usePropertiesFormik.ts'
 import PropertiesManagementStep from './PropertiesManagement/PropertiesManagementStep.tsx'
 
 export default function Properties(): JSX.Element {
-  const propertyFormik = usePropertyFormik()
+  const { propertiesFormik } = usePropertyFormik()
 
   return (
     <>
-      <FormikProvider value={propertyFormik}>
+      <FormikProvider value={propertiesFormik}>
         <PropertiesManagementStep />
       </FormikProvider>
     </>

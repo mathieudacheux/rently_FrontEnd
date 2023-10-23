@@ -12,6 +12,7 @@
  */
 
 import { QueryConfig, ResponseBody } from 'redux-query'
+import * as runtime from '../runtime'
 import {
   TagSerializerPost,
   TagSerializerPostToJSON,
@@ -20,7 +21,6 @@ import {
   TagSerializerRead,
   TagSerializerReadFromJSON,
 } from '../models'
-import * as runtime from '../runtime'
 
 export interface TagsCreateTagRequest {
   tagSerializerPost: TagSerializerPost
