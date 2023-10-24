@@ -1,48 +1,14 @@
-import { useState, useEffect } from 'react'
 import FormikTextField from '../../../components/molecules/core/FormikTextField.tsx'
 import Mail from '../../../components/atoms/icons/Mail.tsx'
 import { useTranslation } from 'react-i18next'
 import Typography from '../../../components/atoms/Typography.tsx'
 import { useFormikContext } from 'formik'
 import { useSubscribeNewsletterMutation } from '../../../features/mail/mailApi.ts'
-import Toast from '../../../components/molecules/Toast.tsx'
-import { ToastState } from '../../../types.ts'
+import { toast } from 'sonner'
 
 export default function NewsletterSection(): JSX.Element {
   const { t } = useTranslation()
-  const { values } = useFormikContext<any>()
-
-  const [showErrorToast, setShowErrorToast] = useState<ToastState>({
-    view: false,
-    message: '',
-  })
-
-  const [showSuccessToast, setShowSuccessToast] = useState<ToastState>({
-    view: false,
-    message: '',
-  })
-
-  useEffect(() => {
-    if (showErrorToast.view) {
-      setTimeout(() => {
-        setShowErrorToast({
-          view: false,
-          message: '',
-        })
-      }, 3000)
-    }
-  }, [showErrorToast])
-
-  useEffect(() => {
-    if (showSuccessToast.view) {
-      setTimeout(() => {
-        setShowSuccessToast({
-          view: false,
-          message: '',
-        })
-      }, 3000)
-    }
-  }, [showSuccessToast])
+  const { values, setFieldValue } = useFormikContext<any>()
 
   const [subscribeNewsletter] = useSubscribeNewsletterMutation()
 
@@ -52,17 +18,12 @@ export default function NewsletterSection(): JSX.Element {
     })
 
     if (!response?.data || response?.error) {
-      setShowErrorToast({
-        view: true,
-        message: response?.error?.data?.message,
-      })
+      toast.error(response?.error?.data?.message)
       return
     }
 
-    setShowSuccessToast({
-      view: true,
-      message: 'home.newsletter',
-    })
+    toast.success(t('home.newsletter'))
+    setFieldValue('newsletter', '')
   }
 
   return (
@@ -85,12 +46,10 @@ export default function NewsletterSection(): JSX.Element {
             icon={<Mail />}
             placeholder='Email'
             handleKeyDown={handleSubmit}
+            saveClick={handleSubmit}
           />
         </div>
       </div>
-
-      <Toast error open={showErrorToast.view} text={showErrorToast.message} />
-      <Toast open={showSuccessToast.view} text={showSuccessToast.message} />
     </>
   )
 }
