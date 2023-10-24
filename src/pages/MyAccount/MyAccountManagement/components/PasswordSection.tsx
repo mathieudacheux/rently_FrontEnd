@@ -17,6 +17,11 @@ export default function PasswordSection(): JSX.Element {
   const handleSubmit = async () => {
     const response: any = await updateUser({
       id: values.id,
+      firstname: values.firstname,
+      name: values.lastname,
+      mail: values.mail,
+      phone: values.phone,
+      newsletter: values.newsletter,
       password: values.oldPassword,
       newPassword: values.newPassword,
     })
