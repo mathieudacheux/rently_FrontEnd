@@ -8,7 +8,7 @@ import { toast } from 'sonner'
 
 export default function NewsletterSection(): JSX.Element {
   const { t } = useTranslation()
-  const { values } = useFormikContext<any>()
+  const { values, setFieldValue } = useFormikContext<any>()
 
   const [subscribeNewsletter] = useSubscribeNewsletterMutation()
 
@@ -23,6 +23,7 @@ export default function NewsletterSection(): JSX.Element {
     }
 
     toast.success(t('home.newsletter'))
+    setFieldValue('newsletter', '')
   }
 
   return (
@@ -45,6 +46,7 @@ export default function NewsletterSection(): JSX.Element {
             icon={<Mail />}
             placeholder='Email'
             handleKeyDown={handleSubmit}
+            saveClick={handleSubmit}
           />
         </div>
       </div>

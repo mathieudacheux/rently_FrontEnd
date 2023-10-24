@@ -14,6 +14,7 @@ export default function FormikTextField({
   textCenter = false,
   disableShadows = false,
   handleKeyDown,
+  saveClick,
 }: {
   name: string
   placeholder?: string
@@ -26,6 +27,7 @@ export default function FormikTextField({
   textCenter?: boolean
   disableShadows?: boolean
   handleKeyDown?: () => void
+  saveClick?: () => void
 }): JSX.Element {
   const { t } = useTranslation()
   const formik = useFormikContext()
@@ -78,7 +80,10 @@ export default function FormikTextField({
           />
           {icon && (
             <div
-              onClick={() => showPassword && showPassword()}
+              onClick={() => {
+                showPassword && showPassword()
+                saveClick && saveClick()
+              }}
               className={`w-fit input-icon absolute right-5 top-1/2 -translate-y-1/2 ${
                 showPassword
                   ? 'tooltip tooltip-primary tooltip-left md:tooltip-top'
