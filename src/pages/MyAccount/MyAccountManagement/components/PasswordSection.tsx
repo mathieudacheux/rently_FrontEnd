@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import Typography from '../../../../components/atoms/Typography.tsx'
 import FormikTextField from '../../../../components/molecules/core/FormikTextField.tsx'
@@ -6,72 +5,35 @@ import Password from '../../../../components/atoms/icons/Password.tsx'
 import CardButton from '../../../../components/atoms/CardButton.tsx'
 import { useFormikContext } from 'formik'
 import { useUpdateUserMutation } from '../../../../features/user/userApi.ts'
-import { ToastState } from '../../../../types.ts'
-import Toast from '../../../../components/molecules/Toast.tsx'
+import { toast } from 'sonner'
+import { MyAccountFormik } from '../../types.ts'
 
 export default function PasswordSection(): JSX.Element {
   const { t } = useTranslation()
-  const { values, resetForm } = useFormikContext()
+  const { values, resetForm } = useFormikContext<MyAccountFormik>()
 
   const [updateUser] = useUpdateUserMutation()
 
-  const [showErrorToast, setShowErrorToast] = useState<ToastState>({
-    view: false,
-    message: '',
-  })
-
-  const [showSuccessToast, setShowSuccessToast] = useState<ToastState>({
-    view: false,
-    message: '',
-  })
-
-  useEffect(() => {
-    if (showErrorToast.view) {
-      setTimeout(() => {
-        setShowErrorToast({
-          view: false,
-          message: '',
-        })
-      }, 3000)
-    }
-  }, [showErrorToast])
-
-  useEffect(() => {
-    if (showSuccessToast.view) {
-      setTimeout(() => {
-        setShowSuccessToast({
-          view: false,
-          message: '',
-        })
-      }, 3000)
-    }
-  }, [showSuccessToast])
-
-  const userData =
-    window.localStorage.getItem('user') !== null
-      ? JSON.parse(window.localStorage.getItem('user') as string)
-      : null
-
-  const handleSubmit = async (values: any) => {
+  const handleSubmit = async () => {
     const response: any = await updateUser({
-      id: userData[0].user_id,
+      id: values.id,
+      firstname: values.firstname,
+      name: values.lastname,
+      mail: values.mail,
+      phone: values.phone,
+      newsletter: values.newsletter,
       password: values.oldPassword,
       newPassword: values.newPassword,
     })
 
     if (!response?.data || response?.error) {
-      setShowErrorToast({
-        view: true,
-        message: response?.error?.data?.message,
-      })
+      toast.error(response?.error?.data?.message)
       return
     }
 
     localStorage.setItem('user', JSON.stringify(response.data))
-    setShowSuccessToast({
-      view: true,
-      message: 'myAccount.success',
-    })
+
+    toast.success(t('myAccount.success'))
 
     resetForm()
   }
@@ -130,15 +92,12 @@ export default function PasswordSection(): JSX.Element {
           </div>
           <div className='pt-4 md:w-[125px]'>
             <CardButton
-              onClick={() => handleSubmit(values)}
+              onClick={() => handleSubmit()}
               text='myAccount.passwordSection.button'
             />
           </div>
         </div>
       </div>
-
-      <Toast error open={showErrorToast.view} text={showErrorToast.message} />
-      <Toast open={showSuccessToast.view} text={showSuccessToast.message} />
     </>
   )
 }

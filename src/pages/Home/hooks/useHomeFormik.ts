@@ -10,7 +10,7 @@ export default function useHomeFormik() {
 
   const initialValues = {
     searchCity: '',
-    searchBudget: null,
+    searchBudget: '',
     searchType: '',
     status: true,
     newsletter: '',

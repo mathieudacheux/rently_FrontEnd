@@ -1,4 +1,4 @@
-export default function Heart({
+export default function HeartFull({
   marginRight,
   marginLeft,
   color,

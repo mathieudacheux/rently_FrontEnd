@@ -13,7 +13,7 @@ export default function PropertiesManagementStep() {
   useEffect(() => {
     dispatch(
       setSearchFilter({
-        searchFilter: { searchCity: '', searchBudget: null, searchType: '' },
+        searchFilter: { searchCity: '', searchBudget: '', searchType: '' },
       }),
     )
   }, [])
