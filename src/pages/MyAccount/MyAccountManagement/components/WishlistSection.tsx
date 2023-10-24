@@ -3,12 +3,14 @@ import Typography from '../../../../components/atoms/Typography.tsx'
 import { useGetBookmarksByUserIdQuery } from '../../../../features/bookmark/bookmarkApi.ts'
 import { PropertySerializerRead } from '../../../../api/index.ts'
 import PropertyCard from '../../../../components/organisms/PropertyCard.tsx'
+import { useFormikContext } from 'formik'
+import { MyAccountFormik } from '../../types.ts'
 
 export default function WishlistSection(): JSX.Element {
   const { t } = useTranslation()
-  const userId = JSON.parse(localStorage.getItem('user') || '{}')[0].user_id
+  const { values } = useFormikContext<MyAccountFormik>()
 
-  const { data: bookmarks } = useGetBookmarksByUserIdQuery(userId)
+  const { data: bookmarks } = useGetBookmarksByUserIdQuery(values.id)
 
   return (
     <div className='md:pl-4 w-full'>
@@ -16,7 +18,7 @@ export default function WishlistSection(): JSX.Element {
         {t('myAccount.wishlistSection.title')}
       </Typography>
       <div className='w-full flex flex-row flex-wrap gap-10'>
-        {bookmarks ? (
+        {bookmarks?.results?.length ? (
           bookmarks?.map((property: PropertySerializerRead) => (
             <PropertyCard key={property.property_id} property={property} />
           ))

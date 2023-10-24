@@ -9,21 +9,17 @@ import ToggleLanguage from '../../../../components/atoms/Toggle/ToggleLanguage.t
 import { useUpdateUserMutation } from '../../../../features/user/userApi.ts'
 import { useFormikContext } from 'formik'
 import { toast } from 'sonner'
+import { MyAccountFormik } from '../../types.ts'
 
 export default function PersonnalSection(): JSX.Element {
   const { t } = useTranslation()
-  const { values } = useFormikContext()
+  const { values } = useFormikContext<MyAccountFormik>()
 
   const [updateUser] = useUpdateUserMutation()
 
-  const userData =
-    window.localStorage.getItem('user') !== null
-      ? JSON.parse(window.localStorage.getItem('user') as string)
-      : null
-
-  const handleSubmit = async (values: any) => {
+  const handleSubmit = async () => {
     const response: any = await updateUser({
-      id: userData[0].user_id,
+      id: values.id,
       firstname: values.firstname,
       name: values.lastname,
       mail: values.mail,
@@ -116,7 +112,7 @@ export default function PersonnalSection(): JSX.Element {
         <ToggleLanguage />
         <div className='pt-4 w-full md:w-[125px]'>
           <CardButton
-            onClick={() => handleSubmit(values)}
+            onClick={() => handleSubmit()}
             text='myAccount.passwordSection.button'
           />
         </div>

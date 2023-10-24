@@ -1,28 +1,12 @@
-import { useCallback, useEffect, useMemo } from 'react'
+import { useCallback, useMemo } from 'react'
 import { useFormik } from 'formik'
 import * as yup from 'yup'
 import { useTranslation } from 'react-i18next'
-import { useLazyGetUserByFilterQuery } from '../../../features/user/userApi.ts'
 
 export default function useMyAccountFormik() {
   const { t, i18n } = useTranslation()
 
   const onSubmit = useCallback(async () => null, [])
-  const [triggerUser, { data: retrievedUser }] = useLazyGetUserByFilterQuery()
-
-  useEffect(() => {
-    if (localStorage.getItem('mail')) {
-      triggerUser({
-        mail: localStorage.getItem('mail'),
-      })
-    }
-  }, [])
-
-  useEffect(() => {
-    if (retrievedUser?.data) {
-      localStorage.setItem('user', JSON.stringify(retrievedUser.data))
-    }
-  }, [retrievedUser])
 
   const userData = useMemo(() => {
     return JSON.parse(localStorage.getItem('user') as string) || []
@@ -30,14 +14,15 @@ export default function useMyAccountFormik() {
 
   const initialValues = useMemo(() => {
     return {
-      mail: userData[0]?.mail || '',
-      firstname: userData[0]?.firstname || '',
-      lastname: userData[0]?.name || '',
-      phone: userData[0]?.phone || '',
+      id: userData?.user_id || '',
+      mail: userData?.mail || '',
+      firstname: userData?.firstname || '',
+      lastname: userData?.name || '',
+      phone: userData?.phone || '',
       oldPassword: '',
       newPassword: '',
       newPasswordConfirm: '',
-      newsletter: userData[0]?.newsletter || false,
+      newsletter: userData?.newsletter || false,
     }
   }, [localStorage.getItem('user')])
 

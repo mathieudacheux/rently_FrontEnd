@@ -78,7 +78,6 @@ export default function PropertyCard({
   }
 
   const deleteBookmarkHandler = async (bookmarkId: number) => {
-    console.log(bookmarkId)
     if (!userId) {
       toast.error(t('myAccount.wishlistSection.connection'))
       return false
