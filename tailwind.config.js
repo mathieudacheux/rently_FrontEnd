@@ -33,6 +33,13 @@ export default {
             padding: '10px 14px',
             'text-transform': 'capitalize',
           },
+
+          // set bg color if disabled
+          '.btn:disabled': {
+            'background-color': '#f3f3f3',
+            color: '#808191',
+          },
+
           '.roundedBtn': {
             'border-radius': '15px',
             padding: '10px 14px',
@@ -92,6 +99,12 @@ export default {
           '.modal .modal-box': {
             width: '60%',
             height: '60%',
+            'max-width': 'none',
+            padding: 0,
+          },
+
+          '.modal .appt-modal-box': {
+            width: '40%',
             'max-width': 'none',
             padding: 0,
           },

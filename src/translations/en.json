@@ -238,6 +238,11 @@
     "call": "Call",
     "calendar": "Visit",
     "contact": "Contact",
-    "noAgent": "No agent available"
+    "noAgent": "No agent available",
+    "apptDialog": {
+      "title": "Schedule a visit",
+      "hour": "Time slot",
+      "button": "Schedule"
+    }
   }
 }

@@ -238,6 +238,11 @@
     "call": "Appeler",
     "calendar": "Visiter",
     "contact": "Contacter",
-    "noAgent": "Aucun agent disponible"
+    "noAgent": "Aucun agent disponible",
+    "apptDialog": {
+      "title": "Prendre rendez-vous",
+      "hour": "Créneaux",
+      "button": "Réserver"
+    }
   }
 }

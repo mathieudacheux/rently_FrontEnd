@@ -17,6 +17,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
     "@types/react-redux": "^7.1.25",
+    "date-fns": "^2.30.0",
     "formik": "^2.4.2",
     "html-react-parser": "^4.2.1",
     "i18next": "^23.2.5",
@@ -27,6 +28,7 @@
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
     "react": "^18.2.0",
+    "react-day-picker": "^8.9.1",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
     "react-i18next": "^13.0.1",
