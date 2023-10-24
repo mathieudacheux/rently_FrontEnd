@@ -37,7 +37,7 @@ export default function PropertyCard({
   const [getBookmarksByUserId] = useLazyGetBookmarksByUserIdQuery()
 
   const userId =
-    JSON.parse(localStorage.getItem('user') || '{}')[0]?.user_id || null
+    JSON.parse(localStorage.getItem('user') || '{}')?.user_id || null
 
   useEffect(() => {
     if (!userId) return
