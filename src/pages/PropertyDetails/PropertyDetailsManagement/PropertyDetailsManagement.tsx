@@ -13,7 +13,7 @@ export default function PropertyDetailsDetailsManagement({
   property: PropertySerializerRead
 }): JSX.Element {
   const images = useGetAllFolderImageQuery({
-    id: Number(property?.property_id),
+    id: Number(property?.property_id || null),
   }).data
 
   const [selectedImage, setSelectedImage] = useState<number>(0)

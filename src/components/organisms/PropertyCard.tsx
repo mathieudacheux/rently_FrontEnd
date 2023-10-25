@@ -111,7 +111,7 @@ export default function PropertyCard({
         <img
           src={
             images?.length
-              ? `https://back-rently.mathieudacheux.fr/public/img/property/${property?.property_id}/${images[0]}`
+              ? `https://back-rently.mathieudacheux.fr/back-rently/public/img/property/${property?.property_id}/${images[0]}`
               : ''
           }
           alt='Album'
