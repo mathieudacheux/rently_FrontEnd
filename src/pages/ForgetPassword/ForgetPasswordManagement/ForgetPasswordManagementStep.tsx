@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { useFormikContext } from 'formik'
 import { ForgetPasswordFormik } from '../types.ts'
 import ForgetPasswordManagement from './ForgetPasswordManagement.tsx'
@@ -95,14 +94,10 @@ export default function ForgetPasswordManagementStep(): JSX.Element {
 
     toast.success(t('connection.passwordUpdated'))
 
+    navigate(APP_ROUTES.LOGIN)
+
     return true
   }
-
-  useEffect(() => {
-    setTimeout(() => {
-      navigate(APP_ROUTES.LOGIN)
-    }, 1000)
-  }, [updatePassword])
 
   return (
     <>

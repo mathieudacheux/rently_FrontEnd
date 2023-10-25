@@ -48,12 +48,7 @@ export default function FormikSelect({
     }
 
     return [
-      <option
-        key={field.name}
-        value={''}
-        disabled={true}
-        className='text-neutral-500 hidden'
-      >
+      <option value={''} disabled={true} className='text-neutral-500 hidden'>
         {placeholder}
       </option>,
       ...options
@@ -63,7 +58,9 @@ export default function FormikSelect({
             key={item.value}
             value={item.value}
             disabled={item.disabled}
-            className='text-neutral-900 placeholder-neutral-500 flex items-center'
+            className={`text-neutral-900 placeholder-neutral-500 flex items-center ${
+              item.disabled ? 'hidden' : ''
+            }`}
           >
             {item.label}
           </option>

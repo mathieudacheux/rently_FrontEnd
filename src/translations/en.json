@@ -79,6 +79,7 @@
     "changePassword": "Change password",
     "myWishlist": "My wishlist",
     "success": "Your information has been updated",
+    "logout": "Logout",
     "personalSection": {
       "phone": "Phone number",
       "newsletter": "Newsletter subscription"
@@ -241,6 +242,12 @@
     "call": "Call",
     "calendar": "Visit",
     "contact": "Contact",
-    "noAgent": "No agent available"
+    "noAgent": "No agent available",
+    "apptDialog": {
+      "title": "Schedule a visit",
+      "hour": "Time slot",
+      "button": "Schedule",
+      "notConnected": "You must be connected to schedule a visit"
+    }
   }
 }

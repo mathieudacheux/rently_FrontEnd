@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { CircleMarker, MapContainer, TileLayer } from 'react-leaflet'
+import { CircleMarker, MapContainer, TileLayer, useMap } from 'react-leaflet'
 import Phone from '../../../../components/atoms/icons/Phone.tsx'
 import Calendar from '../../../../components/atoms/icons/Calendar.tsx'
 import Contact from '../../../../components/atoms/icons/Contact.tsx'
@@ -16,11 +16,24 @@ import DPE_D from '../../../../assets/images/DPE_D.png'
 import DPE_E from '../../../../assets/images/DPE_E.png'
 import DPE_F from '../../../../assets/images/DPE_F.png'
 import DPE_G from '../../../../assets/images/DPE_G.png'
+import { useMemo, useRef } from 'react'
+
+function ResizeMap() {
+  const map = useMap()
+
+  setTimeout(function () {
+    map.invalidateSize()
+  }, 400)
+
+  return null
+}
 
 export default function PropertyDetailsRightSide({
   property,
+  openApptModal,
 }: {
   property: PropertySerializerRead
+  openApptModal: () => void
 }) {
   const address = useGetAddressByIdQuery(property?.address_id)
     .data as AddressSerializerRead
@@ -37,8 +50,24 @@ export default function PropertyDetailsRightSide({
     window.open(`mailto:${property?.agent_mail || ''}`, '_blank')
   }
 
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  const mapWidth = useMemo(
+    () => containerRef?.current?.offsetWidth,
+    [containerRef],
+  )
+
+  console.log(
+    `https://back-rently.mathieudacheux.fr/public/img/agent/${Number(
+      property.agent_id,
+    )}/avatar.png`,
+  )
+
   return (
-    <div className='md:w-1/2 flex flex-col mt-4 px-2  md:pl-4'>
+    <div
+      ref={containerRef}
+      className='md:w-1/2 flex flex-col mt-4 px-2  md:pl-4'
+    >
       <div className='flex flex-col items-center justify-between h-[250px] md:mb-4'>
         <div className='border rounded-full w-[100px] h-[100px]'>
           <img
@@ -58,7 +87,7 @@ export default function PropertyDetailsRightSide({
             <Phone />
             {t('propertyDetails.call')}
           </div>
-          <div className='btn-cta btn-calendar'>
+          <div className='btn-cta btn-calendar' onClick={openApptModal}>
             <Calendar />
             {t('propertyDetails.calendar')}
           </div>
@@ -75,7 +104,8 @@ export default function PropertyDetailsRightSide({
         ]}
         zoom={13}
         scrollWheelZoom={false}
-        className='w-full h-[300px] md:h-[450px] rounded-[10px] mt-4'
+        style={{ width: `${mapWidth}px` }}
+        className='h-[300px] md:h-[450px] rounded-[10px] mt-4'
         maxZoom={15}
         minZoom={10}
       >
@@ -94,6 +124,7 @@ export default function PropertyDetailsRightSide({
           ]}
           radius={40}
         />
+        <ResizeMap />
       </MapContainer>
       {property.dpe && (
         <div className='w-full md:h-[450px] rounded-[10px] mt-4  md:mt-8'>
