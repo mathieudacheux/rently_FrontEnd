@@ -10,9 +10,11 @@ export default function PropertyDetailsLeftSide({
   const { t } = useTranslation()
   return (
     <div className='md:w-1/2 px-2 md:pr-4'>
-      <Typography variant='h2' className='text-secondary my-4'>{`${
-        property?.name || ''
-      } - ${property?.price || ''}€`}</Typography>
+      <Typography variant='h2' className='text-secondary my-4'>
+        {property.name && property.price
+          ? `${property?.name || ''} - ${property?.price || ''}€`
+          : ''}
+      </Typography>
       <div
         className='text-neutral-900 text-justify'
         dangerouslySetInnerHTML={{ __html: property?.description || '' }}
