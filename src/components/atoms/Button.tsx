@@ -4,6 +4,7 @@ export default function Button({
   text,
   icon,
   rounded,
+  fullWidth = false,
   className = '',
   disabled = false,
   onClick,
@@ -11,6 +12,7 @@ export default function Button({
   text: string
   icon?: React.ReactNode
   rounded?: boolean
+  fullWidth?: boolean
   className?: string
   disabled?: boolean
   onClick?: () => void
@@ -20,7 +22,9 @@ export default function Button({
     <button
       className={`${
         rounded ? 'roundedBtn' : 'btn'
-      } md:btn-md lg:btn-md bg-primary hover:bg-primary text-white border-0 flex justify-between items-center ${className}`}
+      } md:btn-md lg:btn-md bg-primary hover:bg-primary text-white border-0 flex justify-between items-center ${className} ${
+        fullWidth ? 'w-full' : ''
+      }`}
       onClick={onClick}
       disabled={disabled}
     >

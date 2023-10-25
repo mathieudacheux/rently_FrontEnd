@@ -79,6 +79,7 @@
     "changePassword": "Change password",
     "myWishlist": "My wishlist",
     "success": "Your information has been updated",
+    "logout": "Logout",
     "personalSection": {
       "phone": "Phone number",
       "newsletter": "Newsletter subscription"
@@ -245,7 +246,8 @@
     "apptDialog": {
       "title": "Schedule a visit",
       "hour": "Time slot",
-      "button": "Schedule"
+      "button": "Schedule",
+      "notConnected": "You must be connected to schedule a visit"
     }
   }
 }

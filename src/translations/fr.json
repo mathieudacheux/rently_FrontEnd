@@ -79,6 +79,7 @@
     "changePassword": "Changer le mot de passe",
     "myWishlist": "Ma liste de favoris",
     "success": "Vos informations ont été mises à jour",
+    "logout": "Déconnexion",
     "personalSection": {
       "phone": "Téléphone",
       "newsletter": "Abonnement à la newsletter"
@@ -245,7 +246,8 @@
     "apptDialog": {
       "title": "Prendre rendez-vous",
       "hour": "Créneaux",
-      "button": "Réserver"
+      "button": "Réserver",
+      "notConnected": "Vous devez être connecté pour réserver un créneau"
     }
   }
 }
