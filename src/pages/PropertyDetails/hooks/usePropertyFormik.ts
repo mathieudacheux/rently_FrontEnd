@@ -4,6 +4,11 @@ import { useParams } from 'react-router-dom'
 import { useLazyGetPropertyByIdQuery } from '../../../features/property/propertyApi.ts'
 import { PropertySerializerRead } from '../../../api/index.ts'
 
+export interface PropertyFormik extends PropertySerializerRead {
+  appointment_date: string
+  appointment_hour: string | null
+}
+
 export default function usePropertyFormik() {
   // get id from URI path
   const { property_id } = useParams()
@@ -18,9 +23,18 @@ export default function usePropertyFormik() {
 
   const initialValues = useMemo(() => {
     if (propertyQuery.data) {
-      return propertyQuery.data
+      return {
+        ...propertyQuery.data,
+        appointment_date: '',
+        appointment_hour: null,
+      }
+    } else {
+      return {
+        appointment_date: '',
+        appointment_hour: null,
+      }
     }
-  }, [propertyQuery.data]) as PropertySerializerRead
+  }, [propertyQuery.data]) as PropertyFormik
 
   const propertyFormik = useFormik({
     initialValues,

@@ -21,9 +21,11 @@ import HeartFull from '../atoms/icons/HeartFull.tsx'
 export default function PropertyCard({
   mapOpened,
   property,
+  handleDelete,
 }: {
   mapOpened?: boolean
   property: PropertySerializerRead
+  handleDelete?: ({ bookmarkId }: { bookmarkId: number }) => void
 }): JSX.Element {
   const { t } = useTranslation()
   const navigate = useNavigate()
@@ -130,14 +132,20 @@ export default function PropertyCard({
       >
         <div
           className='absolute top-1 right-1 z-50 hover:cursor-pointer'
-          onClick={() =>
-            bookmarked?.find(
+          onClick={() => {
+            const bookmark = bookmarked?.find(
               (propertyBookmarked: any) =>
                 propertyBookmarked.property_id === property.property_id,
             )
-              ? deleteBookmarkHandler(bookmarkId as number)
-              : addBookmarkHandler()
-          }
+            if (bookmark) {
+              deleteBookmarkHandler(bookmarkId as number)
+              handleDelete
+                ? handleDelete({ bookmarkId: bookmark.bookmark_id })
+                : null
+            } else {
+              addBookmarkHandler()
+            }
+          }}
         >
           {bookmarked?.find(
             (propertyBookmarked: any) =>
