@@ -98,7 +98,7 @@ export default function PropertiesList({
           {properties.length
             ? properties.map((property: PropertySerializerRead) => (
                 <PropertyCard
-                  key={property.name}
+                  key={property.property_id}
                   mapOpened={mapOpen}
                   property={property}
                 />
