@@ -57,12 +57,6 @@ export default function PropertyDetailsRightSide({
     [containerRef],
   )
 
-  console.log(
-    `https://back-rently.mathieudacheux.fr/public/img/agent/${Number(
-      property.agent_id,
-    )}/avatar.png`,
-  )
-
   return (
     <div
       ref={containerRef}
@@ -72,10 +66,7 @@ export default function PropertyDetailsRightSide({
         <div className='border rounded-full w-[100px] h-[100px]'>
           <img
             id='avatar'
-            src={
-              `https://back-rently.mathieudacheux.fr/public/img/agent/${property.agent_id}/avatar.png` ||
-              `https://back-rently.mathieudacheux.fr/public/img/agent/none/avatar.png`
-            }
+            src={`https://back-rently.mathieudacheux.fr/public/img/agent/${property.agent_id}/avatar.png`}
             alt=''
             className='object-cover rounded-full w-full h-full object-center'
           />

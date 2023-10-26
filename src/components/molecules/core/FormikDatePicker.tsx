@@ -10,10 +10,12 @@ export default function FormikDatePicker({
   name,
   disabledDays = [],
   toFr = false,
+  onDayBlur,
 }: {
   name: string
   disabledDays?: (Date | { from: Date; to: Date })[]
   toFr?: boolean
+  onDayBlur?: () => void
 }): JSX.Element {
   const { t } = useTranslation()
   const [, meta, helpers] = useField(name)
@@ -27,6 +29,7 @@ export default function FormikDatePicker({
           onSelect={(value) => helpers.setValue(value)}
           disabled={disabledDays}
           locale={toFr ? fr : en}
+          onDayBlur={onDayBlur}
         />
       </div>
 

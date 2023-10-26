@@ -34,6 +34,7 @@ const appointmentApi = createApi({
 
 export const {
   useGetAppointmentsByUserIdQuery,
+  useLazyGetAppointmentsByUserIdQuery,
   useGetAppointmentsQuery,
   useCreateAppointmentMutation,
 } = appointmentApi

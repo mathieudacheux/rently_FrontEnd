@@ -7,7 +7,7 @@ import PropertyDetailsLeftSide from './components/PropertyDetailsLeftSide.tsx'
 import { useGetAllFolderImageQuery } from '../../../features/attachment/attachmentApi.ts'
 import PropertyDetailsDesktopImages from './components/PropertyDetailsDesktopImages.tsx'
 import PropertyDetailsMobileImages from './components/PropertyDetailsMobileImages.tsx'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import Arrow from '../../../components/atoms/icons/Arrow.tsx'
 import FormikSelect from '../../../components/molecules/core/FormikSelect.tsx'
 import Button from '../../../components/atoms/Button.tsx'
@@ -18,7 +18,7 @@ import { PropertyFormik } from '../hooks/usePropertyFormik.ts'
 import { toast } from 'sonner'
 import {
   useCreateAppointmentMutation,
-  useGetAppointmentsByUserIdQuery,
+  useLazyGetAppointmentsByUserIdQuery,
 } from '../../../features/appointment/appointmentApi.ts'
 
 export default function PropertyDetailsDetailsManagement({
@@ -29,27 +29,48 @@ export default function PropertyDetailsDetailsManagement({
   const { t, i18n } = useTranslation()
 
   const [createAppointment] = useCreateAppointmentMutation()
-  const { values } = useFormikContext<PropertyFormik>()
+  const { values, setFieldValue } = useFormikContext<PropertyFormik>()
 
-  const { data: appointmentsList } = useGetAppointmentsByUserIdQuery(62)
+  const [appointmentList, setAppointmentList] = useState<
+    {
+      dateStart: string
+      appointments: AppointmentSerializerRead[]
+    }[]
+  >([])
 
-  const hoursOption = [
-    { label: '9 h 00', value: '09:00:00', disabled: false },
-    { label: '9 h 30', value: '09:30:00', disabled: false },
-    { label: '10 h 00', value: '10:00:00', disabled: false },
-    { label: '10 h 30', value: '10:30:00', disabled: false },
-    { label: '11 h 00', value: '11:00:00', disabled: false },
-    { label: '11 h 30', value: '11:30:00', disabled: false },
-    { label: '13 h 00', value: '13:00:00', disabled: false },
-    { label: '13 h 30', value: '13:30:00', disabled: false },
-    { label: '14 h 00', value: '14:00:00', disabled: false },
-    { label: '14 h 30', value: '14:30:00', disabled: false },
-    { label: '15 h 00', value: '15:00:00', disabled: false },
-    { label: '15 h 30', value: '15:30:00', disabled: false },
-    { label: '16 h 00', value: '16:00:00', disabled: false },
-    { label: '16 h 30', value: '16:30:00', disabled: false },
-    { label: '17 h 00', value: '17:00:00', disabled: false },
-  ]
+  const [triggerAppointmentListQuery, appointmentListQueryResult] =
+    useLazyGetAppointmentsByUserIdQuery()
+
+  useEffect(() => {
+    triggerAppointmentListQuery(property.agent_id)
+  }, [property.agent_id])
+
+  useEffect(() => {
+    if (appointmentListQueryResult.data) {
+      setAppointmentList(appointmentListQueryResult.data)
+    }
+  }, [appointmentListQueryResult.data])
+
+  const hoursOption = useMemo(
+    () => [
+      { label: '9 h 00', value: '09:00:00', disabled: false },
+      { label: '9 h 30', value: '09:30:00', disabled: false },
+      { label: '10 h 00', value: '10:00:00', disabled: false },
+      { label: '10 h 30', value: '10:30:00', disabled: false },
+      { label: '11 h 00', value: '11:00:00', disabled: false },
+      { label: '11 h 30', value: '11:30:00', disabled: false },
+      { label: '13 h 00', value: '13:00:00', disabled: false },
+      { label: '13 h 30', value: '13:30:00', disabled: false },
+      { label: '14 h 00', value: '14:00:00', disabled: false },
+      { label: '14 h 30', value: '14:30:00', disabled: false },
+      { label: '15 h 00', value: '15:00:00', disabled: false },
+      { label: '15 h 30', value: '15:30:00', disabled: false },
+      { label: '16 h 00', value: '16:00:00', disabled: false },
+      { label: '16 h 30', value: '16:30:00', disabled: false },
+      { label: '17 h 00', value: '17:00:00', disabled: false },
+    ],
+    [appointmentListQueryResult],
+  )
 
   const images = useGetAllFolderImageQuery({
     id: Number(property?.property_id),
@@ -69,7 +90,14 @@ export default function PropertyDetailsDetailsManagement({
     return toast.error(t('propertyDetails.apptDialog.notConnected'))
   }
 
-  const isDateSelected = values.appointment_date !== ''
+  const isDateSelected = useMemo(() => {
+    if (!values.appointment_date) return false
+
+    triggerAppointmentListQuery(property.agent_id)
+    return !!values.appointment_date
+  }, [values.appointment_date])
+
+  values.appointment_date !== ''
 
   // format date to dd-mm-yyyy
   const formatDate = (date: Date, hour: string) => {
@@ -81,7 +109,7 @@ export default function PropertyDetailsDetailsManagement({
     if (month.length < 2) month = '0' + month
     if (day.length < 2) day = '0' + day
 
-    return [year, month, day].join('-').concat(` ${hour}`)
+    return `${[year, month, day].join('-')}T${hour}.000Z`
   }
 
   const disabledDays: (Date | { from: Date; to: Date })[] = [
@@ -91,8 +119,8 @@ export default function PropertyDetailsDetailsManagement({
     },
   ]
 
-  if (appointmentsList?.length) {
-    appointmentsList.forEach(
+  if (appointmentList?.length) {
+    appointmentList.forEach(
       (appointment: {
         dateStart: string
         appointments: AppointmentSerializerRead[]
@@ -105,42 +133,73 @@ export default function PropertyDetailsDetailsManagement({
 
   useEffect(() => {
     const selectedDay = values.appointment_date
-    appointmentsList?.forEach(
-      (appointment: {
-        dateStart: string
-        appointments: AppointmentSerializerRead[]
-      }) => {
-        if (appointment.dateStart === selectedDay) {
-          appointment.appointments.forEach(
-            (appointment: AppointmentSerializerRead) => {
-              if (!appointment?.date_start) return
-              const hour = appointment.date_start.split(' ')[1]
-              const index = hoursOption.findIndex(
-                (hourOption) => hourOption.value === hour,
-              )
-              hoursOption[index].disabled = true
-            },
-          )
-        }
-      },
-    )
 
     if (
       new Date(selectedDay).toLocaleDateString() ===
       new Date().toLocaleDateString()
     ) {
-      const currentHour = `${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`
       hoursOption.forEach((hourOption) => {
-        if (hourOption.value < currentHour.toString())
-          hourOption.disabled = true
+        const hour = new Date().getHours()
+
+        if (hourOption.value < hour.toString()) hourOption.disabled = true
       })
     }
-  }, [values.appointment_date])
+
+    appointmentList?.forEach(
+      (appointment: {
+        dateStart: string
+        appointments: AppointmentSerializerRead[]
+      }) => {
+        if (
+          new Date(appointment.dateStart).toLocaleDateString() ===
+          new Date(selectedDay).toLocaleDateString()
+        ) {
+          appointment.appointments.forEach(
+            (appointment: AppointmentSerializerRead) => {
+              if (!appointment?.date_start) return
+              const hour = `${
+                appointment.date_start.toString().split('T')[1].split(':')[0]
+                  .length === 1
+                  ? `0${
+                      appointment.date_start
+                        .toString()
+                        .split('T')[1]
+                        .split(':')[0]
+                    }`
+                  : appointment.date_start
+                      .toString()
+                      .split('T')[1]
+                      .split(':')[0]
+              }:${
+                appointment.date_start.toString().split('T')[1].split(':')[1]
+              }:00`
+
+              const index = hoursOption.findIndex(
+                (hourOption) => hourOption.value === hour,
+              )
+
+              if (
+                new Date(selectedDay).toLocaleDateString() ===
+                new Date().toLocaleDateString()
+              ) {
+                if (index !== -1 && hoursOption[index].value < hour.toString())
+                  hoursOption[index].disabled = true
+              } else {
+                index !== -1 ? (hoursOption[index].disabled = true) : null
+              }
+            },
+          )
+        }
+      },
+    )
+  }, [values.appointment_date, appointmentListQueryResult])
 
   const handleSaveAppointment = async () => {
     if (!localStorage.getItem('user'))
       return toast.error(t('propertyDetails.apptDialog.notConnected'))
+
     const result: any = await createAppointment({
+      tag_id: 1,
       date_start: formatDate(
         new Date(values.appointment_date),
         values.appointment_hour || '',
@@ -148,12 +207,14 @@ export default function PropertyDetailsDetailsManagement({
       property_id: property.property_id,
       user_id_1: property.agent_id,
       user_id_2:
-        JSON.parse(localStorage.getItem('user') || '{}')[0]?.user_id || null,
+        JSON.parse(localStorage.getItem('user') || '{}')?.user_id || null,
     })
     if (!result?.data || result?.error) {
       toast.error(result?.error?.data?.message)
       return false
     }
+    setFieldValue('appointment_date', '')
+    setFieldValue('appointment_hour', '')
     toast.success(t('propertyDetails.apptDialog.success'))
     window.appointment_modal.close()
   }
@@ -222,6 +283,11 @@ export default function PropertyDetailsDetailsManagement({
         <dialog
           id='appointment_modal'
           className='modal w-full h-full flex justify-center items-center'
+          onClose={() => {
+            setFieldValue('appointment_date', '')
+            setFieldValue('appointment_hour', '')
+            triggerAppointmentListQuery(property.agent_id)
+          }}
         >
           <div className='appt-modal-box bg-white rounded-md p-12'>
             <form method='dialog' className='pt-6'>
@@ -234,13 +300,16 @@ export default function PropertyDetailsDetailsManagement({
                     name='appointment_date'
                     toFr={i18n.language === 'fr'}
                     disabledDays={disabledDays}
+                    onDayBlur={() => setFieldValue('appointment_hour', '')}
                   />
                 </div>
                 {isDateSelected && (
-                  <div className='w-3/12 flex justify-center'>
+                  <div className='w-4/12 flex justify-center'>
                     <FormikSelect
                       name='appointment_hour'
-                      options={hoursOption}
+                      options={
+                        appointmentListQueryResult.isFetching ? [] : hoursOption
+                      }
                       placeholder={t('propertyDetails.apptDialog.hour')}
                     />
                   </div>
@@ -256,12 +325,6 @@ export default function PropertyDetailsDetailsManagement({
                 disabled={!values.appointment_date || !values.appointment_hour}
                 onClick={() => {
                   handleSaveAppointment()
-                  console.log(
-                    formatDate(
-                      new Date(values.appointment_date),
-                      values.appointment_hour || '',
-                    ),
-                  )
                 }}
               />
             </div>
