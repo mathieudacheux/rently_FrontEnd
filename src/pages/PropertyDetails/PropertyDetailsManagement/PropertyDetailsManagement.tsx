@@ -141,8 +141,6 @@ export default function PropertyDetailsDetailsManagement({
       hoursOption.forEach((hourOption) => {
         const hour = `${new Date().getHours()}:${new Date().getMinutes()}:00`
 
-        console.log(hourOption.value, hour.toString())
-
         if (hourOption.value < hour.toString()) hourOption.disabled = true
       })
     }
