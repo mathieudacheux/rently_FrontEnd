@@ -52,7 +52,7 @@ export default function PropertyDetailsDetailsManagement({
   ]
 
   const images = useGetAllFolderImageQuery({
-    id: Number(property?.property_id),
+    id: Number(property?.property_id || null),
   }).data
 
   const [selectedImage, setSelectedImage] = useState<number>(0)
