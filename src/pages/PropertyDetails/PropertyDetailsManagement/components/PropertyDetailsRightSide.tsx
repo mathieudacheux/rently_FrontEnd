@@ -66,7 +66,11 @@ export default function PropertyDetailsRightSide({
         <div className='border rounded-full w-[100px] h-[100px]'>
           <img
             id='avatar'
-            src={`https://back-rently.mathieudacheux.fr/public/img/agent/${property.agent_id}/avatar.png`}
+            src={
+              property?.agent_id
+                ? `https://back-rently.mathieudacheux.fr/public/img/agent/${property?.agent_id}/avatar.png`
+                : ''
+            }
             alt=''
             className='object-cover rounded-full w-full h-full object-center'
           />
