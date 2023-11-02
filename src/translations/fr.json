@@ -247,7 +247,8 @@
       "title": "Prendre rendez-vous",
       "hour": "Créneaux",
       "button": "Réserver",
-      "notConnected": "Vous devez être connecté pour réserver un créneau"
+      "notConnected": "Vous devez être connecté pour réserver un créneau",
+      "success": "Votre rendez-vous a été enregistré"
     }
   }
 }

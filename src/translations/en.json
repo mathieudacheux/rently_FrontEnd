@@ -247,7 +247,8 @@
       "title": "Schedule a visit",
       "hour": "Time slot",
       "button": "Schedule",
-      "notConnected": "You must be connected to schedule a visit"
+      "notConnected": "You must be connected to schedule a visit",
+      "success": "Your visit has been scheduled"
     }
   }
 }
