@@ -40,14 +40,22 @@ export default function BlogCard({
     />
   )
 
+  const backgroundImage = agency
+    ? `url(https://back-rently.mathieudacheux.fr/public/img/agency/${id}/agency.png)`
+    : `url(https://back-rently.mathieudacheux.fr/public/img/blog/${id}/blog.png)`
+
+  const navigateLink = (id: number) =>
+    agency
+      ? `${APP_ROUTES.AGENCY_DETAIL}/${id}`
+      : `${APP_ROUTES.BLOG_DETAIL}/${id}`
+
   if (!full) {
     return (
       <div className='blog w-[350px] md:w-full h-full relative'>
         <div
           className='absolute inset-0 bg-cover bg-center bg-no-repeat rounded-[10px]'
           style={{
-            backgroundImage:
-              'url(https://images.crowdspring.com/blog/wp-content/uploads/2017/08/23163415/pexels-binyamin-mellish-106399.jpg)',
+            backgroundImage: `${backgroundImage}`,
           }}
         >
           <div className='absolute inset-0 bg-black opacity-40 mix-blend-darken rounded-[10px]' />
@@ -57,11 +65,11 @@ export default function BlogCard({
             variant='h2'
             className='mb-[15px] text-center text-white w-7/12'
           >
-            {agency ? t('agency.title', { agency: title }) : title}
+            {title}
           </Typography>
           <Button
             text={t(buttonTitle)}
-            onClick={() => navigate(`${APP_ROUTES.BLOG_DETAIL}/${id}/${title}`)}
+            onClick={() => navigate(navigateLink(id))}
           />
         </div>
       </div>
@@ -89,7 +97,7 @@ export default function BlogCard({
         {showDescription}
         <Button
           text={t(buttonTitle)}
-          onClick={() => navigate(`${APP_ROUTES.BLOG_DETAIL}/${id}/${title}`)}
+          onClick={() => navigate(navigateLink(id))}
         />
       </div>
     </div>

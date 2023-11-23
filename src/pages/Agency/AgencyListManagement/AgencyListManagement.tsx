@@ -12,7 +12,7 @@ export default function AgencyListManagement(): JSX.Element {
       <div className='w-11/12 flex justify-center items-center mb-7'>
         <Typography variant='h1'>{t('agency.home')}</Typography>
       </div>
-      <div className='w-11/12 flex flex-col md:flex-row flex-wrap items-center justify-start md:items-start md:justify-between gap-5 md:gap-10'>
+      <div className='w-11/12 flex flex-col md:flex-row md:flex-wrap items-center justify-start md:justify-center gap-5 md:gap-10'>
         {agencies?.map((agency: any) => (
           <div
             key={agency.agency_id}
