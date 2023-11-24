@@ -37,8 +37,6 @@ export default function AgencySection(): JSX.Element {
     [agencies.data],
   )
 
-  console.log(closestAgencies)
-
   return (
     <div className='flex flex-col items-center justify-center'>
       <Typography

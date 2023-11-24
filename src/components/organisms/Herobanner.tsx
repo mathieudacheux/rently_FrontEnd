@@ -2,12 +2,13 @@ import Searchbar from './Searchbar.tsx'
 import HerobannerImage from '../../assets/images/herobanner.jpg'
 import FormikSwitchButton from '../molecules/core/FormikSwitchButton.tsx'
 import { useTranslation } from 'react-i18next'
+import { ReactElement } from 'react'
 
 export default function Herobanner({
   onClick,
 }: {
   onClick: () => void
-}): JSX.Element {
+}): ReactElement {
   const { t } = useTranslation()
 
   return (

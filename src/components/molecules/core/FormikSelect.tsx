@@ -50,7 +50,12 @@ export default function FormikSelect({
     }
 
     return [
-      <option value={''} disabled={true} className='text-neutral-500 hidden'>
+      <option
+        key={Math.random()}
+        value={''}
+        disabled={true}
+        className='text-neutral-500 hidden'
+      >
         {placeholder}
       </option>,
       ...options

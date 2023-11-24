@@ -1,11 +1,11 @@
-import { useState } from 'react'
+import { ReactElement, useState } from 'react'
 import Button from '../atoms/Button.tsx'
 import RedirectText from '../atoms/RedirectText.tsx'
 import Rently from '../../assets/Rently.svg'
 import { Link, useNavigate } from 'react-router-dom'
 import { APP_ROUTES } from '../../routes/routes.ts'
 
-export default function Navbar(): JSX.Element {
+export default function Navbar(): ReactElement {
   const navigate = useNavigate()
   const isConnected = window.localStorage.getItem('token')
 
@@ -30,11 +30,13 @@ export default function Navbar(): JSX.Element {
           <Button
             onClick={() => navigate(APP_ROUTES.ACCOUNT)}
             text='navbar.account'
+            marginLeft
           />
         ) : (
           <Button
             onClick={() => navigate(APP_ROUTES.LOGIN)}
             text='navbar.login'
+            marginLeft
           />
         )}
       </div>

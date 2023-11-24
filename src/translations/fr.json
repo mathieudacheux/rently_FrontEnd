@@ -6,6 +6,9 @@
     "password": "8 caractères minimum, 1 majuscule, 1 minuscule, 1 chiffre",
     "passwordMatch": "Les mots de passe ne correspondent pas"
   },
+  "formik": {
+    "noData": "Aucune donnée"
+  },
   "title": {
     "home": "Accueil",
     "login": "Connexion",
