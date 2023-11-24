@@ -23,6 +23,7 @@ import mailApi from '../features/mail/mailApi.ts'
 import attachmentApi from '../features/attachment/attachmentApi.ts'
 import tagApi from '../features/tag/tagApi.ts'
 import propertyTypeApi from '../features/propertyType/propertyTypeApi.ts'
+import appointmentApi from '../features/appointment/appointmentApi.ts'
 
 export const store = configureStore({
   reducer: {
@@ -48,6 +49,7 @@ export const store = configureStore({
     [attachmentApi.reducerPath]: attachmentApi.reducer,
     [tagApi.reducerPath]: tagApi.reducer,
     [propertyTypeApi.reducerPath]: propertyTypeApi.reducer,
+    [appointmentApi.reducerPath]: appointmentApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
@@ -66,7 +68,8 @@ export const store = configureStore({
       .concat([mailApi.middleware])
       .concat([attachmentApi.middleware])
       .concat([tagApi.middleware])
-      .concat([propertyTypeApi.middleware]),
+      .concat([propertyTypeApi.middleware])
+      .concat([appointmentApi.middleware]),
   devTools: true,
 })
 

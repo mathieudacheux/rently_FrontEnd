@@ -79,6 +79,7 @@
     "changePassword": "Change password",
     "myWishlist": "My wishlist",
     "success": "Your information has been updated",
+    "logout": "Logout",
     "personalSection": {
       "phone": "Phone number",
       "newsletter": "Newsletter subscription"
@@ -92,7 +93,10 @@
     },
     "wishlistSection": {
       "title": "My favorites list",
-      "empty": "Your wishlist is empty"
+      "empty": "Your wishlist is empty",
+      "connection": "Log in to add properties to your favourites list",
+      "done": "Property added to your favourites list",
+      "delete": "Property removed from your favourites list"
     }
   },
   "blog": {
@@ -238,6 +242,13 @@
     "call": "Call",
     "calendar": "Visit",
     "contact": "Contact",
-    "noAgent": "No agent available"
+    "noAgent": "No agent available",
+    "apptDialog": {
+      "title": "Schedule a visit",
+      "hour": "Time slot",
+      "button": "Schedule",
+      "notConnected": "You must be connected to schedule a visit",
+      "success": "Your visit has been scheduled"
+    }
   }
 }

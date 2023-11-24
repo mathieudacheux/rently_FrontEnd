@@ -48,22 +48,16 @@ export default function FormikSelect({
     }
 
     return [
-      <option
-        key={field.name}
-        value={''}
-        disabled={true}
-        className='text-neutral-500 hidden'
-      >
+      <option value={''} disabled={true} className='text-neutral-500 hidden'>
         {placeholder}
       </option>,
       ...options
-        .sort((a, b) => Number(a?.disabled ?? 1) - Number(b?.disabled ?? 1))
+        .filter((option) => !option.disabled)
         .map((item) => (
           <option
             key={item.value}
             value={item.value}
-            disabled={item.disabled}
-            className='text-neutral-900 placeholder-neutral-500 flex items-center'
+            className={`text-neutral-900 placeholder-neutral-500 flex items-center`}
           >
             {item.label}
           </option>

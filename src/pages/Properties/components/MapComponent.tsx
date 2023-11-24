@@ -74,7 +74,9 @@ export default function MapComponent({
               key={`${Math.random()}-${marker.id}`}
               position={marker.position}
               eventHandlers={{
-                click: () => onClick(marker.property_id),
+                click: (e) => {
+                  onClick(marker.property_id)
+                },
               }}
             >
               <Popup className='customPopup'>

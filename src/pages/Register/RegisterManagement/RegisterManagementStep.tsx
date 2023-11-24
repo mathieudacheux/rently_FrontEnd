@@ -1,18 +1,17 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { RegisterFormik } from '../types.ts'
 import { useFormikContext } from 'formik'
 import RegisterManagement from './RegisterManagement.tsx'
-import Toast from '../../../components/molecules/Toast.tsx'
 import { useCreateUserMutation } from '../../../features/user/userApi.ts'
 import useFormikValidator from '../../../hooks/useFormikValidator.ts'
 import { useLazyGetCountriesQuery } from '../../../features/country/countryApi.ts'
 import { useLazyGetRolesQuery } from '../../../features/role/roleApi.ts'
 import { useConfirmationMailMutation } from '../../../features/mail/mailApi.ts'
 import { useTranslation } from 'react-i18next'
-import { ToastState } from '../../../types.ts'
+import { toast } from 'sonner'
 
 export default function LoginManagementStep(): JSX.Element {
-  const { i18n } = useTranslation()
+  const { t, i18n } = useTranslation()
   const formikContext = useFormikContext<RegisterFormik>()
   const formikValidator = useFormikValidator(formikContext)
   const { values } = formikContext
@@ -21,16 +20,6 @@ export default function LoginManagementStep(): JSX.Element {
   const [postConfirmationMail] = useConfirmationMailMutation()
   const [getCountry, { data: dataCountry }] = useLazyGetCountriesQuery()
   const [getRole, { data: dataRole }] = useLazyGetRolesQuery()
-
-  const [showErrorToast, setShowErrorToast] = useState<ToastState>({
-    view: false,
-    message: '',
-  })
-
-  const [showSuccessToast, setShowSuccessToast] = useState<ToastState>({
-    view: false,
-    message: '',
-  })
 
   useEffect(() => {
     const fetchForPost = async () => {
@@ -42,29 +31,7 @@ export default function LoginManagementStep(): JSX.Element {
       }).unwrap()
     }
     fetchForPost()
-  }, [i18n.language])
-
-  useEffect(() => {
-    if (showErrorToast.view) {
-      setTimeout(() => {
-        setShowErrorToast({
-          view: false,
-          message: '',
-        })
-      }, 3000)
-    }
-  }, [showErrorToast])
-
-  useEffect(() => {
-    if (showSuccessToast.view) {
-      setTimeout(() => {
-        setShowSuccessToast({
-          view: false,
-          message: '',
-        })
-      }, 3000)
-    }
-  }, [showSuccessToast])
+  }, [])
 
   const createUser = async () => {
     const formIsValid = await formikValidator(values)
@@ -82,10 +49,7 @@ export default function LoginManagementStep(): JSX.Element {
     })
 
     if (!result?.data || result?.error) {
-      setShowErrorToast({
-        view: true,
-        message: result?.error?.data?.message,
-      })
+      toast.error(result?.error?.data?.message)
       return false
     }
 
@@ -93,21 +57,13 @@ export default function LoginManagementStep(): JSX.Element {
       id: result?.data.user_id,
     })
 
-    setShowSuccessToast({
-      view: true,
-      message: 'connection.emailValidation',
-    })
-
+    toast.success(t('connection.emailValidation'))
     return true
   }
 
   return (
     <>
       <RegisterManagement create={createUser} />
-
-      <Toast error open={showErrorToast.view} text={showErrorToast.message} />
-
-      <Toast open={showSuccessToast.view} text={showSuccessToast.message} />
     </>
   )
 }

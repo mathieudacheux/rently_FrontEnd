@@ -27,6 +27,13 @@ export default function PropertiesList({
     document
       .getElementById(String(item))
       ?.scrollIntoView({ behavior: 'smooth' })
+
+    setTimeout(() => {
+      document.getElementById(String(item))?.classList.add('bg-blue-100')
+    }, 700)
+    setTimeout(() => {
+      document.getElementById(String(item))?.classList.remove('bg-blue-100')
+    }, 2000)
   }, [item])
 
   return (
@@ -91,7 +98,7 @@ export default function PropertiesList({
           {properties.length
             ? properties.map((property: PropertySerializerRead) => (
                 <PropertyCard
-                  key={property.name}
+                  key={property.property_id}
                   mapOpened={mapOpen}
                   property={property}
                 />

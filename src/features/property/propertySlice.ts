@@ -6,7 +6,7 @@ type User = {
   fullProperty: any
   searchFiter: {
     searchCity: string
-    searchBudget: null
+    searchBudget: string
     searchType: string
   }
 }
@@ -16,7 +16,7 @@ const initialState: User = {
   fullProperty: null,
   searchFiter: {
     searchCity: '',
-    searchBudget: null,
+    searchBudget: '',
     searchType: '',
   },
 }
@@ -48,7 +48,7 @@ export const setSearchFilter = createAsyncThunk(
   (args: {
     searchFilter: {
       searchCity: string
-      searchBudget: null
+      searchBudget: string
       searchType: string
     }
   }) => {
