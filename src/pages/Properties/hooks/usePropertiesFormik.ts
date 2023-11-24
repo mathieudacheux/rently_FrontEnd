@@ -8,11 +8,14 @@ export default function usePropertiesFormik() {
 
   const initialValues = useMemo(
     () => ({
+      status: selectedSearchFilter?.searchStatus || '',
       searchCity: selectedSearchFilter?.searchCity || '',
-      searchBudget: selectedSearchFilter?.searchBudget || null,
-      searchType: selectedSearchFilter?.searchType || '',
-      propertyType: '',
-      price: '',
+      property_type: selectedSearchFilter?.searchType
+        ? selectedSearchFilter?.searchType
+        : '',
+      price: selectedSearchFilter?.searchBudget
+        ? selectedSearchFilter?.searchBudget
+        : '',
       roomsNumber: '',
       surface: '',
       bedroomNumber: '',

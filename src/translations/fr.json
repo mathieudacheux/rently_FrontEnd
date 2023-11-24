@@ -6,6 +6,9 @@
     "password": "8 caractères minimum, 1 majuscule, 1 minuscule, 1 chiffre",
     "passwordMatch": "Les mots de passe ne correspondent pas"
   },
+  "formik": {
+    "noData": "Aucune donnée"
+  },
   "title": {
     "home": "Accueil",
     "login": "Connexion",
@@ -60,9 +63,9 @@
     }
   },
   "home": {
-    "titleProperties": "Nos biens immobiliers les plus populaires",
+    "titleProperties": "Nos biens immobiliers les plus proches de vous",
     "titleBlog": "Nos conseils immobiliers",
-    "titleAgency": "Une agence rently proche de chez vous",
+    "titleAgency": "Une agence Rently proche de chez vous",
     "seeProperties": "Tous nos biens",
     "seeBlog": "Tous nos articles",
     "seeAgency": "Toutes nos agences",

@@ -6,6 +6,9 @@
     "password": "8 characters minimum, 1 uppercase, 1 lowercase, 1 number",
     "passwordMatch": "Passwords must match"
   },
+  "formik": {
+    "noData": "No data"
+  },
   "title": {
     "home": "Home",
     "login": "Login",
@@ -60,7 +63,7 @@
     }
   },
   "home": {
-    "titleProperties": "Our most popular properties",
+    "titleProperties": "Our properties closest to you",
     "titleBlog": "Our real estate tips",
     "titleAgency": "A rently agency near you",
     "seeProperties": "All our properties",

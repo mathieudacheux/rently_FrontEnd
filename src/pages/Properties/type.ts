@@ -1,9 +1,8 @@
 export type PropertyFormikType = {
+  status: number | string
   searchCity: string
-  searchBudget: number
-  searchType: string
-  property_type: string
-  price: number
+  property_type: number | string
+  price: number | string
   rooms_number: string
   surface: string
   bedroom: string

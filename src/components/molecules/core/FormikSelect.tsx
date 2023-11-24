@@ -16,6 +16,7 @@ export default function FormikSelect({
   placeholder,
   disabled = false,
   label,
+  noShadow = false,
 }: {
   name: string
   options: ((values: FormikValues) => Option[]) | Option[]
@@ -23,6 +24,7 @@ export default function FormikSelect({
   placeholder?: string
   disabled?: boolean
   label?: string
+  noShadow?: boolean
 }): JSX.Element {
   const { t } = useTranslation()
   const formContext = useFormikContext()
@@ -48,7 +50,12 @@ export default function FormikSelect({
     }
 
     return [
-      <option value={''} disabled={true} className='text-neutral-500 hidden'>
+      <option
+        key={Math.random()}
+        value={''}
+        disabled={true}
+        className='text-neutral-500 hidden'
+      >
         {placeholder}
       </option>,
       ...options
@@ -79,7 +86,9 @@ export default function FormikSelect({
             onClick={toggleOptions}
             className={`input input-bordered w-full max-w-xs ${
               field.value ? 'text-neutral-900' : 'text-neutral-300'
-            } placeholder-neutral-300  appearance-none`}
+            } placeholder-neutral-300  appearance-none
+            ${noShadow ? 'input-no-shadow' : 'input'}
+            `}
             onChange={(e) => {
               field.onChange(e)
               toggleOptions()

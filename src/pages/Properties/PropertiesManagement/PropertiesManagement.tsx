@@ -1,5 +1,5 @@
 import { useFormikContext } from 'formik'
-import { useEffect, useState } from 'react'
+import { ReactElement, useEffect, useState } from 'react'
 import { PropertySerializerRead } from '../../../api/index.ts'
 import Button from '../../../components/atoms/Button.tsx'
 import Filter from '../../../components/atoms/icons/Filter.tsx'
@@ -17,7 +17,6 @@ export default function PropertiesManagement({
   search: ({
     city,
     price,
-    type,
     property_type,
     number_room,
     surface,
@@ -43,11 +42,11 @@ export default function PropertiesManagement({
     top_floor,
     life_annuity,
     work_done,
+    status,
   }: {
     city: string
-    price: number
-    type: string
-    property_type: string
+    price: number | string
+    property_type: string | number
     number_room: string
     surface: string
     bedroom: string
@@ -72,8 +71,9 @@ export default function PropertiesManagement({
     top_floor: boolean
     life_annuity: boolean
     work_done: boolean
+    status: number | string
   }) => void
-}): JSX.Element {
+}): ReactElement {
   const { values } = useFormikContext<PropertyFormikType>()
 
   const [mapOpen, setMapOpen] = useState<boolean>(false)
@@ -106,12 +106,12 @@ export default function PropertiesManagement({
     <>
       <div className='flex justify-center items-center flex-wrap md:flex-nowrap h-auto md:h-[80px]'>
         <Searchbar
+          propertyList
           onClick={() =>
             search({
               city: values.searchCity,
-              price: values.searchBudget || values.price,
-              type: values.searchType,
-              property_type: values.property_type,
+              price: values.price || '',
+              property_type: values.property_type || '',
               number_room: values.rooms_number,
               surface: values.surface,
               bedroom: values.bedroom,
@@ -136,6 +136,7 @@ export default function PropertiesManagement({
               top_floor: values.top_floor,
               life_annuity: values.life_annuity,
               work_done: values.work_done,
+              status: values.status,
             })
           }
         />

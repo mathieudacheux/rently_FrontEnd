@@ -62,7 +62,7 @@ export default function AgencySection(): JSX.Element {
                 `}
                 >
                   <BlogCard
-                    id={agency.id}
+                    id={agency.agency_id}
                     title={agency.name}
                     description=''
                     buttonTitle='home.readAgency'

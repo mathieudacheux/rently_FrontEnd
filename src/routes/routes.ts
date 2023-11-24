@@ -15,6 +15,7 @@ const APP_ROUTES = {
   SELL: '/sell',
   GESTION: '/gestion',
   AGENCY: '/agency',
+  AGENCY_DETAIL: '/agency-detail',
   BLOG: '/blog',
   BLOG_DETAIL: '/blog-detail',
   WHYRENTLY: '/whyrently',

@@ -15,7 +15,13 @@ import FormikCheckbox from '../../../components/molecules/core/FormikCheckbox.ts
 export default function FiltersComponent({ open }: { open: boolean }) {
   const { t } = useTranslation()
 
-  const property_type = useGetPropertyTypesQuery({}).data || []
+  const { data: propertyType } = useGetPropertyTypesQuery({})
+
+  const optionsPropertyType: { label: string; value: number }[] =
+    propertyType?.map((item: any) => ({
+      label: item.label,
+      value: item.property_type_id,
+    })) || []
 
   const [filtersOpen, setFiltersOpen] = useState<boolean>(false)
 
@@ -33,7 +39,7 @@ export default function FiltersComponent({ open }: { open: boolean }) {
         <div className='w-full md:w-[22%] my-3'>
           <FormikSelect
             name='property_type'
-            options={property_type}
+            options={optionsPropertyType}
             placeholder={t('properties.propertyType')}
             label={t('properties.propertyType')}
           />

@@ -1,3 +1,4 @@
+import React from 'react'
 import { useTranslation } from 'react-i18next'
 
 export default function Button({
@@ -8,6 +9,7 @@ export default function Button({
   className = '',
   disabled = false,
   onClick,
+  marginLeft = false,
 }: {
   text: string
   icon?: React.ReactNode
@@ -16,6 +18,7 @@ export default function Button({
   className?: string
   disabled?: boolean
   onClick?: () => void
+  marginLeft?: boolean
 }): JSX.Element {
   const { t } = useTranslation()
   return (
@@ -24,7 +27,9 @@ export default function Button({
         rounded ? 'roundedBtn' : 'btn'
       } md:btn-md lg:btn-md bg-primary hover:bg-primary text-white border-0 flex justify-between items-center ${className} ${
         fullWidth ? 'w-full' : ''
-      }`}
+      }
+      ${marginLeft ? 'ml-2' : ''}
+      `}
       onClick={onClick}
       disabled={disabled}
     >
