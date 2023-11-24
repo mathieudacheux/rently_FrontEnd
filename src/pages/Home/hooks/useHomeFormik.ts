@@ -10,8 +10,8 @@ export default function useHomeFormik() {
 
   const initialValues = {
     searchCity: '',
-    searchBudget: '',
-    searchType: '',
+    searchBudget: null,
+    searchType: null,
     status: true,
     newsletter: '',
   }
@@ -20,9 +20,8 @@ export default function useHomeFormik() {
     () =>
       yup.object({
         searchCity: yup.string(),
-        searchBudget: yup.number(),
-        searchType: yup.string(),
-        status: yup.number(),
+        searchBudget: yup.number().nullable(),
+        searchType: yup.number().nullable(),
         newsletter: yup.string().email(t('yup.email')),
       }),
     [i18n.language],

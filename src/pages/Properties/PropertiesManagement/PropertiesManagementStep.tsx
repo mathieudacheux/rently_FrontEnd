@@ -13,7 +13,12 @@ export default function PropertiesManagementStep() {
   useEffect(() => {
     dispatch(
       setSearchFilter({
-        searchFilter: { searchCity: '', searchBudget: '', searchType: '' },
+        searchFilter: {
+          searchStatus: null,
+          searchCity: '',
+          searchBudget: null,
+          searchType: null,
+        },
       }),
     )
   }, [])
@@ -22,11 +27,12 @@ export default function PropertiesManagementStep() {
 
   const { values } = useFormikContext<PropertyFormikType>()
 
+  console.log(values)
+
   useEffect(() => {
     triggerProperties({
       city: values.searchCity,
-      price: values.searchBudget,
-      type: values.searchType,
+      price: values.price,
       property_type: values.property_type,
       number_room: values.rooms_number,
       surface: values.surface,
@@ -58,7 +64,6 @@ export default function PropertiesManagementStep() {
   const handleSearch = ({
     city,
     price,
-    type,
     property_type,
     number_room,
     surface,
@@ -86,9 +91,8 @@ export default function PropertiesManagementStep() {
     work_done,
   }: {
     city: string
-    price: number
-    type: string
-    property_type: string
+    price: number | string
+    property_type: string | number
     number_room: string
     surface: string
     bedroom: string
@@ -117,7 +121,6 @@ export default function PropertiesManagementStep() {
     triggerProperties({
       city,
       price,
-      type,
       property_type,
       number_room,
       surface,

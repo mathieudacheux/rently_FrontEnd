@@ -19,6 +19,7 @@ export default function Home(): JSX.Element {
     await dispatch(
       setSearchFilter({
         searchFilter: {
+          searchStatus: homeFormik.values.status ? 6 : 17,
           searchBudget: homeFormik.values.searchBudget,
           searchCity: homeFormik.values.searchCity,
           searchType: homeFormik.values.searchType,

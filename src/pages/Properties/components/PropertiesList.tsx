@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { PropertySerializerRead } from '../../../api/index.ts'
 import PropertyCard from '../../../components/organisms/PropertyCard.tsx'
 import MapComponent from './MapComponent.tsx'
@@ -86,10 +86,10 @@ export default function PropertiesList({
         }`}
       >
         <div
-          className={`gap-4 md:pl-4 pt-3 md:max-w-[1200px] md:w-11/12 grid w-10/12 relative ${
+          className={`gap-4 md:pl-4 pt-3 md:max-w-[1200px] w-10/12 md:w-11/12 grid relative ${
             mapOpen
               ? 'flex flex-wrap md:w-full justify-center'
-              : 'grid md:grid-cols-3 grid-cols-1 justify-items-center '
+              : 'grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 justify-items-center '
           }`}
         >
           {mapOpen && (
