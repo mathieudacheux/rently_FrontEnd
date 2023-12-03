@@ -6,9 +6,9 @@ import { ReactElement } from 'react'
 
 export default function Herobanner({
   onClick,
-}: {
+}: Readonly<{
   onClick: () => void
-}): ReactElement {
+}>): ReactElement {
   const { t } = useTranslation()
 
   return (

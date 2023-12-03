@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, ReactElement } from 'react'
 import { useTranslation } from 'react-i18next'
 import FormikTextField from '../../../components/molecules/core/FormikTextField.tsx'
 import Mail from '../../../components/atoms/icons/Mail.tsx'
@@ -13,16 +13,16 @@ import { APP_ROUTES } from '../../../routes/routes.ts'
 
 export default function RegisterManagement({
   create,
-}: {
+}: Readonly<{
   create: () => Promise<boolean>
-}): JSX.Element {
+}>): ReactElement {
   const { t } = useTranslation()
   const [showPassword, setShowPassword] = useState<boolean>(false)
 
   return (
     <div className='w-full flex flex-col md:flex-row items-center md:justify-center h-[calc(100dvh-75px)]'>
       <img
-        className='w-full md:w-1/2 object-cover md:rounded-tr-[15px] hidden md:block 
+        className='w-full md:w-1/2 object-cover md:rounded-tr-[8px] hidden md:block 
         h-[75px] md:h-[calc(100dvh-75px)]
         '
         src={RegistrationImage}
@@ -107,43 +107,6 @@ export default function RegisterManagement({
           </div>
           <div className='pt-4'>
             <CardButton onClick={() => create()} text='connection.register' />
-          </div>
-          <div className='pt-4'>
-            <hr className='border-t-2 border-gray-300' />
-          </div>
-          <div className='pt-4 flex justify-center'>
-            <button
-              aria-label='Continue with google'
-              role='button'
-              className='focus:outline-none focus:ring-gray-700 py-3.5 px-4 border rounded-lg border-neutral-900 flex items-center w-full justify-center
-                shadow-[-5px_5px_15px_0px_#00000026]'
-            >
-              <img
-                src='https://tuk-cdn.s3.amazonaws.com/can-uploader/sign_in-svg2.svg'
-                alt='google'
-                className='mr-2'
-              />
-              <Typography variant='tiny-text' className='text-neutral-900'>
-                {t('connection.registerGoogle')}
-              </Typography>
-            </button>
-          </div>
-          <div className='pt-4 flex justify-center'>
-            <button
-              aria-label='Continue with Apple'
-              role='button'
-              className='focus:outline-none focus:ring-gray-700 py-3.5 px-4 border rounded-lg border-neutral-900 flex items-center w-full justify-center
-                shadow-[-5px_5px_15px_0px_#00000026]'
-            >
-              <img
-                src='https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg'
-                alt='apple'
-                className='mr-2 w-5'
-              />
-              <Typography variant='tiny-text' className='text-neutral-900'>
-                {t('connection.registerApple')}
-              </Typography>
-            </button>
           </div>
         </div>
       </div>

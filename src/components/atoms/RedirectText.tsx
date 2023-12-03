@@ -8,13 +8,13 @@ export default function RedirectText({
   variant = 'navbar',
   target = '_self',
   onClick,
-}: {
+}: Readonly<{
   text: string
   to: keyof typeof APP_ROUTES
   variant?: 'navbar' | 'footer'
   target?: '_self' | '_blank'
   onClick?: () => void
-}): JSX.Element {
+}>): JSX.Element {
   const { t } = useTranslation()
 
   if (variant === 'navbar') {

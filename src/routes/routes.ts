@@ -20,7 +20,7 @@ const APP_ROUTES = {
   BLOG_DETAIL: '/blog-detail',
   WHYRENTLY: '/whyrently',
   CONTACT: '/contact',
-  HIRING: '/hiring',
+  HIRING: 'https://fr.indeed.com/',
   HELP: '/help',
   OBJECTIF: '/objectif',
   REVIEW: 'https://trustpilot.com',
