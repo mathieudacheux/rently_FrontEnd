@@ -17,7 +17,7 @@ export default function FormikSelect({
   disabled = false,
   label,
   noShadow = false,
-}: {
+}: Readonly<{
   name: string
   options: ((values: FormikValues) => Option[]) | Option[]
   onValueChange?: (value: Option['value']) => unknown
@@ -25,7 +25,7 @@ export default function FormikSelect({
   disabled?: boolean
   label?: string
   noShadow?: boolean
-}): JSX.Element {
+}>): JSX.Element {
   const { t } = useTranslation()
   const formContext = useFormikContext()
   const [field, meta] = useField(name)
