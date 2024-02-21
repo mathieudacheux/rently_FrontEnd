@@ -16,6 +16,7 @@ import Why from '../pages/Why/Why.tsx'
 import Target from '../pages/Target/Target.tsx'
 import PropertyDetails from '../pages/PropertyDetails/PropertyDetails.tsx'
 import Agency from '../pages/Agency/Agency.tsx'
+import AgencyDetailManagement from '../pages/AgencyDetail/AgencyDetailManagement.tsx'
 
 export default function RouterElement(): JSX.Element {
   const location = useLocation()
@@ -57,6 +58,10 @@ export default function RouterElement(): JSX.Element {
         <Route path={APP_ROUTES.WHYRENTLY} element={<Why />} />
         <Route path={APP_ROUTES.OBJECTIF} element={<Target />} />
         <Route path={APP_ROUTES.AGENCY} element={<Agency />} />
+        <Route
+          path={`${APP_ROUTES.AGENCY_DETAIL}/:id`}
+          element={<AgencyDetailManagement />}
+        />
       </Routes>
       {!showFooter && <Footer />}
     </>

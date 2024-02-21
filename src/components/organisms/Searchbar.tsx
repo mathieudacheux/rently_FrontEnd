@@ -22,9 +22,10 @@ export default function Searchbar({
     })) || []
 
   const propertyListCSS = propertyList ? 'w-full' : 'w-1/3'
+
   return (
     <div className='searchbar flex justify-between items-center w-10/12 md:w-6/12 bg-white mb-3 md:mb-0'>
-      <div className='flex w-11/12 items-center'>
+      <div className='flex flex-wrap w-11/12 items-center'>
         <div
           className={`px-4 text-secondary text-center ${propertyListCSS} border-text-light border-r-2`}
         >

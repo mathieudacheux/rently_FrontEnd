@@ -69,7 +69,9 @@ export default function BlogCard({
           </Typography>
           <Button
             text={t(buttonTitle)}
-            onClick={() => navigate(navigateLink(id))}
+            onClick={() => {
+              navigate(navigateLink(id))
+            }}
           />
         </div>
       </div>
