@@ -108,43 +108,6 @@ export default function RegisterManagement({
           <div className='pt-4'>
             <CardButton onClick={() => create()} text='connection.register' />
           </div>
-          <div className='pt-4'>
-            <hr className='border-t-2 border-gray-300' />
-          </div>
-          <div className='pt-4 flex justify-center'>
-            <button
-              aria-label='Continue with google'
-              role='button'
-              className='focus:outline-none focus:ring-gray-700 py-3.5 px-4 border rounded-lg border-neutral-900 flex items-center w-full justify-center
-                shadow-[-5px_5px_15px_0px_#00000026]'
-            >
-              <img
-                src='https://tuk-cdn.s3.amazonaws.com/can-uploader/sign_in-svg2.svg'
-                alt='google'
-                className='mr-2'
-              />
-              <Typography variant='tiny-text' className='text-neutral-900'>
-                {t('connection.registerGoogle')}
-              </Typography>
-            </button>
-          </div>
-          <div className='pt-4 flex justify-center'>
-            <button
-              aria-label='Continue with Apple'
-              role='button'
-              className='focus:outline-none focus:ring-gray-700 py-3.5 px-4 border rounded-lg border-neutral-900 flex items-center w-full justify-center
-                shadow-[-5px_5px_15px_0px_#00000026]'
-            >
-              <img
-                src='https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg'
-                alt='apple'
-                className='mr-2 w-5'
-              />
-              <Typography variant='tiny-text' className='text-neutral-900'>
-                {t('connection.registerApple')}
-              </Typography>
-            </button>
-          </div>
         </div>
       </div>
     </div>

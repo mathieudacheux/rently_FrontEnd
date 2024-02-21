@@ -82,9 +82,5 @@ export default function LoginManagementStep(): JSX.Element {
     return true
   }
 
-  return (
-    <>
-      <LoginManagement login={loginUser} />
-    </>
-  )
+  return <LoginManagement login={loginUser} />
 }
