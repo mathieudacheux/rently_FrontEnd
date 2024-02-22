@@ -3,8 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 export type SectorSerializerPut = {
-    name?: string;
-    polygon?: string;
-    agency_id?: number;
-};
-
+  name?: string
+  polygon?: string
+  agency_id?: number
+}

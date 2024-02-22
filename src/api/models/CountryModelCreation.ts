@@ -3,6 +3,5 @@
 /* tslint:disable */
 /* eslint-disable */
 export type CountryModelCreation = {
-    name?: string;
-};
-
+  name?: string
+}

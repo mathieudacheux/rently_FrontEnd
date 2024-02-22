@@ -3,20 +3,19 @@
 /* tslint:disable */
 /* eslint-disable */
 export type PermissionSerializerPost = {
-    properties?: string;
-    addresses?: string;
-    agencies?: string;
-    appointments?: string;
-    articles?: string;
-    attachments?: string;
-    bookmarks?: string;
-    countries?: string;
-    fees?: string;
-    messages?: string;
-    roles?: string;
-    sectors?: string;
-    statuses?: string;
-    tags?: string;
-    users?: string;
-};
-
+  properties?: string
+  addresses?: string
+  agencies?: string
+  appointments?: string
+  articles?: string
+  attachments?: string
+  bookmarks?: string
+  countries?: string
+  fees?: string
+  messages?: string
+  roles?: string
+  sectors?: string
+  statuses?: string
+  tags?: string
+  users?: string
+}

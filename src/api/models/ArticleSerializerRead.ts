@@ -3,10 +3,9 @@
 /* tslint:disable */
 /* eslint-disable */
 export type ArticleSerializerRead = {
-    article_id?: number;
-    name?: string;
-    content?: string;
-    tag_id?: number;
-    user_id?: number;
-};
-
+  article_id?: number
+  name?: string
+  content?: string
+  tag_id?: number
+  user_id?: number
+}

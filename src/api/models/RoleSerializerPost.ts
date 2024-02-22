@@ -3,7 +3,6 @@
 /* tslint:disable */
 /* eslint-disable */
 export type RoleSerializerPost = {
-    name?: string;
-    permission_id?: number;
-};
-
+  name?: string
+  permission_id?: number
+}

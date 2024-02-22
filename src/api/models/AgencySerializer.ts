@@ -2,4 +2,4 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-export type AgencySerializer = Record<string, any>;
+export type AgencySerializer = Record<string, any>

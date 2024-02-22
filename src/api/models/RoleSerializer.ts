@@ -2,4 +2,4 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-export type RoleSerializer = Record<string, any>;
+export type RoleSerializer = Record<string, any>

@@ -2,4 +2,4 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-export type ArticleSerializer = Record<string, any>;
+export type ArticleSerializer = Record<string, any>

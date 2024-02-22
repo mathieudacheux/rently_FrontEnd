@@ -3,8 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 export type RoleSerializerRead = {
-    role_id?: number;
-    name?: string;
-    permission_id?: number;
-};
-
+  role_id?: number
+  name?: string
+  permission_id?: number
+}

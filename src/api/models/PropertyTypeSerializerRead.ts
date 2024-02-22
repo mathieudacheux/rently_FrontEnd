@@ -3,7 +3,6 @@
 /* tslint:disable */
 /* eslint-disable */
 export type PropertyTypeSerializerRead = {
-    property_type_id?: number;
-    label?: string;
-};
-
+  property_type_id?: number
+  label?: string
+}

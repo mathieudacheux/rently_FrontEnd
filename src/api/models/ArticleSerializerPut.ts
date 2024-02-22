@@ -3,9 +3,8 @@
 /* tslint:disable */
 /* eslint-disable */
 export type ArticleSerializerPut = {
-    name?: string;
-    content?: string;
-    tag_id?: number;
-    user_id?: number;
-};
-
+  name?: string
+  content?: string
+  tag_id?: number
+  user_id?: number
+}

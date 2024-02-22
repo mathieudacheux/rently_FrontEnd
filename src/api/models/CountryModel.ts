@@ -2,4 +2,4 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-export type CountryModel = Record<string, any>;
+export type CountryModel = Record<string, any>

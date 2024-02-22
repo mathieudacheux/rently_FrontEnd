@@ -3,6 +3,5 @@
 /* tslint:disable */
 /* eslint-disable */
 export type TagSerializerPost = {
-    name?: string;
-};
-
+  name?: string
+}
