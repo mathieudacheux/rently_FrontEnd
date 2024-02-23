@@ -3,9 +3,8 @@
 /* tslint:disable */
 /* eslint-disable */
 export type FeeSerializerPut = {
-    rent_fee?: string;
-    sell_fee?: string;
-    square_fee?: string;
-    gestion_fee?: string;
-};
-
+  rent_fee?: string
+  sell_fee?: string
+  square_fee?: string
+  gestion_fee?: string
+}

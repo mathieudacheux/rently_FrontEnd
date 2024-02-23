@@ -3,7 +3,6 @@
 /* tslint:disable */
 /* eslint-disable */
 export type StatusSerializerRead = {
-    status_id?: number;
-    name?: string;
-};
-
+  status_id?: number
+  name?: string
+}

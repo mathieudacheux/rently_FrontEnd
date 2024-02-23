@@ -2,80 +2,80 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-export { ApiError } from './core/ApiError';
-export { CancelablePromise, CancelError } from './core/CancelablePromise';
-export { OpenAPI } from './core/OpenAPI';
-export type { OpenAPIConfig } from './core/OpenAPI';
+export { ApiError } from './core/ApiError'
+export { CancelablePromise, CancelError } from './core/CancelablePromise'
+export { OpenAPI } from './core/OpenAPI'
+export type { OpenAPIConfig } from './core/OpenAPI'
 
-export type { AddressSerializerPost } from './models/AddressSerializerPost';
-export type { AddressSerializerPut } from './models/AddressSerializerPut';
-export type { AddressSerializerRead } from './models/AddressSerializerRead';
-export type { AgencySerializer } from './models/AgencySerializer';
-export type { AgencySerializerPost } from './models/AgencySerializerPost';
-export type { AgencySerializerRead } from './models/AgencySerializerRead';
-export type { AppointmentSerializerPost } from './models/AppointmentSerializerPost';
-export type { AppointmentSerializerPut } from './models/AppointmentSerializerPut';
-export type { AppointmentSerializerRead } from './models/AppointmentSerializerRead';
-export type { AppointmentTagSerializerRead } from './models/AppointmentTagSerializerRead';
-export type { ArticleSerializer } from './models/ArticleSerializer';
-export type { ArticleSerializerPost } from './models/ArticleSerializerPost';
-export type { ArticleSerializerPut } from './models/ArticleSerializerPut';
-export type { ArticleSerializerRead } from './models/ArticleSerializerRead';
-export type { BadRequest } from './models/BadRequest';
-export type { BookmarkSerializerPost } from './models/BookmarkSerializerPost';
-export type { BookmarkSerializerPut } from './models/BookmarkSerializerPut';
-export type { BookmarkSerializerRead } from './models/BookmarkSerializerRead';
-export type { CountryModel } from './models/CountryModel';
-export type { CountryModelCreation } from './models/CountryModelCreation';
-export type { CountryModelRead } from './models/CountryModelRead';
-export type { FeeSerializerPut } from './models/FeeSerializerPut';
-export type { FeeSerializerRead } from './models/FeeSerializerRead';
-export type { GenericError } from './models/GenericError';
-export type { MessageSerializerPost } from './models/MessageSerializerPost';
-export type { MessageSerializerPut } from './models/MessageSerializerPut';
-export type { MessageSerializerRead } from './models/MessageSerializerRead';
-export type { PermissionSerializerPost } from './models/PermissionSerializerPost';
-export type { PermissionSerializerPut } from './models/PermissionSerializerPut';
-export type { PermissionSerializerRead } from './models/PermissionSerializerRead';
-export type { PropertySerializerPost } from './models/PropertySerializerPost';
-export type { PropertySerializerPut } from './models/PropertySerializerPut';
-export type { PropertySerializerRead } from './models/PropertySerializerRead';
-export type { PropertyTypeSerializerRead } from './models/PropertyTypeSerializerRead';
-export type { RoleSerializer } from './models/RoleSerializer';
-export type { RoleSerializerPost } from './models/RoleSerializerPost';
-export type { RoleSerializerPut } from './models/RoleSerializerPut';
-export type { RoleSerializerRead } from './models/RoleSerializerRead';
-export type { SectorSerializerPost } from './models/SectorSerializerPost';
-export type { SectorSerializerPut } from './models/SectorSerializerPut';
-export type { SectorSerializerRead } from './models/SectorSerializerRead';
-export type { StatusSerializerPost } from './models/StatusSerializerPost';
-export type { StatusSerializerPut } from './models/StatusSerializerPut';
-export type { StatusSerializerRead } from './models/StatusSerializerRead';
-export type { TagSerializer } from './models/TagSerializer';
-export type { TagSerializerPost } from './models/TagSerializerPost';
-export type { TagSerializerPut } from './models/TagSerializerPut';
-export type { TagSerializerRead } from './models/TagSerializerRead';
-export type { UserSerializerPost } from './models/UserSerializerPost';
-export type { UserSerializerPut } from './models/UserSerializerPut';
-export type { UserSerializerRead } from './models/UserSerializerRead';
+export type { AddressSerializerPost } from './models/AddressSerializerPost'
+export type { AddressSerializerPut } from './models/AddressSerializerPut'
+export type { AddressSerializerRead } from './models/AddressSerializerRead'
+export type { AgencySerializer } from './models/AgencySerializer'
+export type { AgencySerializerPost } from './models/AgencySerializerPost'
+export type { AgencySerializerRead } from './models/AgencySerializerRead'
+export type { AppointmentSerializerPost } from './models/AppointmentSerializerPost'
+export type { AppointmentSerializerPut } from './models/AppointmentSerializerPut'
+export type { AppointmentSerializerRead } from './models/AppointmentSerializerRead'
+export type { AppointmentTagSerializerRead } from './models/AppointmentTagSerializerRead'
+export type { ArticleSerializer } from './models/ArticleSerializer'
+export type { ArticleSerializerPost } from './models/ArticleSerializerPost'
+export type { ArticleSerializerPut } from './models/ArticleSerializerPut'
+export type { ArticleSerializerRead } from './models/ArticleSerializerRead'
+export type { BadRequest } from './models/BadRequest'
+export type { BookmarkSerializerPost } from './models/BookmarkSerializerPost'
+export type { BookmarkSerializerPut } from './models/BookmarkSerializerPut'
+export type { BookmarkSerializerRead } from './models/BookmarkSerializerRead'
+export type { CountryModel } from './models/CountryModel'
+export type { CountryModelCreation } from './models/CountryModelCreation'
+export type { CountryModelRead } from './models/CountryModelRead'
+export type { FeeSerializerPut } from './models/FeeSerializerPut'
+export type { FeeSerializerRead } from './models/FeeSerializerRead'
+export type { GenericError } from './models/GenericError'
+export type { MessageSerializerPost } from './models/MessageSerializerPost'
+export type { MessageSerializerPut } from './models/MessageSerializerPut'
+export type { MessageSerializerRead } from './models/MessageSerializerRead'
+export type { PermissionSerializerPost } from './models/PermissionSerializerPost'
+export type { PermissionSerializerPut } from './models/PermissionSerializerPut'
+export type { PermissionSerializerRead } from './models/PermissionSerializerRead'
+export type { PropertySerializerPost } from './models/PropertySerializerPost'
+export type { PropertySerializerPut } from './models/PropertySerializerPut'
+export type { PropertySerializerRead } from './models/PropertySerializerRead'
+export type { PropertyTypeSerializerRead } from './models/PropertyTypeSerializerRead'
+export type { RoleSerializer } from './models/RoleSerializer'
+export type { RoleSerializerPost } from './models/RoleSerializerPost'
+export type { RoleSerializerPut } from './models/RoleSerializerPut'
+export type { RoleSerializerRead } from './models/RoleSerializerRead'
+export type { SectorSerializerPost } from './models/SectorSerializerPost'
+export type { SectorSerializerPut } from './models/SectorSerializerPut'
+export type { SectorSerializerRead } from './models/SectorSerializerRead'
+export type { StatusSerializerPost } from './models/StatusSerializerPost'
+export type { StatusSerializerPut } from './models/StatusSerializerPut'
+export type { StatusSerializerRead } from './models/StatusSerializerRead'
+export type { TagSerializer } from './models/TagSerializer'
+export type { TagSerializerPost } from './models/TagSerializerPost'
+export type { TagSerializerPut } from './models/TagSerializerPut'
+export type { TagSerializerRead } from './models/TagSerializerRead'
+export type { UserSerializerPost } from './models/UserSerializerPost'
+export type { UserSerializerPut } from './models/UserSerializerPut'
+export type { UserSerializerRead } from './models/UserSerializerRead'
 
-export { AddressesService } from './services/AddressesService';
-export { AgenciesService } from './services/AgenciesService';
-export { AppointmentsService } from './services/AppointmentsService';
-export { AppointmentTagsService } from './services/AppointmentTagsService';
-export { ArticlesService } from './services/ArticlesService';
-export { AttachmentService } from './services/AttachmentService';
-export { AuthentificationsService } from './services/AuthentificationsService';
-export { BookmarksService } from './services/BookmarksService';
-export { CountriesService } from './services/CountriesService';
-export { FeesService } from './services/FeesService';
-export { MailsService } from './services/MailsService';
-export { MessagesService } from './services/MessagesService';
-export { PermissionsService } from './services/PermissionsService';
-export { PropertiesService } from './services/PropertiesService';
-export { PropertyTypesService } from './services/PropertyTypesService';
-export { RolesService } from './services/RolesService';
-export { SectorsService } from './services/SectorsService';
-export { StatusesService } from './services/StatusesService';
-export { TagsService } from './services/TagsService';
-export { UsersService } from './services/UsersService';
+export { AddressesService } from './services/AddressesService'
+export { AgenciesService } from './services/AgenciesService'
+export { AppointmentsService } from './services/AppointmentsService'
+export { AppointmentTagsService } from './services/AppointmentTagsService'
+export { ArticlesService } from './services/ArticlesService'
+export { AttachmentService } from './services/AttachmentService'
+export { AuthentificationsService } from './services/AuthentificationsService'
+export { BookmarksService } from './services/BookmarksService'
+export { CountriesService } from './services/CountriesService'
+export { FeesService } from './services/FeesService'
+export { MailsService } from './services/MailsService'
+export { MessagesService } from './services/MessagesService'
+export { PermissionsService } from './services/PermissionsService'
+export { PropertiesService } from './services/PropertiesService'
+export { PropertyTypesService } from './services/PropertyTypesService'
+export { RolesService } from './services/RolesService'
+export { SectorsService } from './services/SectorsService'
+export { StatusesService } from './services/StatusesService'
+export { TagsService } from './services/TagsService'
+export { UsersService } from './services/UsersService'

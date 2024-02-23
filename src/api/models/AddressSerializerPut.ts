@@ -3,11 +3,10 @@
 /* tslint:disable */
 /* eslint-disable */
 export type AddressSerializerPut = {
-    address?: string;
-    city?: string;
-    zipcode?: string;
-    additionnal_info?: string;
-    longitude?: string;
-    latitude?: string;
-};
-
+  address?: string
+  city?: string
+  zipcode?: string
+  additionnal_info?: string
+  longitude?: string
+  latitude?: string
+}

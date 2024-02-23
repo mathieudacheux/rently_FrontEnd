@@ -3,6 +3,5 @@
 /* tslint:disable */
 /* eslint-disable */
 export type StatusSerializerPost = {
-    name?: string;
-};
-
+  name?: string
+}

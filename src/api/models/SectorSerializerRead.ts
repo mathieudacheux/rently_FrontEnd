@@ -3,9 +3,8 @@
 /* tslint:disable */
 /* eslint-disable */
 export type SectorSerializerRead = {
-    sector_id?: number;
-    name?: string;
-    polygon?: string;
-    agency_id?: number;
-};
-
+  sector_id?: number
+  name?: string
+  polygon?: string
+  agency_id?: number
+}

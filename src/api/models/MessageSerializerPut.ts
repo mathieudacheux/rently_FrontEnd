@@ -3,6 +3,5 @@
 /* tslint:disable */
 /* eslint-disable */
 export type MessageSerializerPut = {
-    content?: string;
-};
-
+  content?: string
+}

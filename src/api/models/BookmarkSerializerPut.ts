@@ -3,7 +3,6 @@
 /* tslint:disable */
 /* eslint-disable */
 export type BookmarkSerializerPut = {
-    user_id?: number;
-    property_id?: number;
-};
-
+  user_id?: number
+  property_id?: number
+}

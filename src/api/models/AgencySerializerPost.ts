@@ -3,8 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 export type AgencySerializerPost = {
-    name?: string;
-    fee_id?: number;
-    address_id?: number;
-};
-
+  name?: string
+  fee_id?: number
+  address_id?: number
+}

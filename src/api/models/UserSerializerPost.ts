@@ -3,10 +3,9 @@
 /* tslint:disable */
 /* eslint-disable */
 export type UserSerializerPost = {
-    mail?: string;
-    password?: string;
-    newsletter?: boolean;
-    country_id?: number;
-    role_id?: number;
-};
-
+  mail?: string
+  password?: string
+  newsletter?: boolean
+  country_id?: number
+  role_id?: number
+}
