@@ -22,6 +22,7 @@
     "gestion": "Rental management",
     "properties": "Our properties",
     "agency": "Agencies",
+    "agencyDetail": "Agency",
     "blog": "Blog",
     "not_found": "Page not found (404)",
     "server_error": "Server error (500)",

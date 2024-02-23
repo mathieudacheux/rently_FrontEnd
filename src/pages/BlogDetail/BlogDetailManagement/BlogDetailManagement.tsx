@@ -3,9 +3,9 @@ import { ArticleSerializerRead } from '../../../api/index.ts'
 
 export default function BlogDetailManagement({
   articleData,
-}: {
+}: Readonly<{
   articleData: ArticleSerializerRead
-}): JSX.Element {
+}>): JSX.Element {
   const renderContent = (content: string) => {
     const description = content.replace(/\\/g, '')
 
@@ -51,7 +51,7 @@ export default function BlogDetailManagement({
   return (
     <div className='flex flex-col w-full items-center p-0 md:p-4'>
       <div className='w-11/12 md:w-[750px] flex flex-col justify-center'>
-        {renderContent(articleData?.content || '')}
+        {renderContent(articleData?.content ?? '')}
       </div>
     </div>
   )

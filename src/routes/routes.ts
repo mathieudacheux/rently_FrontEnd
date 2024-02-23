@@ -85,6 +85,10 @@ const APP_TITLES = [
     title: 'title.agency',
   },
   {
+    path: APP_ROUTES.AGENCY_DETAIL,
+    title: 'title.agencyDetails',
+  },
+  {
     path: APP_ROUTES.NOT_FOUND,
     title: 'title.not_found',
   },
