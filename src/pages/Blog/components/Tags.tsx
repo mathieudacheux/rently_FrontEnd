@@ -15,7 +15,7 @@ export default function Tags({
       {tagsData?.map((tag, index: number) => (
         <div
           className={`w-[115px] bg-neutral-100 rounded-[10px] p-2 mr-4 mb-4 md:mb-0
-          hover:bg-primary cursor-pointer transition-all duration-300
+          hover:bg-primary cursor-pointer transition-all duration-300 flex items-center justify-center
           hover:text-neutral-100 text-center
           ${
             activeTag === tag.tag_id
