@@ -3,6 +3,7 @@ import { FormikValues, useField, useFormikContext } from 'formik'
 import { useTranslation } from 'react-i18next'
 import { useState } from 'react'
 import Arrow from '../../atoms/icons/Arrow.tsx'
+import Close from '../../atoms/icons/Close.tsx'
 
 export type Option = {
   label: string
@@ -38,6 +39,10 @@ export default function FormikSelect({
 
   const toggleOptions = () => {
     setShowOptions(!showOptions)
+  }
+
+  const handleClearValue = () => {
+    formContext.setFieldValue(name, '')
   }
 
   const getOptions = () => {
@@ -101,7 +106,11 @@ export default function FormikSelect({
           <div
             className={`w-fit input-icon absolute right-5 top-1/2 -translate-y-1/2`}
           >
-            <Arrow rotate={showOptions} />
+            {field.value ? (
+              <Close handleClearValue={handleClearValue} />
+            ) : (
+              <Arrow rotate={showOptions} />
+            )}
           </div>
         </div>
       </div>

@@ -12,6 +12,8 @@ import {
 import L from 'leaflet'
 import { MapContainer, TileLayer, Marker } from 'react-leaflet'
 import Icon from '../../assets/icons/MapIcon.svg'
+import Phone from '../../components/atoms/icons/Phone.tsx'
+import Contact from '../../components/atoms/icons/Contact.tsx'
 
 export default function AgencyDetailManagement() {
   const { t } = useTranslation()
@@ -20,13 +22,23 @@ export default function AgencyDetailManagement() {
   const agencyDetail = useGetAgencyByIdQuery(id)?.data as AgencySerializerRead
   const userDetail = useGetUserByFilterQuery({ agency_id: id })
     ?.data as UserSerializerRead[]
+
   const roles = useGetRolesQuery({}).data?.find(
     (role: RoleSerializerRead) => role.name === 'AGENT',
   )?.role_id
-  const agent = userDetail?.filter(
+
+  const agents = userDetail?.filter(
     (user: UserSerializerRead) =>
-      user.role_id === roles && user?.agency_id === id,
+      user.role_id === roles && user?.agency_id === Number(id),
   )
+
+  const handleCall = (agent: UserSerializerRead) => {
+    window.open(`tel:${agent?.phone || ''}`, '_blank')
+  }
+
+  const handleMail = (agent: UserSerializerRead) => {
+    window.open(`mailto:${agent?.mail || ''}`, '_blank')
+  }
 
   if (!id) {
     return (
@@ -65,7 +77,7 @@ export default function AgencyDetailManagement() {
       </div>
       <div className='w-11/12 mt-5 md:mt-12 flex flex-col-reverse md:flex-row'>
         <div className='w-full md:w-8/12 flex flex-col md:flex-row md:justify-evenly md:flex-wrap justify-start gap-5 md:gap-10 mt-5 md:mt-0 p-0 md:p-4'>
-          {agent?.map((agent) => {
+          {agents?.map((agent) => {
             if (!agent?.firstname) return null
             return (
               <div
@@ -74,19 +86,30 @@ export default function AgencyDetailManagement() {
               >
                 <img
                   className='w-20 md:w-40 md:h-40 rounded-full'
-                  src={`https://back-rently.mathieudacheux.fr/public/img/agent/${agent?.user_id}/avatar.png`}
+                  src={
+                    `https://back-rently.mathieudacheux.fr/public/img/agent/${agent?.user_id}/avatar.png` ??
+                    ''
+                  }
                   alt='avatar'
                 />
-                <Typography variant='text-light'>{`${agent?.firstname} ${agent.name}`}</Typography>
                 <div className='flex flex-col items-center'>
-                  {agent?.mail && (
-                    <Typography variant='text-light'>{agent?.mail}</Typography>
-                  )}
-                  {agent?.phone && (
-                    <Typography variant='text-light'>
-                      {agent?.phone ?? ''}
-                    </Typography>
-                  )}
+                  <Typography variant='text-light'>{`${agent?.firstname} ${agent.name}`}</Typography>
+                  <div className='w-full flex justify-between'>
+                    <div
+                      className='btn-cta btn-call mr-2'
+                      onClick={() => handleCall(agent)}
+                    >
+                      <Phone />
+                      {t('propertyDetails.call')}
+                    </div>
+                    <div
+                      className='btn-cta btn-contact'
+                      onClick={() => handleMail(agent)}
+                    >
+                      <Contact />
+                      {t('propertyDetails.contact')}
+                    </div>
+                  </div>
                 </div>
               </div>
             )

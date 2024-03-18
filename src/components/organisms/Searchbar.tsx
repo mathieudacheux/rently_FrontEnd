@@ -21,7 +21,7 @@ export default function Searchbar({
       value: item.property_type_id,
     })) || []
 
-  const propertyListCSS = propertyList ? 'w-full' : 'w-1/3'
+  const propertyListCSS = propertyList ? 'md:w-full' : 'md:w-1/3'
 
   return (
     <div className='searchbar flex justify-between items-center w-11/12 md:w-8/12 bg-white mb-3 md:mb-0'>
@@ -57,7 +57,10 @@ export default function Searchbar({
           </>
         )}
       </div>
-      <div className='pl-4 w-3/12 md:w-1/12 flex justify-center' onClick={onClick}>
+      <div
+        className='pl-4 w-3/12 md:w-1/12 flex justify-center'
+        onClick={onClick}
+      >
         <Search />
       </div>
     </div>
