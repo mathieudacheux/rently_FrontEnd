@@ -35,11 +35,14 @@ export default function LoginManagement({
             {t('connection.login')}
           </Typography>
           <div className='flex flex-start pt-4'>
-            <Typography variant='tiny-text' className='text-neutral-900'>
+            <Typography
+              variant='tiny-text'
+              className='text-neutral-900 text-sm'
+            >
               {t('connection.ctaRegister')}
             </Typography>
             <Link to={APP_ROUTES.REGISTER} className='ml-1'>
-              <Typography variant='cta' className='font-semibold'>
+              <Typography variant='cta' className='font-semibold flex'>
                 {t('connection.ctaRegisterClick')}
               </Typography>
             </Link>

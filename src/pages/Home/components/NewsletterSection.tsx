@@ -49,7 +49,7 @@ export default function NewsletterSection(): JSX.Element {
             saveClick={handleSubmit}
           />
         </div>
-        <Typography variant='tiny-text' className='w-full mt-2'>
+        <Typography variant='xs' className='w-full mt-2'>
           {t('connection.policyNewsletter')}
         </Typography>
       </div>
