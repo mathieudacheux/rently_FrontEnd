@@ -53,19 +53,15 @@ export default function Footer(): JSX.Element {
           to='HIRING'
           text='footer.sectionTwo.second'
           variant='footer'
+          target='_blank'
         />
         <RedirectText
-          to='HELP'
-          text='footer.sectionTwo.third'
-          variant='footer'
-        />
-        <RedirectText
-          to='OBJECTIF'
+          to='TERMS'
           text='footer.sectionTwo.fourth'
           variant='footer'
         />
         <RedirectText
-          to='REVIEW'
+          to='PRIVACY'
           text='footer.sectionTwo.fifth'
           variant='footer'
         />

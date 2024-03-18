@@ -20,9 +20,7 @@ const APP_ROUTES = {
   BLOG_DETAIL: '/blog-detail',
   WHYRENTLY: '/whyrently',
   CONTACT: '/contact',
-  HIRING: '/hiring',
-  HELP: '/help',
-  OBJECTIF: '/objectif',
+  HIRING: 'https://fr.indeed.com/?r=us',
   REVIEW: 'https://trustpilot.com',
   FACEBOOK: 'https://www.facebook.com/',
   INSTAGRAM: 'https://www.instagram.com/',
@@ -37,6 +35,10 @@ const APP_ROUTES = {
   // Properties
   PROPERTIES: '/properties',
   PROPERTIES_DETAILS: '/property_details',
+
+  // Policies
+  PRIVACY: '/privacy',
+  TERMS: '/terms',
 }
 
 const APP_TITLES = [
