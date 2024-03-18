@@ -12,8 +12,6 @@ import MyAccount from '../pages/MyAccount/MyAccount.tsx'
 import Blog from '../pages/Blog/Blog.tsx'
 import BlogDetail from '../pages/BlogDetail/BlogDetail.tsx'
 import Footer from '../components/organisms/Footer.tsx'
-import Why from '../pages/Why/Why.tsx'
-import Target from '../pages/Target/Target.tsx'
 import PropertyDetails from '../pages/PropertyDetails/PropertyDetails.tsx'
 import Agency from '../pages/Agency/Agency.tsx'
 import AgencyDetailManagement from '../pages/AgencyDetail/AgencyDetailManagement.tsx'
@@ -55,8 +53,6 @@ export default function RouterElement(): JSX.Element {
           path={`${APP_ROUTES.BLOG_DETAIL}/:id`}
           element={<BlogDetail />}
         />
-        <Route path={APP_ROUTES.WHYRENTLY} element={<Why />} />
-        <Route path={APP_ROUTES.OBJECTIF} element={<Target />} />
         <Route path={APP_ROUTES.AGENCY} element={<Agency />} />
         <Route
           path={`${APP_ROUTES.AGENCY_DETAIL}/:id`}
