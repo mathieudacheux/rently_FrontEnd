@@ -28,7 +28,9 @@
     "server_error": "Server error (500)",
     "access_denied": "Access denied",
     "unauthorized": "Unauthorized",
-    "accountValidation": "Account validation"
+    "accountValidation": "Account validation",
+    "terms": "Terms of use",
+    "privacy": "Privacy policy"
   },
   "navbar": {
     "properties": "Our properties",

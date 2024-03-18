@@ -28,7 +28,9 @@
     "server_error": "Erreur serveur (500)",
     "access_denied": "Accès refusé",
     "unauthorized": "Non autorisé",
-    "accountValidation": "Validation du compte"
+    "accountValidation": "Validation du compte",
+    "terms": "Mentions légales",
+    "privacy": "Politique de confidentialité"
   },
   "navbar": {
     "properties": "Nos biens",

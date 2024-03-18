@@ -114,6 +114,14 @@ const APP_TITLES = [
     path: APP_ROUTES.BLOG,
     title: 'title.blog',
   },
+  {
+    path: APP_ROUTES.TERMS,
+    title: 'title.terms',
+  },
+  {
+    path: APP_ROUTES.PRIVACY,
+    title: 'title.privacy',
+  },
 ]
 
 export { APP_ROUTES, APP_TITLES }

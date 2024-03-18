@@ -15,6 +15,7 @@ import Footer from '../components/organisms/Footer.tsx'
 import PropertyDetails from '../pages/PropertyDetails/PropertyDetails.tsx'
 import Agency from '../pages/Agency/Agency.tsx'
 import AgencyDetailManagement from '../pages/AgencyDetail/AgencyDetailManagement.tsx'
+import Terms from '../pages/Terms/Terms.tsx'
 
 export default function RouterElement(): JSX.Element {
   const location = useLocation()
@@ -58,6 +59,7 @@ export default function RouterElement(): JSX.Element {
           path={`${APP_ROUTES.AGENCY_DETAIL}/:id`}
           element={<AgencyDetailManagement />}
         />
+        <Route path={APP_ROUTES.TERMS} element={<Terms />} />
       </Routes>
       {!showFooter && <Footer />}
     </>
