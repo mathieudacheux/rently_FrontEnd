@@ -203,7 +203,14 @@ export default function PropertyCard({
         </div>
         {mapOpened ? (
           <div className='card-actions'>
-            <CardButton text={t('properties.cardButton')} />
+            <CardButton
+              text={t('properties.cardButton')}
+              onClick={() => {
+                navigate(
+                  `${APP_ROUTES.PROPERTIES_DETAILS}/${property.name}/${property.property_id}`,
+                )
+              }}
+            />
           </div>
         ) : (
           ''
