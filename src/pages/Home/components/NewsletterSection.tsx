@@ -27,20 +27,20 @@ export default function NewsletterSection(): JSX.Element {
   }
 
   return (
-    <>
-      <div
-        className='w-full h-[175px] md:h-[130px] flex flex-col md:flex-row items-center
+    <div
+      className='w-full h-[175px] md:h-[130px] flex flex-col md:flex-row items-center
       justify-around bg-primary mt-[30px]'
-      >
-        <div className='w-11/12 md:w-6/12'>
-          <Typography
-            variant='h3'
-            className='text-white font-bold text-center md:text-left'
-          >
-            {t('newsletter')}
-          </Typography>
-        </div>
-        <div className='w-10/12 md:w-5/12'>
+    >
+      <div className='w-11/12 md:w-6/12'>
+        <Typography
+          variant='h3'
+          className='text-white font-bold text-center md:text-left'
+        >
+          {t('newsletter')}
+        </Typography>
+      </div>
+      <div className='w-10/12 md:w-5/12 flex flex-col items-center justify-center'>
+        <div className='w-full'>
           <FormikTextField
             name='newsletter'
             icon={<Mail />}
@@ -49,7 +49,10 @@ export default function NewsletterSection(): JSX.Element {
             saveClick={handleSubmit}
           />
         </div>
+        <Typography variant='tiny-text' className='w-full mt-2'>
+          {t('connection.policyNewsletter')}
+        </Typography>
       </div>
-    </>
+    </div>
   )
 }

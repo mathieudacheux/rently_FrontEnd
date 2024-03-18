@@ -15,7 +15,7 @@ export default function FormikTextField({
   disableShadows = false,
   handleKeyDown,
   saveClick,
-}: {
+}: Readonly<{
   name: string
   placeholder?: string
   label?: string
@@ -28,7 +28,7 @@ export default function FormikTextField({
   disableShadows?: boolean
   handleKeyDown?: () => void
   saveClick?: () => void
-}): JSX.Element {
+}>): JSX.Element {
   const { t } = useTranslation()
   const formik = useFormikContext()
   const [field, meta] = useField(name)
@@ -53,54 +53,52 @@ export default function FormikTextField({
   }
 
   return (
-    <>
-      <div className=' w-full dark:bg-red'>
-        {label && <label className='text-neutral-900'>{label}</label>}
-        <div className={`relative`}>
-          <input
-            {...field}
-            name={field.name}
-            value={field.value || ''}
-            onChange={handleChange}
-            onBlur={(event) => {
-              formik.handleBlur(event)
-            }}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' && handleKeyDown) {
-                handleKeyDown()
-              }
-            }}
-            type={password ? 'password' : 'text'}
-            placeholder={placeholder ? t(placeholder) : ''}
-            className={`
+    <div className=' w-full dark:bg-red'>
+      {label && <label className='text-neutral-900'>{label}</label>}
+      <div className={`relative`}>
+        <input
+          {...field}
+          name={field.name}
+          value={field.value || ''}
+          onChange={handleChange}
+          onBlur={(event) => {
+            formik.handleBlur(event)
+          }}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' && handleKeyDown) {
+              handleKeyDown()
+            }
+          }}
+          type={password ? 'password' : 'text'}
+          placeholder={placeholder ? t(placeholder) : ''}
+          className={`
           ${
             disableShadows ? 'input-no-shadow' : 'input'
           } bg-white input-bordered w-full  text-neutral-900 placeholder-neutral-300 shadow 
           ${textCenter ? 'text-center' : ''}`}
-          />
-          {icon && (
-            <div
-              onClick={() => {
-                showPassword && showPassword()
-                saveClick && saveClick()
-              }}
-              className={`w-fit input-icon absolute right-5 top-1/2 -translate-y-1/2 ${
-                showPassword
-                  ? 'tooltip tooltip-primary tooltip-left md:tooltip-top'
-                  : ''
-              } ${showPassword ? 'cursor-pointer' : ''}`}
-              data-tip={showPassword ? t('connection.showPassword') : ''}
-            >
-              {icon}
-            </div>
-          )}
-          {meta.touched && meta.error ? (
-            <div className='text-xs text-error mt-0.5 absolute transition-all'>
-              {t(meta.error)}
-            </div>
-          ) : null}
-        </div>
+        />
+        {icon && (
+          <div
+            onClick={() => {
+              showPassword && showPassword()
+              saveClick && saveClick()
+            }}
+            className={`w-fit input-icon absolute right-5 top-1/2 -translate-y-1/2 cursor-pointer ${
+              showPassword
+                ? 'tooltip tooltip-primary tooltip-left md:tooltip-top'
+                : ''
+            } ${showPassword ? 'cursor-pointer' : ''}`}
+            data-tip={showPassword ? t('connection.showPassword') : ''}
+          >
+            {icon}
+          </div>
+        )}
+        {meta.touched && meta.error ? (
+          <div className='text-xs text-error mt-0.5 absolute transition-all'>
+            {t(meta.error)}
+          </div>
+        ) : null}
       </div>
-    </>
+    </div>
   )
 }

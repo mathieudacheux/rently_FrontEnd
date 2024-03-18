@@ -36,11 +36,6 @@
     "@typescript-eslint/ban-ts-comment": "error",
     "@typescript-eslint/no-use-before-define": "warn",
     "import/no-named-as-default-member": "off",
-    "import/no-unresolved": [
-      "error",
-      {
-      "ignore": ["^sonner/.+"]
-      }
-    ]
+    "import/no-unresolved": "off"
   }
 }

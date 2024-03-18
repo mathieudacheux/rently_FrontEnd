@@ -73,7 +73,7 @@ export default function Typography({
       break
     case 'tiny-text':
       element = (
-        <p className={`tiny-text font-normal ${className}`}>
+        <p className={`text-xs font-normal text-gray-300 ${className}`}>
           {children}
           {price ? '€' : ''}
           {surface ? 'm²' : ''}
