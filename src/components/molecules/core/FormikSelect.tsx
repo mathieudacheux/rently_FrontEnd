@@ -42,7 +42,10 @@ export default function FormikSelect({
   }
 
   const handleClearValue = () => {
-    formContext.setFieldValue(name, '')
+    formContext.setFieldValue(
+      name,
+      (formContext.initialValues as FormikValues)[name],
+    )
   }
 
   const getOptions = () => {
