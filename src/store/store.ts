@@ -24,6 +24,7 @@ import attachmentApi from '../features/attachment/attachmentApi.ts'
 import tagApi from '../features/tag/tagApi.ts'
 import propertyTypeApi from '../features/propertyType/propertyTypeApi.ts'
 import appointmentApi from '../features/appointment/appointmentApi.ts'
+import statusApi from '../features/status/statusApi.ts'
 
 export const store = configureStore({
   reducer: {
@@ -50,6 +51,7 @@ export const store = configureStore({
     [tagApi.reducerPath]: tagApi.reducer,
     [propertyTypeApi.reducerPath]: propertyTypeApi.reducer,
     [appointmentApi.reducerPath]: appointmentApi.reducer,
+    [statusApi.reducerPath]: statusApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
@@ -69,7 +71,8 @@ export const store = configureStore({
       .concat([attachmentApi.middleware])
       .concat([tagApi.middleware])
       .concat([propertyTypeApi.middleware])
-      .concat([appointmentApi.middleware]),
+      .concat([appointmentApi.middleware])
+      .concat([statusApi.middleware]),
   devTools: true,
 })
 

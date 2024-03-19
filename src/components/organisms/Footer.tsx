@@ -34,21 +34,11 @@ export default function Footer(): JSX.Element {
           text='footer.sectionOne.fourth'
           variant='footer'
         />
-        <RedirectText
-          to='WHYRENTLY'
-          text='footer.sectionOne.fifth'
-          variant='footer'
-        />
       </div>
       <div>
         <span className='footer-title text-primary opacity-100'>
           {t('footer.sectionTwo.title')}
         </span>
-        <RedirectText
-          to='CONTACT'
-          text='footer.sectionTwo.first'
-          variant='footer'
-        />
         <RedirectText
           to='HIRING'
           text='footer.sectionTwo.second'

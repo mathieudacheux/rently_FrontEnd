@@ -116,6 +116,11 @@ export default function PropertyCard({
               ? `https://back-rently.mathieudacheux.fr/public/img/property/${property?.property_id}/${images[0]}`
               : ''
           }
+          onError={({ currentTarget }) => {
+            currentTarget.onerror = null
+            currentTarget.src =
+              'https://back-rently.mathieudacheux.fr/public/img/property/placeholder.png'
+          }}
           alt='Album'
           className='h-full w-full object-cover hover:cursor-pointer'
           onClick={() =>

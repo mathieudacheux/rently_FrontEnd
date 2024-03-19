@@ -9,17 +9,24 @@ import PropertiesSection from './components/PropertiesSection.tsx'
 import NewsletterSection from './components/NewsletterSection.tsx'
 import BlogSection from './components/BlogSection.tsx'
 import AgencySection from './components/AgencySection.tsx'
+import { useGetStatusQuery } from '../../features/status/statusApi.ts'
+import { StatusSerializerRead } from '../../api/index.ts'
 
 export default function Home(): JSX.Element {
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
   const { homeFormik } = useHomeFormik()
 
+  const status = useGetStatusQuery({})?.data as StatusSerializerRead[]
+
+  const rent = status?.find((s) => s.name === 'À louer')?.status_id ?? null
+  const buy = status?.find((s) => s.name === 'À vendre')?.status_id ?? null
+
   const navigateToProperties = async () => {
     await dispatch(
       setSearchFilter({
         searchFilter: {
-          searchStatus: homeFormik.values.status ? 6 : 17,
+          searchStatus: homeFormik.values.status ? rent : buy,
           searchBudget: homeFormik.values.searchBudget,
           searchCity: homeFormik.values.searchCity,
           searchType: homeFormik.values.searchType,

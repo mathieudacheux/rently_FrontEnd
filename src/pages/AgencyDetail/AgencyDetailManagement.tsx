@@ -90,6 +90,11 @@ export default function AgencyDetailManagement() {
                     `https://back-rently.mathieudacheux.fr/public/img/agent/${agent?.user_id}/avatar.png` ??
                     ''
                   }
+                  onError={({ currentTarget }) => {
+                    currentTarget.onerror = null
+                    currentTarget.src =
+                      'https://back-rently.mathieudacheux.fr/public/img/agent/none/avatar.png'
+                  }}
                   alt='avatar'
                 />
                 <div className='flex flex-col items-center'>
