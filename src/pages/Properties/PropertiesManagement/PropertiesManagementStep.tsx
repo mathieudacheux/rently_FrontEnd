@@ -9,6 +9,11 @@ import { setSearchFilter } from '../../../features/property/propertySlice.ts'
 
 export default function PropertiesManagementStep() {
   const dispatch = useAppDispatch()
+  const { values } = useFormikContext<PropertyFormikType>()
+
+  const [triggerProperties, propertiesQuery] = useLazyGetPropertyByFilterQuery()
+
+  const [properties, setProperties] = useState<PropertySerializerRead[]>([])
 
   useEffect(() => {
     dispatch(
@@ -22,12 +27,6 @@ export default function PropertiesManagementStep() {
       }),
     )
   }, [])
-
-  const [triggerProperties, propertiesQuery] = useLazyGetPropertyByFilterQuery()
-
-  const { values } = useFormikContext<PropertyFormikType>()
-
-  console.log(values)
 
   useEffect(() => {
     triggerProperties({
@@ -148,8 +147,6 @@ export default function PropertiesManagementStep() {
       work_done,
     })
   }
-
-  const [properties, setProperties] = useState<PropertySerializerRead[]>([])
 
   useEffect(() => {
     if (propertiesQuery.data?.length) {

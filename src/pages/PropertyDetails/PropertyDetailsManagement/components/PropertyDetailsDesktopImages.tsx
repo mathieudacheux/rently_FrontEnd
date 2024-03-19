@@ -21,6 +21,11 @@ export default function PropertyDetailsDesktopImages({
             onClick={() => {
               openModal(0)
             }}
+            onError={({ currentTarget }) => {
+              currentTarget.onerror = null
+              currentTarget.src =
+                'https://back-rently.mathieudacheux.fr/public/img/property/placeholder.png'
+            }}
           />
         </div>
         <div className='w-1/2 h-full'>
@@ -34,6 +39,11 @@ export default function PropertyDetailsDesktopImages({
                 onClick={() => {
                   openModal(1)
                 }}
+                onError={({ currentTarget }) => {
+                  currentTarget.onerror = null
+                  currentTarget.src =
+                    'https://back-rently.mathieudacheux.fr/public/img/property/placeholder.png'
+                }}
               />
             </div>
             <div className='p-1 rounded-md'>
@@ -44,6 +54,11 @@ export default function PropertyDetailsDesktopImages({
                 className='property-image h-full w-full rounded-md'
                 onClick={() => {
                   openModal(2)
+                }}
+                onError={({ currentTarget }) => {
+                  currentTarget.onerror = null
+                  currentTarget.src =
+                    'https://back-rently.mathieudacheux.fr/public/img/property/placeholder.png'
                 }}
               />
             </div>
@@ -56,6 +71,11 @@ export default function PropertyDetailsDesktopImages({
               className='property-image h-full w-full rounded-md'
               onClick={() => {
                 openModal(3)
+              }}
+              onError={({ currentTarget }) => {
+                currentTarget.onerror = null
+                currentTarget.src =
+                  'https://back-rently.mathieudacheux.fr/public/img/property/placeholder.png'
               }}
             />
           </div>

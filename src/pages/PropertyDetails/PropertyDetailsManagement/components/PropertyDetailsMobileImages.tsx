@@ -24,6 +24,11 @@ export default function PropertyDetailsMobileImages({
               onClick={() => {
                 openModal(index)
               }}
+              onError={({ currentTarget }) => {
+                currentTarget.onerror = null
+                currentTarget.src =
+                  'https://back-rently.mathieudacheux.fr/public/img/property/placeholder.png'
+              }}
             />
           </div>
         ))}
