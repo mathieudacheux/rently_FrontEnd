@@ -140,6 +140,7 @@ export default {
             padding: '15px 23px',
             'box-shadow': '-5px 5px 15px 0px rgba(0, 0, 0, 0.15)',
             height: '52.5px',
+            background: 'white',
           },
 
           '.input-no-shadow': {
@@ -163,6 +164,7 @@ export default {
             height: '52.5px',
             'font-weight': '400',
             'font-size': '1rem',
+            background: 'transparent',
           },
 
           '.select:focus': {

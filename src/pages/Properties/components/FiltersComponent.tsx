@@ -11,6 +11,7 @@ import {
   yearList,
 } from '../constants/constants.ts'
 import FormikCheckbox from '../../../components/molecules/core/FormikCheckbox.tsx'
+import FormikSwitchButton from '../../../components/molecules/core/FormikSwitchButton.tsx'
 
 export default function FiltersComponent({ open }: { open: boolean }) {
   const { t } = useTranslation()
@@ -36,6 +37,14 @@ export default function FiltersComponent({ open }: { open: boolean }) {
       }`}
     >
       <div className='filterContainer flex justify-between w-9/12 flex-wrap'>
+        <div className='w-full flex justify-center'>
+          <FormikSwitchButton
+            textOne={t('title.buy')}
+            textTwo={t('title.rent')}
+            name='status'
+            className='mb-4'
+          />
+        </div>
         <div className='w-full md:w-[22%] my-3'>
           <FormikSelect
             name='property_type'
@@ -68,7 +77,7 @@ export default function FiltersComponent({ open }: { open: boolean }) {
         </div>
         <div className='w-full md:w-[22%] my-3'>
           <FormikSelect
-            name='bedrooms'
+            name='bedroom'
             options={numberList}
             placeholder={t('properties.bedroomNumber')}
             label={t('properties.bedroomNumber')}
@@ -76,7 +85,7 @@ export default function FiltersComponent({ open }: { open: boolean }) {
         </div>
         <div className='w-full md:w-[22%] my-3'>
           <FormikSelect
-            name='bathrooms'
+            name='bathroom'
             options={numberList}
             placeholder={t('properties.bathroomNumber')}
             label={t('properties.bathroomNumber')}
@@ -84,7 +93,7 @@ export default function FiltersComponent({ open }: { open: boolean }) {
         </div>
         <div className='w-full md:w-[22%] my-3'>
           <FormikSelect
-            name='toilets'
+            name='toilet'
             options={numberList}
             placeholder={t('properties.toiletNumber')}
             label={t('properties.toiletNumber')}

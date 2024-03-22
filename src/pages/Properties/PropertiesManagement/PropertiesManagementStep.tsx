@@ -1,11 +1,15 @@
 import { useEffect, useState } from 'react'
 import { useFormikContext } from 'formik'
 import { useLazyGetPropertyByFilterQuery } from '../../../features/property/propertyApi.ts'
-import { PropertySerializerRead } from '../../../api/index.ts'
+import {
+  PropertySerializerRead,
+  StatusSerializerRead,
+} from '../../../api/index.ts'
 import PropertiesManagement from './PropertiesManagement.tsx'
 import { PropertyFormikType } from '../type.ts'
 import { useAppDispatch } from '../../../store/store.ts'
 import { setSearchFilter } from '../../../features/property/propertySlice.ts'
+import { useGetStatusQuery } from '../../../features/status/statusApi.ts'
 
 export default function PropertiesManagementStep() {
   const dispatch = useAppDispatch()
@@ -13,13 +17,18 @@ export default function PropertiesManagementStep() {
 
   const [triggerProperties, propertiesQuery] = useLazyGetPropertyByFilterQuery()
 
+  const status = useGetStatusQuery({})?.data as StatusSerializerRead[]
+
+  const rent = status?.find((s) => s.name === 'À louer')?.status_id ?? null
+  const buy = status?.find((s) => s.name === 'À vendre')?.status_id ?? null
+
   const [properties, setProperties] = useState<PropertySerializerRead[]>([])
 
   useEffect(() => {
     dispatch(
       setSearchFilter({
         searchFilter: {
-          searchStatus: null,
+          searchStatus: false,
           searchCity: '',
           searchBudget: null,
           searchType: null,
@@ -29,6 +38,7 @@ export default function PropertiesManagementStep() {
   }, [])
 
   useEffect(() => {
+    if (!rent || !buy) return
     triggerProperties({
       city: values.searchCity,
       price: values.price,
@@ -57,8 +67,10 @@ export default function PropertiesManagementStep() {
       top_floor: values.top_floor ? values.top_floor : '',
       life_annuity: values.life_annuity ? values.life_annuity : '',
       work_done: values.work_done ? values.work_done : '',
+      draft: false,
+      status_id: values?.status === true ? buy : rent,
     })
-  }, [values])
+  }, [values, rent, buy])
 
   const handleSearch = ({
     city,

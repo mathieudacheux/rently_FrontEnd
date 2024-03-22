@@ -1,5 +1,5 @@
 export type PropertyFormikType = {
-  status: number | string
+  status: boolean
   searchCity: string
   property_type: number | string
   price: number | string

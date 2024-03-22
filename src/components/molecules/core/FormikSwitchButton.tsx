@@ -15,7 +15,10 @@ export default function FormikSwitchButton({
   const [field] = useField(name)
 
   return (
-    <div role='group' className={`join border-0 ${className} w-[200px]`}>
+    <div
+      role='group'
+      className={`join border-0 ${className} w-[200px] shadow-xl`}
+    >
       <button
         type='button'
         className={`join-item btn border-0 w-[100px] 
