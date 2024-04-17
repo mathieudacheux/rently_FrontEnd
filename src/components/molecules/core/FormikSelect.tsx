@@ -93,7 +93,7 @@ export default function FormikSelect({
             onClick={toggleOptions}
             className={`input input-bordered w-full max-w-xs ${
               field.value ? 'text-neutral-900' : 'text-neutral-300'
-            } placeholder-neutral-300  appearance-none
+            } placeholder-neutral-300  appearance-none bg-white
             ${noShadow ? 'input-no-shadow' : 'input'}
             `}
             onChange={(e) => {
