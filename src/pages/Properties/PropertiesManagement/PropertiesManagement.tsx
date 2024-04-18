@@ -12,7 +12,7 @@ import FiltersComponent from '../components/FiltersComponent.tsx'
 export default function PropertiesManagement({
   properties,
   search,
-}: {
+}: Readonly<{
   properties: PropertySerializerRead[]
   search: ({
     city,
@@ -73,8 +73,9 @@ export default function PropertiesManagement({
     work_done: boolean
     status: number | string
   }) => void
-}): ReactElement {
+}>): ReactElement {
   const { values } = useFormikContext<PropertyFormikType>()
+  console.log('🚀 ~ values:', values)
 
   const [mapOpen, setMapOpen] = useState<boolean>(false)
   const [mobileMapOpen, setMobileMapOpen] = useState<boolean>(false)
@@ -136,7 +137,7 @@ export default function PropertiesManagement({
               top_floor: values.top_floor,
               life_annuity: values.life_annuity,
               work_done: values.work_done,
-              status: values.status,
+              status: String(values.status),
             })
           }
         />
