@@ -82,6 +82,10 @@ export class PropertiesService {
     city,
     zipcode,
     agentId,
+    draft,
+    statusId,
+    withRented,
+    withSold,
   }: {
     propertyType?: number
     price?: number
@@ -112,6 +116,10 @@ export class PropertiesService {
     city?: string
     zipcode?: string
     agentId?: number
+    draft?: boolean
+    statusId?: number
+    withRented?: boolean
+    withSold?: boolean
   }): CancelablePromise<Array<PropertySerializerRead>> {
     return __request(OpenAPI, {
       method: 'GET',
@@ -146,6 +154,10 @@ export class PropertiesService {
         city: city,
         zipcode: zipcode,
         agent_id: agentId,
+        draft: draft,
+        status_id: statusId,
+        withRented: withRented,
+        withSold: withSold,
       },
       errors: {
         404: `Not found`,
