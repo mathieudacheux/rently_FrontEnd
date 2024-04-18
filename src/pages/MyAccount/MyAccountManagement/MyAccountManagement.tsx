@@ -7,6 +7,7 @@ import WishlistSection from './components/WishlistSection.tsx'
 import Typography from '../../../components/atoms/Typography.tsx'
 import { useNavigate } from 'react-router-dom'
 import { APP_ROUTES } from '../../../routes/routes.ts'
+import PropertiesSection from './components/PropertiesSection.tsx'
 
 export default function MyAccountManagement(): JSX.Element {
   const { t } = useTranslation()
@@ -52,6 +53,7 @@ export default function MyAccountManagement(): JSX.Element {
         {activeSetting === 1 && <PersonnalSection />}
         {activeSetting === 2 && <PasswordSection />}
         {activeSetting === 3 && <WishlistSection />}
+        {activeSetting === 4 && <PropertiesSection />}
       </div>
     </div>
   )

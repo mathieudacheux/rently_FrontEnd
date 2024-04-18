@@ -34,8 +34,6 @@ export default function WishlistSection(): JSX.Element {
     )
   }
 
-  console.log('bookmarkList', bookmarkList)
-
   return (
     <div className='md:pl-4 w-full'>
       <Typography variant='h2' className='text-neutral-900 mb-4'>

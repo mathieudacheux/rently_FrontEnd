@@ -14,6 +14,11 @@ const settingsList = [
     name: 'myAccount.myWishlist',
     icon: 'heart',
   },
+  {
+    id: 4,
+    name: 'myAccount.myProperties',
+    icon: 'house',
+  },
 ]
 
 export { settingsList }

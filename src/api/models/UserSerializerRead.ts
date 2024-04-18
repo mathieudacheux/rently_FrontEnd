@@ -11,6 +11,11 @@ export type UserSerializerRead = {
   newsletter?: boolean
   validated_at?: string
   address_id?: number
+  city?: string
+  zipcode?: string
+  way?: string
+  latitude?: number
+  longitude?: number
   country_id?: number
   role_id?: number
   agency_id?: number

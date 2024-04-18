@@ -28,14 +28,11 @@ export default function NewsletterSection(): JSX.Element {
 
   return (
     <div
-      className='w-full h-[175px] md:h-[130px] flex flex-col md:flex-row items-center
+      className='w-full py-2 md:py-0 h-auto md:h-[130px] flex flex-col md:flex-row items-center
       justify-around bg-primary mt-[30px]'
     >
-      <div className='w-11/12 md:w-6/12'>
-        <Typography
-          variant='h3'
-          className='text-white font-bold text-center md:text-left'
-        >
+      <div className='w-10/12 md:w-6/12 mb-2 md:mb-0'>
+        <Typography variant='h3' className='text-white font-bold text-left'>
           {t('newsletter')}
         </Typography>
       </div>

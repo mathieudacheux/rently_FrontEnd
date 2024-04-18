@@ -86,6 +86,8 @@
     "myWishlist": "Ma liste de favoris",
     "success": "Vos informations ont été mises à jour",
     "logout": "Déconnexion",
+    "myProperties": "Mes biens",
+    "noProperties": "Vous n'avez pas de biens",
     "personalSection": {
       "phone": "Téléphone",
       "newsletter": "Abonnement à la newsletter"

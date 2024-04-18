@@ -96,4 +96,40 @@ export class FeesService {
       },
     })
   }
+  /**
+   * Return a list of all fees of an agency
+   * @returns number Success
+   * @throws ApiError
+   */
+  public static feesGetAllFeesOfAgency({
+    agencyId,
+  }: {
+    agencyId: number
+  }): CancelablePromise<Array<number>> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/fees/agency/{agency_id}',
+      path: {
+        agency_id: agencyId,
+      },
+    })
+  }
+  /**
+   * Return a list of all fees of an owner
+   * @returns number Success
+   * @throws ApiError
+   */
+  public static feesGetAllFeesOfOwner({
+    ownerId,
+  }: {
+    ownerId: number
+  }): CancelablePromise<Array<number>> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/fees/owner/{owner_id}',
+      path: {
+        owner_id: ownerId,
+      },
+    })
+  }
 }

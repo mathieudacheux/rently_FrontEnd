@@ -141,6 +141,7 @@ export default {
             'box-shadow': '-5px 5px 15px 0px rgba(0, 0, 0, 0.15)',
             height: '52.5px',
             background: 'white',
+            'background-color': 'white',
           },
 
           '.input-no-shadow': {
