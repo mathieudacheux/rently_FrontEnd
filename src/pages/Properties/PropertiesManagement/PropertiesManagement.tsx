@@ -75,7 +75,6 @@ export default function PropertiesManagement({
   }) => void
 }>): ReactElement {
   const { values } = useFormikContext<PropertyFormikType>()
-  console.log('🚀 ~ values:', values)
 
   const [mapOpen, setMapOpen] = useState<boolean>(false)
   const [mobileMapOpen, setMobileMapOpen] = useState<boolean>(false)
