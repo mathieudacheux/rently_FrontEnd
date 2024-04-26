@@ -115,21 +115,21 @@ export default function PropertiesManagementStep() {
     build_year: string
     dpe: string
     land_size: string
-    elevator: boolean
-    terrace: boolean
-    balcony: boolean
-    cellar: boolean
-    parking: boolean
-    garden: boolean
-    garage: boolean
-    pool: boolean
-    caretaker: boolean
-    fiber_deployed: boolean
-    duplex: boolean
-    ground_floor: boolean
-    top_floor: boolean
-    life_annuity: boolean
-    work_done: boolean
+    elevator: string | true
+    terrace: string | true
+    balcony: string | true
+    cellar: string | true
+    parking: string | true
+    garden: string | true
+    garage: string | true
+    pool: string | true
+    caretaker: string | true
+    fiber_deployed: string | true
+    duplex: string | true
+    ground_floor: string | true
+    top_floor: string | true
+    life_annuity: string | true
+    work_done: string | true
     draft: boolean
     status_id: number
   }) => {
