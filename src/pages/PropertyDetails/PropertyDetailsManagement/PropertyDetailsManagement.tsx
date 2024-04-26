@@ -25,8 +25,6 @@ import {
   useDeleteBookmarkMutation,
   useLazyGetBookmarksByUserIdQuery,
 } from '../../../features/bookmark/bookmarkApi.ts'
-import HeartFull from '../../../components/atoms/icons/HeartFull.tsx'
-import Heart from '../../../components/atoms/icons/Heart.tsx'
 
 export default function PropertyDetailsDetailsManagement({
   property,

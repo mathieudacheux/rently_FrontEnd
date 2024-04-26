@@ -5,14 +5,13 @@ import LoginManagement from './LoginManagement.tsx'
 import { useLoginMutation } from '../../../features/auth/authApi.ts'
 import { useLazyGetUserByFilterQuery } from '../../../features/user/userApi.ts'
 import useFormikValidator from '../../../hooks/useFormikValidator.ts'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { APP_ROUTES } from '../../../routes/routes.ts'
 import { toast } from 'sonner'
 import { useTranslation } from 'react-i18next'
 
 export default function LoginManagementStep(): JSX.Element {
   const { t } = useTranslation()
-  const navigate = useNavigate()
   const location = useLocation()
   const formikContext = useFormikContext<LoginFormik>()
   const formikValidator = useFormikValidator(formikContext)
