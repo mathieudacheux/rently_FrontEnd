@@ -73,21 +73,21 @@ export default function PropertyDetailsDetailsManagement({
 
   const hoursOption = useMemo(
     () => [
-      { label: '9 h 00', value: '09:00:00', disabled: false },
-      { label: '9 h 30', value: '09:30:00', disabled: false },
-      { label: '10 h 00', value: '10:00:00', disabled: false },
-      { label: '10 h 30', value: '10:30:00', disabled: false },
-      { label: '11 h 00', value: '11:00:00', disabled: false },
-      { label: '11 h 30', value: '11:30:00', disabled: false },
-      { label: '13 h 00', value: '13:00:00', disabled: false },
-      { label: '13 h 30', value: '13:30:00', disabled: false },
-      { label: '14 h 00', value: '14:00:00', disabled: false },
-      { label: '14 h 30', value: '14:30:00', disabled: false },
-      { label: '15 h 00', value: '15:00:00', disabled: false },
-      { label: '15 h 30', value: '15:30:00', disabled: false },
-      { label: '16 h 00', value: '16:00:00', disabled: false },
-      { label: '16 h 30', value: '16:30:00', disabled: false },
-      { label: '17 h 00', value: '17:00:00', disabled: false },
+      { label: '9 h 00', value: '07:00:00', disabled: false },
+      { label: '9 h 30', value: '07:30:00', disabled: false },
+      { label: '10 h 00', value: '08:00:00', disabled: false },
+      { label: '10 h 30', value: '08:30:00', disabled: false },
+      { label: '11 h 00', value: '09:00:00', disabled: false },
+      { label: '11 h 30', value: '09:30:00', disabled: false },
+      { label: '13 h 00', value: '11:00:00', disabled: false },
+      { label: '13 h 30', value: '11:30:00', disabled: false },
+      { label: '14 h 00', value: '12:00:00', disabled: false },
+      { label: '14 h 30', value: '12:30:00', disabled: false },
+      { label: '15 h 00', value: '13:00:00', disabled: false },
+      { label: '15 h 30', value: '13:30:00', disabled: false },
+      { label: '16 h 00', value: '14:00:00', disabled: false },
+      { label: '16 h 30', value: '14:30:00', disabled: false },
+      { label: '17 h 00', value: '15:00:00', disabled: false },
     ],
     [appointmentListQueryResult],
   )
@@ -113,7 +113,7 @@ export default function PropertyDetailsDetailsManagement({
       )
     }
     fetchBookmarks()
-  }, [userId])
+  }, [userId, property.property_id])
 
   const addBookmarkHandler = async () => {
     if (!userId) {

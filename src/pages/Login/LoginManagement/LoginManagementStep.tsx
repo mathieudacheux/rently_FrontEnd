@@ -53,7 +53,7 @@ export default function LoginManagementStep(): JSX.Element {
       toast.success(t('connection.connected'))
 
       setTimeout(() => {
-        navigate(APP_ROUTES.HOME)
+        window.location.href = APP_ROUTES.HOME
       }, 1000)
     }
 
