@@ -100,6 +100,8 @@ export default function PropertiesManagementStep() {
     top_floor,
     life_annuity,
     work_done,
+    draft,
+    status_id,
   }: {
     city: string
     price: number | string
@@ -128,6 +130,8 @@ export default function PropertiesManagementStep() {
     top_floor: boolean
     life_annuity: boolean
     work_done: boolean
+    draft: boolean
+    status_id: number
   }) => {
     triggerProperties({
       city,
@@ -157,6 +161,8 @@ export default function PropertiesManagementStep() {
       top_floor,
       life_annuity,
       work_done,
+      draft,
+      status_id,
     })
   }
 
