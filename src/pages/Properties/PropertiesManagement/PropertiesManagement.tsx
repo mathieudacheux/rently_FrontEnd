@@ -1,6 +1,9 @@
 import { useFormikContext } from 'formik'
 import { ReactElement, useEffect, useState } from 'react'
-import { PropertySerializerRead } from '../../../api/index.ts'
+import {
+  PropertySerializerRead,
+  StatusSerializerRead,
+} from '../../../api/index.ts'
 import Button from '../../../components/atoms/Button.tsx'
 import Filter from '../../../components/atoms/icons/Filter.tsx'
 import Map from '../../../components/atoms/icons/Map.tsx'
@@ -8,6 +11,7 @@ import Searchbar from '../../../components/organisms/Searchbar.tsx'
 import PropertiesList from '../components/PropertiesList.tsx'
 import { PropertyFormikType } from '../type.ts'
 import FiltersComponent from '../components/FiltersComponent.tsx'
+import { useGetStatusQuery } from '../../../features/status/statusApi.ts'
 
 export default function PropertiesManagement({
   properties,
@@ -42,7 +46,8 @@ export default function PropertiesManagement({
     top_floor,
     life_annuity,
     work_done,
-    status,
+    draft,
+    status_id,
   }: {
     city: string
     price: number | string
@@ -71,7 +76,8 @@ export default function PropertiesManagement({
     top_floor: boolean
     life_annuity: boolean
     work_done: boolean
-    status: number | string
+    draft: boolean
+    status_id: number
   }) => void
 }>): ReactElement {
   const { values } = useFormikContext<PropertyFormikType>()
@@ -82,6 +88,11 @@ export default function PropertiesManagement({
   const [openFilters, setOpenFilters] = useState<boolean>(false)
 
   const [windowSize, setWindowSize] = useState<number>(window.innerWidth)
+
+  const status = useGetStatusQuery({})?.data as StatusSerializerRead[]
+
+  const rent = status?.find((s) => s.name === 'À louer')?.status_id ?? null
+  const buy = status?.find((s) => s.name === 'À vendre')?.status_id ?? null
 
   useEffect(() => {
     const handleWindowResize = () => {
@@ -136,7 +147,9 @@ export default function PropertiesManagement({
               top_floor: values.top_floor,
               life_annuity: values.life_annuity,
               work_done: values.work_done,
-              status: String(values.status),
+              draft: false,
+              status_id:
+                values?.status === true ? (buy as number) : (rent as number),
             })
           }
         />
