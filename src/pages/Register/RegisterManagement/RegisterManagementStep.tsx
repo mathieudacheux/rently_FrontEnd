@@ -40,7 +40,7 @@ export default function LoginManagementStep(): JSX.Element {
 
     const result: any = await postUser({
       firstname: values.firstname,
-      lastname: values.lastname,
+      name: values.lastname,
       mail: values.mail,
       password: values.password,
       country_id: dataCountry[0].country_id,
