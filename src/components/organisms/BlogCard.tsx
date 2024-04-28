@@ -42,7 +42,7 @@ export default function BlogCard({
 
   const backgroundImage = agency
     ? `url(https://back-rently.mathieudacheux.fr/public/img/agency/${id}/agency.png)`
-    : `url(https://back-rently.mathieudacheux.fr/public/img/blog/${id}/blog.png)`
+    : `url(https://back-rently.mathieudacheux.fr/public/img/blog/${id}/blog.jpg)`
 
   const navigateLink = (id: number) =>
     agency

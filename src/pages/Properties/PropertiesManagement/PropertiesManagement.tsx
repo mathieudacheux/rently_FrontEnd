@@ -1,6 +1,9 @@
 import { useFormikContext } from 'formik'
 import { ReactElement, useEffect, useState } from 'react'
-import { PropertySerializerRead } from '../../../api/index.ts'
+import {
+  PropertySerializerRead,
+  StatusSerializerRead,
+} from '../../../api/index.ts'
 import Button from '../../../components/atoms/Button.tsx'
 import Filter from '../../../components/atoms/icons/Filter.tsx'
 import Map from '../../../components/atoms/icons/Map.tsx'
@@ -8,11 +11,12 @@ import Searchbar from '../../../components/organisms/Searchbar.tsx'
 import PropertiesList from '../components/PropertiesList.tsx'
 import { PropertyFormikType } from '../type.ts'
 import FiltersComponent from '../components/FiltersComponent.tsx'
+import { useGetStatusQuery } from '../../../features/status/statusApi.ts'
 
 export default function PropertiesManagement({
   properties,
   search,
-}: {
+}: Readonly<{
   properties: PropertySerializerRead[]
   search: ({
     city,
@@ -42,7 +46,8 @@ export default function PropertiesManagement({
     top_floor,
     life_annuity,
     work_done,
-    status,
+    draft,
+    status_id,
   }: {
     city: string
     price: number | string
@@ -56,24 +61,25 @@ export default function PropertiesManagement({
     build_year: string
     dpe: string
     land_size: string
-    elevator: boolean
-    terrace: boolean
-    balcony: boolean
-    cellar: boolean
-    parking: boolean
-    garden: boolean
-    garage: boolean
-    pool: boolean
-    caretaker: boolean
-    fiber_deployed: boolean
-    duplex: boolean
-    ground_floor: boolean
-    top_floor: boolean
-    life_annuity: boolean
-    work_done: boolean
-    status: number | string
+    elevator: string | true
+    terrace: string | true
+    balcony: string | true
+    cellar: string | true
+    parking: string | true
+    garden: string | true
+    garage: string | true
+    pool: string | true
+    caretaker: string | true
+    fiber_deployed: string | true
+    duplex: string | true
+    ground_floor: string | true
+    top_floor: string | true
+    life_annuity: string | true
+    work_done: string | true
+    draft: boolean
+    status_id: number
   }) => void
-}): ReactElement {
+}>): ReactElement {
   const { values } = useFormikContext<PropertyFormikType>()
 
   const [mapOpen, setMapOpen] = useState<boolean>(false)
@@ -82,6 +88,11 @@ export default function PropertiesManagement({
   const [openFilters, setOpenFilters] = useState<boolean>(false)
 
   const [windowSize, setWindowSize] = useState<number>(window.innerWidth)
+
+  const status = useGetStatusQuery({})?.data as StatusSerializerRead[]
+
+  const rent = status?.find((s) => s.name === 'À louer')?.status_id ?? null
+  const buy = status?.find((s) => s.name === 'À vendre')?.status_id ?? null
 
   useEffect(() => {
     const handleWindowResize = () => {
@@ -121,22 +132,24 @@ export default function PropertiesManagement({
               build_year: values.build_year,
               dpe: values.dpe,
               land_size: values.land_size,
-              elevator: values.elevator,
-              terrace: values.terrace,
-              balcony: values.balcony,
-              cellar: values.cellar,
-              parking: values.parking,
-              garden: values.garden,
-              garage: values.garage,
-              pool: values.pool,
-              caretaker: values.keeper,
-              fiber_deployed: values.fiber,
-              duplex: values.duplex,
-              ground_floor: values.ground_floor,
-              top_floor: values.top_floor,
-              life_annuity: values.life_annuity,
-              work_done: values.work_done,
-              status: values.status,
+              elevator: values.elevator ? values.elevator : '',
+              terrace: values.terrace ? values.terrace : '',
+              balcony: values.balcony ? values.balcony : '',
+              cellar: values.cellar ? values.cellar : '',
+              parking: values.parking ? values.parking : '',
+              garden: values.garden ? values.garden : '',
+              garage: values.garage ? values.garage : '',
+              pool: values.pool ? values.pool : '',
+              caretaker: values.keeper ? values.keeper : '',
+              fiber_deployed: values.fiber ? values.fiber : '',
+              duplex: values.duplex ? values.duplex : '',
+              ground_floor: values.ground_floor ? values.ground_floor : '',
+              top_floor: values.top_floor ? values.top_floor : '',
+              life_annuity: values.life_annuity ? values.life_annuity : '',
+              work_done: values.work_done ? values.work_done : '',
+              draft: false,
+              status_id:
+                values?.status === true ? (buy as number) : (rent as number),
             })
           }
         />

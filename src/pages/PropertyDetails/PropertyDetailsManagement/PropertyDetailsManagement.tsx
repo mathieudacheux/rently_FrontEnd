@@ -20,6 +20,11 @@ import {
   useCreateAppointmentMutation,
   useLazyGetAppointmentsByUserIdQuery,
 } from '../../../features/appointment/appointmentApi.ts'
+import {
+  useCreateBookmarkMutation,
+  useDeleteBookmarkMutation,
+  useLazyGetBookmarksByUserIdQuery,
+} from '../../../features/bookmark/bookmarkApi.ts'
 
 export default function PropertyDetailsDetailsManagement({
   property,
@@ -30,6 +35,19 @@ export default function PropertyDetailsDetailsManagement({
 
   const [createAppointment] = useCreateAppointmentMutation()
   const { values, setFieldValue } = useFormikContext<PropertyFormik>()
+
+  const [bookmarked, setBookmarked] = useState<{
+    bookmark_id: number
+    property_id: number
+    user_id: number
+  } | null>(null)
+
+  const user = JSON.parse(localStorage.getItem('user') || '{}')
+  const userId = user?.user_id || null
+
+  const [addBookmark] = useCreateBookmarkMutation()
+  const [deleteBookmark] = useDeleteBookmarkMutation()
+  const [getBookmarksByUserId] = useLazyGetBookmarksByUserIdQuery()
 
   const [appointmentList, setAppointmentList] = useState<
     {
@@ -53,21 +71,21 @@ export default function PropertyDetailsDetailsManagement({
 
   const hoursOption = useMemo(
     () => [
-      { label: '9 h 00', value: '09:00:00', disabled: false },
-      { label: '9 h 30', value: '09:30:00', disabled: false },
-      { label: '10 h 00', value: '10:00:00', disabled: false },
-      { label: '10 h 30', value: '10:30:00', disabled: false },
-      { label: '11 h 00', value: '11:00:00', disabled: false },
-      { label: '11 h 30', value: '11:30:00', disabled: false },
-      { label: '13 h 00', value: '13:00:00', disabled: false },
-      { label: '13 h 30', value: '13:30:00', disabled: false },
-      { label: '14 h 00', value: '14:00:00', disabled: false },
-      { label: '14 h 30', value: '14:30:00', disabled: false },
-      { label: '15 h 00', value: '15:00:00', disabled: false },
-      { label: '15 h 30', value: '15:30:00', disabled: false },
-      { label: '16 h 00', value: '16:00:00', disabled: false },
-      { label: '16 h 30', value: '16:30:00', disabled: false },
-      { label: '17 h 00', value: '17:00:00', disabled: false },
+      { label: '9 h 00', value: '07:00:00', disabled: false },
+      { label: '9 h 30', value: '07:30:00', disabled: false },
+      { label: '10 h 00', value: '08:00:00', disabled: false },
+      { label: '10 h 30', value: '08:30:00', disabled: false },
+      { label: '11 h 00', value: '09:00:00', disabled: false },
+      { label: '11 h 30', value: '09:30:00', disabled: false },
+      { label: '13 h 00', value: '11:00:00', disabled: false },
+      { label: '13 h 30', value: '11:30:00', disabled: false },
+      { label: '14 h 00', value: '12:00:00', disabled: false },
+      { label: '14 h 30', value: '12:30:00', disabled: false },
+      { label: '15 h 00', value: '13:00:00', disabled: false },
+      { label: '15 h 30', value: '13:30:00', disabled: false },
+      { label: '16 h 00', value: '14:00:00', disabled: false },
+      { label: '16 h 30', value: '14:30:00', disabled: false },
+      { label: '17 h 00', value: '15:00:00', disabled: false },
     ],
     [appointmentListQueryResult],
   )
@@ -77,6 +95,62 @@ export default function PropertyDetailsDetailsManagement({
   }).data
 
   const [selectedImage, setSelectedImage] = useState<number>(0)
+
+  useEffect(() => {
+    if (!userId) return
+    const fetchBookmarks = async () => {
+      const result: any = await getBookmarksByUserId(userId)
+      if (!result?.data || result?.error) {
+        toast.error(result?.error?.data?.message)
+        return false
+      }
+      setBookmarked(
+        result.data?.filter(
+          (bookmark: any) => bookmark.property_id === property.property_id,
+        )[0] || null,
+      )
+    }
+    fetchBookmarks()
+  }, [userId, property.property_id])
+
+  const addBookmarkHandler = async () => {
+    if (!userId) {
+      toast.error(t('myAccount.wishlistSection.connection'))
+      return false
+    }
+
+    const result: any = await addBookmark({
+      property_id: property.property_id,
+      user_id: userId,
+    })
+
+    if (!result?.data || result?.error) {
+      toast.error(result?.error?.data?.message)
+      return false
+    }
+
+    setBookmarked(result.data)
+    toast.success(t('myAccount.wishlistSection.done'))
+    return true
+  }
+
+  const deleteBookmarkHandler = async (bookmarkId: number) => {
+    if (!userId) {
+      toast.error(t('myAccount.wishlistSection.connection'))
+      return false
+    }
+
+    const result: any = await deleteBookmark(bookmarkId)
+
+    if (result?.error) {
+      toast.error(result?.error?.data?.message)
+      return false
+    }
+
+    setBookmarked(null)
+    toast.success(t('myAccount.wishlistSection.delete'))
+    return true
+  }
 
   const openModal = (selectedImage: number) => {
     window.image_modal.showModal()
@@ -236,7 +310,12 @@ export default function PropertyDetailsDetailsManagement({
           />
         )}
         <div className='flex flex-col md:flex-row pt-4'>
-          <PropertyDetailsLeftSide property={property} />
+          <PropertyDetailsLeftSide
+            property={property}
+            bookmarked={bookmarked}
+            addBookmarkHandler={addBookmarkHandler}
+            deleteBookmarkHandler={deleteBookmarkHandler}
+          />
           <PropertyDetailsRightSide
             property={property}
             openApptModal={openApptModal}

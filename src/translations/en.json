@@ -241,6 +241,7 @@
     "garage": "Garage",
     "priceTitle": "Price",
     "price": "Price of the property : {{price}} €/m²",
+    "priceMonth": "{{price}}€ / month",
     "priceSquare": "Price square meter : {{price}} €/m²",
     "call": "Call",
     "calendar": "Visit",

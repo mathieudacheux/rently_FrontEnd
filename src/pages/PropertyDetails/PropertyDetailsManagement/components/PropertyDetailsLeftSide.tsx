@@ -1,18 +1,46 @@
 import { useTranslation } from 'react-i18next'
 import Typography from '../../../../components/atoms/Typography.tsx'
 import { PropertySerializerRead } from '../../../../api/index.ts'
+import HeartFull from '../../../../components/atoms/icons/HeartFull.tsx'
+import Heart from '../../../../components/atoms/icons/Heart.tsx'
 
 export default function PropertyDetailsLeftSide({
   property,
+  bookmarked,
+  addBookmarkHandler,
+  deleteBookmarkHandler,
 }: {
   property: PropertySerializerRead
+  bookmarked: {
+    bookmark_id: number
+    property_id: number
+    user_id: number
+  } | null
+  addBookmarkHandler: () => void
+  deleteBookmarkHandler: (bookmarkId: number) => Promise<boolean>
 }) {
   const { t } = useTranslation()
   return (
     <div className='md:w-1/2 px-2 md:pr-4'>
-      <h2 className='text-neutral-900 font-bold text-xl my-4'>{`${
-        property?.name || ''
-      } - ${property?.price || ''}€`}</h2>
+      <div className='flex flex-row justify-between w-full items-center'>
+        <h2 className='text-neutral-900 font-bold text-xl my-4'>
+          {`${property?.name || ''} - ${property?.price || ''}€`}
+        </h2>
+        <div
+          className='hover:cursor-pointer'
+          onClick={() => {
+            bookmarked?.property_id === property?.property_id
+              ? deleteBookmarkHandler(bookmarked?.bookmark_id as number)
+              : addBookmarkHandler()
+          }}
+        >
+          {bookmarked?.property_id === property?.property_id ? (
+            <HeartFull />
+          ) : (
+            <Heart />
+          )}
+        </div>
+      </div>
       <div
         className='text-neutral-900 text-justify'
         dangerouslySetInnerHTML={{ __html: property?.description || '' }}

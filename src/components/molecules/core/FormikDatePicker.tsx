@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/named
 import { useField } from 'formik'
 import { useTranslation } from 'react-i18next'
 import { DayPicker } from 'react-day-picker'
@@ -11,12 +10,12 @@ export default function FormikDatePicker({
   disabledDays = [],
   toFr = false,
   onDayBlur,
-}: {
+}: Readonly<{
   name: string
   disabledDays?: (Date | { from: Date; to: Date })[]
   toFr?: boolean
   onDayBlur?: () => void
-}): JSX.Element {
+}>): JSX.Element {
   const { t } = useTranslation()
   const [, meta, helpers] = useField(name)
 

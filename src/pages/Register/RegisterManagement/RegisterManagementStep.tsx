@@ -39,12 +39,12 @@ export default function LoginManagementStep(): JSX.Element {
     if (!formIsValid) return false
 
     const result: any = await postUser({
-      firstname: values.firstName,
-      lastname: values.lastName,
+      firstname: values.firstname,
+      lastname: values.lastname,
       mail: values.mail,
       password: values.password,
       country_id: dataCountry[0].country_id,
-      role_id: dataRole[0].id || 2,
+      role_id: dataRole[0].id || 6,
       newsletter: values.newsletter,
     })
 
