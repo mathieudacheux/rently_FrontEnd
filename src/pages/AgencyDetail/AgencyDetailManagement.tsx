@@ -87,7 +87,7 @@ export default function AgencyDetailManagement() {
                 <img
                   className='w-20 md:w-40 md:h-40 rounded-full'
                   src={
-                    `https://back-rently.mathieudacheux.fr/public/img/agent/${agent?.user_id}/avatar.png` ??
+                    `https://back-rently.mathieudacheux.fr/public/img/agent/${agent?.user_id}/resized-avatar.png` ??
                     ''
                   }
                   onError={({ currentTarget }) => {

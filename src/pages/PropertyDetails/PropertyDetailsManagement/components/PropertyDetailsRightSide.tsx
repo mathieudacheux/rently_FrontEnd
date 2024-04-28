@@ -68,7 +68,7 @@ export default function PropertyDetailsRightSide({
             id='avatar'
             src={
               property?.agent_id
-                ? `https://back-rently.mathieudacheux.fr/public/img/agent/${property?.agent_id}/avatar.png`
+                ? `https://back-rently.mathieudacheux.fr/public/img/agent/${property?.agent_id}/resized-avatar.png`
                 : ''
             }
             onError={({ currentTarget }) => {
