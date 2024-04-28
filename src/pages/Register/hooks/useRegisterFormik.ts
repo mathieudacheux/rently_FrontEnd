@@ -9,8 +9,8 @@ export default function useRegisterFormik() {
   const onSubmit = useCallback(async () => null, [])
 
   const initialValues = {
-    firstName: '',
-    lastName: '',
+    firstname: '',
+    lastname: '',
     mail: '',
     password: '',
     newsletter: false,

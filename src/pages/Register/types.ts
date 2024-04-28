@@ -1,6 +1,6 @@
 type RegisterFormik = {
-  firstName: string
-  lastName: string
+  firstname: string
+  lastname: string
   mail: string
   password: string
   newsletter: boolean
